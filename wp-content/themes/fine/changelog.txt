@@ -1,0 +1,43 @@
+Fine Pro Changelog
+
+****************************
+
+Version 1.0.0.9 (10-30-13)
+- Slider lite ID separator change from (-) to(_). Changed affected JS and CSS.
+- Changed readme.md to readme.txt
+- Theme License update to GPL v3.0
+- Updated Font licenses
+
+Version 1.0.0.8 (10-18-13)
+- Container width fix.
+- Added class cc-responsive if responisve design is on.
+
+Version 1.0.0.7 (10-11-13)
+- Changed ID name separator to (_) from (-) for elements/boxes.php
+
+Version 1.0.0.6 (10-4-13)
+- Minified JS.
+- Reformatted code( Replaced spaces with tabs ).
+
+Version 1.0.0.5 (9-27-13)
+- Upsell page: If the listed theme is installed then add a tick mark next to it.
+
+Version 1.0.0.4 (9-20-13)
+- Slider option from post is removed as it was not part of free themes.
+- Fixed google font issue.
+
+Version 1.0.0.3 (9-13-13)
+- Updated README file.
+
+Version 1.0.0.2 (9-6-13)
+- Minified multi media upload.
+- Meta box fix - changed save_post hook to pre_post_update.
+- Wrapped home_url() with esc_url()
+- Removed function_exists() check before add_image_size() call.
+
+Version 1.0.0.1 (8-30-13)
+- Removed new meta-box options due to unresolved bug that affected some users.
+
+Version 1.0.0.0 (08/22/13)
+- Added new class for metabox options.
+-Initial release.

@@ -1,0 +1,24 @@
+/*!
+Theme Name: Tonic with tweaks
+Theme URI: https://themes.bavotasan.com/2013/tonic/
+Author: c.bavota and Techborder
+Author URI: http://techborder.com
+Description: See parent theme description for more info.
+Version: 1.0
+Tags: white, black, gray, light, silver, one-column, two-columns, right-sidebar, left-sidebar, flexible-width, custom-background, custom-header, custom-menu, custom-colors, editor-style, featured-image-header, featured-images, post-formats, sticky-post, threaded-comments, translation-ready, theme-options
+
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Tonic WordPress Theme, Copyright 2013 c.bavota
+Tonic is distributed under the terms of the GNU GPL
+Template: tonic
+*/
+
+@import url("../tonic/style.css");
+
+
+#site-description {
+  margin-top: 20px;
+}
+

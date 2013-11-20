@@ -13,8 +13,9 @@
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<?php get_sidebar( 'main' ); ?>
+
 			<div class="site-info">
-				<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'startup' ), '&copy;', date('Y'), esc_html(get_bloginfo('name')) ); ?>
+				<?php do_action( 'twentythirteen_credits' ); ?>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->

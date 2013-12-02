@@ -2,6 +2,24 @@ Fine Pro Changelog
 
 ****************************
 
+Version 1.0.13 (11-15-13)
+- Added new background image option.
+- Js minification for elements.
+- Translation update.
+
+Version 1.0.12 (11-12-13)
+- Remove skins in customizer
+- Post slides removed
+- Translation domain fix.
+- Sanitization added to few metabox option types.
+- Js minification in core.
+
+Version 1.0.11 (11-7-13)
+- Removed unused code
+
+Version 1.0.10 (11-1-13)
+- Added new metabox class.
+
 Version 1.0.0.9 (10-30-13)
 - Slider lite ID separator change from (-) to(_). Changed affected JS and CSS.
 - Changed readme.md to readme.txt

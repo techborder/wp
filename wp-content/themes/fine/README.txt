@@ -1,7 +1,7 @@
 Fine Free responsive Wordpress theme
 ====================================
 
-- Fine Free
+- Fine Free, Copyright 2013
 - by CyberChimps http://cyberchimps.com
 - Licensed under GNU General Public License v3.0 - http://www.gnu.org/licenses/gpl-3.0.html
 

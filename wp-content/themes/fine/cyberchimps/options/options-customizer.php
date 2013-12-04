@@ -139,15 +139,20 @@ function cyberchimps_customize( $wp_customize ) {
 		public function render_content() {
 			?>
 			<style>
-				.images-skin-subcontainer {
-					display: inline;
+				.images-skin-subcontainer, .images-radio-subcontainer {
+					display: inline-block;
+				}
+				
+				#customize-control-cyberchimps_background em {
+					display: block;
 				}
 
 				.images-skin-subcontainer img {
 					margin-top: 5px;
 					padding: 2px;
 					border: 5px solid #eee;
-					height: 44px;
+					height: 80px;
+					width: 80px;
 				}
 
 				.images-skin-subcontainer img.of-radio-img-selected {
@@ -247,6 +252,9 @@ function cyberchimps_customize( $wp_customize ) {
 	) );
 
 // theme skin
+	// First check that there is more than one skin to show, otherwise hide the options as requested by WP
+	$choices = apply_filters( 'cyberchimps_skin_color', array( 'default' => get_template_directory_uri() . '/inc/css/skins/images/default.png' ) );
+	if( count( $choices ) > 1 ) {
 	$wp_customize->add_setting( 'cyberchimps_options[cyberchimps_skin_color]', array(
 		'default' => array( 'default' => get_template_directory_uri() . '/inc/css/skins/images/default.png' ),
 		'type'    => 'option',
@@ -256,8 +264,9 @@ function cyberchimps_customize( $wp_customize ) {
 		'label'    => __( 'Skin Color', 'cyberchimps_core' ),
 		'section'  => 'cyberchimps_design_section',
 		'settings' => 'cyberchimps_options[cyberchimps_skin_color]',
-		'choices'  => apply_filters( 'cyberchimps_skin_color', array( 'default' => get_template_directory_uri() . '/inc/css/skins/images/default.png' ) ),
+		'choices'  => $choices,
 	) ) );
+	}
 
 // text color
 	$wp_customize->add_setting( 'cyberchimps_options[text_colorpicker]', array(

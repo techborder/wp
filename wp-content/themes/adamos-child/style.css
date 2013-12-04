@@ -31,5 +31,31 @@ _s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
 
 /* =Reset
 -------------------------------------------------------------- */
-
 @import url("../adamos/style.css");
+
+
+/* =Menu
+----------------------------------------------- */
+
+
+.main-navigation a,
+.main-navigation ul ul a:hover,
+.main-navigation li:hover > a,
+.main-navigation li.current_page_item a,
+.main-navigation li.current-menu-item a {
+	color: #88bb33;
+}
+
+/* Small menu */
+.menu-toggle,
+.main-small-navigation .menu li a {
+	color: #88bb33;
+}
+
+.main-small-navigation li:hover > a,
+.main-small-navigation li.current_page_item a,
+.main-small-navigation li.current-menu-item a,
+.main-small-navigation ul ul a:hover {
+	color: #999;
+}
+

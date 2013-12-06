@@ -11,3 +11,6 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+wp-snapshots/*.zip
+wp-snapshots/*.sql
+wp-snapshots/*_installer.php

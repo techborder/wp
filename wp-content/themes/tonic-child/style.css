@@ -17,6 +17,12 @@ Template: tonic
 
 @import url("../tonic/style.css");
 
+/* Give a little more space between the Site Title and Site Description*/
 #site-description {
   margin-top: 20px;
+}
+
+/* More narrow drop-down menu on the contact form */
+.address-state {
+	width: 70px;
 }

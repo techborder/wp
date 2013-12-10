@@ -157,36 +157,38 @@
 				<a href="#spasalon-option-general"  class="nav-tab"  id="spasalon-option-general-tab"><?php _e("General",'sis_spa') ; ?></a>
 				<a href="#spasalon-option-typography" class="nav-tab" id="spasalon-option-typography-tab"><?php _e("Typography",'sis_spa') ; ?></a>
 				<a href="#spasalon-option-footercustmization" class="nav-tab" id="spasalon-option-footercustmization-tab"><?php _e("Footer Custmization",'sis_spa') ; ?></a>
-                <a href="#spasalon-help" class="nav-tab" id="spasalon-help-tab"><?php _e("Help & Support",'sis_spa') ; ?></a>
+                
+				<a href="#spasalon-help" class="nav-tab" id="spasalon-help-tab"><?php _e("Help & Support",'sis_spa') ; ?></a>
 			</h2>
 			<div class="updated" > 
 				<p><strong></strong></p>
-				<p><strong><?php _e("This theme recommends the following plugin: ",'sis_spa') ; ?> <em><?php _e("appointment calendar",'sis_spa') ; ?></em>.</strong></p>
+				<p><strong><?php _e("This theme recommends the following plugin: ",'sis_spa') ; ?><a href="http://wordpress.org/plugins/appointment-calendar/" target="_blank"> <em><?php _e("appointment calendar",'sis_spa') ; ?></em></a>.</strong></p>
 				
 				<p></p>
 			</div>
 			<div id="busiprof_optionsframework-metabox" class="metabox-holder">
 				<div id="busiprof_optionsframework" class="postbox">
 					<!--	<form action="#" method="post"> -->
-						<div class="postbox group" style="display: active; background:white" id="spasalon-option-homepage"  >
+						<div class="postbox group" style="width:962px;display: active; background:white" id="spasalon-option-homepage"  >
 							<h3><?php _e("Home",'sis_spa') ; ?> </h3><br>
 							<?php require_once('spa_home.php');?>
 						</div>
 						
-						<div class="group" style="display: none; background:white" id="spasalon-option-general" >
+						<div class="group" style="width:962px;display: none; background:white" id="spasalon-option-general" >
 						<h3><?php _e("General Settings",'sis_spa') ; ?></h3><br>
 							<?php require_once('spa_general_settings.php'); ?>						
 						</div>
 						
-						<div class="postbox group" style="display: none; background:white" id="spasalon-option-typography" >
+						<div class="postbox group" style="width:962px;display: none; background:white" id="spasalon-option-typography" >
 							<h3><?php _e("Typography",'sis_spa') ; ?></h3><br>
 							<?php require_once('spa_typography.php')?>
 						</div>
-						<div class="postbox group" style="display: none; background:white" id="spasalon-option-footercustmization"  >
+						<div class="postbox group" style="width:962px;display: none; background:white" id="spasalon-option-footercustmization"  >
 							<h3><?php _e("Footer Custmization",'sis_spa') ; ?></h3><br>
 							<?php require_once('spa_footer_customization.php')?>
 						</div>
-                        <div class="postbox group" style="display: none; background:white" id="spasalon-help"  >
+						
+                        <div class="postbox group" style="width:962px;display: none; background:white" id="spasalon-help"  >
 							<h3><?php _e("Help and Support",'sis_spa') ; ?></h3><br>
 							<?php require_once('help.php')?>
 						</div>

@@ -120,7 +120,7 @@ msgstr "%1$ s %2$ s"
 
 #: ../../functions.php
 msgid "Fine Free Professional Responsive WordPress Theme"
-msgstr "Baik Pro bersih dan responsif Wordpress Theme"
+msgstr "Baik Pro bersih dan responsif WordPress Theme"
 
 #: ../../functions.php
 msgid "Header Image"

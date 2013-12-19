@@ -138,7 +138,7 @@ msgstr "%1$s at %2$s"
 
 #: ../../functions.php
 msgid "Fine Free Professional Responsive WordPress Theme"
-msgstr "Fine Pro a Clean and Responsive Wordpress Theme"
+msgstr "Fine Pro a Clean and Responsive WordPress Theme"
 
 #: ../../functions.php
 msgid "Header Image"

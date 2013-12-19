@@ -122,7 +122,7 @@ msgstr "%1$s в %2$s"
 
 #: ../../functions.php
 msgid "Fine Free Professional Responsive WordPress Theme"
-msgstr "Штраф Pro чистой и отзывчивым тема Wordpress"
+msgstr "Штраф Pro чистой и отзывчивым тема WordPress"
 
 #: ../../functions.php
 msgid "Header Image"

@@ -156,6 +156,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			
 			// Set template directory uri
 			$directory_uri = get_template_directory_uri();
+			$metabox_uri = $directory_uri . '/cyberchimps/options/meta-box-class';
 
 			//only load styles and js when needed
 			/*
@@ -164,16 +165,16 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			global $typenow;
 			if( in_array( $typenow, $this->_meta_box['pages'] ) && $this->is_edit_page() ) {
 				// Enqueue Meta Box Style
-				wp_enqueue_style( 'at-meta-box', $plugin_path . '/css/meta-box.css' );
+				wp_enqueue_style( 'at-meta-box', $metabox_uri . '/css/meta-box.css' );
 
 				// Load color picker
 				wp_enqueue_style( 'color-picker', $directory_uri . '/cyberchimps/options/lib/css/colorpicker.css' );
 				wp_enqueue_script( 'color-picker-js', $directory_uri . '/cyberchimps/options/lib/js/colorpicker.min.js', array( 'jquery' ), '', true );
 				
 				// Enqueue Meta Box Scripts
-				wp_enqueue_script( 'at-meta-box', $plugin_path . '/js/meta-box.min.js', array( 'jquery' ), null, true );
+				wp_enqueue_script( 'at-meta-box', $metabox_uri . '/js/meta-box.min.js', array( 'jquery' ), null, true );
 				// Enqueue Cyberchimps Scripts
-				wp_enqueue_script( 'meta-boxes-js', $plugin_path . '/js/metabox-tabs.min.js', array( 'jquery' ), null, true );
+				wp_enqueue_script( 'meta-boxes-js', $metabox_uri . '/js/metabox-tabs.min.js', array( 'jquery' ), null, true );
 				// Enqueue Media uploader for single images TODO look into removing this and use this classes image uploader that saves images as an array. Will need to change all elements to be
 //              TODO able to work with this
 				wp_enqueue_script( 'cc-media-uploader-js', get_stylesheet_directory_uri() . '/cyberchimps/lib/js/media-uploader-new.min.js', array( 'jquery' ), null, true );
@@ -598,6 +599,21 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 * @access public
 		 */
 		public function show_field_textarea( $field, $meta ) {
+			$this->show_field_begin( $field, $meta );
+			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " cols='60' rows='10'>{$meta}</textarea>";
+			$this->show_field_end( $field, $meta );
+		}
+		
+		/**
+		 * Show Field Unfiltered Textarea.
+		 *
+		 * @param string $field
+		 * @param string $meta
+		 *
+		 * @since 1.0
+		 * @access public
+		 */
+		public function show_field_unfiltered_textarea( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
 			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " cols='60' rows='10'>{$meta}</textarea>";
 			$this->show_field_end( $field, $meta );
@@ -1032,7 +1048,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 					$sanitize_func = 'sanitize_field_' . $type;
 
 					if( method_exists( $this, $sanitize_func ) ) {
-						$new = call_user_func( array( $this, $sanitize_func ), $new );
+						$new = call_user_func( array( $this, $sanitize_func ), $new, $old );
 					}
 					
 					// Call defined method to save meta value, if there's no methods, call common one.
@@ -2007,13 +2023,13 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 				}
 			}
 			echo "<div class='list-item'>";
-			echo '<img src="' . $image_path . 'minus.png" class="action" title="Remove"/>';
+			echo '<span class="glyphicon glyphicon-minus-sign action"></span>';
 			echo "<span data-key='{$key}'>{$option}</span>";
 			echo "</div>";
 		}
 		echo "</div>";
 		echo "</div>";
-		echo '<div id="arrow"><img src="' . $image_path . 'arrowdrag.png" /></div>';
+		echo '<div id="arrow"><span class="glyphicon glyphicon-arrow-right"></span></div>';
 		echo "<div class='right-list'>";
 		echo "<div id='active'>Active Elements</div>";
 		echo "<div class='list-items'>";
@@ -2023,7 +2039,7 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 					continue;
 				}
 				echo "<div class='list-item'>";
-				echo '<img src="' . $image_path . 'minus.png" class="action" title="Remove"/>';
+				echo '<span class="glyphicon glyphicon-minus-sign action"></span>';
 				echo '<span data-key="' . $option . '">' . $field['options'][$option] . '</span>';
 				echo "</div>";
 			}
@@ -2127,5 +2143,23 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 		$output = wp_kses( $input, $allowedposttags );
 		
 		return $output;
+	}
+	
+	/**
+	 * Sanitize unfiltered_textarea Field.
+	 *
+	 * @param string $input
+	 *
+	 * @returns string $output
+	 *
+	 * @access public
+	 */
+	public function sanitize_field_unfiltered_textarea( $input, $old ) {
+		if( current_user_can( 'unfiltered_html' ) ) {
+			return $input;
+		}
+		else {
+			return $old;
+		}
 	}
 }

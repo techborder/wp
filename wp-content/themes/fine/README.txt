@@ -1,4 +1,4 @@
-Fine Free responsive Wordpress theme
+Fine Free responsive WordPress theme
 ====================================
 
 - Fine Free, Copyright 2013
@@ -40,6 +40,21 @@ Fine Free responsive Wordpress theme
 - the magazine image used by default in the header image
 - by 123rf http://123rf.com
 - licensed under the 123RF LIMITED ROYALTY FREE LICENSE AGREEMENT (Extended Electronic Distribution RF License) http://www.123rf.com/license.php?type=el_electronic
+
+- Retina.js v1.1.0
+- adds the ability to load HD images to devices that can display them
+- Copyright 2013 Imulus, LLC
+- licensed under the MIT license
+
+- Glyphicons
+- fonticons for arrows, visual links etc
+- http://http://glyphicons.com/
+- licensed under APLv2 - https://github.com/twitter/bootstrap/blob/master/LICENSE
+
+- Mono Social Icons Font
+- adds social font icons
+- http://drinchev.github.io/monosocialiconsfont/
+- Licensed under SIL Open Font License
 
 - All other images
 - by CyberChimps http://cyberchimps.com

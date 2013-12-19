@@ -119,7 +119,7 @@ msgstr "%1$s पर %2$s"
 
 #: ../../functions.php
 msgid "Fine Free Professional Responsive WordPress Theme"
-msgstr "प्रो ठीक है एक स्वच्छ और उत्तरदायी Wordpress थीम"
+msgstr "प्रो ठीक है एक स्वच्छ और उत्तरदायी WordPress थीम"
 
 #: ../../functions.php
 msgid "Header Image"

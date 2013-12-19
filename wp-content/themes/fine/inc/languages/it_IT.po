@@ -120,7 +120,7 @@ msgstr "%1$s in %2$s"
 
 #: ../../functions.php
 msgid "Fine Free Professional Responsive WordPress Theme"
-msgstr "Multa Pro un tema Wordpress pulito e reattivo"
+msgstr "Multa Pro un tema WordPress pulito e reattivo"
 
 #: ../../functions.php
 msgid "Header Image"
@@ -226,7 +226,7 @@ msgstr "http://it.wordpress.org/"
 #: ../../sidebar-left.php ../../sidebar-right.php ../../sidebar.php
 msgid ""
 "Powered by WordPress, state-of-the-art semantic personal publishing platform."
-msgstr "Funziona con Wordpress."
+msgstr "Funziona con WordPress."
 
 #: ../../sidebar-left.php ../../sidebar-right.php ../../sidebar.php
 msgid "Subscribe"

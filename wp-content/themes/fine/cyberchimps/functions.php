@@ -76,6 +76,11 @@ function cyberchimps_core_scripts() {
 	// Load core JS
 	wp_enqueue_script( 'core-js', $js_path . 'core.min.js', array( 'jquery' ) );
 
+	/**
+	 * With the use of @2x at the end of an image it will use that to display the retina image. Both images have to been in the same folder
+	 */
+	wp_enqueue_script( 'retina-js', $js_path . 'retina-1.1.0.min.js', '', '1.1.0', true );
+
 	// Load Core Stylesheet
 	wp_enqueue_style( 'core-style', $directory_uri . '/cyberchimps/lib/css/core.css', array( 'bootstrap-responsive-style', 'bootstrap-style' ), '1.0' );
 
@@ -296,7 +301,7 @@ class cyberchimps_Walker extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
-	//Overwrite display_element function to add has_children attribute. Not needed in >= Wordpress 3.4
+	//Overwrite display_element function to add has_children attribute. Not needed in >= WordPress 3.4
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 
 		if( !$element ) {
@@ -851,7 +856,7 @@ function cyberchimps_recent_post_excerpt_more( $more ) {
 	return '&hellip;
 			</p>
 			<div class="more-link">
-				<span class="continue-arrow"><img src="' . get_template_directory_uri() . '/cyberchimps/lib/images/continue.png"></span><a href="' . get_permalink( $post->ID ) . '">  ' . $linktext . '</a>
+				<span class="glyphicon glyphicon-arrow-right"></span><a href="' . get_permalink( $post->ID ) . '">  ' . $linktext . '</a>
 			</div>';
 }
 
@@ -1419,4 +1424,11 @@ function cyberchimps_add_responsive_class( $classes ) {
 	
 	return $classes;
 }
-?>
+
+if ( 'mp6' === get_user_option( 'admin_color' ) ) {
+	function load_custom_admin_styles() {
+		wp_register_style( 'cc-admin', get_template_directory_uri() . '/cyberchimps/options/lib/css/custom-post-icons.css', false, '1.0.0' );
+		wp_enqueue_style( 'cc-admin' );
+	}
+	add_action( 'admin_enqueue_scripts', 'load_custom_admin_styles' );
+}

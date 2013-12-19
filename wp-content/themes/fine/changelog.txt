@@ -2,6 +2,23 @@ Fine Pro Changelog
 
 ****************************
 
+Version 1.0.17 (12-16-13)
+- Email and google map icon issue fixed.
+- Social icon issue in IE fixed.
+- Added larger screenshot for WP3.8.
+- Update tags for WP3.8.
+- Updated license.
+
+Version 1.0.16 (12-12-13)
+- Fixed social icon links.
+- Fixed metabox toggle option.
+
+Version 1.0.15 (12-11-13)
+- Added Font-Based Social Icons.
+- Integrated Font Awesome (Bootstrap font).
+- Added retina ready images and style for it.
+- Changed the way of metabox css/js getting enqueued to support child theme.
+
 Version 1.0.14 (12-04-13)
 - Image size fix: Hooked add_image_size to after_setup_theme.
 - Deleted unused images.

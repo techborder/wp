@@ -22,7 +22,33 @@ Template: tonic
   margin-top: 20px;
 }
 
+/* =Inputs
+-------------------------------------------------------------- */
+
+input,
+textarea {
+  padding: 4px;
+}
+
 /* More narrow drop-down menu on the contact form */
 .address-state {
 	width: 70px;
+}
+
+.wpcf7 fieldset {
+	display: table-cell;
+}
+
+.wpcf7 label {
+  float:left;
+  clear: left;
+  width:40%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-right:0.5em;
+  text-align:right;
+  vertical-align: middle;
+  font-weight:bold;
+  padding: 4px;
+  font-size: 17px;
 }

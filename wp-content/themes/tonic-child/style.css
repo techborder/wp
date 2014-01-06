@@ -56,11 +56,11 @@ label,
 .wpcf7 select,
 .wpcf7 input,
 .wpcf7 label {
-  height: 28px;
-  padding: 4px;
-  font-size: 17px;
-  vertical-align: middle;
-  text-align: left;
+	height: 28px;
+	padding: 4px;
+	font-size: 17px;
+	vertical-align: middle;
+	text-align: left;
 }
 
 /*.wpcf7 div {*/
@@ -72,18 +72,18 @@ label,
 }
 
 .wpcf7 label{
-  float:left;
-  clear: left;
-  width:40%;
-  margin-right:0.5em;
-  text-align:right;
-  font-weight:bold;
+	float: left;
+	clear: left;
+	width:40%;
+	margin-right:0.5em;
+	text-align:right;
+	font-weight:bold;
 }
 
 .wpcf7 input[type="submit"] {
-  width:auto;
-  margin-left: 40%;
-  /*text-align: left;*/
+	width:auto;
+	margin-left: 40%;
+	/*text-align: left;*/
 }
 
 .section-title {
@@ -93,5 +93,20 @@ label,
 }
 
 .wpcf7 textarea {
-  width: auto;
+	width: auto;
+}
+
+@media (max-width: 768px) {
+	.wpcf7 label{
+		float: inherit;
+		clear: inherit;
+		width: auto;
+		display: block;
+		text-align: left;
+	}
+	
+	.wpcf7 select,
+	.wpcf7 input,
+	.wpcf7 label {
+	}
 }

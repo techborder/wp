@@ -44,23 +44,34 @@ textarea {
 }
 */
 
-select,
-input,
+label,
+.wpcf7 select,
+.wpcf7 input,
+.wpcf7 span
+{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.wpcf7 select,
+.wpcf7 input,
 .wpcf7 label {
   height: 28px;
-  margin-top: 2px;
-  margin-bottom: 2px;
   padding: 4px;
   font-size: 17px;
   vertical-align: middle;
+  text-align: left;
 }
 
+/*.wpcf7 div {*/
+/*	text-align: center;*/
+/*}*/
 
 .wpcf7 fieldset {
 	display: table-cell;
 }
 
-.wpcf7 label {
+.wpcf7 label{
   float:left;
   clear: left;
   width:40%;
@@ -69,13 +80,20 @@ input,
   font-weight:bold;
 }
 
+.wpcf7 input[type="submit"] {
+  width:auto;
+  margin-left: 40%;
+  /*text-align: left;*/
+}
+
+.section {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 22px;
+}
+
 .wpcf7 textarea {
   width: auto;
 }
-
-.wpcf7 input[type="submit"] {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-

@@ -1,24 +1,15 @@
 <fieldset>
 <label for="name">Your Name (required)</label> [text* name 40/100 placeholder "Firstname Lastname"]
-
-<label for="phone-number"> Phone Number (required)</label> [tel* phone-number 40/100 placeholder "Your Phone Number"]
-
+<label for="phone-number"> Phone Number (required)</label> [tel* phone-number placeholder "Your Phone Number"]
 <label for="email"> Email (required) </label> [email* email placeholder "Your Email Address"]
-
-<p>Mailing address (required)
-    <label for="mail-street">Street: </label>[text* mail-street 1x2/100 placeholder "Street"]
-    <label for="mail-street2">Street 2: </label>[text* mail-street2 40/40 placeholder "Street 2"]
-
-    <label for="mail-city">City: </label>[text* mail-city 30/50 placeholder "City"],
-    <label for="mail-state">State:</label> [select* mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
-    <label for="mail-zip">Zip</label> [text* mail-zip 10/10 placeholder "Zip Code"]</p>
-
+<div><h2><span class="section-title">Mailing address (required)</span></h2>
+    <label for="mail-street">Street</label>[text* mail-street 1x2/100 placeholder "Street"]
+    <label for="mail-street2">Street 2</label>[text* mail-street2 40/40 placeholder "Street 2"]
+    <label for="mail-city">City</label>[text* mail-city 30/50 placeholder "City"]
+    <label for="mail-state">State</label> [select* mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
+    <label for="mail-zip">Zip</label> [text* mail-zip 10/10 placeholder "Zip Code"]</div>
 <label for="date-of-birth">Date of Birth (required)</label> [date* date-of-birth min:1900-01-01]
-
 <label for="subject">Subject</label> [text subject]
-
 <label for="message">Your Message</label> [textarea message]
-
 [submit "Send"]
-
 </fieldset>

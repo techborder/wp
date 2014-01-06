@@ -86,12 +86,10 @@ label,
   /*text-align: left;*/
 }
 
-.section {
+.section-title {
 	text-align: center;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 22px;
+	/*font-size: 22px;*/
 }
 
 .wpcf7 textarea {

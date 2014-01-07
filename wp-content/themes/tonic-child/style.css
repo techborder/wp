@@ -76,6 +76,8 @@ label,
 	width: 55%;
 }
 
+/* Smaller screens */
+/* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {
 	.wpcf7 label{
 		float: inherit;
@@ -93,5 +95,4 @@ label,
 	.wpcf7 textarea {
 		width: 80%;
 	}
-	
 }

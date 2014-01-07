@@ -35,15 +35,7 @@ textarea {
 	width: 70px;
 }
 
-/*{
-  display: inline-block;
-  line-height: 1;
-  border: 1px solid #aaa;
-  padding: 4px;
-  color: #555;
-}
-*/
-
+/* Breathing room between lines.*/
 label,
 .wpcf7 select,
 .wpcf7 input,
@@ -59,12 +51,7 @@ label,
 	height: 28px;
 	padding: 4px;
 	font-size: 17px;
-	vertical-align: middle;
 	text-align: left;
-}
-
-.wpcf7 fieldset {
-	display: table-cell;
 }
 
 .wpcf7 label{
@@ -77,9 +64,7 @@ label,
 }
 
 .wpcf7 input[type="submit"] {
-	width:auto;
 	margin-left: 40%;
-	/*text-align: left;*/
 }
 
 .section-title {
@@ -88,7 +73,7 @@ label,
 }
 
 .wpcf7 textarea {
-	width: auto;
+	width: 55%;
 }
 
 @media (max-width: 768px) {

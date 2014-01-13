@@ -3,8 +3,8 @@
  * Theme URI: http://cyberchimps.com/
  * Author: CyberChimps
  * Author URI: http://www.cyberchimps.com/
- * Description: Fine Free is a Responsive WordPress theme offering a fun easy to use Drag & Drop system that adds amazing new functionality to your WordPress website. Featuring responsive touch friendly theme options that work on any device, fully SEO optimized, dynamic sidebar layouts, and per-page dynamic templates. Powered by WordPress, Twitter Bootstrap, HTML5, and CSS3.
- * Version: 1.0.17
+ * Description: Fine Free is a Responsive WordPress theme offering a fun easy to use Drag & Drop system that adds amazing new functionality to your WordPress website. Featuring responsive touch friendly theme options that work on any device, fully SEO optimized, dynamic sidebar layouts, and per-page dynamic templates. Powered by WordPress, Twitter Bootstrap, HTML5, and CSS3. "Please use the <a href="http://cyberchimps.com/forum/">official support forum</a> (http://cyberchimps.com/forum/). Thank you."
+ * Version: 1.0.18
  * Tags: white, silver, light, gray, two-columns, right-sidebar, responsive-layout, fixed-layout, custom-background, custom-colors, custom-menu, featured-images, post-formats, theme-options, sticky-post, full-width-template
  * License: GNU General Public License version 3
  * License URI: http://www.opensource.org/licenses/gpl-license.php GPL v3.0 (or later)
@@ -131,6 +131,7 @@ header {
 
 .full-width-container .header-image {
 	min-height: 165px;
+	max-height: 500px;
 	width: 100%;
 	border-bottom: 10px solid #484948;
 }
@@ -199,7 +200,7 @@ header#cc-header.row-fluid {
 	line-height: 1.5em;
 }
 
-header#cc-header.row-fluid a {
+header#cc-header.row-fluid .span7 a {
 	color: #eeeeee;
 }
 
@@ -551,6 +552,7 @@ article {
 
 .postformats {
 	float: right;
+	margin-top: 12px;
 }
 
 blockquote {
@@ -1112,30 +1114,20 @@ section.full-width-container.footer-full-width {
 
 /*==================================== BOXES LIGHT ======================================================*/
 
-#widget-boxes-container .box {
+#widget_boxes_container .box {
 	margin-bottom: 30px;
+	padding: 20px 20px 0;
 	background: #ffffff;
 }
 
-#widget-boxes-container .box {
-	margin-bottom: 40px;
-	padding: 20px;
-}
-
-#widget-boxes-container .box p {
+#widget_boxes_container .box p {
 	margin-top: 20px;
 	text-align: center;
 	font-size: 1.1em;
 	line-height: 1.5em;
 }
 
-#widget-boxes-container .box {
-	margin-bottom: 30px;
-	padding: 20px 20px 0;
-	background: #ffffff;
-}
-
-#widget-boxes-container .box a {
+#widget_boxes_container .box a {
 	display: block;
 	width: 100%;
 	text-align: center;

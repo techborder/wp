@@ -24,6 +24,10 @@ Template: tonic
 
 /* =Inputs
 -------------------------------------------------------------- */
+/*.wpcf7 {*/
+/*	font-size: 17px;*/
+/*	text-align: left;*/
+/*}*/
 
 input,
 textarea {
@@ -33,6 +37,10 @@ textarea {
 /* More narrow drop-down menu on the contact form */
 .address-state {
 	width: 70px;
+}
+
+.address-zip {
+	width: auto;
 }
 
 /* Breathing room between lines.*/
@@ -48,19 +56,41 @@ label,
 .wpcf7 select,
 .wpcf7 input,
 .wpcf7 label {
-	height: 28px;
+	min-height: 28px;
 	padding: 4px;
 	font-size: 17px;
 	text-align: left;
+	vertical-align: middle;
 }
 
-.wpcf7 label{
+.wpcf7 div,
+.wpcf7 label {
 	float: left;
 	clear: left;
+}
+
+.wpcf7 div {
+	width: 100%;
+}
+
+.wpcf7 label {
 	width:40%;
 	margin-right:0.5em;
 	text-align:right;
 	font-weight:bold;
+}
+
+.wpcf7 .question {
+	display: inline-block;
+}
+
+.wpcf7 label.question {
+	width:80%;
+}
+
+div.physical-address {
+	float: none;
+	clear: none;
 }
 
 .wpcf7 input[type="submit"] {
@@ -76,12 +106,31 @@ label,
 	width: 55%;
 }
 
+.wpcf7-list-item {
+	white-space: nowrap;
+}
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {
-	.wpcf7 label{
-		float: inherit;
-		clear: inherit;
+
+	/*.wpcf7 span {*/
+	/*	display: block;*/
+	/*}*/
+	
+	/*.wpcf7 select,*/
+	/*.wpcf7 input,*/
+	/*.wpcf7 label {*/
+	/*	width: auto;*/
+	/*}*/
+	
+	.wpcf7 .address-zip {
+		width: auto;
+	}
+	
+	.wpcf7 label,
+	.wpcf7 label.question {
+		float: none;
+		clear: none;
 		width: auto;
 		display: block;
 		text-align: left;

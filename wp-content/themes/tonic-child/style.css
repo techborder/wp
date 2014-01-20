@@ -53,8 +53,13 @@ label,
 	margin-bottom: 4px;
 }
 
+/* Not for checkboxes or radio buttons */
 .wpcf7 select,
-.wpcf7 input,
+.wpcf7 input[type=text],
+.wpcf7 input[type=password],
+.wpcf7 input[type=email],
+.wpcf7 input[type=url],
+.wpcf7 input[type=number],
 .wpcf7 label {
 	min-height: 28px;
 	padding: 4px;
@@ -62,6 +67,16 @@ label,
 	text-align: left;
 	vertical-align: middle;
 }
+
+/*.wpcf7 select,*/
+/*.wpcf7 input,*/
+/*.wpcf7 label {*/
+/*	min-height: 28px;*/
+/*	padding: 4px;*/
+/*	font-size: 17px;*/
+/*	text-align: left;*/
+/*	vertical-align: middle;*/
+/*}*/
 
 .wpcf7 div,
 .wpcf7 label {
@@ -108,7 +123,23 @@ div.physical-address {
 
 .wpcf7-list-item {
 	white-space: nowrap;
+	margin: 0px;
 }
+
+span.wpcf7-list-item {
+		margin-left: 0px;
+}
+
+/*wpcf7-checkbox*/
+/*wpcf7-radio*/
+/* Labels for checkboxes and radio buttons in question class*/
+.question span > span > span > label {
+	min-height: 0px;
+	width: auto;
+	margin: 1px;
+	padding: 0px;
+}
+
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {
@@ -128,7 +159,7 @@ div.physical-address {
 	}
 	
 	.wpcf7 label,
-	.wpcf7 label.question {
+	.wpcf7 .question {
 		float: none;
 		clear: none;
 		width: auto;
@@ -144,4 +175,10 @@ div.physical-address {
 	.wpcf7 textarea {
 		width: 80%;
 	}
+	
+	/*.wpcf7-list-item {*/
+	/*	white-space: nowrap;*/
+	/*	margin: 0px;*/
+	/*}*/
+	
 }

@@ -11,9 +11,10 @@
 <div><label for="date-of-birth">Date of Birth (required)</label> [date* date-of-birth id:date-of-birth min:1899-01-01]</div>
 <div><label for="subject">Subject</label> [text subject id:subject]</div>
 <div><label for="message">Your Message</label> [textarea message id:message]</div>
-<div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [radio* radio-age-legal id:age-legal class:question use_label_element "Yes" "No"]</div>
+<div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [radio radio-age-legal id:age-legal class:question use_label_element "Yes" "No"]</div>
 <div class="question"><label class="question">Have you ever filed an application with us before? </label> [checkbox* test id:test class:question use_label_element "Option1" "Option2"] </div>
 <div><label for="date-of-previous-app">If yes, give date: </label> [date date-of-previous-app id:date-of-previous-app min:1899-01-01]</div>
-<div><label for="quiz-test">Is fire hot or cold?</label> [quiz quiz-test id:quiz-test 10/10 "|hot"]</div>
+<div><label for="quiz-test">Is fire hot or cold?</label> [quiz quiz-test id:quiz-test 10/10 "f|hot"]</div>
+<div><label for="file-upload">Upload additional details: </label> [file* file-301 id:file-upload filetypes:.doc|.docx|.pdf]</div>
 <div>[submit "Send"]</div>
 </fieldset>

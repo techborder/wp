@@ -120,6 +120,11 @@ span.wpcf7-list-item > label {
 	padding: 0px;
 }
 
+span.wpcf7-not-valid-tip {
+	text-align: center;
+	margin-bottom: 8px;
+}
+
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {

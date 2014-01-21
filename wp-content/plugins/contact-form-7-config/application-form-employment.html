@@ -9,21 +9,25 @@
     <label for="mail-state">State</label> [select* mail-state id:mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
     <div><label for="mail-zip">Zip</label> [text* mail-zip 10/10 id:mail-zip class:address-zip placeholder "Zip Code"]</div></div>
 <div><label for="date-of-birth">Date of Birth (required)</label> [date* date-of-birth id:date-of-birth min:1899-01-01]</div>
-<div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [radio* age-legal id:age-legal class:question use_label_element "Yes" "No"]</div>
-<div class="question"><label class="question">Have you ever filed an application with us before?</label> [radio* previous-app-filed id:previous-app-filed class:question use_label_element "Yes" "No"]</div>
+<div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [checkbox* age-legal id:age-legal class:question use_label_element exclusive "Yes" "No" ]</div>
+<div class="question"><label class="question">Have you ever filed an application with us before?</label> [checkbox* previous-app-filed id:previous-app-filed class:question use_label_element exclusive "Yes" "No" ]</div>
 <div><label for="date-of-previous-app">If yes, give date: </label> [date date-of-previous-app id:date-of-previous-app min:1899-01-01]</div>
-<div class="question"><label class="question">Currently employed:</label> [radio* currently-employed id:currently-employed class:question use_label_element "Yes" "No"]</div>
-<div class="question"><label class="question">Are you prevented from lawfully becoming employed in this country because of Visa of Immigration Status? (Proof of citizenship or immigration status will be required upon employment)?</label> [radio* legal-employeable id:legal-employeable class:question use_label_element "Yes" "No"]</div>
+<div class="question"><label class="question">Currently employed:</label> [checkbox* currently-employed id:currently-employed class:question use_label_element exclusive "Yes" "No" ]</div>
+<div class="question"><label class="question">Are you prevented from lawfully becoming employed in this country because of Visa of Immigration Status? (Proof of citizenship or immigration status will be required upon employment).</label> [checkbox* legal-employeable id:legal-employeable class:question use_label_element exclusive "Yes" "No" ]</div>
 <div class="question"><label>Date available to start work:</label> [date* date-available id:date-available min:1899-01-01]</div>
-<div class="question"><label class="question">?</label> [radio* NAME id:NAME class:question use_label_element "Yes" "No"]</div>
-<div class="question"><label class="question">Available to work? </label> [checkbox* available-shifts id:available-shifts class:question use_label_element "Full Time" "Part Time"] </div>
-
-<div class="question"><label class="question">?</label> [radio* NAME id:NAME class:question use_label_element "Yes" "No"]</div>
-<div class="question"><label class="question">? </label> [checkbox* NAME id:NAME class:question use_label_element "Option1" "Option2"] </div>
-
-􏰀 Have a current driver’s license without restrictions; (Copy of Drivers License & Driving Record required upon hiring)
-􏰀 Have reliable transportation to work;
-􏰀 How did you learn about us?
+<div class="question"><label class="question">Available to work? </label> [checkbox* available-shifts id:available-shifts class:question use_label_element "Full Time" "Part Time" "Shift Work" "Weekends"] </div>
 <div><label for="quiz-test">Is fire hot or cold?</label> [quiz quiz-test id:quiz-test 10/10 "|hot"]</div>
+<div><label for="file-upload">Upload additional details: </label> [file* file-upload id:file-upload filetypes:.doc|.docx|.pdf]</div>
 <div>[submit "Send"]</div>
 </fieldset>
+
+
+<div class="question"><label class="question">?</label> [checkbox* NAME id:NAME class:question use_label_element exclusive "Yes" "No" ]</div>
+<div class="question"><label class="question">?</label> [checkbox* NAME id:NAME class:question use_label_element exclusive "Yes" "No" ]</div>
+<div class="question"><label class="question">? </label> [checkbox* NAME id:NAME class:question use_label_element "Option1" "Option2"] </div>
+
+[checkbox checkbox-test id:test class:classy use_label_element exclusive "Yes" "No"]
+
+Have a current driver’s license without restrictions; (Copy of Drivers License & Driving Record required upon hiring)
+Have reliable transportation to work;
+How did you learn about us?

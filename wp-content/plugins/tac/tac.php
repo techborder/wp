@@ -4,7 +4,7 @@ Plugin Name: Theme Authenticity Checker (TAC)
 Plugin URI: http://builtbackwards.com/projects/tac/
 Description: Theme Authenticity Checker scans all of your theme files for potentially malicious or unwanted code.
 Author: builtBackwards
-Version: 1.5
+Version: 1.5.1
 Author URI: http://builtbackwards.com/
 */
 

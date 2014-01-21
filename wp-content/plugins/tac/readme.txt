@@ -3,8 +3,8 @@ Contributors: builtBackwards, blobaugh
 Donate link: http://builtbackwards.com/donate
 Tags: themes, security, javascript, admin, theme authentication, verification
 Requires at least: 3.0
-Tested up to: 3.4
-Stable tag: 1.5
+Tested up to: 3.8
+Stable tag: trunk
 
 *Scan all of your theme files for potentially malicious or unwanted code.*
 
@@ -38,6 +38,9 @@ After downloading and extracting the latest version of TAC:
 5. You can click on the path to the theme file to edit in the WordPress Theme Editor
 
 == Changelog ==
+
+**Version 1.5.1**
+* Compatible with 3.8
 
 **Version 1.5**
 

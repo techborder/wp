@@ -15,7 +15,8 @@
 			<?php get_sidebar( 'main' ); ?>
 
 			<div class="site-info">
-				<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'startup' ), '&copy;', date('Y'), esc_html(get_bloginfo('name')) ); ?>
+				<?php do_action( 'twentythirteen_credits' ); ?>
+				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentythirteen' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentythirteen' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentythirteen' ), 'WordPress' ); ?></a>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->

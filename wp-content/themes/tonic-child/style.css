@@ -24,21 +24,13 @@ Template: tonic
 
 /* =Inputs
 -------------------------------------------------------------- */
-/*.wpcf7 {*/
-/*	font-size: 17px;*/
-/*	text-align: left;*/
-/*}*/
-
 input,
 textarea {
   padding: 4px;
 }
 
-/* More narrow drop-down menu on the contact form */
-.address-state {
-	width: 70px;
-}
-
+/* More narrow inputs for state and zip */
+.address-state,
 .address-zip {
 	width: auto;
 }
@@ -67,16 +59,6 @@ label,
 	text-align: left;
 	vertical-align: middle;
 }
-
-/*.wpcf7 select,*/
-/*.wpcf7 input,*/
-/*.wpcf7 label {*/
-/*	min-height: 28px;*/
-/*	padding: 4px;*/
-/*	font-size: 17px;*/
-/*	text-align: left;*/
-/*	vertical-align: middle;*/
-/*}*/
 
 .wpcf7 div,
 .wpcf7 label {
@@ -108,6 +90,7 @@ div.physical-address {
 	clear: none;
 }
 
+/* Align the Send (submit) button to the right, under other inputs*/
 .wpcf7 input[type="submit"] {
 	margin-left: 40%;
 }
@@ -121,19 +104,16 @@ div.physical-address {
 	width: 55%;
 }
 
-.wpcf7-list-item {
-	white-space: nowrap;
-	margin: 0px;
-}
-
+/* Overwrite plugin CSS of margin-left*/
 span.wpcf7-list-item {
-		margin-left: 0px;
+	white-space: nowrap;
+	margin-left: 0px;
 }
 
-/*wpcf7-checkbox*/
-/*wpcf7-radio*/
 /* Labels for checkboxes and radio buttons in question class*/
-.question span > span > span > label {
+span.wpcf7-list-item > label,
+span.wpcf7-list-item > label {
+	margin: 0px;
 	min-height: 0px;
 	width: auto;
 	margin: 1px;
@@ -143,17 +123,6 @@ span.wpcf7-list-item {
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {
-
-	/*.wpcf7 span {*/
-	/*	display: block;*/
-	/*}*/
-	
-	/*.wpcf7 select,*/
-	/*.wpcf7 input,*/
-	/*.wpcf7 label {*/
-	/*	width: auto;*/
-	/*}*/
-	
 	.wpcf7 .address-zip {
 		width: auto;
 	}
@@ -175,10 +144,4 @@ span.wpcf7-list-item {
 	.wpcf7 textarea {
 		width: 80%;
 	}
-	
-	/*.wpcf7-list-item {*/
-	/*	white-space: nowrap;*/
-	/*	margin: 0px;*/
-	/*}*/
-	
 }

@@ -1,5 +1,7 @@
 adamos is a responsive, highly customizable theme.
 
+theme instructions can be found at: http://www.templateexpress.com/adamos-theme-instructions/
+
 
 Customizing theme
 -------------------------------------------
@@ -21,9 +23,9 @@ A post category called "Featured" and with the slug "featured" will have to be a
 
 Font
 -------------------------------------------
-Source Sans Pro
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-More info available with a FAQ at: http://scripts.sil.org/OFL
+Open Sans
+This Font Software is licensed under the Apache License v2.00
+More info available with at http://www.apache.org/licenses/
 
 
 License

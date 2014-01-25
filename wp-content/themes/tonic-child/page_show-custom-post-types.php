@@ -33,23 +33,15 @@ foreach ( $post_types  as $post_type ) {
    echo '<p>' . $post_type . '</p>';
 }
 
-        while ( have_posts() ) : the_post();
-            ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <?php if (!is_page('home')): ?>
-                    <h1 class="entry-title"><?php the_title(); ?></h1>
-                <?php endif; ?>
-                
-                <div class="entry-content">
-                    <?php the_content( __( 'Read more &rarr;', 'tonic' ) ); ?>
-                </div><!-- .entry-content -->
-
-                <?php get_template_part( 'content', 'footer' ); ?>
-            </article><!-- #post-<?php the_ID(); ?> -->
-            <?php
-            comments_template( '', true );
-        endwhile; // end of the loop.
-        ?>
+$args = array( 'post_type' => 'tribe_events', 'posts_per_page' => 10 );
+$loop = new WP_Query( $args );
+while ( $loop->have_posts() ) : $loop->the_post();
+	the_title();
+	echo '<div class="entry-content">';
+	the_content();
+	echo '</div>';
+endwhile;
+?>
 
     </div><!-- #primary.c8 -->
 

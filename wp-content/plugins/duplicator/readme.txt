@@ -1,10 +1,10 @@
-=== Plugin Name ===
+=== WordPress Duplicator ===
 Contributors: Cory Lamle
 Donate link: www.lifeinthegrid.com/partner
 Tags: backup, restore, move, migrate, localhost, synchronize, duplicate, clone, automate, niche  
-Requires at least: 3.4
-Tested up to: 3.5.1
-Stable tag: 0.4.6
+Requires at least: 3.7
+Tested up to: 3.8.1
+Stable tag: 0.5.0
 License: GPLv2
 
 Duplicate, clone, backup, move and transfer an entire site from one location to another.
@@ -35,6 +35,7 @@ Contributors:
 
 Localization:
 <li>[Hans-M. Herbrand](http://www.web266.de) (German) </li>
+<li>[Marco Andrei Kichalowsky](http://www.arsnovasolucoes.com) (Portuguese)</li>
 <li>[Emilio De Fez](http://www.canaryas.com) (Spanish) </li>
 
 

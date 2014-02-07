@@ -78,6 +78,14 @@ class DUPX_Serializer {
 				$fields[] = $row['Field']; 
 			} 
 		} 
+		
+		//Return Primary which is needed for index lookup
+		$result = mysqli_query($conn, "SHOW INDEX FROM `{$table}` WHERE KEY_NAME LIKE '%PRIMARY%'");
+		if (mysqli_num_rows($result) > 0) { 
+			while ($row = mysqli_fetch_assoc($result)) { 
+				$fields[] = $row['Column_name']; 
+			} 
+		} 
 	
 		return (count($fields) > 0) ? $fields : null;
 	}
@@ -90,7 +98,7 @@ class DUPX_Serializer {
 	 * @param array  $tables     The tables we want to look at.
 	 * @return array Collection of information gathered during the run.
 	 */
-	static public function load($conn, $list = array(), $tables = array(), $cols = array()) {
+	static public function load($conn, $list = array(), $tables = array(), $cols = array(), $fullsearch = false) {
 		$exclude_cols = $cols;
 
 		$report = array('scan_tables' => 0, 'scan_rows' => 0, 'scan_cells' => 0,
@@ -126,26 +134,33 @@ class DUPX_Serializer {
 				
 				// Grab the columns of the table.  Only grab text based columns because 
 				// they are the only data types that should allow any type of search/replace logic
-				$colList = self::getTextColumns($conn, $table);
-				$colList = ($colList != null && is_array($colList)) ? implode(',', $colList) : '';
-				$filterMsg = (empty($colList)) ? '*' : '~';
+				$colList = '*';
+				$filterMsg =  '*';
+				if (! $fullsearch) {
+					$colList = self::getTextColumns($conn, $table);
+					$colList = ($colList != null && is_array($colList)) ? implode(',', $colList) : '';
+					$filterMsg = (empty($colList)) ? '*' : '~';
+				}
+
 				DUPX_Log::Info("{$table}{$filterMsg}: ({$row_count})");
 				
 				//Paged Records
 				for ($page = 0; $page < $pages; $page++) {
 
+	
 					$current_row = 0;
 					$start = $page * $page_size;
 					$end   = $start + $page_size;
-					$data  = (! empty($colList))
-						? mysqli_query($conn, sprintf("SELECT {$colList} FROM %s LIMIT %d, %d", $table, $start, $offset))
-						: mysqli_query($conn, sprintf('SELECT * FROM %s LIMIT %d, %d', $table, $start, $offset));
+					$sql = sprintf("SELECT {$colList} FROM %s LIMIT %d, %d", $table, $start, $offset);
+					$data  = mysqli_query($conn, $sql);
 
 					if (!$data)
 						$report['errsql'][] = mysqli_error($conn);
 					
 					$scan_count = ($row_count < $end) ? $row_count : $end;
 					DUPX_Log::Info("\tScan => {$start} of {$scan_count}", 2);
+					//DEBUG ONLY:
+					//DUPX_Log::Info("\t{$sql}", 3);
 
 					//Loops every row
 					while ($row = mysqli_fetch_array($data)) {
@@ -214,6 +229,8 @@ class DUPX_Serializer {
 						if ($upd && !empty($where_sql)) {
 							$sql = "UPDATE `{$table}` SET " . implode(', ', $upd_sql) . ' WHERE ' . implode(' AND ', array_filter($where_sql));
 							$result = mysqli_query($conn, $sql) or $report['errsql'][] = mysqli_error($conn);
+							//DEBUG ONLY:
+							//DUPX_Log::Info("\t{$sql}", 3);
 							if ($result) {
 								if ($serial_err > 0) {
 									$report['errser'][] = "SELECT " . implode(', ', $upd_col) . " FROM `{$table}`  WHERE " . implode(' AND ', array_filter($where_sql)) . ';';

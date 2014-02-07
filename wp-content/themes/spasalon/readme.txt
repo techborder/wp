@@ -57,6 +57,12 @@ Support
 Do you enjoy this theme? Send your ideas - issues - on the theme forms . Thank you!
 
 ============================Change Log================================
+@ Version: 1.3.4
+1.Call us on  Text Setting in option panel.
+@ Version: 1.3.3
+1. Add new feature merge new option data and existing option data.
+
+
 @ Version: 1.3.2
 1. Add new feature call us number customization.
 2. Fixed width tag change with fixed-layout.

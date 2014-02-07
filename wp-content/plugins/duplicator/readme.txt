@@ -4,7 +4,7 @@ Donate link: www.lifeinthegrid.com/partner
 Tags: backup, restore, move, migrate, localhost, synchronize, duplicate, clone, automate, niche  
 Requires at least: 3.7
 Tested up to: 3.8.1
-Stable tag: 0.5.0
+Stable tag: 0.5.1
 License: GPLv2
 
 Duplicate, clone, backup, move and transfer an entire site from one location to another.
@@ -73,9 +73,11 @@ No.  Hopefully in future versions we will support MU
 
 == Screenshots ==
  
-1. The main interface used to create and manage packages
-2. The systems check dialog, used to validate a server
-3. The installer screen used to install a packaged instance
+1. Main Interface for all Packages
+2. Create Package Step 1
+3. Create Package Step 2
+4. Build Process
+5. Installer Screen
  
 
 == Changelog ==

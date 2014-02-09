@@ -7,9 +7,30 @@
 	//} );
 	//
 	
-	$( '#site-navigation' ).on( 'hover', '.sub-menu-parent > a', function(e) {
+	//$( '#site-navigation' ).on( 'hover', '.sub-menu-parent > a', function(e) {
+	//	//$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
+	//	$(this).parent().toggleClass( 'open', 500);
+	//} );
+
+	// Works except does not clear when hovering on other top-level, non-parental links.	
+	//$( '#site-navigation' ).on( 'hover', '.sub-menu-parent > a', function(e) {
+	//	$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
+	//	$(this).parent().addClass( 'open', 500);
+	//} );
+	//
+	//$( '#site-navigation' ).on( 'hover', '.sub-menu-parent > a', function(e) {
+	//	$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
+	//	$(this).parent().addClass( 'open', 500);
+	//} );
+	
+	$( '#site-navigation' ).on( 'mouseenter', '.sub-menu-parent > a', function(e) {
+		$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open');
+		$(this).parent().addClass( 'open');
+	} );
+	
+	$( '#site-navigation' ).on( 'mouseleave', '.sub-menu-parent > a', function(e) {
 		$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
-		$(this).parent().toggleClass( 'open' );
+		$(this).parent().removeClass( 'open');
 	} );
 	
 	$( '#site-navigation' ).on( 'click', '.sub-menu-parent > a', function(e) {

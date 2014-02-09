@@ -33,6 +33,14 @@
 		$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
 		$(this).parent().toggleClass( 'open' );
 	} );
+	
+	////$( '#site-navigation' ).removeAttr("onclick");
+	//$( '#site-navigation' ).removeAttr('click');
+	//
+	//$( '#site-navigation' ).on('click', function() { location.href = $(this).attr('href'); });	
+	//$( '#site-navigation' ).on( 'click', '.sub-menu-parent > a', function(e) {
+	//	return true;
+	//} );
 
 	var id = ( $( 'body' ).hasClass( 'left-sidebar' ) ) ? $( '#secondary' ) : $( '#left-nav' );
 	Harvey.attach( 'screen and (max-width:768px)', {

@@ -28,7 +28,7 @@
 		$(this).parent().addClass( 'open');
 	} );
 	
-	$( '#site-navigation' ).on( 'mouseleave', '.sub-menu-parent > a', function(e) {
+	$( '#site-navigation' ).on( 'mouseleave', '', function(e) {
 		$( '.sub-menu-parent' ).not( $(this).parents() ).removeClass( 'open' );
 		$(this).parent().removeClass( 'open');
 	} );

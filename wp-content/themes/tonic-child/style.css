@@ -1,7 +1,7 @@
 /*!
-Theme Name: Tonic with tweaks
+Theme Name: Tonic child
 Theme URI: https://themes.bavotasan.com/2013/tonic/
-Author: c.bavota and Techborder
+Author: c.bavota mostly and Techborder
 Author URI: http://techborder.com
 Description: See parent theme description for more info.
 Version: 1.0
@@ -23,8 +23,8 @@ Template: tonic
 }
 
 .instructions {
-	font-size: 80%;
-	text-align: center;
+  font-size: 80%;
+  text-align: center;
 }
 
 /* =Inputs
@@ -37,7 +37,7 @@ textarea {
 /* More narrow inputs for state and zip */
 .address-state,
 .address-zip {
-	width: auto;
+  width: auto;
 }
 
 /* Breathing room between lines.*/
@@ -46,8 +46,8 @@ label,
 .wpcf7 input,
 .wpcf7 span
 {
-	margin-top: 4px;
-	margin-bottom: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /* Not for checkboxes or radio buttons */
@@ -58,101 +58,101 @@ label,
 .wpcf7 input[type=url],
 .wpcf7 input[type=number],
 .wpcf7 label {
-	min-height: 28px;
-	padding: 4px;
-	font-size: 17px;
-	text-align: left;
-	vertical-align: middle;
+  min-height: 28px;
+  padding: 4px;
+  font-size: 17px;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .wpcf7 div,
 .wpcf7 label {
-	float: left;
-	clear: left;
+  float: left;
+  clear: left;
 }
 
 .wpcf7 div {
-	width: 100%;
+  width: 100%;
 }
 
 .wpcf7 label {
-	width:40%;
-	margin-right:0.5em;
-	text-align:right;
-	font-weight:bold;
+  width:40%;
+  margin-right:0.5em;
+  text-align:right;
+  font-weight:bold;
 }
 
 .wpcf7 .question {
-	margin-top: 8px;
-	display: inline-block;
+  margin-top: 8px;
+  display: inline-block;
 }
 
 .wpcf7 label.question {
-	width:70%;
+  width:70%;
 }
 
 div.physical-address {
-	float: none;
-	clear: none;
+  float: none;
+  clear: none;
 }
 
 /* Align the Send (submit) button to the right, under other inputs*/
 .wpcf7 input[type="submit"] {
-	margin-left: 40%;
+  margin-left: 40%;
 }
 
 .section-title {
-	text-align: center;
-	display: block;
+  text-align: center;
+  display: block;
 }
 
 .wpcf7 textarea {
-	width: 55%;
+  width: 55%;
 }
 
 /* Overwrite plugin CSS of margin-left*/
 span.wpcf7-list-item {
-	white-space: nowrap;
-	margin-left: 0px;
+  white-space: nowrap;
+  margin-left: 0px;
 }
 
 /* Labels for checkboxes and radio buttons in question class*/
 span.wpcf7-list-item > label,
 span.wpcf7-list-item > label {
-	margin: 0px;
-	min-height: 0px;
-	width: auto;
-	margin: 1px;
-	padding: 0px;
+  margin: 0px;
+  min-height: 0px;
+  width: auto;
+  margin: 1px;
+  padding: 0px;
 }
 
 span.wpcf7-not-valid-tip {
-	text-align: center;
-	margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
 @media (max-width: 768px) {
-	.wpcf7 .address-zip {
-		width: auto;
-	}
-	
-	.wpcf7 label,
-	.wpcf7 .question {
-		float: none;
-		clear: none;
-		width: auto;
-		display: block;
-		text-align: left;
-	}
-	
-	.section-title {
-		text-align: left;
-		display: inherit;
-	}
-	
-	.wpcf7 textarea {
-		width: 80%;
-	}
+  .wpcf7 .address-zip {
+	width: auto;
+  }
+  
+  .wpcf7 label,
+  .wpcf7 .question {
+	float: none;
+	clear: none;
+	width: auto;
+	display: block;
+	text-align: left;
+  }
+  
+  .section-title {
+	text-align: left;
+	display: inherit;
+  }
+  
+  .wpcf7 textarea {
+	width: 80%;
+  }
 }

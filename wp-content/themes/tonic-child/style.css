@@ -132,7 +132,9 @@ span.wpcf7-not-valid-tip {
 }
 
 /* Smaller screens */
-/* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).*/
+/* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).
+* WARNING: Update theme.js if the max width is changed here (e.g. max-width: 768).
+*/
 @media (max-width: 768px) {
   .wpcf7 .address-zip {
 	width: auto;

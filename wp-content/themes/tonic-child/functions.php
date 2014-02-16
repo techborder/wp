@@ -12,9 +12,9 @@ if ( ! function_exists( 'bavotasan_add_js' ) ) :
  *
  * @since 1.0.0
  */
-function child_add_js() {
-
-	wp_enqueue_script( 'theme_js_child', get_stylesheet_directory_uri() .'/library/js/theme.js', '', '', true );
-}
+//function child_add_js() {
+//
+//	wp_enqueue_script( 'theme_js_child', get_stylesheet_directory_uri() .'/library/js/theme.js', '', '', true );
+//}
 endif; // bavotasan_add_js
 

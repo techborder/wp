@@ -15,6 +15,11 @@
  * @link     http://www.cyberchimps.com/
  */
 
+// Load text domain.
+function cyberchimps_text_domain() {
+	load_theme_textdomain( 'fine', get_template_directory() . '/inc/languages' );
+}
+
 // Load Core
 require_once( get_template_directory() . '/cyberchimps/init.php' );
 
@@ -43,7 +48,7 @@ if( !function_exists( 'cyberchimps_comment' ) ) :
 			case 'trackback' :
 				?>
 				<li class="post pingback">
-				<p><?php _e( 'Pingback:', 'cyberchimps' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'cyberchimps' ), ' ' ); ?></p>
+				<p><?php _e( 'Pingback:', 'fine' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'fine' ), ' ' ); ?></p>
 				<?php
 				break;
 			default :
@@ -53,11 +58,11 @@ if( !function_exists( 'cyberchimps_comment' ) ) :
 						<footer>
 							<div class="comment-author reviewer vcard">
 								<?php echo get_avatar( $comment, 40 ); ?>
-								<?php printf( '%s <span class="says">' . __( 'says:', 'cyberchimps' ) . '</span>', sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+								<?php printf( '%s <span class="says">' . __( 'says:', 'fine' ) . '</span>', sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 							</div>
 							<!-- .comment-author .vcard -->
 							<?php if( $comment->comment_approved == '0' ) : ?>
-								<em><?php _e( 'Your comment is awaiting moderation.', 'cyberchimps' ); ?></em>
+								<em><?php _e( 'Your comment is awaiting moderation.', 'fine' ); ?></em>
 								<br/>
 							<?php endif; ?>
 
@@ -66,10 +71,10 @@ if( !function_exists( 'cyberchimps_comment' ) ) :
 									<time pubdate datetime="<?php comment_time( 'c' ); ?>">
 										<?php
 										/* translators: 1: date, 2: time */
-										printf( __( '%1$s at %2$s', 'cyberchimps' ), get_comment_date(), get_comment_time() ); ?>
+										printf( __( '%1$s at %2$s', 'fine' ), get_comment_date(), get_comment_time() ); ?>
 									</time>
 								</a>
-								<?php edit_comment_link( __( '(Edit)', 'cyberchimps' ), ' ' );
+								<?php edit_comment_link( __( '(Edit)', 'fine' ), ' ' );
 								?>
 							</div>
 							<!-- .comment-meta .commentmetadata -->
@@ -165,7 +170,7 @@ function cyberchimps_options_help_header() {
 }
 
 function cyberchimps_options_help_sub_header() {
-	$text = __( 'Fine Free Professional Responsive WordPress Theme', 'cyberchimps' );
+	$text = __( 'Fine Free Professional Responsive WordPress Theme', 'fine' );
 
 	return $text;
 }
@@ -284,11 +289,11 @@ add_filter( 'cyberchimps_twitter_handle_filter', 'cyberchimps_twitter_handle_fil
  */
 function cyberchimps_add_theme_options( $original ) {
 	$new_field[][1] = array(
-		'name'    => __( 'Header Image', 'cyberchimps' ),
+		'name'    => __( 'Header Image', 'fine' ),
 		'id'      => 'header_image',
 		'std'     => '',
 		'type'    => 'upload',
-		'desc'    => __( 'The image used for the header needs to be a large image. We recommend a minimum width of 1000px and a maximum height of 550px', 'cyberchimps' ),
+		'desc'    => __( 'The image used for the header needs to be a large image. We recommend a minimum width of 1000px and a maximum height of 550px', 'fine' ),
 		'std'     => get_template_directory_uri() . '/images/header.jpg',
 		'section' => 'cyberchimps_header_options_section',
 		'heading' => 'cyberchimps_header_heading'

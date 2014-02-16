@@ -39,7 +39,7 @@
 
 				if( is_search() ):
 					?>
-					<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cyberchimps' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+					<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'fine' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 						<?php ( get_the_title() ) ? the_title() : the_permalink(); ?>
 					</a>
 				<?php
@@ -52,11 +52,11 @@
 					// get the post title toggle option
 					$post_title = cyberchimps_get_option( 'single_post_title' );
 					if( $post_title == "1" ) : ?>
-						<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cyberchimps' ), the_title_attribute( 'echo=0' ) ); ?>"
+						<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'fine' ), the_title_attribute( 'echo=0' ) ); ?>"
 						   rel="bookmark"><?php ( get_the_title() ) ? the_title() : the_permalink(); ?></a>
 					<?php    endif;
 				else : ?>
-					<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cyberchimps' ), the_title_attribute( 'echo=0' ) ); ?>"
+					<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'fine' ), the_title_attribute( 'echo=0' ) ); ?>"
 					   rel="bookmark"><?php ( get_the_title() ) ? the_title() : the_permalink(); ?></a>
 				<?php
 				endif;
@@ -70,8 +70,8 @@
 
 		<div class="entry-content">
 			<?php cyberchimps_featured_image(); ?>
-			<?php the_content( __( 'Continue reading', 'cyberchimps' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'cyberchimps' ), 'after' => '</div>' ) ); ?>
+			<?php the_content( __( 'Continue reading', 'fine' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'fine' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
 	<?php elseif( is_search() ): ?>
@@ -94,8 +94,8 @@
 		<?php else: ?>
 			<div class="entry-content">
 				<?php cyberchimps_featured_image(); ?>
-				<?php the_content( __( 'Continue reading', 'cyberchimps' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'cyberchimps' ), 'after' => '</div>' ) ); ?>
+				<?php the_content( __( 'Continue reading', 'fine' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'fine' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
@@ -116,8 +116,8 @@
 		<?php else: ?>
 			<div class="entry-content">
 				<?php cyberchimps_featured_image(); ?>
-				<?php the_content( __( 'Continue reading', 'cyberchimps' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'cyberchimps' ), 'after' => '</div>' ) ); ?>
+				<?php the_content( __( 'Continue reading', 'fine' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'fine' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
@@ -132,7 +132,7 @@
 
 		<?php endif; // End if 'post' == get_post_type() ?>
 
-		<?php edit_post_link( __( 'Edit', 'cyberchimps' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'fine' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer>
 	<!-- #entry-meta -->

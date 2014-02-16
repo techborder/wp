@@ -2,6 +2,9 @@ Fine Pro Changelog
 
 ****************************
 
+Version 1.0.25 (2-11-14)
+- Updated Translation.
+
 Version 1.0.24 (2-5-14)
 - Fixed multiple thumbnails issue on image attachment page.
 - Fixed image load issue for boxes element.

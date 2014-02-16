@@ -61,6 +61,7 @@ $_REQUEST['settings-updated'] = false;
 <div class="updated fade"><p><strong><?php _e( 'Options Saved', 'startup' ); ?></strong></p></div>
 <?php endif; ?>
 <p><?php printf( __( 'Looking for even more features and advanced editing capabilities? %1$s Upgrade to StartupPro %2$s', 'startup' ), '<a href="https://startupwp.com/" target="_blank" class="button-primary">', '</a>' ); ?></p>
+<p><?php printf( __( 'IMPORTANT NOTE - version 2.x of the free version can now be found %1$s here %2$s. Please be careful if you choose to upgrade (which is optional, but highly recommended).', 'startup' ), '<a href="http://wordpress.org/themes/startup" target="_blank">', '</a>' ); ?></p>
 <p><?php printf( __( 'Thank you for choosing Startup and WordPress as the solution for building your website. If you need help please %1$s visit the support forum %2$s.', 'startup' ), '<a href="https://startupwp.com/forum/" target="_blank">', '</a>' ); ?></p>
 <p><?php printf( __( 'Manage previously uploaded images under the %1$s Media %2$s tab.', 'startup' ), '<a href="'.admin_url().'upload.php" target="_blank">', '</a>' ); ?></p>
 <form method="post" action="options.php">

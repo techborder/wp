@@ -1,14 +1,58 @@
 <fieldset>
-<div>
-    <label for="name">Your Name*</label> [text* name id:name 40/100 placeholder "First Last"]
+<div class="instructions">
+    <strong>PLEASE READ THE FOLLOWING BEFORE COMPLETING OUR APPLICATION</strong>
 </div>
 <div>
-    <label for="phone-number">Phone Number*</label> [tel* phone-number id:phone-number 20/20 placeholder "###-###-####"]
+    <ol>
+        <li>
+            There is no guarantee of a job offer or job interview in completing our application. Your application will be considered with others who have submitted applications and decisions about interviews will be based on this comparison.
+        </li>
+        <li>
+            Our application must be completely filled out.
+        </li>
+        <li>
+            This application is a legal document. If the information provided on our application can not be satisfactorily verified by employment reference checks and educational institutions, your application may be considered incomplete.
+        </li>
+        <li>
+            Specific reasons for employment decisions will not be released.    
+        </li>
+        <li>
+            In completing our application, you may be subject to the following checks.
+        </li>
+        <ul>
+            <li>
+                EMPLOYMENT REFERENCE CHECK FROM FORMER EMPLOYERS CREDENTIAL VERIFICATION
+            </li>
+            <li>
+                DRUG SCREEN
+            </li>
+            <li>
+                DRIVING RECORD CHECK
+            </li>
+        </ul>
+    </ol>
 </div>
 <div>
-    <label for="email">Email* </label> [email* email id:email placeholder ""]
+    <h2>It is important that all employees of Good Life Corporation abide by our Mission Statement. Please read the following:</h2>
+    <strong>It is the Mission Statement of Good Life Corporation to provide a fun, secure, person centered, community residential service for adults with mental retardation.</strong>
+</div>
+<div class="question">
+    <label class="question">I have read the above statements and understand them:*</label> [checkbox* read-statements id:read-statements class:question use_label_element exclusive "Yes" "No" ]
+</div>
+
+<div>
+    <label for="position">Position applied for*</label> [text* position id:position  60/100 placeholder "First Last"]
 </div>
 <div>
+    <label for="firstname">Your First Name*</label> [text* lastname id:lastname 30/50 placeholder "Firstname"]
+</div>
+<div>
+    <label for="middlename">Your Middle Name*</label> [text* middlename id:middlename  30/50 placeholder "Middle Name"]
+</div>
+<div>
+    <label for="firstname">Your Last Name*</label> [text* firstname id:firstname 30/50 placeholder "Lastname"]
+</div>
+<div class="address-postal">
     <h2><span class="section-title">Mailing address</span></h2>
     <label for="mail-street">Street*</label>[text* mail-street 40/40 id:mail-street placeholder ""]
     <label for="mail-street2">Street 2</label>[text mail-street2 40/40 id:mail-street2 placeholder ""]
@@ -17,6 +61,24 @@
     <div>
         <label for="mail-zip">Zip*</label> [text* mail-zip 10/10 id:mail-zip class:address-zip placeholder "#####"]
     </div>
+</div>
+<div>
+    <label for="phone-number-mobile">Mobile Phone Number*</label> [tel* phone-number-mobile id:phone-number-mobile 20/20 placeholder "###-###-####"]
+</div>
+<div>
+    <label for="phone-number-home">Home Phone Number*</label> [tel* phone-number-home id:phone-number-home 20/20 placeholder "###-###-####"]
+</div>
+<div>
+    <label for="email">Email* </label> [email* email id:email placeholder ""]
+</div>
+<div>
+    <label for="emergency-contact-name">Person(s) to be notified in case of illness or emergency*</label> [text* emergency-contact-name id:emergency-contact-name 40/200 placeholder "Name"]
+</div>
+<div>
+    <label for="emergency-contact-phone">Phone number for emergency contact*</label> [tel* emergency-contact-phone id:emergency-contact-phone 20/20 placeholder "###-###-####"]
+</div>
+<div>
+    <label for="emergency-contact-phone-secondary">Phone number for second emergency contact</label> [tel emergency-contact-phone-secondary id:emergency-contact-phone-secondary 20/20 placeholder "###-###-####"]
 </div>
 <div class="question">
     <label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?*</label> [checkbox* age-legal id:age-legal class:question use_label_element exclusive "Yes" "No" ]
@@ -48,9 +110,10 @@
 <div>
     <label for="name">How did you learn about us?*</label> [textarea* how-learn-about id:how-learn-about placeholder "" ]
 </div>
+
 <div>
     <label for="quiz-test">Is snow hot or cold?*</label> [quiz quiz-test id:quiz-test 10/10 "|cold"]
-    <span class="instructions">This proves your a human and not a spammer.</span>
+    <span class="instructions">This proves you are not a spammer.</span>
 </div>
 <div>
     [submit "Send"]

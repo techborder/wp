@@ -92,8 +92,12 @@ label,
   width:70%;
 }
 
+div.employer {
+  margin-bottom: 48px;
+}
+
 div.address-postal {
-  padding-bottom: 8px;
+  margin-bottom: 48px;
 }
 
 /* Align the Send (submit) button to the right, under other inputs*/

@@ -51,7 +51,7 @@
     <label for="firstname">Your Last Name*</label> [text* firstname id:firstname 30/50 placeholder "Lastname"]
 </div>
 <div class="address-postal">
-    <h2><span class="section-title">Mailing address</span></h2>
+    <h3><span class="section-title">Mailing address</span></h3>
     <label for="mail-street">Street*</label>[text* mail-street 40/40 id:mail-street placeholder ""]
     <label for="mail-street2">Street 2</label>[text mail-street2 40/40 id:mail-street2 placeholder ""]
     <label for="mail-city">City*</label>[text* mail-city 30/50 id:mail-city placeholder ""]
@@ -111,11 +111,11 @@
     <label for="name">How did you learn about us?*</label> [textarea* how-learn-about id:how-learn-about placeholder "" ]
 </div>
 <div>
-    <h2><strong>Employment Experience</strong></h2>
+    <h2><span class="section-title">Employment Experience</strong></h2>
     <span class="instructions">Start with you present or last job. Include any job-related military service assignments and volunteer activities. You may exclude organizations, which indicate race, color, religion, gender, national origin, disabilities or other protected status.</span>
 </div>
 <div class="employer">
-    <h3>Employer 1</h3>
+    <h3><span class="section-title">Employer 1</span></h3>
     <div>
         <label for="firstname">Employer*</label> [text* employer-1-name id:employer-1-name 30/50 placeholder ""]
     </div>
@@ -133,7 +133,7 @@
         <label for="employer-1-phone-number">Phone Number*</label> [tel* employer-1-phone-number id:employer-1-phone-number 20/20 placeholder "###-###-####"]
     </div>
     <div>
-        <label for="employer-1-reason-leaving">Position applied for*</label> [text* employer-1-reason-leaving id:employer-1-reason-leaving 60/160 placeholder ""]
+        <label for="employer-1-reason-leaving">Reason for leaving*</label> [text* employer-1-reason-leaving id:employer-1-reason-leaving 60/160 placeholder ""]
     </div>
     <div class="question">
         <label for="date-employed-from-1">Employed from:*</label> [date* employer-1-date-from id:employer-1-date-from  min:1940-01-01]
@@ -150,7 +150,7 @@
 </div>
 
 <div class="employer">
-    <h3>Employer 2</h3>
+    <h3><span class="section-title">Employer 2</span></h3>
     <div>
         <label for="firstname">Employer*</label> [text* employer-2-name id:employer-2-name 30/50 placeholder ""]
     </div>
@@ -168,7 +168,7 @@
         <label for="employer-2-phone-number">Phone Number*</label> [tel* employer-2-phone-number id:employer-2-phone-number 20/20 placeholder "###-###-####"]
     </div>
     <div>
-        <label for="employer-2-reason-leaving">Position applied for*</label> [text* employer-2-reason-leaving id:employer-2-reason-leaving 60/160 placeholder ""]
+        <label for="employer-2-reason-leaving">Reason for leaving*</label> [text* employer-2-reason-leaving id:employer-2-reason-leaving 60/160 placeholder ""]
     </div>
     <div class="question">
         <label for="date-employed-from-1">Employed from:*</label> [date* employer-2-date-from id:employer-2-date-from  min:1940-01-01]
@@ -181,6 +181,40 @@
     </div>
     <div>
         <label for="employer-2-salary">Salary*</label> [number* employer-2-salary id:employer-2-salary min:100 max:200000 step:100 placeholder ""]
+    </div>
+</div>
+<div class="employer">
+    <h3><span class="section-title">Employer 3</span></h3>
+    <div>
+        <label for="firstname">Employer</label> [text employer-3-name id:employer-3-name 30/50 placeholder ""]
+    </div>
+    <div class="address-postal">
+        <h4><span class="section-title">Mailing address</span></h4>
+        <label for="employer-3-mail-street">Street</label>[text employer-3-mail-street 40/40 id:employer-3-mail-street placeholder ""]
+        <label for="employer-3-mail-street2">Street 2</label>[text employer-3-mail-street2 40/40 id:employer-3-mail-street2 placeholder ""]
+        <label for="employer-3-mail-city">City</label>[text employer-3-mail-city 30/50 id:employer-3-mail-city placeholder ""]
+        <label for="employer-3-mail-state">State</label> [select employer-3-mail-state id:employer-3-mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
+        <div>
+            <label for="employer-3-mail-zip">Zip</label> [text employer-3-mail-zip 10/10 id:employer-3-mail-zip class:address-zip placeholder "#####"]
+        </div>
+    </div>
+    <div>
+        <label for="employer-3-phone-number">Phone Number</label> [tel employer-3-phone-number id:employer-3-phone-number 20/20 placeholder "###-###-####"]
+    </div>
+    <div>
+        <label for="employer-3-reason-leaving">Reason for leaving</label> [text employer-3-reason-leaving id:employer-3-reason-leaving 60/160 placeholder ""]
+    </div>
+    <div class="question">
+        <label for="date-employed-from-1">Employed from:</label> [date employer-3-date-from id:employer-3-date-from  min:1940-01-01]
+    </div>
+    <div class="question">
+        <label for="date-employed-to-1">Employed to:</label> [date employer-3-date-to id:employer-3-date-to min:1940-01-01]
+    </div>
+    <div>
+        <label for="employer-3-work-performed">Work performed</label> [text employer-3-work-performed id:employer-3-work-performed 60/160 placeholder ""]
+    </div>
+    <div>
+        <label for="employer-3-salary">Salary</label> [number employer-3-salary id:employer-3-salary min:100 max:200000 step:100 placeholder ""]
     </div>
 </div>
 

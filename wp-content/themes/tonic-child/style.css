@@ -24,8 +24,8 @@ Template: tonic
 
 .instructions {
   font-size: 80%;
-  text-align: center;
-  padding-bottom: 8px;
+  margin-top: 0px;
+  margin-bottom: 8px;
 }
 
 /* =Inputs
@@ -39,6 +39,18 @@ textarea {
 .address-state,
 .address-zip {
   width: auto;
+}
+
+/* =Contact Form 7
+-------------------------------------------------------------- */
+/* Remove the gratiuis extra breaks from automatically inserted <p> tags.*/
+div.question div.instructions {
+  text-align: center;
+}
+
+.wpcf7 p
+{
+  margin: 0px;
 }
 
 /* Breathing room between lines.*/
@@ -91,12 +103,16 @@ label,
   width:70%;
 }
 
+.wpcf7 .question p {
+  text-align: center;
+}
+
 div.employer {
   margin-bottom: 48px;
 }
 
 div.address-postal {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 /* Align the Send (submit) button to the right, under other inputs*/
@@ -113,7 +129,7 @@ div.address-postal {
   width: 55%;
 }
 
-/* Overwrite plugin CSS of margin-left*/
+/* Needs to be more granular with 'span.*' to overwrite plugin CSS of margin-left*/
 span.wpcf7-list-item {
   white-space: nowrap;
   margin-left: 0px;
@@ -129,14 +145,13 @@ span.wpcf7-list-item > label {
   padding: 0px;
 }
 
-span.wpcf7-not-valid-tip {
+.wpcf7-not-valid-tip {
   text-align: center;
   margin-bottom: 8px;
 }
 
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).
-* WARNING: Update theme.js if the max width is changed here (e.g. max-width: 768).
 */
 @media (max-width: 768px) {
   .wpcf7 .address-zip {
@@ -152,7 +167,11 @@ span.wpcf7-not-valid-tip {
 	text-align: left;
   }
   
-  .section-title {
+  .wpcf7-not-valid-tip,
+  .section-title,
+  .instructions,
+  .wpcf7 .question p,
+  .wpcf7 .instructions div {
 	text-align: left;
 	display: inherit;
   }

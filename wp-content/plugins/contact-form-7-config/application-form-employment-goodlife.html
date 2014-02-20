@@ -37,10 +37,6 @@
 <div class="question">
     <label for="read-statements" class="question">I have read the above statements and understand them:*</label> [checkbox* read-statements id:read-statements class:question use_label_element exclusive "Yes" "No" ]
 </div>
-
-<div>
-    <label for="position">Position applied for*</label> [text* position id:position  60/100 placeholder "First Last"]
-</div>
 <div>
     <label for="firstname">Your First Name*</label> [text* lastname id:lastname 30/50 placeholder "Firstname"]
 </div>
@@ -48,7 +44,7 @@
     <label for="middlename">Your Middle Name*</label> [text* middlename id:middlename  30/50 placeholder "Middle Name"]
 </div>
 <div>
-    <label for="firstname">Your Last Name*</label> [text* firstname id:firstname 30/50 placeholder "Lastname"]
+    <label for="lastname">Your Last Name*</label> [text* lastname id:lastname 30/50 placeholder "Lastname"]
 </div>
 <div class="address-postal">
     <h3><span class="section-title">Mailing address</span></h3>
@@ -108,16 +104,16 @@
     <label class="question">Have reliable transportation to work regardless of the weather?*</label> [checkbox* have-transportation id:have-transportation class:question use_label_element exclusive "Yes" "No" ]
 </div>
 <div>
-    <label for="name">How did you learn about us?*</label> [textarea* how-learn-about id:how-learn-about placeholder "" ]
+    <label for="how-learn-about">How did you learn about us?*</label> [textarea* how-learn-about id:how-learn-about placeholder "" ]
 </div>
 <div>
     <h2><span class="section-title">Employment Experience</strong></h2>
-    <span class="instructions">Start with you present or last job. Include any job-related military service assignments and volunteer activities. You may exclude organizations, which indicate race, color, religion, gender, national origin, disabilities or other protected status.</span>
+    <p class="instructions">Start with you present or last job. Include any job-related military service assignments and volunteer activities. You may exclude organizations, which indicate race, color, religion, gender, national origin, disabilities or other protected status. If you have no previous job, eneter "None" for Empoyer 1 and Employer 2.</p>
 </div>
 <div class="employer">
-    <h3><span class="section-title">Employer 1</span></h3>
+    <h3><span class="section-title">Employer 1 (required)</span></h3>
     <div>
-        <label for="firstname">Employer*</label> [text* employer-1-name id:employer-1-name 30/50 placeholder ""]
+        <label for="employer-1-name">Employer*</label> [text* employer-1-name id:employer-1-name 30/50 placeholder ""]
     </div>
     <div class="address-postal">
         <h4><span class="section-title">Mailing address</span></h4>
@@ -136,23 +132,24 @@
         <label for="employer-1-reason-leaving">Reason for leaving*</label> [text* employer-1-reason-leaving id:employer-1-reason-leaving 60/160 placeholder ""]
     </div>
     <div class="question">
-        <label for="date-employed-from-1">Employed from:*</label> [date* employer-1-date-from id:employer-1-date-from  min:1940-01-01]
+        <label for="employer-1-date-from">Employed from:*</label> [date* employer-1-date-from id:employer-1-date-from  min:1940-01-01]
     </div>
     <div class="question">
-        <label for="date-employed-to-1">Employed to:*</label> [date* employer-1-date-to id:employer-1-date-to min:1940-01-01]
+        <label for="employer-1-date-to">Employed to:*</label> [date* employer-1-date-to id:employer-1-date-to min:1940-01-01]
     </div>
     <div>
         <label for="employer-1-work-performed">Work performed*</label> [text* employer-1-work-performed id:employer-1-work-performed 60/160 placeholder ""]
     </div>
     <div>
-        <label for="employer-1-salary">Salary*</label> [number* employer-1-salary id:employer-1-salary min:100 max:200000 step:100 placeholder ""]
+        <label for="employer-1-salary">Salary*</label> [number* employer-1-salary id:employer-1-salary min:100 max:200000 step:100 placeholder "Numbers only"]
+        <p class="instructions">No commas.</p>
     </div>
 </div>
 
 <div class="employer">
-    <h3><span class="section-title">Employer 2</span></h3>
+    <h3><span class="section-title">Employer 2 (required)</span></h3>
     <div>
-        <label for="firstname">Employer*</label> [text* employer-2-name id:employer-2-name 30/50 placeholder ""]
+        <label for="employer-2-name">Employer*</label> [text* employer-2-name id:employer-2-name 30/50 placeholder ""]
     </div>
     <div class="address-postal">
         <h4><span class="section-title">Mailing address</span></h4>
@@ -171,22 +168,23 @@
         <label for="employer-2-reason-leaving">Reason for leaving*</label> [text* employer-2-reason-leaving id:employer-2-reason-leaving 60/160 placeholder ""]
     </div>
     <div class="question">
-        <label for="date-employed-from-1">Employed from:*</label> [date* employer-2-date-from id:employer-2-date-from  min:1940-01-01]
+        <label for="employer-2-date-from">Employed from:*</label> [date* employer-2-date-from id:employer-2-date-from  min:1940-01-01]
     </div>
     <div class="question">
-        <label for="date-employed-to-1">Employed to:*</label> [date* employer-2-date-to id:employer-2-date-to min:1940-01-01]
+        <label for="employer-2-date-to">Employed to:*</label> [date* employer-2-date-to id:employer-2-date-to min:1940-01-01]
     </div>
     <div>
         <label for="employer-2-work-performed">Work performed*</label> [text* employer-2-work-performed id:employer-2-work-performed 60/160 placeholder ""]
     </div>
     <div>
-        <label for="employer-2-salary">Salary*</label> [number* employer-2-salary id:employer-2-salary min:100 max:200000 step:100 placeholder ""]
+        <label for="employer-2-salary">Salary*</label> [number* employer-2-salary id:employer-2-salary min:100 max:200000 step:100 placeholder "Numbers only"]
+        <p class="instructions">No commas.</p>
     </div>
 </div>
 <div class="employer">
-    <h3><span class="section-title">Employer 3</span></h3>
+    <h3><span class="section-title">Employer 3 (optional)</span></h3>
     <div>
-        <label for="firstname">Employer</label> [text employer-3-name id:employer-3-name 30/50 placeholder ""]
+        <label for="employer-3-name">Employer</label> [text employer-3-name id:employer-3-name 30/50 placeholder ""]
     </div>
     <div class="address-postal">
         <h4><span class="section-title">Mailing address</span></h4>
@@ -205,22 +203,92 @@
         <label for="employer-3-reason-leaving">Reason for leaving</label> [text employer-3-reason-leaving id:employer-3-reason-leaving 60/160 placeholder ""]
     </div>
     <div class="question">
-        <label for="date-employed-from-1">Employed from:</label> [date employer-3-date-from id:employer-3-date-from  min:1940-01-01]
+        <label for="employer-3-date-from">Employed from:</label> [date employer-3-date-from id:employer-3-date-from  min:1940-01-01]
     </div>
     <div class="question">
-        <label for="date-employed-to-1">Employed to:</label> [date employer-3-date-to id:employer-3-date-to min:1940-01-01]
+        <label for="employer-3-date-to">Employed to:</label> [date employer-3-date-to id:employer-3-date-to min:1940-01-01]
     </div>
     <div>
         <label for="employer-3-work-performed">Work performed</label> [text employer-3-work-performed id:employer-3-work-performed 60/160 placeholder ""]
     </div>
     <div>
-        <label for="employer-3-salary">Salary</label> [number employer-3-salary id:employer-3-salary min:100 max:200000 step:100 placeholder ""]
+        <label for="employer-3-salary">Salary</label> [number employer-3-salary id:employer-3-salary min:100 max:200000 step:100 placeholder "Numbers only"]
+        <span class="instructions">No commas.</span>
     </div>
 </div>
-
+<div class="employer">
+    <h3><span class="section-title">Employer 3 (optional)</span></h3>
+    <div>
+        <label for="employer-4-name">Employer</label> [text employer-4-name id:employer-4-name 30/50 placeholder ""]
+    </div>
+    <div class="address-postal">
+        <h4><span class="section-title">Mailing address</span></h4>
+        <label for="employer-4-mail-street">Street</label>[text employer-4-mail-street 40/40 id:employer-4-mail-street placeholder ""]
+        <label for="employer-4-mail-street2">Street 2</label>[text employer-4-mail-street2 40/40 id:employer-4-mail-street2 placeholder ""]
+        <label for="employer-4-mail-city">City</label>[text employer-4-mail-city 30/50 id:employer-4-mail-city placeholder ""]
+        <label for="employer-4-mail-state">State</label> [select employer-4-mail-state id:employer-4-mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
+        <div>
+            <label for="employer-4-mail-zip">Zip</label> [text employer-4-mail-zip 10/10 id:employer-4-mail-zip class:address-zip placeholder "#####"]
+        </div>
+    </div>
+    <div>
+        <label for="employer-4-phone-number">Phone Number</label> [tel employer-4-phone-number id:employer-4-phone-number 20/20 placeholder "###-###-####"]
+    </div>
+    <div>
+        <label for="employer-4-reason-leaving">Reason for leaving</label> [text employer-4-reason-leaving id:employer-4-reason-leaving 60/160 placeholder ""]
+    </div>
+    <div class="question">
+        <label for="employer-4-date-from">Employed from:</label> [date employer-4-date-from id:employer-4-date-from  min:1940-01-01]
+    </div>
+    <div class="question">
+        <label for="employer-4-date-to">Employed to:</label> [date employer-4-date-to id:employer-4-date-to min:1940-01-01]
+    </div>
+    <div>
+        <label for="employer-4-work-performed">Work performed</label> [text employer-4-work-performed id:employer-4-work-performed 60/160 placeholder ""]
+    </div>
+    <div>
+        <label for="employer-4-salary">Salary</label> [number employer-4-salary id:employer-4-salary min:100 max:200000 step:100 placeholder "Numbers only"]
+        <span class="instructions">No commas.</span>
+    </div>
+</div>
+<div class="employer">
+    <h3><span class="section-title">Employer 3 (optional)</span></h3>
+    <div>
+        <label for="employer-5-name">Employer</label> [text employer-5-name id:employer-5-name 30/50 placeholder ""]
+    </div>
+    <div class="address-postal">
+        <h4><span class="section-title">Mailing address</span></h4>
+        <label for="employer-5-mail-street">Street</label>[text employer-5-mail-street 40/40 id:employer-5-mail-street placeholder ""]
+        <label for="employer-5-mail-street2">Street 2</label>[text employer-5-mail-street2 40/40 id:employer-5-mail-street2 placeholder ""]
+        <label for="employer-5-mail-city">City</label>[text employer-5-mail-city 30/50 id:employer-5-mail-city placeholder ""]
+        <label for="employer-5-mail-state">State</label> [select employer-5-mail-state id:employer-5-mail-state class:address-state include_blank "AL" "AK" "AZ" "AR" "CA" "CO" "CT" "DC" "DE" "FL" "GA" "HI" "ID" "IL" "IN" "IA" "KS" "KY" "LA" "ME" "MD" "MA" "MI" "MN" "MS" "MO" "MT" "NE" "NV" "NH" "NJ" "NM" "NY" "NC" "ND" "OH" "OK" "OR" "PA" "RI" "SC" "SD" "TN" "TX" "UT" "VT" "VA" "WA" "WV" "WI" "WY"]
+        <div>
+            <label for="employer-5-mail-zip">Zip</label> [text employer-5-mail-zip 10/10 id:employer-5-mail-zip class:address-zip placeholder "#####"]
+        </div>
+    </div>
+    <div>
+        <label for="employer-5-phone-number">Phone Number</label> [tel employer-5-phone-number id:employer-5-phone-number 20/20 placeholder "###-###-####"]
+    </div>
+    <div>
+        <label for="employer-5-reason-leaving">Reason for leaving</label> [text employer-5-reason-leaving id:employer-5-reason-leaving 60/160 placeholder ""]
+    </div>
+    <div class="question">
+        <label for="employer-5-date-from">Employed from:</label> [date employer-5-date-from id:employer-5-date-from  min:1940-01-01]
+    </div>
+    <div class="question">
+        <label for="employer-5-date-to">Employed to:</label> [date employer-5-date-to id:employer-5-date-to min:1940-01-01]
+    </div>
+    <div>
+        <label for="employer-5-work-performed">Work performed</label> [text employer-5-work-performed id:employer-5-work-performed 60/160 placeholder ""]
+    </div>
+    <div>
+        <label for="employer-5-salary">Salary</label> [number employer-5-salary id:employer-5-salary min:100 max:200000 step:100 placeholder "Numbers only"]
+        <span class="instructions">No commas.</span>
+    </div>
+</div>
 <div>
     <label for="quiz-test">Is snow hot or cold?*</label> [quiz quiz-test id:quiz-test 10/10 "|cold"]
-    <span class="instructions">This proves you are not a spammer.</span>
+    <p class="instructions">This proves you are not a spammer.</p>
 </div>
 <div>
     [submit "Send"]

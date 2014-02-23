@@ -53,13 +53,10 @@ class DUP_Package {
      */
     function __construct() {
 		
-		$name = date('Ymd') . '_' . sanitize_title(get_bloginfo( 'name', 'display' ));
-		$name = substr(str_replace('-', '', sanitize_file_name($name)), 0 , 40);
-
 		$this->ID			= null;
 		$this->Version		= DUPLICATOR_VERSION;
 		$this->Type			= DUP_PackageType::MANUAL;
-		$this->Name			= $name;
+		$this->Name			= self::GetDefaultName();
 		$this->Notes		= null;
 		$this->StoreURL     = DUP_Util::SSDirURL();
 		$this->StorePath    = DUPLICATOR_SSDIR_PATH_TMP;
@@ -185,11 +182,12 @@ class DUP_Package {
 
 		if (isset($post)) {
 			$post = stripslashes_deep($post);
-			$name = ( isset($post['package-name']) && ! empty($post['package-name']))
-				? $post['package-name'] 
-				: date('Ymd') . '_' . sanitize_title(get_bloginfo( 'name', 'display' ));
 			
-			$name          = substr(str_replace('-', '', sanitize_file_name($name)), 0 , 40);
+			$name_chars = array(".", "-");
+			$name = ( isset($post['package-name']) && ! empty($post['package-name'])) ? $post['package-name'] : self::GetDefaultName();
+			$name = substr(sanitize_file_name($name), 0 , 40);
+			$name = str_replace($name_chars, '', $name);
+
 			$filter_dirs   = isset($post['filter-dirs']) ? $this->parseDirectoryFilter($post['filter-dirs']) : '';
 			$filter_exts   = isset($post['filter-exts']) ? $this->parseExtensionFilter($post['filter-exts']) : '';
 			$tablelist     = isset($post['dbtables'])    ? implode(',', $post['dbtables']) : '';
@@ -227,27 +225,22 @@ class DUP_Package {
 	public function SetStatus($status) {
 		global $wpdb;
 		
-		if ( ! isset($status)) {
-			return false;
+		$packageObj = serialize($this);
+		
+		if (! isset($status)) {
+			DUP_Log::Error("Package SetStatus did not receive a proper code.");
 		}
 
-		$packageObj = serialize($this);
 		if (! $packageObj) {
-			DUP_Log::Error("Unable to serialize pacakge object while updating record.");
+			DUP_Log::Error("Package SetStatus was unable to serialize package object while updating record.");
 		}
 		
-		$result = $wpdb->update( 
-			$wpdb->prefix . "duplicator_packages", 
-			array( 
-				'status' => $status,
-				'package' => $packageObj
-			), 
-			array( 'ID' => $this->ID )
-		);
-		
-		
-		return $result;
-	}	
+		$wpdb->flush();
+		$table = $wpdb->prefix . "duplicator_packages";
+		$sql   = "UPDATE `{$table}` SET  status = {$status}, package = '{$packageObj}'	WHERE ID = {$this->ID}";
+		$wpdb->query($sql);
+	}
+	
 	
 	
 	/** 
@@ -318,6 +311,20 @@ class DUP_Package {
 		$sqlFile = file_exists(DUPLICATOR_WPROOTPATH . DUPLICATOR_INSTALL_SQL);
 		$logFile = file_exists(DUPLICATOR_WPROOTPATH . DUPLICATOR_INSTALL_LOG);
 		return  ($phpFile || $sqlFile || $logFile);
+		
+	}
+	
+		/** 
+	*  Creates a default name
+	*  @return string   A default packagename
+	*/
+	public static function GetDefaultName() {
+		//Remove specail_chars from final result
+		$special_chars = array(".", "-");
+		$name = date('Ymd') . '_' . sanitize_title(get_bloginfo( 'name', 'display' ));
+		$name = substr(sanitize_file_name($name), 0 , 40);
+		$name = str_replace($special_chars, '', $name);
+		return $name;
 		
 	}
 	

@@ -150,7 +150,7 @@
 				<td><?php echo get_current_user(); ?></td>
 			</tr>
 			<tr>
-				<td><a href="" target="_blank"><?php _e("Safe Mode", 'wpduplicator'); ?></a></td>
+				<td><a href="http://php.net/manual/en/features.safe-mode.php" target="_blank"><?php _e("Safe Mode", 'wpduplicator'); ?></a></td>
 				<td>
 				<?php echo (((strtolower(@ini_get('safe_mode')) == 'on')	  ||  (strtolower(@ini_get('safe_mode')) == 'yes') || 
 							 (strtolower(@ini_get('safe_mode')) == 'true') ||  (ini_get("safe_mode") == 1 )))  
@@ -226,32 +226,28 @@
 		</div>
 		<div class="dup-box-panel" id="dup-settings-diag-opts-panel" style="<?php echo $ui_css_opts_panel?>">
 			<div style="padding:0px 20px 0px 25px">
+				<h3 class="title" style="margin-left:-15px"><?php _e("Options Values", 'wpduplicator') ?> </h3>	
 
-
-		
-
-			<h3 class="title" style="margin-left:-15px"><?php _e("Options Values", 'wpduplicator') ?> </h3>	
-			
-			<table class="widefat" cellspacing="0">		
-				<tr>
-					<th>Key</th>
-					<th>Value</th>
-				</tr>		
-				<?php 
-					$sql = "SELECT * FROM `{$wpdb->prefix}options` WHERE  `option_name` LIKE  '%duplicator_%' ORDER BY option_name";
-					foreach( $wpdb->get_results("{$sql}") as $key => $row) { ?>	
+				<table class="widefat" cellspacing="0">		
 					<tr>
-						<td>
-							<?php 
-								 echo (in_array($row->option_name, $GLOBALS['DUPLICATOR_OPTS_DELETE']))
-									? "<a href='javascript:void(0)' onclick='Duplicator.Settings.DeleteOption(this)'>{$row->option_name}</a>"
-									: $row->option_name;
-							?>
-						</td>
-						<td><textarea class="dup-opts-read" readonly="readonly"><?php echo $row->option_value?></textarea></td>
-					</tr>
-				<?php } ?>	
-			</table>
+						<th>Key</th>
+						<th>Value</th>
+					</tr>		
+					<?php 
+						$sql = "SELECT * FROM `{$wpdb->prefix}options` WHERE  `option_name` LIKE  '%duplicator_%' ORDER BY option_name";
+						foreach( $wpdb->get_results("{$sql}") as $key => $row) { ?>	
+						<tr>
+							<td>
+								<?php 
+									 echo (in_array($row->option_name, $GLOBALS['DUPLICATOR_OPTS_DELETE']))
+										? "<a href='javascript:void(0)' onclick='Duplicator.Settings.DeleteOption(this)'>{$row->option_name}</a>"
+										: $row->option_name;
+								?>
+							</td>
+							<td><textarea class="dup-opts-read" readonly="readonly"><?php echo $row->option_value?></textarea></td>
+						</tr>
+					<?php } ?>	
+				</table>
 			</div>
 
 		</div> <!-- end .dup-box-panel -->	

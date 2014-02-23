@@ -3,20 +3,24 @@
 import re
 
 def main():
-	#code
-	
-	pattern = '\[\w\w+\*? ([a-z0-9-]+)'
+	patternSection = 'section-title\s+\> ([\w+\,\.\s]+)(\<\/label\>)+([\w\,\s\w\s\w\?\!\.]*)\[(\w\w+\*?) ([a-z0-9-]+)'
+	patternLabel = '(\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*([\w\d\s\?:,.\(\)\/\"\'-]+))[\*\s*]*\<\/label\>\s*\[[\w-]*\*?\s+([\w\d-]+)'
 	with open('/var/www/wp/devglc/wp-content/plugins/contact-form-7-config/application-form-employment-goodlife.html') as f:
 		for line in f:
-			if re.search(pattern,line.decode('utf-8'), re.I | re.U ):
-				result = re.search(pattern,line.decode('utf-8'), re.I | re.U )
-				field = result.group(1).encode('utf8')
-				print "<strong>" + field.replace("-"," ").title() + ":</strong> [" + field + "]"
-				
-	#result = re.search(pattern,s.decode('utf-8'), re.I | re.U )
+			pattern = patternLabel
+			# Add in other pattern to capture and print headings
+			if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
+				result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
+				label = result.group(1).encode('utf-8')
+				#field = result.group(2).encode('utf-8')
+				#print "<strong>" + label + ":</strong> [" + field + "]"
+				# DEBUG
+				print result.group(1).encode('utf-8')
+				#print result.groups()
+			pattern = patternSection
+			if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
+				result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
+				print result.groups()
 	
-	# Flags: re.U is for Unicode. re.I to ignore case.
-	#print result.group(0)
-
 if __name__=="__main__":
 	main()

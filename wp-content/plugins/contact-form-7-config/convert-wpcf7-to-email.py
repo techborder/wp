@@ -3,7 +3,8 @@
 import re
 
 def main():
-	patternSection = 'section-title\s+\> ([\w+\,\.\s]+)(\<\/label\>)+([\w\,\s\w\s\w\?\!\.]*)\[(\w\w+\*?) ([a-z0-9-]+)'
+	patternSection = '(\<h\d\>)\<span class="section-title"\s*\>\s*([\w\d\s\?:,.\(\)\/\"\'-]+)\s*\<\/span\>(\<\/h\d\>)'
+	# This regex will not detect quotes that are slanted (e.g. commonly from Microsoft Word or Outlook). Must convert these funky quotes to the coresponding ones on the keyboard " or '.
 	patternLabel = '(\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*([\w\d\s\?:,.\(\)\/\"\'-]+))[\*\s*]*\<\/label\>\s*\[[\w-]*\*?\s+([\w\d-]+)'
 	with open('/var/www/wp/devglc/wp-content/plugins/contact-form-7-config/application-form-employment-goodlife.html') as f:
 		for line in f:

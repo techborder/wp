@@ -2,13 +2,13 @@
 Contributors: Daniel Tara
 Tags: blue, brown, gray, green, tan, white,
 light, one-column, two-columns, three-columns, four-columns,
-left-sidebar, right-sidebar, fixed-width, flexible-width,
+left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout,
 custom-background, custom-colors, custom-header, custom-menu,
 editor-style, featured-images, full-width-template, microformats,
 post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 3.6
-Tested up to: 3.6.1
-Stable tag: 1.1.2
+Tested up to: 3.8.1
+Stable tag: 1.1.3
 
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
 
@@ -198,6 +198,16 @@ You may remove any copyright references (unless required by third party componen
 The theme is offered free of charge. If someone asked money for it, someone just tricked you.
 
 == Changelog ==
+
+= 1.1.3 =
+
+* Fixed bug with jQuery Masonry and AJAX Navigation
+* Fixed '//' in URL on serach results pages
+* Fixed margin-top for Search Widget in Header Sidebar
+* Replaced .post selector with .hentry in JavaScript
+* Added callbacks for MediaElement Player, FitVids and Colorbox to AJAX Navigation
+* Added clearfix to 404 page
+* Updated new 3.8 tags
 
 = 1.1.2 =
 

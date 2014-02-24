@@ -24,7 +24,8 @@ Template: tonic
 
 .instructions {
   font-size: 80%;
-  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 8px;
 }
 
 /* =Inputs
@@ -35,9 +36,23 @@ textarea {
 }
 
 /* More narrow inputs for state and zip */
+.wpcf7 select,
 .address-state,
 .address-zip {
   width: auto;
+}
+
+/* =Contact Form 7
+-------------------------------------------------------------- */
+.instructions {
+  clear: both;
+  text-align: center;
+}
+
+/* Remove the extra breaks from automatically inserted <p> tags.*/
+.wpcf7 p
+{
+  margin: 0px;
 }
 
 /* Breathing room between lines.*/
@@ -79,7 +94,6 @@ label,
   width:40%;
   margin-right:0.5em;
   text-align:right;
-  font-weight:bold;
 }
 
 .wpcf7 .question {
@@ -91,9 +105,25 @@ label,
   width:70%;
 }
 
-div.physical-address {
+.wpcf7 .question p {
+  text-align: center;
+}
+
+.wpcf7 label.question-long,
+.wpcf7 .question-long {
   float: none;
   clear: none;
+  width: auto;
+  display: block;
+  text-align: left;
+}
+
+div.employer {
+  margin-bottom: 48px;
+}
+
+div.address-postal {
+  margin-bottom: 32px;
 }
 
 /* Align the Send (submit) button to the right, under other inputs*/
@@ -110,7 +140,7 @@ div.physical-address {
   width: 55%;
 }
 
-/* Overwrite plugin CSS of margin-left*/
+/* Needs to be more granular with 'span.*' to overwrite plugin CSS of margin-left*/
 span.wpcf7-list-item {
   white-space: nowrap;
   margin-left: 0px;
@@ -126,14 +156,13 @@ span.wpcf7-list-item > label {
   padding: 0px;
 }
 
-span.wpcf7-not-valid-tip {
+.wpcf7-not-valid-tip {
   text-align: center;
   margin-bottom: 8px;
 }
 
 /* Smaller screens */
 /* This media test is intended to limit the following CSS to the iPad, iPhone, and similar devices (because some older browsers don’t support max-width in media queries, and a lot of desktop browsers are run wider than 1024 pixels).
-* WARNING: Update theme.js if the max width is changed here (e.g. max-width: 768).
 */
 @media (max-width: 768px) {
   .wpcf7 .address-zip {
@@ -149,7 +178,9 @@ span.wpcf7-not-valid-tip {
 	text-align: left;
   }
   
-  .section-title {
+  .wpcf7-not-valid-tip,
+  .section-title,
+  .wpcf7 .question p {
 	text-align: left;
 	display: inherit;
   }

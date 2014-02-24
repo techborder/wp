@@ -608,7 +608,6 @@ if ( ! function_exists( 'pinboard_enqueue_scripts' ) ) :
 function pinboard_enqueue_scripts() {
 	wp_enqueue_script( 'ios-orientationchange-fix' );
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'jquery-migrate' );
 	wp_enqueue_script( 'flexslider' );
 	wp_enqueue_script( 'fitvids' );
 	wp_enqueue_script( 'wp-mediaelement' );
@@ -695,23 +694,23 @@ function pinboard_call_scripts() { ?>
 		if( ($(window).width() > 960) || ($(document).width() > 960) ) {
 			// Viewport is greater than tablet: portrait
 		} else {
-			$('#content .post').each(function() {
+			$('#content .hentry').each(function() {
 				pinboard_move_elements($(this));
 			});
 		}
 		$(window).resize(function() {
 			if( ($(window).width() > 960) || ($(document).width() > 960) ) {
 				<?php if( is_category( pinboard_get_option( 'portfolio_cat' ) ) || ( is_category() && cat_is_ancestor_of( pinboard_get_option( 'portfolio_cat' ), get_queried_object() ) ) ) : ?>
-					$('#content .post').each(function() {
+					$('#content .hentry').each(function() {
 						pinboard_restore_elements($(this));
 					});
 				<?php else : ?>
-					$('.page-template-template-full-width-php #content .post, .page-template-template-blog-full-width-php #content .post, .page-template-template-blog-four-col-php #content .post').each(function() {
+					$('.page-template-template-full-width-php #content .hentry, .page-template-template-blog-full-width-php #content .hentry, .page-template-template-blog-four-col-php #content .hentry').each(function() {
 						pinboard_restore_elements($(this));
 					});
 				<?php endif; ?>
 			} else {
-				$('#content .post').each(function() {
+				$('#content .hentry').each(function() {
 					pinboard_move_elements($(this));
 				});
 			}
@@ -798,7 +797,34 @@ function pinboard_call_scripts() { ?>
 								helper = $(helper);
 								helper.html(data);
 								var content = $('#content .entries', helper);
-								$('.entries').append(content.html());
+								var $entries = $(content.html()).css({ opacity: 0 });
+								$('.entries').append($entries);
+								$content.imagesLoaded(function(){
+									$entries.animate({ opacity: 1 });
+									$content.masonry( 'appended', $entries, true );
+								});
+								if( ($(window).width() > 960) || ($(document).width() > 960) ) {
+									// Viewport is greater than tablet: portrait
+								} else {
+									$('#content .hentry').each(function() {
+										pinboard_move_elements($(this));
+									});
+								}
+								$('audio,video').mediaelementplayer({
+									videoWidth: '100%',
+									videoHeight: '100%',
+									audioWidth: '100%',
+									alwaysShowControls: true,
+									features: ['playpause','progress','tracks','volume'],
+									videoVolume: 'horizontal'
+								});
+								$(".entry-attachment, .entry-content").fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});
+								<?php if( pinboard_get_option( 'lightbox' ) ) : ?>
+									$('.entry-content a[href$=".jpg"],.entry-content a[href$=".jpeg"],.entry-content a[href$=".png"],.entry-content a[href$=".gif"],a.colorbox').colorbox({
+										maxWidth: '100%',
+										maxHeight: '100%',
+									});
+								<?php endif; ?>
 								var nav_url = $('#posts-nav .nav-next a', helper).attr('href');
 								if(typeof nav_url !== 'undefined') {
 									nav_link.attr('href', nav_url);
@@ -835,7 +861,7 @@ function pinboard_call_scripts() { ?>
 						if( ($(window).width() > 960) || ($(document).width() > 960) ) {
 							// Viewport is greater than tablet: portrait
 						} else {
-							$('#content .post').each(function() {
+							$('#content .hentry').each(function() {
 								pinboard_move_elements($(this));
 							});
 						}
@@ -1468,40 +1494,6 @@ function pinboard_post_class( $classes, $class, $post_id ) {
 	$classes[] = 'column';
 	if( pinboard_is_teaser() ) {
 		$classes[] = pinboard_teaser_class();
-		// global $pinboard_page_template;
-		// if( isset( $pinboard_page_template ) ) {
-		// 	if( 'template-blog.php' == $pinboard_page_template || 'template-portfolio-right-sidebar.php' == $pinboard_page_template )
-		// 		$classes[] = 'twocol';
-		// 	elseif( 'template-blog-full-width.php' == $pinboard_page_template || 'template-portfolio.php' == $pinboard_page_template )
-		// 		$classes[] = 'threecol';
-		// 	elseif( 'template-blog-four-col.php' == $pinboard_page_template || 'template-portfolio-four-col.php' == $pinboard_page_template )
-		// 		$classes[] = 'fourcol';
-		// 	elseif( 'template-blog-left-sidebar.php' == $pinboard_page_template || 'template-portfolio-left-sidebar.php' == $pinboard_page_template )
-		// 		$classes[] = 'twocol';
-		// 	elseif( 'template-blog-no-sidebars.php' == $pinboard_page_template || 'template-portfolio-no-sidebars.php' == $pinboard_page_template )
-		// 		$classes[] = 'twocol';
-		// } elseif( is_category( pinboard_get_option( 'portfolio_cat' ) ) || ( is_category() && cat_is_ancestor_of( pinboard_get_option( 'portfolio_cat' ), get_queried_object() ) ) ) {
-		// 	if( 2 == pinboard_get_option( 'portfolio_columns' ) )
-		// 		$classes[] = 'twocol';
-		// 	elseif( 3 == pinboard_get_option( 'portfolio_columns' ) )
-		// 		$classes[] = 'threecol';
-		// 	elseif( 4 == pinboard_get_option( 'portfolio_columns' ) )
-		// 		$classes[] = 'fourcol';
-		// } elseif( 'full-width' == pinboard_get_option( 'layout' ) || 'no-sidebars' == pinboard_get_option( 'layout' ) ) {
-		// 	if( 2 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = 'twocol';
-		// 	elseif( 3 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = 'threecol';
-		// 	elseif( 4 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = ( 'no-sidebars' == pinboard_get_option( 'layout' ) ? 'threecol' : 'fourcol' );
-		// } else {
-		// 	if( 2 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = 'onecol';
-		// 	elseif( 3 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = 'twocol';
-		// 	elseif( 4 == pinboard_get_option( 'layout_columns' ) )
-		// 		$classes[] = 'threecol';
-		// }
 	} else {
 		$classes[] = 'onecol';
 	}
@@ -2335,8 +2327,8 @@ function pinboard_404() { ?>
 				<?php dynamic_sidebar( 7 ); ?>
 			</div><!-- .entry-content -->
 		</article><!-- .post -->
+		<div class="clear"></div>
 	</div><!-- .entry -->
-	<div class="clear"></div>
 <?php
 }
 endif;

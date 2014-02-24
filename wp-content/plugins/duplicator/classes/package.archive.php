@@ -110,7 +110,10 @@ class DUP_Archive {
 			if (!$file->isDot()) {
 				$nextpath	= "{$currentPath}/{$file}";
 				if ($file->isDir()) {
-					if (! in_array($nextpath, $this->filterDirsArray)) {						
+					if (! in_array($nextpath, $this->filterDirsArray)) {		
+						if (preg_match('/(\/|\*|\?|\>|\<|\:|\\|\|)/', $file) || trim($file) == "") {
+							array_push($this->InvalidFileList, $nextpath);
+						}
 						$result = $this->runDirStats($nextpath);
 						$this->DirCount++;
 					}
@@ -123,7 +126,7 @@ class DUP_Archive {
 						$this->FileCount++;
 						if (strlen($nextpath) > 200 || preg_match('/(\/|\*|\?|\>|\<|\:|\\|\|)/', $file)) 
 							array_push($this->InvalidFileList, $nextpath);
-						if ($file->getSize() > DUPLICATOR_SCAN_BIGFILE) 
+						if ($fileSize > DUPLICATOR_SCAN_BIGFILE) 
 							array_push($this->BigFileList, $nextpath . ' [' . DUP_Util::ByteSize($fileSize) . ']');
 					}
 				} else if ($file->isLink()) {
@@ -131,6 +134,7 @@ class DUP_Archive {
 				} 
 			}	 
 		}
+		@closedir($dh);
 	}	
 	
 }

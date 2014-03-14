@@ -42,11 +42,19 @@ textarea {
   width: auto;
 }
 
+
 /* =Contact Form 7
 -------------------------------------------------------------- */
 .instructions {
   clear: both;
   text-align: center;
+}
+
+div.wpcf7 * label,
+/*div.wpcf7 form fieldset div label,*/
+/*div .wpcf7,*/
+.wpcf7 {
+  display: block;
 }
 
 /* Remove the extra breaks from automatically inserted <p> tags.*/
@@ -76,9 +84,10 @@ label,
   min-height: 28px;
   padding: 4px;
   font-size: 17px;
-  text-align: left;
+  /*text-align: left;*/
   vertical-align: middle;
 }
+
 
 .wpcf7 div,
 .wpcf7 label {
@@ -189,3 +198,9 @@ span.wpcf7-list-item > label {
 	width: 80%;
   }
 }
+
+/* display block does not seem to take affect on label */
+/*.section-title {*/
+/*  display: block;*/
+/*  text-align: center;*/
+/*}*/

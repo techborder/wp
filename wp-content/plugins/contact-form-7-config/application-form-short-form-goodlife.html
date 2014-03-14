@@ -1,0 +1,35 @@
+<fieldset>
+<div>
+    <label for="name">Your Name*</label> [text* name id:name 40/100 placeholder "First Last"]
+</div>
+<div>
+    <label for="phone-number">Your Phone Number*</label> [tel* phone-number id:phone-number 20/20 placeholder "###-###-####"]
+</div>
+<div>
+    <label for="email">Your Email* </label> [email* email id:email placeholder ""]
+</div>
+<div>
+    <label for="reference-3-relationship">Service*</label> [select* reference-3-relationship id:reference-3-relationship include_blank "Residential Support" "Day Support"]
+</div>
+<div class="question">
+    <label class="question">Has the applicant been diagnosed with an intellectual disability or mental retardation?*</label> [checkbox* has-been-diagnosed id:has-been-diagnosed class:question use_label_element exclusive "Yes" "No" "I don't know" ]
+</div>
+<div class="question">
+    <label class="question">Does the applicant have a case manager or involved with a community services board?*</label> [checkbox* has-case-manager id:has-case-manager class:question use_label_element exclusive "Yes" "No" "I don't know" ]
+</div>
+
+<div>
+    <label for="reference-3-relationship">Relationship to applicant*</label> [select* reference-3-relationship id:reference-3-relationship include_blank "Brother or Sister" "Case Manager" "Friend" "Grandparent" "Parent" "Other (fill-in below)"]
+    <label for="reference-3-relationship-other">Other relationship</label> [text reference-3-relationship-other id:reference-3-relationship-other 10/10 placeholder ""]
+</div>
+<div>
+    <label for="message">Your Message</label> [textarea message id:message]
+</div>
+<div>
+    <label for="quiz-test">Is snow hot or cold?*</label> [quiz quiz-test id:quiz-test 10/10 "|cold"]
+    <span class="instructions">This proves you are not a spammer.</span>
+</div>
+<div>
+    [submit "Send"]
+</div>
+</fieldset>

@@ -5,7 +5,7 @@ import re
 def main():
 	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
 	pattern_label = '\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>\s*\[([\w-]*)\*?\s+([\w\d-]+)'
-	with open('/var/www/wp/devglc/wp-content/plugins/contact-form-7-config/application-form-employment-goodlife.html') as f:
+	with open('application-form-short-form-goodlife.html') as f:
 		for line in f:
 			# DEBUG
 			#print "Line: " + line
@@ -32,7 +32,7 @@ def main():
 					field = "_format_" + field + ' "m/d/y"'
 				if re.match(".*-zip", field, re.I):
 					suffix = "<br/>"
-				print label + ": <strong> [" + field + "] </strong>" + suffix
+				print "<strong>" + label + "</strong> [" + field + "]" + suffix
 				# DEBUG
 				#print label
 				#print result.groups()

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #coding=utf8
+# Common section
 import re
 import argparse
 import sys
@@ -29,7 +30,6 @@ def get_args_parser():
 	return parser
 
 def main():
-	# Common section
 	parser = get_args_parser()
 	options = parser.parse_args()
 	if options.help:

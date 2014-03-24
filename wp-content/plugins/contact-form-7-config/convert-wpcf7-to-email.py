@@ -35,7 +35,7 @@ def main():
 
 	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
 	incoming = options.infile
-	#output = options.outfile
+	output = options.outfile
 	pattern_label = '\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>\s*\[([\w-]*)\*?\s+([\w\d-]+)'
 	for line in incoming:
 		# DEBUG
@@ -49,7 +49,7 @@ def main():
 			markup_begin = result.group(1).encode('utf-8')
 			markup_end = result.group(3).encode('utf-8')
 			section_title = result.group(2).encode('utf-8')
-			print markup_begin + section_title + markup_end;
+			output.write( markup_begin + section_title + markup_end + "\n")
 		pattern = pattern_label
 		# Add in other pattern to capture and print headings
 		if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
@@ -63,7 +63,7 @@ def main():
 				field = "_format_" + field + ' "m/d/y"'
 			if re.match(".*-zip", field, re.I):
 				suffix = "<br/>"
-			print "<strong>" + label + "</strong> [" + field + "]" + suffix
+			output.write( "<strong>" + label + "</strong> [" + field + "]" + suffix + "\n")
 			# DEBUG
 			#print label
 			#print result.groups()

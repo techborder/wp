@@ -3,6 +3,8 @@
 import re
 import argparse
 import sys
+import logging
+import os
 
 def get_args_parser():
 	parser = argparse.ArgumentParser(add_help=False)
@@ -27,25 +29,38 @@ def get_args_parser():
 	return parser
 
 def main():
+	# Common section
 	parser = get_args_parser()
 	options = parser.parse_args()
 	if options.help:
 		parser.print_help()
 		parser.exit()
 
-	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
+	if options.debug:
+		if not os.path.isdir("log"):
+			os.mkdir("log")
+		logging.basicConfig(
+			format='%(asctime)s - (%(threadName)s) - %(message)s in %(funcName)s() at %(filename)s : %(lineno)s',
+			level=logging.DEBUG,
+			filename="log/debug.log",
+			filemode='w',
+		)
+		logging.debug(options)
+	else:
+		logging.basicConfig(handler=logging.NullHandler)
 	incoming = options.infile
 	output = options.outfile
+	# End common section
+
+	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
 	pattern_label = '\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>\s*\[([\w-]*)\*?\s+([\w\d-]+)'
 	for line in incoming:
-		# DEBUG
-		#print "Line: " + line
+		logging.debug('Line: ' + line)
 		suffix = ""
 		pattern = pattern_section
 		if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
 			result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
-			# DEBUG
-			#print result.groups()
+			logging.debug('Result groups: ')
 			markup_begin = result.group(1).encode('utf-8')
 			markup_end = result.group(3).encode('utf-8')
 			section_title = result.group(2).encode('utf-8')
@@ -57,6 +72,9 @@ def main():
 			label = result.group(3).encode('utf-8')
 			field_type = result.group(4).encode('utf-8')
 			field = result.group(5).encode('utf-8')
+			logging.debug('Label: ' + label)
+			logging.debug('Result groups: ')
+			logging.debug(result.groups())
 			# Add a line break after last mailing address field (Zip code). Layout specific.
 			if re.match("date", field_type, re.I):
 				# Change formatting to U.S. style
@@ -64,9 +82,6 @@ def main():
 			if re.match(".*-zip", field, re.I):
 				suffix = "<br/>"
 			output.write( "<strong>" + label + "</strong> [" + field + "]" + suffix + "\n")
-			# DEBUG
-			#print label
-			#print result.groups()
 	
 if __name__=="__main__":
 	main()

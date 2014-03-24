@@ -9,7 +9,7 @@
     <label for="email">Your Email* </label> [email* email id:email placeholder ""]
 </div>
 <div>
-    <label for="reference-3-relationship">Service*</label> [select* reference-3-relationship id:reference-3-relationship include_blank "Residential Support" "Day Support"]
+    <label for="reference-3-relationship">Service*</label> [select* service-type id:service-type include_blank "Residential Support" "Day Support"]
 </div>
 <div class="question">
     <label class="question">Has the applicant been diagnosed with an intellectual disability or mental retardation?*</label> [checkbox* has-been-diagnosed id:has-been-diagnosed class:question use_label_element exclusive "Yes" "No" "I don't know" ]
@@ -19,8 +19,8 @@
 </div>
 
 <div>
-    <label for="reference-3-relationship">Relationship to applicant*</label> [select* reference-3-relationship id:reference-3-relationship include_blank "Brother or Sister" "Case Manager" "Friend" "Grandparent" "Parent" "Other (fill-in below)"]
-    <label for="reference-3-relationship-other">Other relationship</label> [text reference-3-relationship-other id:reference-3-relationship-other 10/10 placeholder ""]
+    <label for="reference-3-relationship">Relationship to applicant*</label> [select* relationship-to-applicant id:relationship-to-applicant include_blank "Brother or Sister" "Case Manager" "Friend" "Grandparent" "Parent" "Other (fill-in below)"]
+    <label for="reference-3-relationship-other">Other relationship</label> [text relationship-to-applicant-other id:reference-3-relationship-other 40/40 placeholder ""]
 </div>
 <div>
     <label for="message">Your Message</label> [textarea message id:message]

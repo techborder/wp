@@ -81,7 +81,7 @@ def main():
 				field = "_format_" + field + ' "m/d/y"'
 			if re.match(".*-zip", field, re.I):
 				suffix = "<br/>"
-			output.write( "<strong>" + label + "</strong> [" + field + "]" + suffix + "\n")
+			output.write( "<strong>" + label + ":</strong> [" + field + "]" + suffix + "\n")
 	
 if __name__=="__main__":
 	main()

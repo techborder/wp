@@ -1,6 +1,59 @@
 #!/usr/bin/env python
 #coding=utf8
 import re
+import argparse
+
+def get_args_parser():
+	parser = argparse.ArgumentParser(add_help=False)
+	parser.add_argument("-h", "--host",
+		default="localhost",
+		nargs='?',
+		type=str,
+		help="Connect to host.")
+	parser.add_argument("-p", "--port",
+		default=3306,
+		nargs='?',
+		type=int,
+		help="Port number to use for connection.")
+	parser.add_argument("-u", "--user",
+		default=None,
+		nargs='?',
+		type=str,
+		help="User for login if not current user.")
+	parser.add_argument("-P", "--password",
+		default='',
+		nargs='?',
+		type=str,
+		help="Password to use when connecting to server.")
+	parser.add_argument("-i", "--interval",
+		default=1,
+		nargs='?',
+		type=int,
+		help="Interval second of monitoring.")
+	parser.add_argument("-o", "--outfile",
+		default=sys.stdout,
+		nargs='?',
+		type=argparse.FileType('w'),
+		help="Output result file.")
+	parser.add_argument("-n", "--nonint",
+		default=False,
+		action='store_true',
+		help="Non-interactive.")
+	parser.add_argument("-m", "--mode",
+		default='status',
+		nargs='?',
+		choices=['status', 'process'],
+		help="monitoring Mode")
+	parser.add_argument("--debug",
+		default=False,
+		action='store_true',
+		help="Debug log enable.")
+	parser.add_argument("--help",
+		default=False,
+		action='store_true',
+		help="show this help message and exit.")
+	return parser
+
 
 def main():
 	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'

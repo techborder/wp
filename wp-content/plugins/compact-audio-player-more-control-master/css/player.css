@@ -1,0 +1,41 @@
+#sm2-container {
+	/* Remove the white pixel in lower left. */
+	width: 0px;
+}
+
+.sc_player_container1 {
+	display: inline;
+	cursor: pointer;
+	border: none;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.sc_player_container1 .myButton_play {
+	background: url(../image/play-sound.png) no-repeat 0 0;
+	height: 22px;
+	width: 22px;
+	cursor: inherit;
+	border: inherit;
+	position: inherit;
+	margin: inherit;
+	padding: inherit;
+}
+
+.sc_player_container1 .myButton_stop {
+	background: url(../image/pause-sound.png) no-repeat;
+	height: 22px;
+	width: 22px;
+	cursor: inherit;
+	border: inherit;
+	position: inherit;
+	margin: inherit;
+	padding: inherit;
+}
+
+/* On mouse-over, gives the affect that the icon has changed. */
+.sc_player_container1 .myButton_stop:hover,
+.sc_player_container1 .myButton_play:hover {
+	background-position: 0 -22px;
+}

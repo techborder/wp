@@ -14,3 +14,4 @@ sitemap.xml.gz
 wp-snapshots/*.zip
 wp-snapshots/*.sql
 wp-snapshots/*_installer.php
+wp-admin/error_log

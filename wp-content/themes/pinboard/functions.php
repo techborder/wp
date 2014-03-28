@@ -590,7 +590,7 @@ function pinboard_register_scripts() {
 	wp_register_script( 'imagesloaded', get_template_directory_uri() . '/scripts/imagesloaded.pkgd.js', array( 'jquery' ), null );
 	wp_register_script( 'masonry', get_template_directory_uri() . '/scripts/jquery.masonry.pkgd.js', array( 'jquery', 'imagesloaded' ), null );
 	wp_register_script( 'colorbox', get_template_directory_uri() . '/scripts/jquery.colorbox.js', array( 'jquery' ), null );
-	wp_register_script( 'fitvids', get_template_directory_uri() . '/scripts/fitvids.js', array( 'jquery' ), null );
+	wp_register_script( 'fitvids', get_template_directory_uri() . '/scripts/jquery.fitvids.js', array( 'jquery' ), null );
 	wp_register_script( 'infinitescroll', get_template_directory_uri() . '/scripts/jquery.infinitescroll.js', array( 'jquery' ), null );
 }
 endif;

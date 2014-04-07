@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.2.3
+Version: 2.2.4
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2
@@ -118,27 +118,7 @@ function sgp08b(){
 }
 
 
-/* Display a notice that can be dismissed */
-add_action('admin_notices', 'sg_lite_admin_notice');
-function sg_lite_admin_notice() {
-	global $current_user ;
-        $user_id = $current_user->ID;
-        /* Check that the user hasn't already clicked to ignore the message */
-	if ( ! get_user_meta($user_id, 'sg_lite_ignore_notice') ) {
-        echo '<div class="updated"><p>';
-        printf(__('Find out how a user boosted their site pageviews 10x <strong><a href = "http://epicplugins.com/social-gallery-proof-it-just-works/">Read How</a></strong>  <a href="%1$s" style = "float:right">Hide Notice</a>'), '?sg_lite_nag_ignore=0');
-        echo "</p></div>";
-	}
-}
-add_action('admin_init', 'sg_lite_nag_ignore');
-function sg_lite_nag_ignore() {
-	global $current_user;
-        $user_id = $current_user->ID;
-        /* If user clicks to ignore the notice, add that to their user meta */
-        if ( isset($_GET['sg_lite_nag_ignore']) && '0' == $_GET['sg_lite_nag_ignore'] ) {
-             add_user_meta($user_id, 'sg_lite_ignore_notice', 'true', true);
-	}
-}
+
 
 function sgpeb11c(){
 	
@@ -968,6 +948,13 @@ function sgpc1a_html(){
             </div>
    </div>
    <?php } ?>
+
+    <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
+            <div class="postbox">   
+ 				  <a href = "http://goo.gl/DcIBqo"><img src = "http://www.socialgalleryplugin.com/wp-content/uploads/2014/04/thebundle.png" width = "295px"/></a>
+   			</div>
+   </div>
+   
     <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
             <div class="postbox">
                 <h3 style="padding:8px;"><label><?php _e('Share the love'); ?></label></h3>
@@ -991,14 +978,7 @@ function sgpc1a_html(){
             </div>
    </div>
    
-    <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
-            <div class="postbox">
-                <h3 style="padding:8px;"><label><?php _e('Epic Plugins'); ?></label></h3>
-                <div class="inside">
-				<a href = ""><img src = "http://epicplugins.com/wp-content/uploads/2013/12/epic-plugins.png" width = "270px"/></a>
-            </div>
-   </div>
-   
+
    <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
             <div class="postbox">
                 <h3 style="padding:8px;"><label><?php _e('Compatible Themes & Plugins'); ?></label></h3>
@@ -1081,9 +1061,7 @@ function sgp1bf8a8c(){}					function sgpbeaa2(){
 		<a href="<?php echo $socialGalleryLite_urls['subscribe']; ?>" title="Join the Updates Newsletter List" target="_blank">Join Update List</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" title="Become a Pro" target="_blank">Get Full Version</a> | Version <?php echo $socialGalleryLite_version; ?>
     </div>
-       <div class = 'sgRHS'>
-	<a href = "http://www.socialgalleryplugin.com/video/" target = "_blank"><img src = '<?php echo plugins_url('i/banner1.png',__FILE__); ?>' /></a> 
-  </div>
+
     <?php 	
 	
 	

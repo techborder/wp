@@ -23,6 +23,7 @@ class wfConfig {
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => false,
 				"scansEnabled_public" => false,
+				"scansEnabled_heartbleed" => true,
 				"scansEnabled_core" => false,
 				"scansEnabled_themes" => false,
 				"scansEnabled_plugins" => false,
@@ -45,7 +46,6 @@ class wfConfig {
 				"loginSec_maskLoginErrors" => false,
 				"loginSec_blockAdminReg" => false,
 				"other_hideWPVersion" => false,
-				"other_disableXMLRPC" => false,
 				"other_noAnonMemberComments" => false,
 				"other_scanComments" => false,
 				"other_pwStrengthOnUpdate" => false,
@@ -97,6 +97,7 @@ class wfConfig {
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
 				"scansEnabled_public" => false,
+				"scansEnabled_heartbleed" => true,
 				"scansEnabled_core" => true,
 				"scansEnabled_themes" => false,
 				"scansEnabled_plugins" => false,
@@ -119,7 +120,6 @@ class wfConfig {
 				"loginSec_maskLoginErrors" => true,
 				"loginSec_blockAdminReg" => true,
 				"other_hideWPVersion" => true,
-				"other_disableXMLRPC" => true,
 				"other_noAnonMemberComments" => true,
 				"other_scanComments" => true,
 				"other_pwStrengthOnUpdate" => true,
@@ -171,6 +171,7 @@ class wfConfig {
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
 				"scansEnabled_public" => false,
+				"scansEnabled_heartbleed" => true,
 				"scansEnabled_core" => true,
 				"scansEnabled_themes" => false,
 				"scansEnabled_plugins" => false,
@@ -193,7 +194,6 @@ class wfConfig {
 				"loginSec_maskLoginErrors" => true,
 				"loginSec_blockAdminReg" => true,
 				"other_hideWPVersion" => true,
-				"other_disableXMLRPC" => true,
 				"other_noAnonMemberComments" => true,
 				"other_scanComments" => true,
 				"other_pwStrengthOnUpdate" => true,
@@ -245,6 +245,7 @@ class wfConfig {
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
 				"scansEnabled_public" => false,
+				"scansEnabled_heartbleed" => true,
 				"scansEnabled_core" => true,
 				"scansEnabled_themes" => false,
 				"scansEnabled_plugins" => false,
@@ -267,7 +268,6 @@ class wfConfig {
 				"loginSec_maskLoginErrors" => true,
 				"loginSec_blockAdminReg" => true,
 				"other_hideWPVersion" => true,
-				"other_disableXMLRPC" => true,
 				"other_noAnonMemberComments" => true,
 				"other_scanComments" => true,
 				"other_pwStrengthOnUpdate" => true,
@@ -319,6 +319,7 @@ class wfConfig {
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
 				"scansEnabled_public" => false,
+				"scansEnabled_heartbleed" => true,
 				"scansEnabled_core" => true,
 				"scansEnabled_themes" => false,
 				"scansEnabled_plugins" => false,
@@ -341,7 +342,6 @@ class wfConfig {
 				"loginSec_maskLoginErrors" => true,
 				"loginSec_blockAdminReg" => true,
 				"other_hideWPVersion" => true,
-				"other_disableXMLRPC" => true,
 				"other_noAnonMemberComments" => true,
 				"other_scanComments" => true,
 				"other_pwStrengthOnUpdate" => true,
@@ -451,7 +451,7 @@ class wfConfig {
 		// for each request as long as set() isn't called which would start the whole process over again.
 		if(! self::$diskCacheDisabled){ //We haven't had a write error to cache (so the cache is working) and clearDiskCache has not been called already
 			$cacheFile = self::getCacheFile();
-			unlink($cacheFile);
+			@unlink($cacheFile);
 			wfConfig::$diskCache = array();
 		}
 		self::$diskCacheDisabled = true;
@@ -578,7 +578,7 @@ class wfConfig {
 	}
 	private static function deleteOldTempFile($filename){
 		if(file_exists($filename)){
-			unlink($filename);
+			@unlink($filename);
 		}
 	}
 	private static function getTempDir(){
@@ -666,7 +666,7 @@ class wfConfig {
 		}
 	}
 	public static function liveTrafficEnabled(){
-		if( (! self::get('liveTrafficEnabled')) || self::get('cacheType') == 'falcon'){ return false; }
+		if( (! self::get('liveTrafficEnabled')) || self::get('cacheType') == 'falcon' || self::get('cacheType') == 'php'){ return false; }
 		return true;
 	}
 }

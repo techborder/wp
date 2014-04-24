@@ -4,10 +4,10 @@ Theme URI: http://www.inkthemes.com/black-rider-wordpress-org/
 Description: The Black Rider Theme for WordPress is simple and beautiful with lots of customization options that can tweaked by Theme Options Panel like logos, intro texts and background. Black Rider Theme supports five widgetized areas (two in the sidebar, three in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the "Fullwidth" and "Gallery" categories, and has an optional one-column page template that removes the sidebar.
 Author: InkThemes.com
 Author URI: http://www.inkthemes.com
-Version: 1.1.5
+Version: 1.1.6
 License: GNU General Public License
 License URI: license.txt
-Tags: red, blue, pink, blue, yellow, green, orange, two-columns, fixed-width, custom-background, threaded-comments, sticky-post, translation-ready, microformats, editor-style, custom-menu
+Tags: red, blue, pink, blue, yellow, green, orange, two-columns, responsive-layout, custom-background, threaded-comments, sticky-post, translation-ready, microformats, editor-style, custom-menu
 */
 /* 
 Black Rider WordPress theme, Copyright (C) 2013 InkThemes.com
@@ -1673,7 +1673,6 @@ input, textarea, p, label, .contactform {
     color:#71afaf;
     margin-top:3px;
     padding-top:4px;
-    box-sizing:
 }
 /*Gallery page
 ================================================*/

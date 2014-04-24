@@ -360,25 +360,11 @@ function blcr_pagination($pages = '', $range = 2) {
 function blcr_childtheme_favicon() {
     if (blcr_get_option('inkthemes_favicon') != '') {
         echo '<link rel="shortcut icon" href="' . blcr_get_option('inkthemes_favicon') . '"/>' . "\n";
-    } else {
-        ?>
-        <link rel="shortcut icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.ico" />
-        <?php
-    }
+    } 
 }
 
 add_action('wp_head', 'blcr_childtheme_favicon');
-/* ----------------------------------------------------------------------------------- */
-/* Show analytics code in footer */
-/* ----------------------------------------------------------------------------------- */
 
-function blcr_childtheme_analytics() {
-    $output = blcr_get_option('inkthemes_analytics');
-    if ($output <> "")
-        echo stripslashes($output);
-}
-
-add_action('wp_head', 'blcr_childtheme_analytics');
 /* ----------------------------------------------------------------------------------- */
 /* Custom CSS Styles */
 /* ----------------------------------------------------------------------------------- */

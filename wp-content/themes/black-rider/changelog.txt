@@ -2,6 +2,13 @@
 
 = Theme Name: Black Rider Theme =
 
+= Version: 1.1.6 =
+1. Basic css error fixed.
+2. Unnecessary css file removed from css folder which is placed by mistake.
+3. Unused function blcr_childtheme_analytics removed.
+4. Default favicon link removed.
+5. Basic tags error fixed in style.css
+
 = Version: 1.1.5 =
 1. Added plugins notification for recommends plugin.
 

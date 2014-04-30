@@ -1,0 +1,42 @@
+/*
+Theme Name: Formation Child
+Theme URI: http://www.templateexpress.com/formation-theme/
+Author: Ossie Heffell and Techborder, LLC
+Author URI: http://www.templateexpress.com/
+Description: See parent theme.
+Version: 0.0.0
+License: GNU General Public License v2.0
+License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
+Tags: See parent theme.
+
+This theme, like WordPress, is licensed under the GPL.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+
+/*
+Formation Theme based on Underscores (_s) Theme
+_s ("Underscores") WordPress Theme, Copyright 2012 Automattic, Inc.
+_s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
+*/
+
+/*
+Formation WordPress Theme, Copyright 2014 Ossie Heffell
+Formation Theme is distributed under the terms of the GNU GPL
+*/
+
+/* Import parent theme
+*/
+@import url("../${basetheme}/style.css");
+
+
+/* =Reset
+-------------------------------------------------------------- */
+
+// Remove Recent Posts section on home page
+.section_thumbnails {
+	display: none;
+}

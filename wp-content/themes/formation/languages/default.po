@@ -1,0 +1,619 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Formation\n"
+"POT-Creation-Date: 2014-04-06 08:49-0000\n"
+"PO-Revision-Date: 2014-04-06 08:49-0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e;__e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+"X-Poedit-SearchPath-2: .\n"
+"X-Poedit-SearchPath-3: ..\n"
+"X-Poedit-SearchPath-4: ./.\n"
+
+#: ../404.php:11
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../404.php:20
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: ../404.php:27
+msgid "Most Used Categories"
+msgstr ""
+
+#: ../404.php:35
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: ../archive.php:16
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../archive.php:19
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../archive.php:26
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../archive.php:34
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../archive.php:37
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../archive.php:40
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../archive.php:43 ../sidebar.php:18
+msgid "Archives"
+msgstr ""
+
+#: ../comments.php:39 ../comments.php:59
+msgid "Comment navigation"
+msgstr ""
+
+#: ../comments.php:40 ../comments.php:60
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:41 ../comments.php:61
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../comments.php:71
+msgid "Comments are closed."
+msgstr ""
+
+#: ../content-aside.php:11 ../content-aside.php:20 ../content.php:18
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../content-aside.php:15
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../content-aside.php:16 ../content-page.php:14 ../content-single.php:21
+#: ../content.php:63 ../image.php:86
+msgid "Pages:"
+msgstr ""
+
+#: ../content-aside.php:23 ../content.php:48
+#: ../page-templates/blog-full-width.php:58
+msgid "Leave a comment"
+msgstr ""
+
+#: ../content-aside.php:23 ../content.php:48
+#: ../page-templates/blog-full-width.php:58
+msgid "1 Comment"
+msgstr ""
+
+#: ../content-aside.php:23 ../content.php:48
+#: ../page-templates/blog-full-width.php:58
+msgid "% Comments"
+msgstr ""
+
+#: ../content-aside.php:26 ../content-page.php:16 ../content-single.php:59
+#: ../content.php:51 ../image.php:34 ../image.php:100
+#: ../page-templates/blog-full-width.php:61 ../page-templates/blog-grid.php:57
+msgid "Edit"
+msgstr ""
+
+#: ../content-single.php:27 ../content.php:26 ../content.php:36
+#: ../page-templates/blog-full-width.php:36
+#: ../page-templates/blog-full-width.php:46 ../page-templates/blog-grid.php:36
+#: ../page-templates/blog-grid.php:46
+msgid ", "
+msgstr ""
+
+#: ../content-single.php:35
+#, php-format
+msgid ""
+"This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink "
+"to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#: ../content-single.php:37
+#, php-format
+msgid ""
+"Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark"
+"\">permalink</a>."
+msgstr ""
+
+#: ../content-single.php:43
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" "
+"title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#: ../content-single.php:45
+#, php-format
+msgid ""
+"This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title="
+"\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#: ../content.php:30 ../page-templates/blog-full-width.php:40
+#: ../page-templates/blog-grid.php:40
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: ../content.php:41 ../page-templates/blog-full-width.php:51
+#: ../page-templates/blog-grid.php:51
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: ../content.php:62 ../page-templates/blog-full-width.php:68
+msgid "Read More"
+msgstr ""
+
+#: ../footer.php:21 ../footer.php:30 ../footer.php:40
+#: ../page-templates/twocolleftsidebar.php:31
+msgid "Widget Ready"
+msgstr ""
+
+#: ../footer.php:22 ../page-templates/twocolleftsidebar.php:32
+msgid "This left column is widget ready! Add one in the admin panel."
+msgstr ""
+
+#: ../footer.php:31
+msgid "This center column is widget ready! Add one in the admin panel."
+msgstr ""
+
+#: ../footer.php:41
+msgid "This right column is widget ready! Add one in the admin panel."
+msgstr ""
+
+#: ../footer.php:48
+#, php-format
+msgid "Powered by %1$s. %2$s theme by %3$s."
+msgstr ""
+
+#: ../functions.php:56
+msgid "Primary Menu"
+msgstr ""
+
+#: ../functions.php:110
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../functions.php:119
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: ../functions.php:128
+msgid "Left Sidebar"
+msgstr ""
+
+#: ../functions.php:137
+msgid "Left Footer Column"
+msgstr ""
+
+#: ../functions.php:139
+msgid "Widget area for footer left column"
+msgstr ""
+
+#: ../functions.php:146
+msgid "Center Footer Column"
+msgstr ""
+
+#: ../functions.php:148
+msgid "Widget area for footer center column"
+msgstr ""
+
+#: ../functions.php:155
+msgid "Right Footer Column"
+msgstr ""
+
+#: ../functions.php:157
+msgid "Widget area for footer right column"
+msgstr ""
+
+#: ../functions.php:232 ../functions.php:240
+msgid "Logo"
+msgstr ""
+
+#: ../functions.php:233
+msgid ""
+"Upload a logo to replace the default site name and description in the header"
+msgstr ""
+
+#: ../functions.php:254
+msgid "Contact Details"
+msgstr ""
+
+#: ../functions.php:255
+msgid "This is a settings section to change the contact details in the header."
+msgstr ""
+
+#: ../functions.php:262
+msgid "Default Contact Details"
+msgstr ""
+
+#: ../functions.php:269
+msgid "Contact Details Text"
+msgstr ""
+
+#: ../functions.php:284
+msgid "Featured Text Area"
+msgstr ""
+
+#: ../functions.php:285 ../functions.php:326 ../functions.php:405
+#: ../functions.php:483
+msgid "This is a settings section to change the homepage featured text area."
+msgstr ""
+
+#: ../functions.php:292
+msgid "Default Featured Text"
+msgstr ""
+
+#: ../functions.php:299
+msgid "Featured Text Header"
+msgstr ""
+
+#: ../functions.php:310
+msgid "Featured Button url"
+msgstr ""
+
+#: ../functions.php:325
+msgid "Featured Text Box 1"
+msgstr ""
+
+#: ../functions.php:338
+msgid "Header Image One File Upload"
+msgstr ""
+
+#: ../functions.php:347
+msgid "Header One Link"
+msgstr ""
+
+#: ../functions.php:354 ../functions.php:433 ../functions.php:511
+msgid "Header Image url"
+msgstr ""
+
+#: ../functions.php:363 ../functions.php:442 ../functions.php:520
+msgid "Default featured text Header"
+msgstr ""
+
+#: ../functions.php:371
+msgid "Featured Header Text"
+msgstr ""
+
+#: ../functions.php:380 ../functions.php:459 ../functions.php:537
+msgid "Default featured text"
+msgstr ""
+
+#: ../functions.php:388 ../functions.php:467 ../functions.php:545
+msgid "Featured text"
+msgstr ""
+
+#: ../functions.php:404
+msgid "Featured Text Box 2"
+msgstr ""
+
+#: ../functions.php:417
+msgid "Header Image Two File Upload"
+msgstr ""
+
+#: ../functions.php:426
+msgid "Header Two Link"
+msgstr ""
+
+#: ../functions.php:450 ../functions.php:528
+msgid "Featured Header text"
+msgstr ""
+
+#: ../functions.php:482
+msgid "Featured Text Box 3"
+msgstr ""
+
+#: ../functions.php:495
+msgid "Header Image Three File Upload"
+msgstr ""
+
+#: ../functions.php:504
+msgid "Header Three Link"
+msgstr ""
+
+#: ../functions.php:632
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../functions.php:779
+msgid "Page"
+msgstr ""
+
+#: ../functions.php:819
+msgid "Client logo 1"
+msgstr ""
+
+#: ../functions.php:820
+msgid "This is a settings section to change the homepage logo area one."
+msgstr ""
+
+#: ../functions.php:832
+msgid "Client logo One File Upload"
+msgstr ""
+
+#: ../functions.php:841
+msgid "logo One Link"
+msgstr ""
+
+#: ../functions.php:848
+msgid "Client logo one url"
+msgstr ""
+
+#: ../functions.php:864
+msgid "Client logo 2"
+msgstr ""
+
+#: ../functions.php:865
+msgid "This is a settings section to change the homepage logo area two."
+msgstr ""
+
+#: ../functions.php:877
+msgid "Client logo two File Upload"
+msgstr ""
+
+#: ../functions.php:886
+msgid "logo two Link"
+msgstr ""
+
+#: ../functions.php:893
+msgid "Client logo two url"
+msgstr ""
+
+#: ../functions.php:909
+msgid "Client logo 3"
+msgstr ""
+
+#: ../functions.php:910
+msgid "This is a settings section to change the homepage logo area three."
+msgstr ""
+
+#: ../functions.php:922
+msgid "Client logo three File Upload"
+msgstr ""
+
+#: ../functions.php:931
+msgid "logo three Link"
+msgstr ""
+
+#: ../functions.php:938
+msgid "Client logo three url"
+msgstr ""
+
+#: ../functions.php:954
+msgid "Client logo 4"
+msgstr ""
+
+#: ../functions.php:955
+msgid "This is a settings section to change the homepage logo area four."
+msgstr ""
+
+#: ../functions.php:967
+msgid "Client logo four File Upload"
+msgstr ""
+
+#: ../functions.php:976
+msgid "logo four Link"
+msgstr ""
+
+#: ../functions.php:983
+msgid "Client logo four url"
+msgstr ""
+
+#: ../header.php:56
+msgid "Menu"
+msgstr ""
+
+#: ../header.php:57
+msgid "Skip to content"
+msgstr ""
+
+#: ../image.php:24
+#, php-format
+msgid ""
+"Published <span class=\"entry-date\"><time class=\"entry-date\" datetime="
+"\"%1$s\" pubdate>%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-"
+"size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s"
+"\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#: ../image.php:38
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../image.php:39
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../image.php:92
+#, php-format
+msgid ""
+"<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a "
+"comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" "
+"title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
+msgstr ""
+
+#: ../image.php:94
+#, php-format
+msgid ""
+"Comments are closed, but you can leave a trackback: <a class=\"trackback-link"
+"\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback"
+"\">Trackback URL</a>."
+msgstr ""
+
+#: ../image.php:96
+msgid ""
+"Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond"
+"\" title=\"Post a comment\">post a comment</a>."
+msgstr ""
+
+#: ../image.php:98
+msgid "Both comments and trackbacks are currently closed."
+msgstr ""
+
+#: ../no-results.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: ../no-results.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../no-results.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../no-results.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../search.php:12
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../searchform.php:10
+msgid "Search"
+msgstr ""
+
+#: ../sidebar.php:25
+msgid "Meta"
+msgstr ""
+
+#: ../inc/customizer.php:96
+msgid "Twitter url:"
+msgstr ""
+
+#: ../inc/customizer.php:116
+msgid "Facebook url:"
+msgstr ""
+
+#: ../inc/customizer.php:136
+msgid "Google + url:"
+msgstr ""
+
+#: ../inc/customizer.php:156
+msgid "LinkedIn url:"
+msgstr ""
+
+#: ../inc/customizer.php:176
+msgid "Flickr url:"
+msgstr ""
+
+#: ../inc/customizer.php:196
+msgid "Pinterest url:"
+msgstr ""
+
+#: ../inc/customizer.php:216
+msgid "YouTube url:"
+msgstr ""
+
+#: ../inc/customizer.php:236
+msgid "Vimeo url:"
+msgstr ""
+
+#: ../inc/customizer.php:256
+msgid "Tumblr url:"
+msgstr ""
+
+#: ../inc/customizer.php:276
+msgid "Dribble url:"
+msgstr ""
+
+#: ../inc/customizer.php:296
+msgid "Github url:"
+msgstr ""
+
+#: ../inc/customizer.php:315
+msgid "Instagram url:"
+msgstr ""
+
+#: ../inc/template-tags.php:39
+msgid "Post navigation"
+msgstr ""
+
+#: ../inc/template-tags.php:49
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../inc/template-tags.php:53
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../inc/template-tags.php:78
+msgid "Pingback:"
+msgstr ""
+
+#: ../inc/template-tags.php:78 ../inc/template-tags.php:101
+msgid "(Edit)"
+msgstr ""
+
+#: ../inc/template-tags.php:88
+#, php-format
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: ../inc/template-tags.php:91
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../inc/template-tags.php:99
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../inc/template-tags.php:126
+#, php-format
+msgid ""
+" <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" "
+"datetime=\"%3$s\" pubdate>%4$s</time></a><span class=\"byline\"> by <span "
+"class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" "
+"rel=\"author\">%7$s</a></span></span>"
+msgstr ""
+
+#: ../inc/template-tags.php:132
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../page-templates/custom_home.php:45 ../page-templates/custom_home.php:57
+#: ../page-templates/custom_home.php:69 ../page-templates/custom_home.php:133
+#: ../page-templates/custom_home.php:142 ../page-templates/custom_home.php:151
+#: ../page-templates/custom_home.php:160
+msgid "Insert Image"
+msgstr ""

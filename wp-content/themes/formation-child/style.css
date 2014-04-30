@@ -7,6 +7,7 @@ Description: See parent theme.
 Version: 0.0.0
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
+Template: formation
 Tags: See parent theme.
 
 This theme, like WordPress, is licensed under the GPL.
@@ -30,13 +31,12 @@ Formation Theme is distributed under the terms of the GNU GPL
 
 /* Import parent theme
 */
-@import url("../${basetheme}/style.css");
+@import url("../formation/style.css");
 
 
 /* =Reset
 -------------------------------------------------------------- */
 
-// Remove Recent Posts section on home page
 .section_thumbnails {
 	display: none;
 }

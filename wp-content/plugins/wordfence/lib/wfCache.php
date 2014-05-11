@@ -83,7 +83,7 @@ class wfCache {
 			return false;
 		}
 		if($_SERVER['REQUEST_METHOD'] != 'GET'){ return false; } //Only cache GET's
-		if(strlen($_SERVER['QUERY_STRING']) > 0 && (! preg_match('/^\d+=\d+$/', $_SERVER['QUERY_STRING'])) ){ //Don't cache query strings unless they are /?123132423=123123234 DDoS style.
+		if(isset($_SERVER['QUERY_STRING']) && strlen($_SERVER['QUERY_STRING']) > 0 && (! preg_match('/^\d+=\d+$/', $_SERVER['QUERY_STRING'])) ){ //Don't cache query strings unless they are /?123132423=123123234 DDoS style.
 			return false; 
 		} 
 		//wordpress_logged_in_[hash] cookies indicates logged in
@@ -98,9 +98,19 @@ class wfCache {
 		if($ex){
 			$ex = unserialize($ex);
 			foreach($ex as $v){
-				if($v['pt'] == 's'){ if(strpos($uri, $v['p']) === 0){ return false; } }
-				if($v['pt'] == 'e'){ if(strpos($uri, $v['p']) === (strlen($uri) - strlen($v['p'])) ){ return false; } }
-				if($v['pt'] == 'c'){ if(strpos($uri, $v['p']) !== false){ return false; } }
+				if($v['pt'] == 'eq'){ if(strtolower($uri) == strtolower($v['p'])){ return false; } }
+				if($v['pt'] == 's'){ if(stripos($uri, $v['p']) === 0){ return false; } }
+				if($v['pt'] == 'e'){ if(stripos($uri, $v['p']) === (strlen($uri) - strlen($v['p'])) ){ return false; } }
+				if($v['pt'] == 'c'){ if(stripos($uri, $v['p']) !== false){ return false; } }
+				if($v['pt'] == 'uac'){ if(stripos($_SERVER['HTTP_USER_AGENT'], $v['p']) !== false){ return false; } } //User-agent contains
+				if($v['pt'] == 'uaeq'){ if(strtolower($_SERVER['HTTP_USER_AGENT']) == strtolower($v['p'])){ return false; } } //user-agent equals
+				if($v['pt'] == 'cc'){
+					foreach($_COOKIE as $cookieName){
+						if(stripos($cookieName, $v['p']) !== false){ //Cookie name contains pattern
+							return false;
+						}
+					}
+				}
 			}
 		}
 		return true;
@@ -369,6 +379,7 @@ class wfCache {
 		}
 		flock($fh, LOCK_EX);
 		fseek($fh, 0, SEEK_SET); //start of file
+		clearstatcache();
 		$contents = fread($fh, filesize($htaccessPath));
 		if(! $contents){
 			fclose($fh);
@@ -388,17 +399,23 @@ class wfCache {
 	}
 	public static function getHtaccessCode(){
 		$siteURL = site_url();
+		$homeURL = home_url();
 		$pathPrefix = "";
-		$matchCaps = '$1/$2~$3~$4~$5~$6';
 		if(preg_match('/^https?:\/\/[^\/]+\/(.+)$/i', $siteURL, $matches)){
 			$path = $matches[1];
 			$path = preg_replace('/^\//', '', $path);
 			$path = preg_replace('/\/$/', '', $path);
-			$pieces = explode('/', $path);
 			$pathPrefix = '/' . $path; // Which is: /my/path
+		}
+		$matchCaps = '$1/$2~$3~$4~$5~$6';
+		if(preg_match('/^https?:\/\/[^\/]+\/(.+)$/i', $homeURL, $matches)){
+			$path = $matches[1];
+			$path = preg_replace('/^\//', '', $path);
+			$path = preg_replace('/\/$/', '', $path);
+			$pieces = explode('/', $path);
 			if(count($pieces) == 1){
-				# No path:       "/wp-content/wfcache/%{HTTP_HOST}_$1/$2~$3~$4~$5~$6_wfcache%{WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
-				# One path:  "/mdm/wp-content/wfcache/%{HTTP_HOST}_mdm/$1~$2~$3~$4~$5_wfcache%{WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
+				# No path:       "/wp-content/wfcache/%{HTTP_HOST}_$1/$2~$3~$4~$5~$6_wfcache%{ENV:WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
+				# One path:  "/mdm/wp-content/wfcache/%{HTTP_HOST}_mdm/$1~$2~$3~$4~$5_wfcache%{ENV:WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
 				$matchCaps = $pieces[0] . '/$1~$2~$3~$4~$5';
 			} else if(count($pieces) == 2){
 				$matchCaps = $pieces[0] . '/' . $pieces[1] . '/$1~$2~$3~$4';
@@ -410,6 +427,23 @@ class wfCache {
 		if(wfConfig::get('allowHTTPSCaching')){
 			$sslString = "";
 		}
+		$otherRewriteConds = "";
+		$ex = wfConfig::get('cacheExclusions', false);
+		if($ex){
+			$ex = unserialize($ex);
+			foreach($ex as $v){
+				if($v['pt'] == 'uac'){
+					$otherRewriteConds .= "\n\tRewriteCond %{HTTP_USER_AGENT} !" . self::regexSpaceFix(preg_quote($v['p'])) . " [NC]";
+				}
+				if($v['pt'] == 'uaeq'){
+					$otherRewriteConds .= "\n\tRewriteCond %{HTTP_USER_AGENT} !^" . self::regexSpaceFix(preg_quote($v['p'])) . "$ [NC]";
+				}
+				if($v['pt'] == 'cc'){
+					$otherRewriteConds .= "\n\tRewriteCond %{HTTP_COOKIE} !" . self::regexSpaceFix(preg_quote($v['p'])) . " [NC]";
+				}
+			}
+		}
+
 		$code = <<<EOT
 #WFCACHECODE - Do not remove this line. Disable Web Caching in Wordfence to remove this data.
 <IfModule mod_deflate.c>
@@ -446,14 +480,17 @@ class wfCache {
 	RewriteCond %{QUERY_STRING} ^(?:\d+=\d+)?$
 	RewriteCond %{REQUEST_URI} (?:\/|\.html)$ [NC]
 	RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wf_logout|wordpress_logged_in|wptouch_switch_toggle|wpmp_switcher) [NC]
-
+	{$otherRewriteConds}
 	RewriteCond %{REQUEST_URI} \/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)(.*)$
-	RewriteCond "%{DOCUMENT_ROOT}{$pathPrefix}/wp-content/wfcache/%{HTTP_HOST}_%1/%2~%3~%4~%5~%6_wfcache%{WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" -f
-	RewriteRule \/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)(.*)$ "{$pathPrefix}/wp-content/wfcache/%{HTTP_HOST}_{$matchCaps}_wfcache%{WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
+	RewriteCond "%{DOCUMENT_ROOT}{$pathPrefix}/wp-content/wfcache/%{HTTP_HOST}_%1/%2~%3~%4~%5~%6_wfcache%{ENV:WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" -f
+	RewriteRule \/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)\/*([^\/]*)(.*)$ "{$pathPrefix}/wp-content/wfcache/%{HTTP_HOST}_{$matchCaps}_wfcache%{ENV:WRDFNC_HTTPS}.html%{ENV:WRDFNC_ENC}" [L]
 </IfModule>
 #Do not remove this line. Disable Web caching in Wordfence to remove this data - WFCACHECODE
 EOT;
 		return $code;
+	}
+	private static function regexSpaceFix($str){
+		return str_replace(' ', '\\s', $str);
 	}
 	public static function scheduleUpdateBlockedIPs(){
 		wp_clear_scheduled_hook('wordfence_update_blocked_IPs');
@@ -479,6 +516,7 @@ EOT;
 			}
 			flock($fh, LOCK_EX);
 			fseek($fh, 0, SEEK_SET); //start of file
+			clearstatcache();
 			$contents = @fread($fh, filesize($htaccessPath));
 			if(! $contents){
 				fclose($fh);
@@ -556,6 +594,7 @@ EOT;
 		//Minimize time between lock/unlock
 		flock($fh, LOCK_EX);
 		fseek($fh, 0, SEEK_SET); //start of file
+		clearstatcache(); //Or we get the wrong size from a cached entry and corrupt the file
 		$contents = @fread($fh, filesize($htaccessPath));
 		if(! $contents){
 			fclose($fh);

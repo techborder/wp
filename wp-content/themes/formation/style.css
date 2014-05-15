@@ -152,7 +152,7 @@ h6 {
 	font-size: 1rem;
 }
 hr {
-	background-color: #DBD2C5;
+	background-color: #ccc;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -264,7 +264,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid #DBD2C5;
+	border: 1px solid #ccc;
 	border-color: #ccc #ccc #bbb #ccc;
 	border-radius: 3px;
 	background: #e6e6e6;
@@ -284,7 +284,7 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #DBD2C5 #bbb #aaa #bbb;
+	border-color: #ccc #bbb #aaa #bbb;
 	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
 	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
 	box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
@@ -325,7 +325,7 @@ input[type=text],
 input[type=email],
 textarea {
 	background: rgba( 255, 255, 255, 0.3 );
-	border: 1px solid #DBD2C5;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 6px;
 }
@@ -405,7 +405,7 @@ a:active {
 	text-transform: uppercase;
 	float: right;
 	margin-top: 30px;
-	background-color: #758A15;
+	background-color: #10b9b9;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;
@@ -424,7 +424,7 @@ a.more-link:hover {
 	text-transform: uppercase;
 	float: right;
 	margin-top: 0;
-	background-color: #758A15;
+	background-color: #10b9b9;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;
@@ -454,7 +454,7 @@ a.more-link:hover {
 }
 
 .widget li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .widget li a:hover{
@@ -470,7 +470,7 @@ a.more-link:hover {
 }
 
 #calendar_wrap a:hover{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .textwidget{
@@ -624,7 +624,7 @@ a.more-link:hover {
 	float: left;
 	font-size: 13px;
 	font-size: 1.3rem;
-	color: #DBD2C5;
+	color: #CCC;
 	padding-left: 4px;
 	font-family: 'source_sans_probold', sans-serif;
 	text-transform: uppercase;
@@ -672,7 +672,7 @@ a.more-link:hover {
 	float: left;
 	padding-top: 12px;
 }
-.flex-caption-title { background-color: #FFFFFF;}
+.flex-caption-title { background-color: #10b9b9;}
 
 /* =Menu
 ----------------------------------------------- */
@@ -714,16 +714,16 @@ a.more-link:hover {
 .main-navigation li:hover > a,
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
-	border-top: 4px solid #758A15;
-	color: #758A15;
+	border-top: 4px solid #10b9b9;
+	color: #10b9b9;
 	display: block;
 }
 .main-navigation ul li:hover > ul {
 	display: block;
 }
 .main-navigation > li > a, .main-navigation li.current_page_ancestor a {
-	border-top: 4px solid #758A15;
-	color: #758A15;
+	border-top: 4px solid #10b9b9;
+	color: #10b9b9;
 }
 .main-navigation ul.children li a{
 	background-color: #222;
@@ -747,7 +747,7 @@ a.more-link:hover {
 }
 
 .main-navigation ul ul {
-	border-top: 4px solid #758A15;
+	border-top: 4px solid #10b9b9;
 }
 
 .main-navigation ul ul li:hover > a,
@@ -828,7 +828,7 @@ a.more-link:hover {
 
 .main-navigation ul.sub-menu li a{
 	background-color: #222;
-	color: #DBD2C5;
+	color: #CCC;
 	border-top: 0;
 }
 .main-navigation ul.sub-menu li a:hover{
@@ -888,16 +888,16 @@ a.more-link:hover {
 .main-small-navigation li.current_page_item a,
 .main-small-navigation li.current-menu-item a,
 .main-small-navigation ul ul a:hover {
-	color: #758A15;
+	color: #10b9b9;
 	background-color: #333;
 }
 
 .main-small-navigation .menu ul ul li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .main-small-navigation .menu ul ul ul li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 /* =Content
@@ -955,7 +955,7 @@ a.more-link:hover {
 	color: #FFF;
 }
 .recent_title a:hover{
-	color: #DBD2C5;
+	color: #CCC;
 }
 .recent p{
 	font-size: 12px;
@@ -1048,7 +1048,7 @@ footer.entry-meta {
 	border: none;
 }
 .entry-meta a {
-	color: #758A15;
+	color: #10b9b9;
 }
 .entry-meta a:hover {
 	color: #333;
@@ -1133,7 +1133,7 @@ footer.entry-meta {
 }
 .authorAvatar img{
 	border-radius: 80px;
-	border: 4px solid #DBD2C5;
+	border: 4px solid #CCC;
 	margin-top: 10px;
 }
 .authorInfo{
@@ -1163,7 +1163,7 @@ footer.entry-meta {
 	clear: both;
 }
 .authorLinks a{
-	color: #758A15;
+	color: #10b9b9;
 	font-size: 11px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -1414,7 +1414,7 @@ li.pingback {
 	float:right;
 	margin:0 10px 10px 0;
 	text-align:center;
-	background-color:  #758A15;
+	background-color:  #10b9b9;
 	border-radius:0.4em;
 	padding:3px;
 	width:50px;
@@ -1430,7 +1430,7 @@ li.pingback {
 
 a.comment-reply-link,
 a.comment-edit-link {
-	color: #DBD2C5;
+	color: #CCC;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.8;
@@ -1498,7 +1498,7 @@ p.nocomments {
 	font-size: 13px;
 	font-size: 1.3rem;
 	padding: 2px 6px;
-	border-bottom: 4px solid #FFFFFF;
+	border-bottom: 4px solid #10b9b9;
 	text-transform: uppercase;
 	font-family: 'source_sans_probold', sans-serif;
 }
@@ -1563,7 +1563,7 @@ p.nocomments {
 }
 
 #smoothup:hover {
-	background-color: #758A15; 
+	background-color: #10b9b9; 
 }
 
 /* Source Sans Pro
@@ -1616,7 +1616,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 
 
 .genericon, .genericon:visited {
-	color: #DBD2C5;
+	color: #CCC;
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
 	font-size: 14px;
@@ -1629,7 +1629,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	vertical-align: middle;
 }
 .genericon:hover {
-	color: #758A15;
+	color: #10b9b9;
 }
 
 /**
@@ -1683,7 +1683,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	font-size: 12px !important;
 	padding: 5px 8px;
 	text-decoration: none;
-	border: 1px solid #758A15;
+	border: 1px solid #10b9b9;
 	border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -1696,7 +1696,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 .tagcloud a:hover {
 	color: #fff !important;
-	background: #758A15;
+	background: #10b9b9;
 }
 
 /* Custom Home featured areas
@@ -1716,7 +1716,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	text-align:center;
 	font-size:2.4rem;
 	font-size:24px;
-	text-shadow: 0px 3px 0 #DBD2C5;
+	text-shadow: 0px 3px 0 #CCC;
 }
 
 .featuretext_top p{
@@ -1731,7 +1731,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	padding: 20px;
 	margin: 0;
 	background-color: #222;
-	border-top: 1px solid #FFFFFF;
+	border-top: 1px solid #10b9b9;
 }
 
 .featuretext {
@@ -1755,7 +1755,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 
 .featuretext p{
-	color: #DBD2C5;
+	color: #CCC;
 	font-size:1.2rem;
 	font-size: 12px;
 }
@@ -1767,7 +1767,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 .featuretext_button a{
 	color: #FFF;
 	padding: 12px 26px;
-	background-color:#FFFFFF;
+	background-color:#10b9b9;
 	border-radius: 0.2em;
 	font-size:1.4rem;
 	font-size:14px;
@@ -1948,7 +1948,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 
 .thumbs-more-link a{
-	background-color: #FFFFFF;
+	background-color: #10b9b9;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;

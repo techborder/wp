@@ -1,16 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Formation\n"
-"POT-Creation-Date: 2014-04-06 08:49-0000\n"
-"PO-Revision-Date: 2014-04-06 08:49-0000\n"
+"POT-Creation-Date: 2014-05-10 07:36-0000\n"
+"PO-Revision-Date: 2014-05-10 07:36-0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: _;__;_e;__e\n"
 "X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 "X-Poedit-SearchPath-2: .\n"
@@ -31,6 +33,7 @@ msgstr ""
 msgid "Most Used Categories"
 msgstr ""
 
+#. translators: %1$s: smilie
 #: ../404.php:35
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
@@ -121,6 +124,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#. translators: used between list items, there is a space after the comma
 #: ../content-single.php:27 ../content.php:26 ../content.php:36
 #: ../page-templates/blog-full-width.php:36
 #: ../page-templates/blog-full-width.php:46 ../page-templates/blog-grid.php:36
@@ -189,9 +193,12 @@ msgstr ""
 msgid "This right column is widget ready! Add one in the admin panel."
 msgstr ""
 
-#: ../footer.php:48
-#, php-format
-msgid "Powered by %1$s. %2$s theme by %3$s."
+#: ../footer.php:49
+msgid "Formation WordPress Theme"
+msgstr ""
+
+#: ../footer.php:50
+msgid "Powered By WordPress "
 msgstr ""
 
 #: ../functions.php:56
@@ -480,41 +487,6 @@ msgstr ""
 msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
-#: ../no-results.php:14
-msgid "Nothing Found"
-msgstr ""
-
-#: ../no-results.php:20
-#, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: ../no-results.php:24
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
-msgstr ""
-
-#: ../no-results.php:29
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-
-#: ../search.php:12
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#: ../searchform.php:10
-msgid "Search"
-msgstr ""
-
-#: ../sidebar.php:25
-msgid "Meta"
-msgstr ""
-
 #: ../inc/customizer.php:96
 msgid "Twitter url:"
 msgstr ""
@@ -592,6 +564,7 @@ msgstr ""
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
+#. translators: 1: date, 2: time
 #: ../inc/template-tags.php:99
 #, php-format
 msgid "%1$s at %2$s"
@@ -611,9 +584,44 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
+#: ../no-results.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: ../no-results.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../no-results.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../no-results.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
 #: ../page-templates/custom_home.php:45 ../page-templates/custom_home.php:57
 #: ../page-templates/custom_home.php:69 ../page-templates/custom_home.php:133
 #: ../page-templates/custom_home.php:142 ../page-templates/custom_home.php:151
 #: ../page-templates/custom_home.php:160
 msgid "Insert Image"
+msgstr ""
+
+#: ../search.php:12
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../searchform.php:10
+msgid "Search"
+msgstr ""
+
+#: ../sidebar.php:25
+msgid "Meta"
 msgstr ""

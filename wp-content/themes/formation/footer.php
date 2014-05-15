@@ -44,8 +44,10 @@
 	</div>
 	</div>
         </div><!-- footer container -->
-        <div class="site-info">
-			<?php printf( __( 'Powered by %1$s. %2$s theme by %3$s.', 'Formation' ),'<a href="http://wordpress.org/" target="_blank">WordPress</a>', '<a href="http://www.templateexpress.com/formation-theme/" target="_blank">Formation</a>', 'Ossie' ); ?>
+       <div class="site-info">
+            <a href="<?php $my_theme = wp_get_theme(); echo $my_theme->get( 'ThemeURI' ); ?>">
+            <?php _e('Formation WordPress Theme','Formation'); ?></a>
+            <?php echo __( 'Powered By WordPress ', 'Formation' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
     <a href="#top" id="smoothup"></a>

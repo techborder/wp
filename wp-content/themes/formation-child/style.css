@@ -110,10 +110,10 @@ button,
 input,
 select,
 textarea {
-	color: #747474;	
+	color: #FFFFFF;	
 	font-family: 'source_sans_proregular', Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-size: 1.4rem;
+	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 1.9;
 }
 
@@ -517,7 +517,6 @@ a.more-link:hover {
 	margin: 0 auto;
 	padding: 0;
 	position: relative;
-	background-color: #FFF;
 }
 .header_container {
 	background: #FFF;
@@ -905,6 +904,9 @@ a.more-link:hover {
 
 .site-main {
 	margin: 0 auto;
+/*	background-color: transparent;
+	background-image: url(http://bridgetohealth.net/BACKGROUND4.jpg);
+*/
 }
 
 .sticky h1{
@@ -972,7 +974,6 @@ a.more-link:hover {
 	clear: both;
 }
 #content .entry-header {
-	background-color: #FFF;
 	background-image: none;
 	border: none;
 	margin-bottom: 0;
@@ -1704,7 +1705,6 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 .featuretext_top {
 	padding: 80px 0;
 	margin: 0 0 20px 0;
-	background-color: #F8F1E7;
 	font-family: 'source_sans_probold', sans-serif;
 	text-align: center;
 }

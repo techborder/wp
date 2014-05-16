@@ -31,6 +31,26 @@ Formation Theme is distributed under the terms of the GNU GPL
 /* =Reset
 -------------------------------------------------------------- */
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
 html {
 	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
@@ -132,7 +152,7 @@ h6 {
 	font-size: 1rem;
 }
 hr {
-	background-color: #DBD2C5;
+	background-color: #ccc;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -244,7 +264,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid #DBD2C5;
+	border: 1px solid #ccc;
 	border-color: #ccc #ccc #bbb #ccc;
 	border-radius: 3px;
 	background: #e6e6e6;
@@ -264,7 +284,7 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #DBD2C5 #bbb #aaa #bbb;
+	border-color: #ccc #bbb #aaa #bbb;
 	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
 	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
 	box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 15px 17px rgba(255,255,255,0.8), inset 0 -5px 12px rgba(0,0,0,0.02);
@@ -305,7 +325,7 @@ input[type=text],
 input[type=email],
 textarea {
 	background: rgba( 255, 255, 255, 0.3 );
-	border: 1px solid #DBD2C5;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 6px;
 }
@@ -385,7 +405,7 @@ a:active {
 	text-transform: uppercase;
 	float: right;
 	margin-top: 30px;
-	background-color: #758A15;
+	background-color: #639E3F;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;
@@ -404,7 +424,7 @@ a.more-link:hover {
 	text-transform: uppercase;
 	float: right;
 	margin-top: 0;
-	background-color: #758A15;
+	background-color: #639E3F;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;
@@ -434,7 +454,7 @@ a.more-link:hover {
 }
 
 .widget li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .widget li a:hover{
@@ -450,7 +470,7 @@ a.more-link:hover {
 }
 
 #calendar_wrap a:hover{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .textwidget{
@@ -459,7 +479,7 @@ a.more-link:hover {
 #secondary li, #tertiary li{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 	color: #999;
 }
 
@@ -484,7 +504,7 @@ a.more-link:hover {
 	color: #000;
 }
 #sidebar-left li{
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 }
 #sidebar-left h4{
 	font-family: 'source_sans_probold', sans-serif;
@@ -604,7 +624,7 @@ a.more-link:hover {
 	float: left;
 	font-size: 13px;
 	font-size: 1.3rem;
-	color: #DBD2C5;
+	color: #CCC;
 	padding-left: 4px;
 	font-family: 'source_sans_probold', sans-serif;
 	text-transform: uppercase;
@@ -652,7 +672,7 @@ a.more-link:hover {
 	float: left;
 	padding-top: 12px;
 }
-.flex-caption-title { background-color: #FFFFFF;}
+.flex-caption-title { background-color: #639E3F;}
 
 /* =Menu
 ----------------------------------------------- */
@@ -694,16 +714,16 @@ a.more-link:hover {
 .main-navigation li:hover > a,
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
-	border-top: 4px solid #758A15;
-	color: #758A15;
+	border-top: 4px solid #639E3F;
+	color: #639E3F;
 	display: block;
 }
 .main-navigation ul li:hover > ul {
 	display: block;
 }
 .main-navigation > li > a, .main-navigation li.current_page_ancestor a {
-	border-top: 4px solid #758A15;
-	color: #758A15;
+	border-top: 4px solid #639E3F;
+	color: #639E3F;
 }
 .main-navigation ul.children li a{
 	background-color: #222;
@@ -727,7 +747,7 @@ a.more-link:hover {
 }
 
 .main-navigation ul ul {
-	border-top: 4px solid #758A15;
+	border-top: 4px solid #639E3F;
 }
 
 .main-navigation ul ul li:hover > a,
@@ -808,7 +828,7 @@ a.more-link:hover {
 
 .main-navigation ul.sub-menu li a{
 	background-color: #222;
-	color: #DBD2C5;
+	color: #CCC;
 	border-top: 0;
 }
 .main-navigation ul.sub-menu li a:hover{
@@ -868,16 +888,16 @@ a.more-link:hover {
 .main-small-navigation li.current_page_item a,
 .main-small-navigation li.current-menu-item a,
 .main-small-navigation ul ul a:hover {
-	color: #758A15;
+	color: #639E3F;
 	background-color: #333;
 }
 
 .main-small-navigation .menu ul ul li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 .main-small-navigation .menu ul ul ul li a{
-	color: #DBD2C5;
+	color: #CCC;
 }
 
 /* =Content
@@ -912,7 +932,7 @@ a.more-link:hover {
 .recent {
 	margin: 0 4px 20px 4px;
 	border-radius:0.4em;
-	background-color: #E0CCA9;
+	background-color: #EFEFEF;
 }
 
 .client_recent {
@@ -935,7 +955,7 @@ a.more-link:hover {
 	color: #FFF;
 }
 .recent_title a:hover{
-	color: #DBD2C5;
+	color: #CCC;
 }
 .recent p{
 	font-size: 12px;
@@ -946,7 +966,7 @@ a.more-link:hover {
 	text-align: center;
 }
 .hentry {
-    border-bottom: 1px solid #E0CCA9;
+    border-bottom: 1px solid #EFEFEF;
 	margin: 0 0 1.5em;
 	padding-bottom: 1.5em;
 	clear: both;
@@ -959,13 +979,13 @@ a.more-link:hover {
 }
 
 .entry-header {
-	background-color: #E0CCA9;
+	background-color: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
 }
 .page-header {
-	background-color: #E0CCA9;
+	background-color: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
@@ -993,7 +1013,7 @@ a.more-link:hover {
     font-size: 1.4rem;
 	text-decoration: none;
 	color: #222;
-	background-color: #E0CCA9;
+	background-color: #EFEFEF;
 	padding: 6px 4px;
 	margin-top: -8px;
 }
@@ -1020,7 +1040,7 @@ body.archive .page-title {
 	padding-left: 2px;
 	margin: 0 auto;
 	max-width: 1160px;
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 	text-transform: uppercase;
 	font-family: 'source_sans_probold', sans-serif;
 }
@@ -1028,7 +1048,7 @@ footer.entry-meta {
 	border: none;
 }
 .entry-meta a {
-	color: #758A15;
+	color: #639E3F;
 }
 .entry-meta a:hover {
 	color: #333;
@@ -1113,7 +1133,7 @@ footer.entry-meta {
 }
 .authorAvatar img{
 	border-radius: 80px;
-	border: 4px solid #DBD2C5;
+	border: 4px solid #CCC;
 	margin-top: 10px;
 }
 .authorInfo{
@@ -1126,12 +1146,12 @@ footer.entry-meta {
 	min-height: 100px;
 	padding: 4px 0;
 	margin: 0;
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 }
 .authorName{
 	padding: 4px 0;
 	margin: 0;
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 	color:#333;
 	font-size: 14px;
 	font-family: 'source_sans_probold', sans-serif;
@@ -1143,7 +1163,7 @@ footer.entry-meta {
 	clear: both;
 }
 .authorLinks a{
-	color: #758A15;
+	color: #639E3F;
 	font-size: 11px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -1347,7 +1367,7 @@ object {
 }
 .children {
 	margin: 0;
-	background-color: #E0CCA9;
+	background-color: #EFEFEF;
 	padding: 0;
 }
 .commentlist li.comment,
@@ -1394,7 +1414,7 @@ li.pingback {
 	float:right;
 	margin:0 10px 10px 0;
 	text-align:center;
-	background-color:  #758A15;
+	background-color:  #639E3F;
 	border-radius:0.4em;
 	padding:3px;
 	width:50px;
@@ -1410,7 +1430,7 @@ li.pingback {
 
 a.comment-reply-link,
 a.comment-edit-link {
-	color: #DBD2C5;
+	color: #CCC;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.8;
@@ -1478,7 +1498,7 @@ p.nocomments {
 	font-size: 13px;
 	font-size: 1.3rem;
 	padding: 2px 6px;
-	border-bottom: 4px solid #FFFFFF;
+	border-bottom: 4px solid #639E3F;
 	text-transform: uppercase;
 	font-family: 'source_sans_probold', sans-serif;
 }
@@ -1492,7 +1512,7 @@ p.nocomments {
 #helpfullinks li{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	border-bottom: 1px solid #E0CCA9;
+	border-bottom: 1px solid #EFEFEF;
 	color: #999;
 }
 
@@ -1543,7 +1563,7 @@ p.nocomments {
 }
 
 #smoothup:hover {
-	background-color: #758A15; 
+	background-color: #639E3F; 
 }
 
 /* Source Sans Pro
@@ -1596,7 +1616,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 
 
 .genericon, .genericon:visited {
-	color: #DBD2C5;
+	color: #CCC;
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
 	font-size: 14px;
@@ -1609,7 +1629,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	vertical-align: middle;
 }
 .genericon:hover {
-	color: #758A15;
+	color: #639E3F;
 }
 
 /**
@@ -1663,7 +1683,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	font-size: 12px !important;
 	padding: 5px 8px;
 	text-decoration: none;
-	border: 1px solid #758A15;
+	border: 1px solid #639E3F;
 	border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -1676,7 +1696,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 .tagcloud a:hover {
 	color: #fff !important;
-	background: #758A15;
+	background: #639E3F;
 }
 
 /* Custom Home featured areas
@@ -1696,7 +1716,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	text-align:center;
 	font-size:2.4rem;
 	font-size:24px;
-	text-shadow: 0px 3px 0 #DBD2C5;
+	text-shadow: 0px 3px 0 #CCC;
 }
 
 .featuretext_top p{
@@ -1711,7 +1731,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	padding: 20px;
 	margin: 0;
 	background-color: #222;
-	border-top: 1px solid #FFFFFF;
+	border-top: 1px solid #639E3F;
 }
 
 .featuretext {
@@ -1735,7 +1755,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 
 .featuretext p{
-	color: #DBD2C5;
+	color: #CCC;
 	font-size:1.2rem;
 	font-size: 12px;
 }
@@ -1747,7 +1767,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 .featuretext_button a{
 	color: #FFF;
 	padding: 12px 26px;
-	background-color:#FFFFFF;
+	background-color:#639E3F;
 	border-radius: 0.2em;
 	font-size:1.4rem;
 	font-size:14px;
@@ -1928,7 +1948,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 
 .thumbs-more-link a{
-	background-color: #FFFFFF;
+	background-color: #639E3F;
 	color: #FFF;
 	border-radius: 0.2em;
 	padding: 4px 8px;
@@ -1948,7 +1968,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
      padding:1%;
      margin:1.25%;
      min-height:190px;
-	 border: 2px solid #E0CCA9;
+	 border: 2px solid #EFEFEF;
 	 border-radius: 0.4em;
 }
 .gridblock .hentry {

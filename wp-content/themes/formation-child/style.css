@@ -479,7 +479,7 @@ a.more-link:hover {
 #secondary li, #tertiary li{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 	color: #999;
 }
 
@@ -504,7 +504,7 @@ a.more-link:hover {
 	color: #000;
 }
 #sidebar-left li{
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 }
 #sidebar-left h4{
 	font-family: 'source_sans_probold', sans-serif;
@@ -753,7 +753,7 @@ a.more-link:hover {
 .main-navigation ul ul li:hover > a,
 .main-navigation ul ul li.current_page_item a,
 .main-navigation ul ul li.current-menu-item a {
-	color: #E0CCA9;
+	color: #F8F1E7;
 	background: #222;
 	border-right: 0;
 }
@@ -932,7 +932,7 @@ a.more-link:hover {
 .recent {
 	margin: 0 4px 20px 4px;
 	border-radius:0.4em;
-	background-color: #EFEFEF;
+	background-color: #F8F1E7;
 }
 
 .client_recent {
@@ -966,7 +966,7 @@ a.more-link:hover {
 	text-align: center;
 }
 .hentry {
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid #F8F1E7;
 	margin: 0 0 1.5em;
 	padding-bottom: 1.5em;
 	clear: both;
@@ -979,13 +979,13 @@ a.more-link:hover {
 }
 
 .entry-header {
-	background-color: #EFEFEF;
+	background-color: #F8F1E7;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
 }
 .page-header {
-	background-color: #EFEFEF;
+	background-color: #F8F1E7;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
@@ -1013,7 +1013,7 @@ a.more-link:hover {
     font-size: 1.4rem;
 	text-decoration: none;
 	color: #222;
-	background-color: #EFEFEF;
+	background-color: #F8F1E7;
 	padding: 6px 4px;
 	margin-top: -8px;
 }
@@ -1040,7 +1040,7 @@ body.archive .page-title {
 	padding-left: 2px;
 	margin: 0 auto;
 	max-width: 1160px;
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 	text-transform: uppercase;
 	font-family: 'source_sans_probold', sans-serif;
 }
@@ -1146,12 +1146,12 @@ footer.entry-meta {
 	min-height: 100px;
 	padding: 4px 0;
 	margin: 0;
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 }
 .authorName{
 	padding: 4px 0;
 	margin: 0;
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 	color:#333;
 	font-size: 14px;
 	font-family: 'source_sans_probold', sans-serif;
@@ -1367,7 +1367,7 @@ object {
 }
 .children {
 	margin: 0;
-	background-color: #EFEFEF;
+	background-color: #F8F1E7;
 	padding: 0;
 }
 .commentlist li.comment,
@@ -1512,7 +1512,7 @@ p.nocomments {
 #helpfullinks li{
 	padding-bottom: 5px;
 	padding-top: 5px;
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid #F8F1E7;
 	color: #999;
 }
 
@@ -1704,7 +1704,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 .featuretext_top {
 	padding: 80px 0;
 	margin: 0 0 20px 0;
-	background-color: #E0CCA9;
+	background-color: #F8F1E7;
 	font-family: 'source_sans_probold', sans-serif;
 	text-align: center;
 }
@@ -1968,7 +1968,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
      padding:1%;
      margin:1.25%;
      min-height:190px;
-	 border: 2px solid #EFEFEF;
+	 border: 2px solid #F8F1E7;
 	 border-radius: 0.4em;
 }
 .gridblock .hentry {
@@ -2385,7 +2385,7 @@ MEDIA QUERIES
 	.featuretext_top {
 	padding: 40px 0;
 	margin: 0 0 20px 0;
-	background-color: #E0CCA9;
+	background-color: #F8F1E7;
 	font-family: 'source_sans_probold', sans-serif;
 	}
 	.featuretext_top h3{

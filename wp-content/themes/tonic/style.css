@@ -2816,7 +2816,6 @@ a [class*=" icon-"] {
 }
 
 .icon-caret-down:before {
-  content: "\f024";
 }
 
 .icon-caret-up:before {
@@ -2979,13 +2978,11 @@ body.basic {
   text-shadow: none;
 }
 .nav li a:not(:last-child):after {
-  content: "\f0d7";
   font-family: FontAwesome;
   float: right;
   margin: 2px 0 0 10px;
 }
 .basic .nav li a:not(:last-child):after {
-  content: "\f024";
 }
 .nav li li a:not(:last-child):after {
   content: "\f0da";
@@ -3215,10 +3212,8 @@ li.sub-menu-parent.open > a {
   color: #fff;
 }
 .offcanvas #site-navigation li li a:not(:last-child):after {
-  content: "\f0d7";
 }
 .basic .offcanvas #site-navigation li li a:not(:last-child):after {
-  content: "\f024";
 }
 .offcanvas #site-navigation .navbar-inner {
   border: 0;

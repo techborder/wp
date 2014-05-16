@@ -38,36 +38,36 @@ foreach($allUsers as $currentUser)
 					<p class="authorDescrption"><?php echo get_user_meta($user->ID, 'description', true); ?></p>
 					<p class="authorLinks"><a href="<?php echo get_author_posts_url( $user->ID ); ?>">Author Posts</a>
 					<?php ?><div class="socialIcons">
-						<ul>
+						<ul class="socialIcons">
 							<?php
 								$website = $user->user_url;
 								if($user->user_url != '')
 								{
-									printf('<li class="weblink"><a href="%s">%s</a></li>', $user->user_url, 'Website');
+									printf('<li><a href="%s"class="genericon genericon-link" target="_blank"></a></li>', $user->user_url, 'Website');
 								}
 
 								$twitter = get_user_meta($user->ID, 'twitter_profile', true);
 								if($twitter != '')
 								{
-									printf('<li class="twitter"><a href="%s">%s</a></li>', $twitter, 'Twitter');
+									printf('<li><a href="%s"class="genericon genericon-twitter" target="_blank"></a></li>', $twitter, 'Twitter');
 								}
 
 								$facebook = get_user_meta($user->ID, 'facebook_profile', true);
 								if($facebook != '')
 								{
-									printf('<li class="facebook"><a href="%s">%s</a></li>', $facebook, 'facebook');
+									printf('<li><a href="%s"class="genericon genericon-facebook-alt" target="_blank"></a></li>', $facebook, 'facebook');
 								}
 
 								$google = get_user_meta($user->ID, 'google_profile', true);
 								if($google != '')
 								{
-									printf('<li class="googleplus"><a href="%s">%s</a></li>', $google, 'Google');
+									printf('<li><a href="%s"class="genericon genericon-googleplus" target="_blank"></a></li>', $google, 'Google');
 								}
 
 								$linkedin = get_user_meta($user->ID, 'linkedin_profile', true);
 								if($linkedin != '')
 								{
-									printf('<li class="linkedin"><a href="%s">%s</a></li>', $linkedin, 'LinkedIn');
+									printf('<li><a href="%s"class="genericon genericon-linkedin" target="_blank"></a></li>', $linkedin, 'LinkedIn');
 								}
 							?>
 						</ul>

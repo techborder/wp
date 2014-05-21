@@ -1771,7 +1771,9 @@ p.nocomments {
 	text-align: center;
 	text-transform: uppercase;
 	color: #333;
-	padding-top: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 20px;
 }
 
 .client img{
@@ -1797,6 +1799,7 @@ p.nocomments {
 }
 
 .section_thumbnails {
+	display: none;
 	clear: both;
 	margin-bottom: 50px;
 }

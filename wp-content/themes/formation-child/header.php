@@ -29,8 +29,8 @@
 </head>
 
 <body <?php body_class(); ?>
-	data-center="background-position: 0% -400px;"
-	data-400-top="background-position: 0% 0px;"
+	data-0="background-position: 0% 0px;"
+	data-500="background-position: 0% -900px;"
 >
 <div id="wrap">
 <div id="page" class="hfeed site">

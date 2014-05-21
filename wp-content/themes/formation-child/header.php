@@ -28,7 +28,10 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?>
+	data-center="background-position: 50% 0px;"
+	data-top-bottom="background-position: 50% -300px;"
+>
 <div id="wrap">
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
@@ -68,8 +71,4 @@
 			</a>
 		<?php } // if ( ! empty( $header_image ) ) ?>
 	</div>
-	<div id="main" class="site-main"
-		data-center="background-position: 50% 0px;"
-        data-top-bottom="background-position: 50% -100px;"
-        data-anchor-target="#colophon"
-    >
+	<div id="main" class="site-main">

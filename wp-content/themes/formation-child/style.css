@@ -51,7 +51,8 @@ textarea {
 }
 
 body {
-	background: #333;
+	background-color: #333;
+	background-image: url('http://metis.local/wp/dev/wp-content/uploads/BACKGROUND2.jpg');
 }
 
 /* Headings */
@@ -291,7 +292,6 @@ a.more-link:hover {
 
 /* =Structure
 ----------------------------------------------- */
-
 #wrap {
 	background-color: transparent;
 }
@@ -303,7 +303,6 @@ a.more-link:hover {
 .site-description {
 }
 #main {
-	background-image: url('http://metis.local/wp/dev/wp-content/uploads/BACKGROUND2.jpg');
 }
 #primary {
 }

@@ -519,7 +519,7 @@ a.more-link:hover {
 	position: relative;
 }
 .header_container {
-	background: #FFF;
+	/*background: #FFF;*/
 	margin: 0 auto;
 	max-width: 1160px;
 	min-height: 94px;
@@ -640,7 +640,7 @@ a.more-link:hover {
 	margin: 0 auto;
 	padding-bottom: 0;
 	padding-top: 0;
-	background-color: #FFF;
+	/*background-color: #FFF;*/
 }
 .site-header .site-introduction {
 	float: left;
@@ -695,7 +695,7 @@ a.more-link:hover {
 	float: left;
 	margin: 0;
 	position: relative;
-	background-color: #FFF;
+	/*background-color: #FFF;*/
 }
 .main-navigation a {
 	color: #666;

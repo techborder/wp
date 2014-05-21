@@ -698,7 +698,7 @@ a.more-link:hover {
 	/*background-color: #FFF;*/
 }
 .main-navigation a {
-	color: #666;
+	color: #f8f1e7;
     display: block;
     font-size: 1.3rem;
 	font-size: 13px;
@@ -707,14 +707,14 @@ a.more-link:hover {
     text-decoration: none;
 	text-transform: uppercase;
 	padding: 0 18px;
-	border-top: 4px solid #FFF;
+	border-top: 4px solid #f8f1e7;
 }
 
 .main-navigation li:hover > a,
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
-	border-top: 4px solid #639E3F;
-	color: #639E3F;
+	border-top: 4px solid #3d3521;
+	color: #3d3521;
 	display: block;
 }
 .main-navigation ul li:hover > ul {

@@ -28,10 +28,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>
-	data-0="background-position: 0% 0px;"
-	data-500="background-position: 0% -900px;"
->
+<body <?php body_class(); ?>>
 <div id="wrap">
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
@@ -71,4 +68,7 @@
 			</a>
 		<?php } // if ( ! empty( $header_image ) ) ?>
 	</div>
-	<div id="main" class="site-main">
+	<div id="main" class="site-main"
+		 data-0="background-position: 0% 0px;"
+		data-500="background-position: 0% -900px;"
+>

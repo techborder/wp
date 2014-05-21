@@ -1,7 +1,7 @@
 /*
 Theme Name: Formation
 Theme URI: http://www.templateexpress.com/formation-theme/
-Author: Ossie Heffell
+Author: Ossie Heffxell
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
 Version: 1.9.1
@@ -15,6 +15,7 @@ Resetting and rebuilding styles have been helped along thanks to the fine work o
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
+Template: formation
 */
 
 /*
@@ -27,6 +28,8 @@ _s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
 Formation WordPress Theme, Copyright 2014 Ossie Heffell
 Formation Theme is distributed under the terms of the GNU GPL
 */
+
+@import url("../formation/style.css");
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -514,13 +517,13 @@ a.more-link:hover {
 ----------------------------------------------- */
 
 #wrap {
+	background-color: transparent;
 	margin: 0 auto;
 	padding: 0;
 	position: relative;
-	/*background-color: #FFF;*/
 }
 .header_container {
-	/*background: #FFF;*/
+	background-color: transparent;
 	margin: 0 auto;
 	max-width: 1160px;
 	min-height: 94px;
@@ -641,7 +644,7 @@ a.more-link:hover {
 	margin: 0 auto;
 	padding-bottom: 0;
 	padding-top: 0;
-	/*background-color: #FFF;*/
+	background-color: transparent;
 }
 .site-header .site-introduction {
 	float: left;
@@ -672,8 +675,12 @@ a.more-link:hover {
 	float: left;
 	padding-top: 12px;
 }
-.flex-caption-title { background-color: #639E3F;}
-
+.flex-caption-title {
+	background-color: #639E3F;
+}
+.flex-caption p {
+	background-color: rgba(140, 104, 55, 0.9);  /* FF3+, Saf3+, Opera 10.10+, Chrome, IE9 */
+}
 /* =Menu
 ----------------------------------------------- */
 
@@ -696,7 +703,7 @@ a.more-link:hover {
 	float: left;
 	margin: 0;
 	position: relative;
-	/*background-color: #FFF;*/
+	background-color: transparent;
 }
 .main-navigation a {
 	color: #f8f1e7;
@@ -974,7 +981,7 @@ a.more-link:hover {
 	clear: both;
 }
 #content .entry-header {
-	/*background-color: #FFF;*/
+	background-color: transparent;
 	background-image: none;
 	border: none;
 	margin-bottom: 0;
@@ -1000,7 +1007,7 @@ a.more-link:hover {
 	margin: 0 0 0.2em;
 	padding-top: 2px;
 	text-transform: uppercase;
-	color: #333;
+	color: #f8f1e7;
 	text-shadow: 0px 1px 0 #FFF;
 }
 .page-title {

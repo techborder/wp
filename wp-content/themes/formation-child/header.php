@@ -68,7 +68,11 @@
 			</a>
 		<?php } // if ( ! empty( $header_image ) ) ?>
 	</div>
-	<div id="main" class="site-main"
-		 data-0="background-position: 0% -200px;"
-		data-500="background-position: 0% -600px;"
->
+	<?php if (is_front_page()) : ?>
+		<div id="main" class="site-main"
+			 data-0="background-position: 0% 200px;"
+			data-800="background-position: 0% -200px;"
+		>
+	<?php else : ?>
+		<div id="main" class="site-main">
+	<?php endif; ?>

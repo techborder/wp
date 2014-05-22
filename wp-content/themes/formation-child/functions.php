@@ -13,11 +13,11 @@
 function Formation_child_scripts() {
 	
 	if (!is_admin()) {
-		wp_enqueue_script( 'skrollr', get_stylesheet_directory_uri() . '/js/skrollr.js', array( 'jquery' ), '',  '' );
+		wp_enqueue_script( 'skrollr', get_stylesheet_directory_uri() . '/js/skrollr.min.js', array( 'jquery' ), '',  '' );
 	}
 	
 	if (!is_admin()) {
-		wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.js', array( 'jquery', 'skrollr' ), '',  '' );
+		wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/skrollr-init.js', array( 'jquery', 'skrollr' ), '',  '' );
 	}
 	
 }

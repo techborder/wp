@@ -55,17 +55,4 @@ function formation_customizer_header_text_area( $wp_customize ) {
 }
 add_action( 'customize_register', 'formation_customizer_header_text_area' );
 
-/**
- * Adds the individual sections, settings, and controls to the theme customizer
- */
-//function example_customizer( $wp_customize ) {
-//    $wp_customize->add_section(
-//        'example_section_one',
-//        array(
-//            'title' => 'Example Settings',
-//            'description' => 'This is a settings section.',
-//            'priority' => 35,
-//        )
-//    );
-//}
-//add_action( 'customize_register', 'example_customizer' );
+// TODO: Add feature text paragraphs 2 and 3.

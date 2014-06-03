@@ -77,6 +77,7 @@ get_header(); ?>
     
      <div class="featuretext_top">
 			 <h3><?php echo esc_html(get_theme_mod( 'featured_textbox' ) ); ?></h3>
+			 <p><?php echo esc_html(get_theme_mod( 'featured_text_paragraph_one' ) ); ?></p>
              <div class="featuretext_button">
             <?php if ( get_theme_mod( 'featured_button_url' ) ) : ?>
 			<a href="<?php echo esc_url( get_theme_mod( 'featured_button_url' ) ); ?>" >Find out More</a>

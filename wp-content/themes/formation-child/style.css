@@ -743,39 +743,14 @@ MEDIA QUERIES
 *************************************************************************************/
 /* for 1000px or less */
 @media screen and (max-width: 1000px) {
-	.header_container {
-	height: 100%;
-	width: 100%;
-}
 }
 
 /* for 980px or less */
-@media screen and (max-width: 980px) {
-	
-	#wrap {
-		padding:0;
-		width: 100%; 	
-	}
-	.header_container {
-	height: 100%;
-	width: 100%;
-}
-#masthead .site-introduction {
-		float: none;
-		padding: 0;
-		width: 100%;
-	}
-	#content {
-		padding-left:4px; 	
-	}
+@media screen and (max-width: 980px) {	
 }
 
 /* for 860px or less */
 @media only screen and (max-width: 860px) {
-	.header_container {
-	height: 100%;
-	width: 100%;
-}
 }
 
 /* for 800px or less */
@@ -786,281 +761,64 @@ MEDIA QUERIES
 	#secondary,
 	#tertiary,
 	#sidebar-left {
-		background: none;
-		float: none;
-		margin: 0;
-		padding: 0;
+		background-color: #f8f1e7;
 	}
-	#primary,
-	#secondary,
-	#tertiary,
-	#sidebar-left {
-		width: 100%;
-	}
-	#content-right,
-	#primary-right {
-		background: none;
-		float: none;
-		margin: 0;
-		padding: 0;
-	}
-	#primary-right{
-		width: 100%;
-	}
-	#primary-right {
-		border-top: 0;
-	}
-	.site-logo {
-	height: 100%;
-	width: 100%;
-	text-align: center;
-	}
-	.site-introduction {
-		text-align: center;
-	}
-	.authorlist {
-		width: 100%;
-	}
-	.gridblock {
-     width:44.5%;
-	}
+	
 }
 
 /* for 600px or less */
 @media screen and (max-width: 600px) {
-	
-	#branding img {
-		display: none;
-	}
-	
-	.header-image {
-		width:100%;
-		margin-top: 0px;
-		margin-left: auto;
-    	margin-right: auto;
-	}
-
-	.header_container {
-	height: 100%;
-	width: 100%;
-	}
-
-	.site-main {
-    border: 0;
-	}
-	.gridblock {
-     width:94%;
-	}
-	.hentry {
-	border-bottom: none;
-	}
 }
 
 /* --- IPhone5 (portrait and landscape) --- */
 
 @media screen and (max-width : 568px) {
-
-	#masthead .site-introduction {
-		float: none;
-		padding: 0;
-		width: 100%;
-	}
-	.page-title {
-	text-align: center;
-	padding-top: 10px;
-	clear: both;
-	}
-	.breadcrumbs {
-	text-align: center;
-	padding: 0;
-	width: 99.8%;
-	font-size: 10px;
-	}
-	.header_container {
-	height: 100%;
-	width: 100%;
-	}
-		.authorInfo{
-		width: 98%;
-	}
 }
 
 /* --- Smartphones (portrait and landscape) --- */
 
 @media screen and (max-width : 480px) {
-
-	#masthead .site-introduction {
-		float: none;
-		padding: 0;
-		padding-left: 4px;
-		width: 100%;
-	}
-	
-	.header_container {
-	height: 100%;
-	width: 100%;
-	}
 }
 
 /*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.col { 
-		margin: 1% 0 1% 0%;
-	}
 }
 
 /*  GRID OF TWO   ============================================================================= */
 
 
-.span_2_of_2 {
-	width: 100%;
-}
-
-.span_1_of_2 {
-	width: 49.8%;
-}
-
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.span_2_of_2 {
-		width: 100%; 
-	}
-	.span_1_of_2 {
-		width: 100%; 
-	}
 }
 
 /*  GRID OF THREE   ============================================================================= */
 	
-.span_3_of_3 {
-	width: 100%; 
-}
-.span_2_of_3 {
-	width: 66.1%; 
-}
-.span_1_of_3 {
-	width: 32.2%; 
-}
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 600px) {
-	.span_3_of_3 {
-		width: 99.6%; 
-	}
-	.span_2_of_3 {
-		width: 99.6%; 
-	}
-	.span_1_of_3 {
-		width: 99.6%;
-	}
 }
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.span_3_of_3 {
-		width: 100%; 
-	}
-	.span_2_of_3 {
-		width: 100%; 
-	}
-	.span_1_of_3 {
-		width: 100%;
-	}
 }
 
 /*  GRID OF FOUR   ============================================================================= */
 
 	
-.span_4_of_4 {
-	width: 100%; 
-}
-
-.span_3_of_4 {
-	width: 74.6%; 
-}
-
-.span_2_of_4 {
-	width: 49.2%; 
-}
-
-.span_1_of_4 {
-	width: 24.8%; 
-}
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 800px) {
-	.span_4_of_4 {
-		width: 49.6%; 
-	}
-	.span_3_of_4 {
-		width: 49.6%; 
-	}
-	.span_2_of_4 {
-		width: 49.6%; 
-	}
-	.span_1_of_4 {
-		width: 49.6%;
-	}
 }
 
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.span_4_of_4 {
-		width: 100%; 
-	}
-	.span_3_of_4 {
-		width: 100%; 
-	}
-	.span_2_of_4 {
-		width: 100%; 
-	}
-	.span_1_of_4 {
-		width: 100%; 
-	}
 }
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.span_8_of_8 {
-		width: 100%; 
-	}
-	.span_7_of_8 {
-		width: 100%; 
-	}
-	.span_6_of_8 {
-		width: 100%; 
-	}
-	.span_5_of_8 {
-		width: 100%; 
-	}
-	.span_4_of_8 {
-		width: 100%; 
-	}
-	.span_3_of_8 {
-		width: 100%; 
-	}
-	.span_2_of_8 {
-		width: 100%; 
-	}
-	.span_1_of_8 {
-		width: 100%; 
-	}
-	.featuretext_top {
-	background-color: transparent;
-	}
-	.featuretext_top h3{
-	font-size:1.2rem;
-	font-size:12px;
-	padding: 6px;
-	}
-	.featuretext_top p{
-	font-size:1.2rem;
-	font-size:12px;
-	padding: 6px;
-	}
 }

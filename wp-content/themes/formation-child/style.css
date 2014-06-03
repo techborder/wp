@@ -764,6 +764,10 @@ MEDIA QUERIES
 		background-color: #f8f1e7;
 	}
 	
+	input[type=text], input[type=email], textarea {
+		margin-top: 6px;
+		margin-left: 6px;
+	}
 }
 
 /* for 600px or less */

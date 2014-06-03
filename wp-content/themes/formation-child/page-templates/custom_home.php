@@ -128,14 +128,14 @@ get_header(); ?>
 	<div class="client">
 	<h3>Partners</h3>
 	<div class="unity-separator"></div>
-	 <div class="col span_1_of_4">
-	 <div class="client_recent">
+	<div class="col span_1_of_4">
+	<div class="client_recent">
 		<?php if ( get_theme_mod( 'logo-one-file-upload' ) ) : ?>
 		<a href="<?php echo esc_url( get_theme_mod( 'logo_one_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'logo-one-file-upload' ) ); ?>"  alt="logo one"></a>
 		<?php else : ?>
 		<?php echo '<h4>' . __('Insert Image', 'Formation') . '</h4>'; ?>
 		<?php endif; ?>
-	 </div>
+	</div>
 	</div>
 	<div class="col span_1_of_4">
 	<div class="client_recent">

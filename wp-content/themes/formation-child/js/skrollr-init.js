@@ -10,7 +10,7 @@
 jQuery(document).ready(function($){
 	// Setup variables
 	$window = $(window);
-	$slide = $('main');
+	$slide = $('.home');
 	$body = $('body');
 	
 	//var s = skrollr.init();

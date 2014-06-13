@@ -57,6 +57,10 @@ Support
 Do you enjoy this theme? Send your ideas - issues - on the theme forms . Thank you!
 
 ============================Change Log================================
+@Version:1.4.4.2
+1.Word Wraping Issue fixed in HOME SERVICE.
+@Version:1.4.4.1
+1.W3C Validated.
 @Version:1.4.4
 New Theme added in the Option Panel Page.
 @Version: 1.4.3

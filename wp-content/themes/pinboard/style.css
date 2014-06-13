@@ -3,7 +3,7 @@
 Theme Name: Pinboard
 Theme URI: http://www.onedesigns.com/wordpress-themes/pinboard
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
-Version: 1.1.4
+Version: 1.1.6
 Author: One Designs
 Author URI: http://www.onedesigns.com/
 Tags: blue, gray, silver, white, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
@@ -458,10 +458,17 @@ audio {
 
 .wp-caption {
 	max-width:96%;
-	padding:3% 2%;
+	padding:3%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	box-shadow:0 0 5px rgba(0, 0, 0, .1);
 	background:#FCFCFC;
 	border-bottom:#EEE 1px solid;
+}
+
+.wp-caption.alignnone {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .wp-caption a img {
@@ -473,7 +480,7 @@ audio {
 }
 
 .wp-caption-text {
-	margin:3% 0 0;
+	margin: 20px 0 0;
 	color:#333;
 	font-size:13px;
 	line-height:1.62em;
@@ -482,6 +489,13 @@ audio {
 
 .gallery {
 	margin:auto;
+}
+
+.gallery:before,
+.gallery:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
 .gallery-item {
@@ -516,6 +530,13 @@ audio {
 .gallery-columns-5 .gallery-item {
 	width:17%;
 	margin:0 1.2% 3%;
+}
+
+.gallery-columns-2 .gallery-item:nth-of-type(2n+1),
+.gallery-columns-3 .gallery-item:nth-of-type(3n+1),
+.gallery-columns-4 .gallery-item:nth-of-type(4n+1),
+.gallery-columns-5 .gallery-item:nth-of-type(5n+1) {
+	clear: both;
 }
 
 .gallery-item:hover  {
@@ -570,7 +591,7 @@ audio {
 }
 
 .fourcol {
-	width:25%;
+	width:24.9%;
 }
 
 .twelvecol {
@@ -1300,7 +1321,8 @@ a.social-media-icon:hover {
 
 .single .entry,
 .page .entry,
-.error404 .entry {
+.error404 .entry,
+.search-no-results .entry {
 	padding: 20px;
 	margin-bottom:5.1% !important;
 }
@@ -2726,7 +2748,7 @@ a.ajax-load:hover {
 	}
 
 	.wp-caption {
-		padding:10px 0 0;
+		padding:10px 10px 0;
 	}
 
 	#site-title,

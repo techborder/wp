@@ -33,7 +33,10 @@ function pinboard_theme_setup() {
 			'primary_nav' => 'Primary Menu', // You can add more menus here
 		)
 	);
-	
+
+	// Add support for HTML5 gallery and caption tags
+	add_theme_support( 'html5', array( 'gallery', 'caption' ) );
+
 	// Add support for Post Formats
 	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
 	
@@ -587,11 +590,9 @@ if ( ! function_exists( 'pinboard_register_scripts' ) ) :
 function pinboard_register_scripts() {
 	wp_register_script( 'ios-orientationchange-fix', get_template_directory_uri() . '/scripts/ios-orientationchange-fix.js', false, null );
 	wp_register_script( 'flexslider', get_template_directory_uri() . '/scripts/jquery.flexslider-min.js', array( 'jquery' ), null );
-	wp_register_script( 'imagesloaded', get_template_directory_uri() . '/scripts/imagesloaded.pkgd.js', array( 'jquery' ), null );
-	wp_register_script( 'masonry', get_template_directory_uri() . '/scripts/jquery.masonry.pkgd.js', array( 'jquery', 'imagesloaded' ), null );
-	wp_register_script( 'colorbox', get_template_directory_uri() . '/scripts/jquery.colorbox.js', array( 'jquery' ), null );
+	wp_register_script( 'colorbox', get_template_directory_uri() . '/scripts/jquery.colorbox-min.js', array( 'jquery' ), null );
 	wp_register_script( 'fitvids', get_template_directory_uri() . '/scripts/jquery.fitvids.js', array( 'jquery' ), null );
-	wp_register_script( 'infinitescroll', get_template_directory_uri() . '/scripts/jquery.infinitescroll.js', array( 'jquery' ), null );
+	wp_register_script( 'infinitescroll', get_template_directory_uri() . '/scripts/jquery.infinitescroll.min.js', array( 'jquery' ), null );
 }
 endif;
 
@@ -840,15 +841,11 @@ function pinboard_call_scripts() { ?>
 					$('#content .entries').infinitescroll({
 						loading: {
 							finishedMsg: "<?php _e( 'There are no more posts to display.', 'pinboard' ); ?>",
-							img: ( window.devicePixelRatio > 1 ? "<?php echo get_template_directory_uri(); ?>/images/ajax-loading_2x.gif" : "<?php echo get_template_directory_uri(); ?>/images/ajax-loading.gif" ),
-							// msg: null,
-							msgText: "<?php _e( 'Loading more posts &#8230;', 'pinboard' ); ?>",
+							img:         ( window.devicePixelRatio > 1 ? "<?php echo get_template_directory_uri(); ?>/images/ajax-loading_2x.gif" : "<?php echo get_template_directory_uri(); ?>/images/ajax-loading.gif" ),
+							msgText:     "<?php _e( 'Loading more posts &#8230;', 'pinboard' ); ?>",
+							selector:    "#content",
 						},
-						debug           : false,
 						nextSelector    : "#posts-nav .nav-all a, #posts-nav .nav-next a",
-						// loadingImg      : ( window.devicePixelRatio > 1 ? "<?php echo get_template_directory_uri(); ?>/images/ajax-loading_2x.gif" : "<?php echo get_template_directory_uri(); ?>/images/ajax-loading.gif" ),
-						// loadingText     : "Loading more posts &#8230;",
-						// donetext        : "There are no more posts to display.",
 						navSelector     : "#posts-nav",
 						contentSelector : "#content .entries",
 						itemSelector    : "#content .entries .hentry",
@@ -1100,13 +1097,15 @@ function pinboard_custom_styles() {
 	<?php endif; ?>
 	<?php if( $default_options['h3_font_size'] != pinboard_get_option( 'h3_font_size' ) ) : ?>
 		h3,
-		.teaser .entry-title {
+		.twocol .entry-title,
+		.threecol .entry-title {
 			font-size:<?php echo pinboard_get_option( 'h3_font_size' ) . pinboard_get_option( 'h3_font_size_unit' ); ?>;
 			line-height:<?php echo pinboard_get_option( 'headings_line_height' ) . pinboard_get_option( 'headings_line_height_unit' ); ?>;
 		}
 	<?php endif; ?>
 	<?php if( $default_options['h4_font_size'] != pinboard_get_option( 'h4_font_size' ) ) : ?>
-		h4 {
+		h4,
+		.fourcol .entry-title {
 			font-size:<?php echo pinboard_get_option( 'h4_font_size' ) . pinboard_get_option( 'h4_font_size_unit' ); ?>;
 			line-height:<?php echo pinboard_get_option( 'headings_line_height' ) . pinboard_get_option( 'headings_line_height_unit' ); ?>;
 		}
@@ -1328,7 +1327,7 @@ function pinboard_current_location() {
 				<?php if( isset( $pinboard_page_template ) ) {
 					echo the_title();
 				} elseif( is_search() ) {
-					__( 'Search results for', 'pinboard' ) . ': &quot;' .  get_search_query() . '&quot;';
+					echo __( 'Search results for', 'pinboard' ) . ': &quot;' .  get_search_query() . '&quot;';
 				} elseif( is_author() ) {
 					$author = get_userdata( get_query_var( 'author' ) );
 					echo $author->display_name;
@@ -1816,7 +1815,7 @@ function pinboard_gallery_shortcode( $output, $attr ) {
 }
 endif;
 
-add_filter( 'post_gallery', 'pinboard_gallery_shortcode', 10, 2 );
+// add_filter( 'post_gallery', 'pinboard_gallery_shortcode', 10, 2 );
 
 if ( ! function_exists( 'pinboard_rel_attachment' ) ) :
 function pinboard_rel_attachment( $link ) {

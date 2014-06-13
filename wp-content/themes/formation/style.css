@@ -4,7 +4,7 @@ Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Ossie Heffell
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
-Version: 1.9.2
+Version: 1.9.3
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -185,7 +185,7 @@ b, strong {
 	font-weight: bold;
 }
 dfn, cite, em, i {
-	font-style:normal;
+	font-style: italic;
 }
 blockquote {
 	font-style: italic;
@@ -415,25 +415,6 @@ a.more-link {
 	color: #FFF;
 }
 a.more-link:hover {
-	background-color: #222;
-}
-.grid-more-link {
-	font-family: 'source_sans_probold', sans-serif;
-	font-size: 10px;
-	font-size: 1rem;
-	text-transform: uppercase;
-	float: right;
-	margin-top: 0;
-	background-color: #10b9b9;
-	color: #FFF;
-	border-radius: 0.2em;
-	padding: 4px 8px;
-	clear: both;
-}
-.grid-more-link a{
-	color: #FFF;
-}
-.grid-more-link:hover{
 	background-color: #222;
 }
 .widget h4{
@@ -1161,9 +1142,48 @@ footer.entry-meta {
 .comment-content tr.odd td {
 	background: #dfd6c7;
 }
+.entry-content ul li {
+	list-style-type: square;
+	list-style-position: inside;
+}
+.entry-content ol {
+	list-style: decimal;
+	margin: 0 0 1.5em 1.5em;
+}
+.entry-content a, .entry-content a:visited, .entry-summary a, .entry-summary a:visited{
+    color: #10b9b9;
+}
+.entry-content a:hover, .entry-summary a:hover{
+    color: #666;
+}
+.entry-content a.more-link, .entry-content a.more-link:visited{
+    color: #FFF;
+}
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+	clear: none;
+}
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+.grid-more-link {
+	font-family: 'source_sans_probold', sans-serif;
+	font-size: 10px;
+	font-size: 1rem;
+	text-transform: uppercase;
+	float: right;
+	margin-top: 0;
+	background-color: #10b9b9;
+	color: #FFF;
+	border-radius: 0.2em;
+	padding: 4px 8px;
+	clear: both;
+}
+.grid-more-link:hover{
+	background-color: #222;
+}
+.grid-more-link a, .grid-more-link a:visited, .grid-more-link a:hover{
+	color: #FFF;
 }
 
 /* Meet the Team Layout */

@@ -6,9 +6,9 @@ left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout,
 custom-background, custom-colors, custom-header, custom-menu,
 editor-style, featured-images, full-width-template, microformats,
 post-formats, sticky-post, theme-options, threaded-comments, translation-ready
-Requires at least: 3.6
-Tested up to: 3.8.1
-Stable tag: 1.1.4
+Requires at least: 3.9
+Tested up to: 3.9.1
+Stable tag: 1.1.6
 
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
 
@@ -198,6 +198,22 @@ You may remove any copyright references (unless required by third party componen
 The theme is offered free of charge. If someone asked money for it, someone just tricked you.
 
 == Changelog ==
+
+= 1.1.6 =
+
+* Fixed four columns layout in Firefox and IE
+* Fixed option for teaser post title font size
+* Updated FlexSlider to version 2.2
+* Updated Colorbox to version 1.5.9
+* Updated InfiniteScroll to version 2.0.2
+
+= 1.1.5 =
+
+* Replaced custom HTML5 gallery shortcode with WP 3.9 HTML5 gallery and caption
+* Fixed visual CSS inconsistencies with HTML5 gallery and caption shortcodes
+* Fixed padding on search pages with no results
+* Fixed page title not appearing on search pages
+* Removed theme bundled Masonry and ImagesLoaded script and replaced with core bundled script
 
 = 1.1.4 =
 

@@ -85,13 +85,17 @@ if (file_exists('dtoken.php')) {
 
 <?php
 /* ==============================================================================================
-  ADVANCED FEATURES - Allows admins to perform aditional logic on the import.
+ADVANCED FEATURES - Allows admins to perform aditional logic on the import.
 
-  $GLOBALS['TABLES_SKIP_COLS']
-  Add Known column names of tables you don't want the search and replace logic to run on.
-  $GLOBALS['REPLACE_LIST']
-  Add additional search and replace items add list here
-  Example: array(array('search'=> '/html/oldpath/images',  'replace'=> '/html/newpath/images'));
+$GLOBALS['TABLES_SKIP_COLS']
+	Add Known column names of tables you don't want the search and replace logic to run on.
+
+$GLOBALS['REPLACE_LIST']
+	Add additional search and replace items to step 2 for the serialize engine.  
+	Place directly below $GLOBALS['REPLACE_LIST'] variable below your items
+	EXAMPLE:
+		array_push($GLOBALS['REPLACE_LIST'], array('search' => 'https://oldurl/',  'replace' => 'https://newurl/'));
+		array_push($GLOBALS['REPLACE_LIST'], array('search' => 'ftps://oldurl/',   'replace' => 'ftps://newurl/'));
   ================================================================================================= */
 
 $GLOBALS['FW_TABLEPREFIX'] = '%fwrite_wp_tableprefix%';
@@ -257,7 +261,7 @@ if (isset($_POST['action_ajax'])) {
 							<div class="<?php echo $step3CSS; ?>"><a><span>3</span> Test </a></div>
 						</div>
 					</div>
-				<?php endif ?>
+				<?php endif; ?>
 
 			</td>
 			<td style="white-space:nowrap">

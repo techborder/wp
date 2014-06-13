@@ -1,7 +1,7 @@
-<!-- =========================================
-META-BOX2: PACKAGE OPTIONS -->
+
 <form id="dup-form-opts" method="post" action="?page=duplicator&tab=new2" data-validate="parsley">
 	<input type="hidden" id="dup-form-opts-action" name="action" value="">
+	<input type="hidden" id="dup-form-opts-hash" name="package-hash" value="<?php echo $package_hash; ?>">
 
 	<b style="font-size:15px"><i class="fa fa-archive"></i> <?php _e('Package', 'wpduplicator') ?></b>
 	<hr size="1" />
@@ -83,14 +83,18 @@ META-BOX2: PACKAGE OPTIONS -->
 				<fieldset>
 					<legend><b><i class="fa fa-filter"></i> <?php _e('Filters', 'wpduplicator'); ?></b></legend>
 					
-					<div class="dup-enable-filters">
-						<input type="checkbox" id="dbfilter-on" name="dbfilter-on" onclick="Duplicator.Pack.ToggleDBFilters()" <?php echo ($Package->Database->FilterOn) ? "checked='checked'" : ""; ?> />
-						<label for="dbfilter-on"><?php _e("Enable Filters", 'wpduplicator') ?></label> 
+					<div class="dup-enable-filters">						
+						<table>
+							<tr>
+								<td><input type="checkbox" id="dbfilter-on" name="dbfilter-on" onclick="Duplicator.Pack.ToggleDBFilters()" <?php echo ($Package->Database->FilterOn) ? "checked='checked'" : ""; ?> /></td>
+								<td><label for="dbfilter-on"><?php _e("Enable Filters", 'wpduplicator') ?> &nbsp;</label> </td>
+								<td><div class="dup-tabs-opts-help" style="margin:5px 0px 0px 0px"><?php _e("checked tables are excluded", 'wpduplicator') ?></div></td>
+							</tr>
+						</table>
 					</div>
-					
 					<div id="dup-db-filter-items">
-						<a href="javascript:void(0)" id="dball" onclick="jQuery('#dup-dbtables .checkbox').prop('checked', true);">[ <?php _e( 'All', 'wpduplicator' ); ?> ]</a> &nbsp; 
-						<a href="javascript:void(0)" id="dbnone" onclick="jQuery('#dup-dbtables .checkbox').prop('checked', false);">[ <?php _e( 'None', 'wpduplicator' ); ?> ]</a>
+						<a href="javascript:void(0)" id="dball" onclick="jQuery('#dup-dbtables .checkbox').prop('checked', true).trigger('click');">[ <?php _e( 'Include All', 'wpduplicator' ); ?> ]</a> &nbsp; 
+						<a href="javascript:void(0)" id="dbnone" onclick="jQuery('#dup-dbtables .checkbox').prop('checked', false).trigger('click');">[ <?php _e( 'Exclude All', 'wpduplicator' ); ?> ]</a>
 						<div style="font-stretch:ultra-condensed; font-family: Calibri; white-space: nowrap">
 							<?php
 							$tables = $wpdb->get_results( "SHOW FULL TABLES FROM `" . DB_NAME . "` WHERE Table_Type = 'BASE TABLE' ", ARRAY_N );
@@ -100,8 +104,14 @@ META-BOX2: PACKAGE OPTIONS -->
 							$counter = 0;
 							$tableList = explode(',', $Package->Database->FilterTables);
 							foreach ( $tables as $table ) {
-								$checked = in_array($table[0], $tableList) ? 'checked="checked"' : '';
-								echo "<label for='dbtables-{$table[0]}'><input class='checkbox' $checked type='checkbox' name='dbtables[]' id='dbtables-{$table[0]}' value='{$table[0]}' />&nbsp;{$table[0]}</label><br />";
+								if (in_array($table[0], $tableList)) {
+									$checked =   'checked="checked"';
+									$css =  'text-decoration:line-through';
+								} else {
+									$checked =   '';
+									$css = '';
+								}
+								echo "<label for='dbtables-{$table[0]}' style='{$css}'><input class='checkbox dbtable' $checked type='checkbox' name='dbtables[]' id='dbtables-{$table[0]}' value='{$table[0]}' onclick='Duplicator.Pack.ExcludeTable(this)' />&nbsp;{$table[0]}</label><br />";
 								$counter++;
 								if ($next_row <= $counter) {
 									echo '</td><td valign="top">';
@@ -110,7 +120,7 @@ META-BOX2: PACKAGE OPTIONS -->
 							}
 							echo '</td></tr></table>';
 						?>
-							</div>
+						</div>
 						<div class="dup-tabs-opts-help">
 							<?php _e("Checked tables will not be added to the database script.  Excluding certain tables can possibly cause your site or plugins to not work correctly after install!", 'wpduplicator'); ?>
 						</div>	
@@ -198,11 +208,7 @@ META-BOX2: PACKAGE OPTIONS -->
 	</div>		
 	</div><br/>
 	<!-- end meta-box: installer  -->
-	
-	<div style="padding:15px 3px 3px 3px; float:right">
-		<input type="checkbox" id="dup-skip-step2" name="dup-skip-step2" onclick="Duplicator.Pack.SkipStep2()" <?php echo ($package_skip_scanner) ? 'checked="checked"' : ''; ?> />
-		<label for="dup-skip-step2"><b><?php _e('Skip Scan', 'wpduplicator'); ?></b> <small>(<?php _e('step 2', 'wpduplicator'); ?>)</small></label>
-	</div><br style="clear:both" /><br/>
+
 
 	<div class="dup-button-footer">
 		<input type="button" value="<?php _e("Reset", 'wpduplicator') ?>" class="button button-large" <?php echo ($dup_tests['Success']) ? '' : 'disabled="disabled"';?> onclick="Duplicator.Pack.ResetSettings()" />
@@ -229,6 +235,15 @@ jQuery(document).ready(function($) {
 	Duplicator.Pack.ResetName = function () {
 		var current = $('#package-name').val(); 
 		$('#package-name').val( (current == DUP_NAMELAST) ? DUP_NAMEDEFAULT : DUP_NAMELAST)
+	}
+	
+	Duplicator.Pack.ExcludeTable = function (check) {
+		var $cb =  $(check);
+		if ($cb.is(":checked")) {
+			$cb.closest("label").css('textDecoration', 'line-through');
+		} else {
+			$cb.closest("label").css('textDecoration', 'none');
+		}
 	}
 	
 });	

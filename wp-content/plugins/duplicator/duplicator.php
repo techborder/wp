@@ -3,7 +3,7 @@
   Plugin Name: Duplicator
   Plugin URI: http://www.lifeinthegrid.com/duplicator/
   Description: Create a backup of your WordPress files and database. Duplicate and move an entire site from one location to another in a few steps. Create a full snapshot of your site at any point in time.
-  Version: 0.5.2
+  Version: 0.5.4
   Author: LifeInTheGrid
   Author URI: http://www.lifeinthegrid.com
   License: GPLv2 or later
@@ -38,9 +38,9 @@ if (is_admin() == true) {
 	require_once 'classes/utility.php';
 	require_once 'classes/ui.php';
 	require_once 'classes/settings.php';
+	require_once 'classes/server.php';
 	require_once 'classes/package.php';
 	require_once 'classes/package.archive.zip.php';
-	require_once 'classes/task.php';
     require_once 'views/actions.php';
 	
     /* ACTIVATION 
@@ -48,20 +48,26 @@ if (is_admin() == true) {
     function duplicator_activate() {
 
         global $wpdb;
-        $table_name = $wpdb->prefix . "duplicator_packages";
 		
-		 //PRIMARY KEY must have 2 spaces before for dbDelta to work
-		$sql = "CREATE TABLE `{$table_name}` (
-			`id`		BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT  PRIMARY KEY,
-			`name`		VARCHAR(250)	NOT NULL,
-			`hash`		VARCHAR(50)		NOT NULL,
-			`status`	INT(11)			NOT NULL,
-			`created`	DATETIME		NOT NULL DEFAULT '0000-00-00 00:00:00',
-			`owner`		VARCHAR(60)		NOT NULL,
-			`package`	MEDIUMBLOB		NOT NULL )";
+		//Only update database on version update
+		if (DUPLICATOR_VERSION != get_option("duplicator_version_plugin")) {
+			$table_name = $wpdb->prefix . "duplicator_packages";
+		
+			//PRIMARY KEY must have 2 spaces before for dbDelta to work
+		   $sql = "CREATE TABLE `{$table_name}` (
+			   `id`			BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT  PRIMARY KEY,
+			   `name`		VARCHAR(250)	NOT NULL,
+			   `hash`		VARCHAR(50)		NOT NULL,
+			   `status`		INT(11)			NOT NULL,
+			   `created`	DATETIME		NOT NULL DEFAULT '0000-00-00 00:00:00',
+			   `owner`		VARCHAR(60)		NOT NULL,
+			   `package`	MEDIUMBLOB		NOT NULL,
+			    KEY `hash` (`hash`))";
 
-        require_once(DUPLICATOR_WPROOTPATH . 'wp-admin/includes/upgrade.php');
-        @dbDelta($sql);
+		   require_once(DUPLICATOR_WPROOTPATH . 'wp-admin/includes/upgrade.php');
+		   @dbDelta($sql);
+			
+		}
 
 		//WordPress Options Hooks
         update_option('duplicator_version_plugin',  DUPLICATOR_VERSION);
@@ -113,11 +119,12 @@ if (is_admin() == true) {
     add_action('admin_menu',							'duplicator_menu');
 	add_action('wp_ajax_duplicator_task_reset',			'duplicator_task_reset');
     add_action('wp_ajax_duplicator_package_scan',		'duplicator_package_scan');
-    add_action('wp_ajax_duplicator_package_create',		'duplicator_package_create');
+    add_action('wp_ajax_duplicator_package_build',		'duplicator_package_build');
 	add_action('wp_ajax_duplicator_package_delete',		'duplicator_package_delete');
+	add_action('wp_ajax_duplicator_package_report',		'duplicator_package_report');
 	add_action('wp_ajax_DUP_UI_SaveViewStateByPost',	array('DUP_UI', 'SaveViewStateByPost'));
 	add_action('admin_notices',							array('DUP_UI', 'ShowReservedFilesNotice'));
-
+	
 	//FILTERS
     add_filter('plugin_action_links',					'duplicator_manage_link', 10, 2);
     add_filter('plugin_row_meta',						'duplicator_meta_links', 10, 2);

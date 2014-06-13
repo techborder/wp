@@ -135,9 +135,14 @@ class DUP_Util {
 	
 	
 	public static function IsShellExecAvailable() {
-
-		if (array_intersect(array('shell_exec', 'escapeshellarg', 'escapeshellcmd'), array_map('trim', explode(',', @ini_get('disable_functions')))))
+		
+		if (array_intersect(array('shell_exec', 'escapeshellarg', 'escapeshellcmd', 'extension_loaded'), array_map('trim', explode(',', @ini_get('disable_functions')))))
 			return false;
+		
+		//Suhosin: http://www.hardened-php.net/suhosin/
+		//Will cause PHP to silently fail.
+		if (extension_loaded('suhosin'))
+		  return false;
 
 		// Can we issue a simple echo command?
 		if (!@shell_exec('echo duplicator'))
@@ -150,10 +155,18 @@ class DUP_Util {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 			return true;
 		}
-		
 		return false;
 	}
 
+	public static function GetCurrentUser() {
+		$unreadable =  '(Undetectable)';
+		if (@function_exists('get_current_user') && @is_callable('get_current_user')) {
+			$user = @get_current_user(); 
+			return strlen($user) ? $user : $unreadable;
+		}
+		return $unreadable;
+	}
+	
 	/**
 	*  Creates the snapshot directory if it doesn't already exisit
 	*/

@@ -19,6 +19,9 @@ class wfConfig {
 				"alertOn_adminLogin" => false,
 				"alertOn_nonAdminLogin" => false,
 				"liveTrafficEnabled" => true,
+				"advancedCommentScanning" => false,
+				"checkSpamIP" => false,
+				"spamvertizeCheck" => false,
 				"liveTraf_ignorePublishers" => true,
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => false,
@@ -61,7 +64,7 @@ class wfConfig {
 			),
 			"otherParams" => array(
 				'securityLevel' => '0',
-				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
+				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'bannedURLs' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
 				"neverBlockBG" => "neverBlockVerified",
 				"loginSec_countFailMins" => "5",
 				"loginSec_lockoutMins" => "5",
@@ -94,6 +97,9 @@ class wfConfig {
 				"alertOn_adminLogin" => true,
 				"alertOn_nonAdminLogin" => false,
 				"liveTrafficEnabled" => true,
+				"advancedCommentScanning" => false,
+				"checkSpamIP" => false,
+				"spamvertizeCheck" => false,
 				"liveTraf_ignorePublishers" => true,
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
@@ -136,7 +142,7 @@ class wfConfig {
 			),
 			"otherParams" => array(
 				'securityLevel' => '1',
-				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
+				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'bannedURLs' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
 				"neverBlockBG" => "neverBlockVerified",
 				"loginSec_countFailMins" => "5",
 				"loginSec_lockoutMins" => "5",
@@ -169,6 +175,9 @@ class wfConfig {
 				"alertOn_adminLogin" => true,
 				"alertOn_nonAdminLogin" => false,
 				"liveTrafficEnabled" => true,
+				"advancedCommentScanning" => false,
+				"checkSpamIP" => false,
+				"spamvertizeCheck" => false,
 				"liveTraf_ignorePublishers" => true,
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
@@ -211,7 +220,7 @@ class wfConfig {
 			),
 			"otherParams" => array(
 				'securityLevel' => '2',
-				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
+				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'bannedURLs' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
 				"neverBlockBG" => "neverBlockVerified",
 				"loginSec_countFailMins" => "240",
 				"loginSec_lockoutMins" => "240",
@@ -244,6 +253,9 @@ class wfConfig {
 				"alertOn_adminLogin" => true,
 				"alertOn_nonAdminLogin" => false,
 				"liveTrafficEnabled" => true,
+				"advancedCommentScanning" => false,
+				"checkSpamIP" => false,
+				"spamvertizeCheck" => false,
 				"liveTraf_ignorePublishers" => true,
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
@@ -286,7 +298,7 @@ class wfConfig {
 			),
 			"otherParams" => array(
 				'securityLevel' => '3',
-				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
+				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'bannedURLs' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
 				"neverBlockBG" => "neverBlockVerified",
 				"loginSec_countFailMins" => "1440",
 				"loginSec_lockoutMins" => "1440",
@@ -319,6 +331,9 @@ class wfConfig {
 				"alertOn_adminLogin" => true,
 				"alertOn_nonAdminLogin" => false,
 				"liveTrafficEnabled" => true,
+				"advancedCommentScanning" => false,
+				"checkSpamIP" => false,
+				"spamvertizeCheck" => false,
 				"liveTraf_ignorePublishers" => true,
 				//"perfLoggingEnabled" => false,
 				"scheduledScansEnabled" => true,
@@ -361,7 +376,7 @@ class wfConfig {
 			),
 			"otherParams" => array(
 				'securityLevel' => '4',
-				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
+				"alertEmails" => "", "liveTraf_ignoreUsers" => "", "liveTraf_ignoreIPs" => "", "liveTraf_ignoreUA" => "",  "apiKey" => "", "maxMem" => '256', 'scan_exclude' => '', 'whitelisted' => '', 'bannedURLs' => '', 'maxExecutionTime' => '', 'howGetIPs' => '', 'actUpdateInterval' => '', 'alert_maxHourly' => 0, 'loginSec_userBlacklist' => '',
 				"neverBlockBG" => "neverBlockVerified",
 				"loginSec_countFailMins" => "1440",
 				"loginSec_lockoutMins" => "1440",
@@ -434,6 +449,13 @@ class wfConfig {
 	}
 	public static function getHTML($key){
 		return htmlspecialchars(self::get($key));
+	}
+	public static function inc($key){
+		$val = self::get($key, false);
+		if(! $val){
+			$val = 0;
+		}
+		self::set($key, $val + 1);
 	}
 	public static function set($key, $val){
 		if(is_array($val)){
@@ -620,6 +642,11 @@ class wfConfig {
 	}
 	public static function f($key){
 		echo esc_attr(self::get($key));
+	}
+	public static function cbp($key){
+		if(self::get('isPaid') && self::get($key)){
+			echo ' checked ';
+		}
 	}
 	public static function cb($key){
 		if(self::get($key)){

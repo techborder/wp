@@ -1,13 +1,6 @@
 <?php
-
 	require_once (DUPLICATOR_PLUGIN_PATH . 'classes/package.php');
-	
-	$Package = new DUP_Package();
-	if (isset($_POST['dup-skip-step2'])) {
-		$Package->SaveActive($_POST);
-	}
-	$Package = $Package->GetActive();
-
+	$Package = DUP_Package::GetActive();
 ?>
 
 <style>
@@ -18,7 +11,7 @@
 	div#dup-msg-success {color:#18592A; padding:5px;}
 	div#dup-msg-success fieldset, 
 	div#dup-msg-error fieldset {text-align:left; width:95%; border:1px solid #dfdfdf; border-radius:5px;}
-	div.dup-msg-error-area {overflow-y: scroll; padding:5px 15px 5px 15px; max-height:150px;}
+	div.dup-msg-error-area {overflow-y: scroll; padding:5px 15px 5px 15px; max-height:150px; max-width: 700px}
 	div.dup-msg-success-stats{color:#999;margin:10px 0px 0px 0px}
 	div.dup-msg-success-links {margin:20px 5px 5px 5px; font-size: 14px; font-weight: bold}
 	div#dup-msg-error {color:#A62426; padding:5px;}
@@ -151,7 +144,7 @@ jQuery(document).ready(function($) {
 	*	Timeout (10000000 = 166 minutes)  */
 	Duplicator.Pack.Create = function() {
 		
-		var data = {action : 'duplicator_package_create'}
+		var data = {action : 'duplicator_package_build'}
 
 		$.ajax({
 			type: "POST",

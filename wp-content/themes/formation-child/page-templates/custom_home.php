@@ -75,7 +75,10 @@ get_header(); ?>
 	</div> 
 	</div> 
 	
+	 <div class="featurephoto_top">
+	</div>
 	 <div class="featuretext_top">
+			<img src="http://www.bridgetohealth.net/Raquel_Younglove_portrait.jpg"/>
 			<h3><?php echo esc_html(get_theme_mod( 'featured_textbox' ) ); ?></h3>
 			<h4><?php echo esc_html(get_theme_mod( 'featured_text_paragraph_one' ) ); ?></h4>
 			<h4><?php echo esc_html(get_theme_mod( 'featured_text_paragraph_two' ) ); ?></h4>

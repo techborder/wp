@@ -126,7 +126,7 @@ get_header(); ?>
 	
 	<div class="section_clients group">
 	<div class="client">
-	<h3>Partners</h3>
+	<h3>In the news</h3>
 	<div class="unity-separator"></div>
 	<div class="col span_1_of_4">
 	<div class="client_recent">

@@ -537,7 +537,7 @@ a.more-link:hover {
 }
 
 .client_recent {
-	background-color: #FFF;
+	background-color: transparent;
 }
 .recent_title{
 	background-color: #333;

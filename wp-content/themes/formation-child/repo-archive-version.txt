@@ -1,0 +1,4 @@
+Git commit hash: $Format:%H$
+
+This commit hash is only updated if the git repo is archived.
+E.g. Execute from within a git repository, "git archive -0 --format zip --worktree-attributes -o ~/tmp/git-wp-dev.zip HEAD"

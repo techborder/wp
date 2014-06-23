@@ -389,12 +389,17 @@ a.more-link:hover {
 	border-top: 4px solid #f8f1e7;
 }
 
-.main-navigation li:hover > a,
+.main-navigation li:hover > a {
+	border-top: 4px solid #639E3F;
+	color: #639E3F;
+}
+
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
 	border-top: 4px solid #3d3521;
 	color: #3d3521;
 }
+
 .main-navigation ul li:hover > ul {
 }
 .main-navigation > li > a, .main-navigation li.current_page_ancestor a {

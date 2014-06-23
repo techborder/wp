@@ -508,6 +508,15 @@ a.more-link:hover {
 .main-small-navigation li.current-menu-item a,
 .main-small-navigation ul ul a:hover {
 	color: #639E3F;
+}
+
+.main-small-navigation li.current_page_item a,
+.main-small-navigation li.current-menu-item a {
+	background-color: #222;
+}
+
+.main-small-navigation li:hover > a,
+.main-small-navigation ul ul a:hover {
 	background-color: #333;
 }
 

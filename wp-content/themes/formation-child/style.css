@@ -1,7 +1,7 @@
 /*
-Theme Name: Formation
+Theme Name: Formation child
 Theme URI: http://www.templateexpress.com/formation-theme/
-Author: Ossie Heffxell
+Author: Ossie Heffxell and Techborder
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
 Version: 1.9.1
@@ -166,7 +166,7 @@ textarea {
 input[type=text]:focus,
 input[type=email]:focus,
 textarea:focus {
-	background: #fff;
+	background-color: #3d3521;
 }
 textarea {
 }

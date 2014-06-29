@@ -19,23 +19,32 @@ jQuery(document).ready(function($){
 		
 	function adjustWindow(){
 		
-		// Init Skrollr
-		var s = skrollr.init({
-			forceHeight: false
-		});
 		
 		// Get window size
 	    winH = $window.height();
+
+	    winW = $window.width();
 	    
 	    // Keep minimum height 550
 	    if(winH <= 550) {
 			winH = 550;
 		} 
 	    
-	    // Resize our slides
-	    $slide.height(winH);
+		if ( winW >= 768 ) {
+			// Init Skrollr
+			var s = skrollr.init({
+				forceHeight: false
+			});
+	    		// Resize our slides
+	    		$slide.height(winH);
 	    
-		// Refresh Skrollr after resizing our sections
-		s.refresh($('body'));
+			// Refresh Skrollr after resizing our sections
+			s.refresh($('body'));
+		} else {
+			// Init Skrollr
+			var s = skrollr.init();
+			s.destroy();
+		}
+
 	}
 });

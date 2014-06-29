@@ -5,6 +5,7 @@ Author: Ossie Heffxell and Techborder
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
 Version: 1.9.1
+Git commit hash: $Format:%H$
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -158,15 +159,15 @@ input[type="search"]::-webkit-search-decoration { /* Corrects inner padding disp
 button::-moz-focus-inner,
 input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
 }
+input,
 input[type=text],
 input[type=email],
-textarea {
-	background: rgba( 255, 255, 255, 0.3 );
-}
+textarea,
 input[type=text]:focus,
 input[type=email]:focus,
 textarea:focus {
-	background-color: #3d3521;
+	color: #3d3521;
+	background: rgba( 255, 255, 255, 0.8 );
 }
 textarea {
 }

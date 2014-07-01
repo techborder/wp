@@ -771,12 +771,15 @@ MEDIA QUERIES
 /* for 800px or less */
 @media only screen and (max-width: 800px) {
 
-	#content,
 	#primary,
 	#secondary,
 	#tertiary,
 	#sidebar-left {
 		background-color: #f8f1e7;
+	}
+	
+	#content {
+		background-color: #3d3521;
 	}
 	
 	input[type=text], input[type=email], textarea {

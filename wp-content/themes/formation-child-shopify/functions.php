@@ -83,14 +83,14 @@ add_action( 'customize_register', 'feature_text_paragraphs_customizer' );
 function shopify_javascript_in_wp_head($pid){
 	if (!is_front_page()){
 		echo '<script type="text/javascript">
-			var ShopifyStoreConfig = {shop:"test-fr-photomask.myshopify.com", collections:[24558355]};
-			(function() {
-				var s = document.createElement(\'script\'); s.type = \'text/javascript\'; s.async = true;
-				s.src = "//widgets.shopifyapps.com/assets/shopifystore.js";
-				var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);
-			})(); 
-			</script>
-			<noscript>Please enable javascript, or <a href="http://test-fr-photomask.myshopify.com">click here</a> to visit my <a href="http://www.shopify.com/tour/ecommerce-website">ecommerce web site</a> powered by Shopify.</noscript>';
+  var ShopifyStoreConfig = {shop:"test2-frphotomask.myshopify.com", collections:[24978923]};
+  (function() {
+    var s = document.createElement(\'script\'); s.type = \'text/javascript\'; s.async = true; 
+    s.src = "//widgets.shopifyapps.com/assets/shopifystore.js";
+    var x = document.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x);
+  })();  
+</script>
+<noscript>Please enable javascript, or <a href="http://test2-frphotomask.myshopify.com">click here</a> to visit my <a href="http://www.shopify.com/tour/ecommerce-website">ecommerce web site</a> powered by Shopify.</noscript>';
 	}
 }
 add_action( 'wp_head', 'shopify_javascript_in_wp_head' );

@@ -1,9 +1,9 @@
 /*
-Theme Name: Formation with Shopify 
+Theme Name: Formation child test
 Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Ossie Heffxell and Techborder
 Author URI: http://www.templateexpress.com/
-Description: To use Shopify, activate the necessary Shopify JavaScript by creating a page with the slug 'store' or 'test-store'. See Formation description for more.
+Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
 Version: 1.9.1
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,3 +30,4 @@ Formation Theme is distributed under the terms of the GNU GPL
 */
 
 @import url("../formation/style.css");
+

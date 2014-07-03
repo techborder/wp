@@ -13,11 +13,11 @@
 function Formation_child_scripts() {
 	
 	if (!is_admin()) {
-		//wp_enqueue_script( 'skrollr', get_stylesheet_directory_uri() . '/js/skrollr.min.js', array( 'jquery' ), '',  '' );
 	}
 }
 
 add_action( 'wp_enqueue_scripts', 'Formation_child_scripts' );
+
 
 /**
  * Adds a paragraph in the featured text
@@ -78,15 +78,3 @@ function feature_text_paragraphs_customizer( $wp_customize ) {
 	
 }
 add_action( 'customize_register', 'feature_text_paragraphs_customizer' );
-
-
-function shopify_javascript_in_wp_head($pid){
-	//if (is_single()) {
-		 //global $post;
-		 if (!is_front_page()){
-		 //if($post->ID=="123"){ // only for post Id = 123
-			echo "<script>alert('hello world');</script>";
-		 }
-	//}
-}
-add_action( 'wp_head', 'shopify_javascript_in_wp_head' );

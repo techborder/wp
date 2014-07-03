@@ -28,7 +28,14 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<?php if (is_front_page()) : ?>
+	<body <?php body_class(); ?>
+		data-200-top="background-position: 0% 0px;"
+		data-800="background-position: 0% -400px;"
+	>
+<?php else : ?>
+	<body <?php body_class(); ?>>
+<?php endif; ?>
 
 <div id="wrap">
 <div id="page" class="hfeed site">
@@ -69,4 +76,11 @@
 			</a>
 		<?php } // if ( ! empty( $header_image ) ) ?>
 	</div>
-	<div id="main" class="site-main">
+	<?php if ( FALSE && is_front_page()) : // DEBUG ?>
+		<div id="main" class="site-main"
+			 data-0="background-position: 0% 200px;"
+			data-800="background-position: 0% -200px;"
+		>
+	<?php else : ?>
+		<div id="main" class="site-main">
+	<?php endif; ?>

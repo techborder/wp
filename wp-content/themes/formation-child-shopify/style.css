@@ -1,0 +1,846 @@
+/*
+Theme Name: Formation with Shopify 
+Theme URI: http://www.templateexpress.com/formation-theme/
+Author: Ossie Heffxell and Techborder
+Author URI: http://www.templateexpress.com/
+Description: To use Shopify, activate the necessary Shopify JavaScript by creating a page with the slug 'store' or 'test-store'. See Formation description for more.
+Version: 1.9.1
+Git commit hash: $Format:%H$
+License: GNU General Public License v2.0
+License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
+
+This theme, like WordPress, is licensed under the GPL.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+Template: formation
+*/
+
+/*
+Formation Theme based on Underscores (_s) Theme
+_s ("Underscores") WordPress Theme, Copyright 2012 Automattic, Inc.
+_s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
+*/
+
+/*
+Formation WordPress Theme, Copyright 2014 Ossie Heffell
+Formation Theme is distributed under the terms of the GNU GPL
+*/
+
+@import url("../formation/style.css");
+
+/* =Reset
+-------------------------------------------------------------- */
+
+
+/* =Global
+----------------------------------------------- */
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #f8f1e7;
+	font-family: 'source_sans_proregular', Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.9;
+}
+
+body {
+	background-color: #333;
+	background-image: url('http://metis.local/wp/dev/wp-content/uploads/BACKGROUND2.jpg');
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6 {
+}
+h1 {
+}
+h2 {
+}
+h3 {
+}
+h4 {
+}
+h5 {
+}
+h6 {
+}
+hr {
+}
+
+/* Text elements */
+p {
+}
+ul, ol {
+}
+ul {
+}
+ol {
+}
+ul ul, ol ol, ul ol, ol ul {
+}
+dt {
+}
+dd {
+}
+b, strong {
+}
+dfn, cite, em, i {
+}
+blockquote {
+}
+address {
+}
+pre {
+}
+code, kbd, tt, var {
+}
+abbr, acronym {
+}
+mark, ins {
+}
+sup,
+sub {
+}
+sup {
+}
+sub {
+}
+small {
+}
+big {
+}
+figure {
+}
+table {
+}
+th {
+}
+button,
+input,
+select,
+textarea {
+}
+button,
+input {
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+}
+button:hover,
+html input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+}
+button:focus,
+html input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+html input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+}
+input[type="checkbox"],
+input[type="radio"] {
+}
+input[type="search"] {
+}
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+}
+input,
+input[type=text],
+input[type=email],
+textarea,
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+	color: #3d3521;
+	background: rgba( 255, 255, 255, 0.8 );
+}
+textarea {
+}
+
+/* Links */
+a,
+a:visited {
+	color: #E0CCA9;
+}
+a:hover{
+	color: #999;
+}
+a:focus,
+a:active {
+	color: #666;
+}
+
+/* Alignment */
+.alignleft {
+}
+.alignright {
+}
+.aligncenter {
+}
+
+/* Text meant only for screen readers */
+.assistive-text {
+}
+
+.site-title,
+.entry-title,
+.page-title,
+.entry-content,
+.entry-summary,
+.widget-title,
+.comments-title,
+.comment .reply,
+.comment-meta,
+.comment-author,
+#reply-title {
+}
+
+.more-link {
+	background-color: #639E3F;
+}
+a.more-link {
+	color: #FFF;
+}
+a.more-link:hover {
+	background-color: #222;
+}
+.grid-more-link {
+	background-color: #639E3F;
+}
+.grid-more-link a{
+	color: #FFF;
+}
+.grid-more-link:hover{
+	background-color: #222;
+}
+.widget h4{
+	color: #FFF;
+	border-bottom: 1px solid #333;
+}
+
+.widget li{
+	border-bottom: 1px solid #333;
+}
+
+.widget li a{
+	color: #CCC;
+}
+
+.widget li a:hover{
+	color: #999;
+}
+
+#calendar_wrap{
+	padding-left: 6px;
+}
+
+#calendar_wrap a{
+	color: #FFF;
+}
+
+#calendar_wrap a:hover{
+	color: #CCC;
+}
+
+.textwidget{
+	padding-left: 6px;
+}
+#secondary li, #tertiary li{
+	border-bottom: 1px solid #F8F1E7;
+	color: #999;
+}
+
+#secondary li a{
+	color: #666;
+}
+#secondary li a:hover{
+	color: #000;
+}
+
+#tertiary li a{
+	color: #666;
+}
+
+#tertiary li a:hover{
+	color: #000;
+}
+#sidebar-left li a{
+	color: #666;
+}
+#sidebar-left li a:hover{
+	color: #000;
+}
+#sidebar-left li{
+	border-bottom: 1px solid #F8F1E7;
+}
+#sidebar-left h4{
+}
+
+/* =Structure
+----------------------------------------------- */
+#wrap {
+	background-color: transparent;
+}
+.header_container {
+	background-color: transparent;
+}
+.main-navigation,
+.site-title,
+.site-description {
+}
+#main {
+	background-image: url('http://metis.local/wp/dev/wp-content/uploads/BACKGROUND2.jpg');
+}
+#primary {
+}
+#content {
+}
+#primary_home {
+}
+#primary_wrap {
+}
+#content.fullwidth {
+}
+#secondary,
+#tertiary {
+	background: #f8f1e7;
+}
+#tertiary {
+}
+#primary-right {
+}
+
+#content-right {
+}
+#sidebar-left {
+	background: #FFF;
+}
+#tertiary-left {
+}
+.site-footer {
+	background-color: #222;
+}
+.footer_container {
+	background: #222;
+}
+
+/* =Site Header
+----------------------------------------------- */
+#topbar_container {
+	background-color: #222;
+}
+.topbar {
+}
+.topbar_content_left {
+	color: #CCC;
+}
+.topbar_content_right {
+}
+
+#masthead-wrap {
+	background-color: transparent;
+}
+.site-header .site-introduction {
+	
+}
+.site-title {
+}
+.site-description {
+}
+.site-title a,
+.site-description {
+	color: #222;
+}
+
+.site-logo {
+}
+.flex-caption-title {
+	background-color: #639E3F;
+}
+
+/* =Menu
+----------------------------------------------- */
+
+.main-navigation {
+}
+.main-navigation:after {
+}
+.main-navigation ul {
+}
+.main-navigation li {
+	background-color: transparent;
+}
+.main-navigation a {
+	color: #f8f1e7;
+	border-top: 4px solid #f8f1e7;
+}
+
+.main-navigation li:hover > a {
+	border-top: 4px solid #639E3F;
+	color: #639E3F;
+}
+
+.main-navigation li.current_page_item a,
+.main-navigation li.current-menu-item a {
+	border-top: 4px solid #3d3521;
+	color: #3d3521;
+}
+
+.main-navigation ul li:hover > ul {
+}
+.main-navigation > li > a, .main-navigation li.current_page_ancestor a {
+	border-top: 4px solid #639E3F;
+	color: #639E3F;
+}
+.main-navigation ul.children li a {
+	background-color: #222;
+	color: #FFF;
+}
+.main-navigation ul.children li a {
+}
+.main-navigation ul.sub-menu li:first-child > a {
+ }
+.main-navigation ul ul {
+    position: absolute;
+    top: -9999em;
+    width: 180px;
+    z-index: 99999;
+    background: #222;
+	border: 0;
+	border-right: 0;
+}
+
+.main-navigation ul ul {
+	border-top: 4px solid #639E3F;
+}
+
+.main-navigation ul ul li:hover > a,
+.main-navigation ul ul li.current_page_item a,
+.main-navigation ul ul li.current-menu-item a {
+	color: #F8F1E7;
+	background: #222;
+}
+
+.main-navigation ul ul li a { text-transform: capitalize; border-top: 0}
+.main-navigation ul ul li { width: 100%; background: #222;}
+.main-navigation ul li:hover ul {
+}
+
+.main-navigation ul ul ul.sub-menu {display: none; margin-top:-1px;}
+ 
+.main-navigation ul ul li:hover > ul.sub-menu {display: block;}
+.main-navigation ul li:hover li ul { top: -9999em }
+.main-navigation ul li li:hover ul {
+}
+.main-navigation ul ul {
+}
+ 
+.main-navigation ul ul li {
+}
+.main-navigation ul ul li a {
+    background: #222;
+	color: #FFF;
+}
+.main-navigation ul ul ul {
+}
+.main-navigation ul ul ul li a {
+}
+.main-navigation ul ul li a:hover {
+	background: #333;
+}
+.main-navigation ul ul ul li a:hover {
+	background: #333;
+}
+.main-navigation ul ul li a i { color: #9e9e9e!important;}
+ 
+.main-navigation ul ul li:last-child a {
+}
+.main-navigation ul ul li:last-child ul li a {
+}
+.main-navigation ul ul li:last-child ul li:last-child a {
+}
+
+.main-navigation ul.sub-menu li a{
+	background-color: #222;
+	color: #CCC;
+}
+.main-navigation ul.sub-menu li a:hover{
+}
+
+/* Small menu */
+
+.menu-toggle {
+}
+
+.main-small-navigation .menu {
+	background-color: #222;
+}
+.main-small-navigation ul {
+}
+
+.main-small-navigation .menu ul {
+}
+
+.main-small-navigation .menu li a{
+	color: #FFF;
+}
+
+.main-small-navigation .children{
+	background-color: #222;
+}
+
+.main-small-navigation li:hover > a,
+.main-small-navigation li.current_page_item a,
+.main-small-navigation li.current-menu-item a,
+.main-small-navigation ul ul a:hover {
+	color: #639E3F;
+}
+
+.main-small-navigation li.current_page_item a,
+.main-small-navigation li.current-menu-item a {
+	background-color: #222;
+}
+
+.main-small-navigation li:hover > a,
+.main-small-navigation ul ul a:hover {
+	background-color: #333;
+}
+
+.main-small-navigation .menu ul ul li a{
+	color: #CCC;
+}
+
+.main-small-navigation .menu ul ul ul li a{
+	color: #CCC;
+}
+
+/* =Content
+----------------------------------------------- */
+
+.site-main {
+}
+
+.sticky h1{
+}
+.sticky h1 a{
+	color: #333;
+}
+.sticky h2{
+	border-bottom: 7px solid #333;
+}
+.sticky h2 a{
+	background-color: #333;
+	color: #FFF;
+}
+.recent {
+	background-color: #F8F1E7;
+}
+
+.client_recent {
+	background-color: transparent;
+}
+.recent_title{
+	background-color: #333;
+	color: #FFF;
+}
+.recent_title a{
+	color: #FFF;
+}
+.recent_title a:hover{
+	color: #CCC;
+}
+.recent p{
+	color: #666;
+}
+.hentry {
+    border-bottom: 1px solid #F8F1E7;
+}
+#content .entry-header {
+	background-color: transparent;
+}
+
+.entry-header {
+	background-color: #3d3521;
+	border-bottom: 1px solid #E1E1E1;
+	border-top: 1px solid #E1E1E1;
+}
+.page-header {
+	background-color: #F8F1E7;
+	border-bottom: 1px solid #E1E1E1;
+	border-top: 1px solid #E1E1E1;
+}
+.entry-title,
+.page-title {
+	color: #f8f1e7;
+	text-shadow: 0px 1px 0 #000;
+}
+.page-title {
+}
+.entry-title {
+	color: #222;
+	background-color: #F8F1E7;
+}
+.entry-title a {
+	color: #222;
+}
+.breadcrumbs {
+}
+body.search .page-title,
+body.archive .page-title {
+}
+.entry-meta {
+	border-bottom: 1px solid #F8F1E7;
+}
+footer.entry-meta {
+}
+.entry-meta a {
+	color: #639E3F;
+}
+.entry-meta a:hover {
+	color: #333;
+}
+.single .byline,
+.group-blog .byline {
+}
+
+/* Meet the Team Layout */
+.authorDescrption {
+	border-bottom: 1px solid #F8F1E7;
+}
+.authorName{
+	border-bottom: 1px solid #F8F1E7;
+	color:#333;
+}
+.authorLinks a{
+	color: #639E3F;
+}
+.authorLinks a:hover{
+	color: #000;
+}
+
+/* =Aside Post Format
+----------------------------------------------- */
+
+/* =Media
+---------------------------------------------- */
+
+
+/* =Comments
+----------------------------------------------- */
+
+.children {
+	background-color: #F8F1E7;
+}
+
+.reply { 
+	background-color:  #639E3F;
+}
+
+/* Comment Form */
+
+/* =Widgets
+----------------------------------------------- */
+
+.widget-title {
+	border-bottom: 4px solid #639E3F;
+}
+
+/* Search widget */
+
+#helpfullinks li{
+	border-bottom: 1px solid #F8F1E7;
+}
+
+/* =Site Footer
+----------------------------------------------- */
+
+#smoothup:hover {
+	background-color: #639E3F; 
+}
+
+/* =Genericons
+ * Genericons are vector icons embedded in a webfont designed to be clean and simple 
+ * keeping with a generic aesthetic.
+ * More info at http://genericons.com/
+-------------------------------------------------------------- */
+
+/**
+ * The font was graciously generated by Font Squirrel (http://www.fontsquirrel.com)
+ */
+
+.genericon:hover {
+	color: #639E3F;
+}
+
+/* Tag Cloud
+------------------------------------------------------ */
+.tagcloud a {
+	border: 1px solid #639E3F;
+}
+.tagcloud a:hover {
+	background: #639E3F;
+}
+
+/* Custom Home featured areas
+------------------------------------------------------ */
+.featuretext_top {
+	background-color: transparent;
+}
+
+.featuretext_top h3{
+	color: #f8f1e7;
+	text-shadow: 0px 3px 0 #3d3521;
+}
+
+.featuretext_middle {
+	border-top: 1px solid #639E3F;
+}
+
+.featuretext_button a{
+	background-color:#639E3F;
+}
+
+
+.client h3{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 20px;
+}
+
+/* CUSTOM HOMEPAGE WIDGET LAYOUTS */
+/*  SECTIONS  ============================================================================= */
+
+
+.section_thumbnails {
+	display: none;
+}
+.section_thumbnails h3{
+	padding-top: 5px;
+	margin-top: 20px;
+}
+.thumbs-more-link a{
+	background-color: #639E3F;
+}
+
+/*  BLOG GRID LAYOUT  ============================================================================= */
+.gridblock {
+	 border: 2px solid #F8F1E7;
+}
+/*  GROUPING  ============================================================================= */
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+
+
+/* =IE Styles
+----------------------------------------------- */
+
+/*  GRID OF EIGHT   ============================================================================= */
+	
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 1000px or less */
+@media screen and (max-width: 1000px) {
+}
+
+/* for 980px or less */
+@media screen and (max-width: 980px) {	
+}
+
+/* for 860px or less */
+@media only screen and (max-width: 860px) {
+}
+
+/* for 800px or less */
+@media only screen and (max-width: 800px) {
+
+	#primary,
+	#secondary,
+	#tertiary,
+	#sidebar-left {
+		background-color: #f8f1e7;
+	}
+	
+	#content {
+		background-color: #3d3521;
+	}
+	
+	input[type=text], input[type=email], textarea {
+		margin-top: 6px;
+		margin-left: 6px;
+	}
+}
+
+/* for 600px or less */
+@media screen and (max-width: 600px) {
+}
+
+/* --- IPhone5 (portrait and landscape) --- */
+
+@media screen and (max-width : 568px) {
+}
+
+/* --- Smartphones (portrait and landscape) --- */
+
+@media screen and (max-width : 480px) {
+}
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+}
+
+/*  GRID OF TWO   ============================================================================= */
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+}
+
+/*  GRID OF THREE   ============================================================================= */
+	
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 600px) {
+}
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+}
+
+/*  GRID OF FOUR   ============================================================================= */
+
+	
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 800px) {
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+}

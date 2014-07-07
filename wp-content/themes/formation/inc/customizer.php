@@ -93,7 +93,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'twitter', array(
 
-		'label'   => __( 'Twitter url:', 'Formation_basic' ),
+		'label'   => __( 'Twitter url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -113,7 +113,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'facebook', array(
 
-		'label'   => __( 'Facebook url:', 'Formation_basic' ),
+		'label'   => __( 'Facebook url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -133,7 +133,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'googleplus', array(
 
-		'label'   => __( 'Google + url:', 'Formation_basic' ),
+		'label'   => __( 'Google + url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -153,7 +153,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'linkedin', array(
 
-		'label'   => __( 'LinkedIn url:', 'Formation_basic' ),
+		'label'   => __( 'LinkedIn url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -173,7 +173,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'flickr', array(
 
-		'label'   => __( 'Flickr url:', 'Formation_basic' ),
+		'label'   => __( 'Flickr url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -193,7 +193,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'pinterest', array(
 
-		'label'   => __( 'Pinterest url:', 'Formation_basic' ),
+		'label'   => __( 'Pinterest url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -213,7 +213,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'youtube', array(
 
-		'label'   => __( 'YouTube url:', 'Formation_basic' ),
+		'label'   => __( 'YouTube url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -233,7 +233,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'vimeo', array(
 
-		'label'   => __( 'Vimeo url:', 'Formation_basic' ),
+		'label'   => __( 'Vimeo url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -253,7 +253,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'tumblr', array(
 
-		'label'   => __( 'Tumblr url:', 'Formation_basic' ),
+		'label'   => __( 'Tumblr url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -273,7 +273,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'dribble', array(
 
-		'label'   => __( 'Dribble url:', 'Formation_basic' ),
+		'label'   => __( 'Dribble url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -293,7 +293,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'github', array(
 
-		'label'   => __( 'Github url:', 'Formation_basic' ),
+		'label'   => __( 'Github url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 
@@ -312,7 +312,7 @@ function Formation_customize($wp_customize) {
 
 	$wp_customize->add_control( 'instagram', array(
 
-		'label'   => __( 'Instagram url:', 'Formation_basic' ),
+		'label'   => __( 'Instagram url:', 'Formation' ),
 
 		'section' => 'Formation_socmed_settings',
 

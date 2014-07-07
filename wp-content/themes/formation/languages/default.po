@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Formation\n"
-"POT-Creation-Date: 2014-05-10 07:36-0000\n"
-"PO-Revision-Date: 2014-05-10 07:36-0000\n"
+"POT-Creation-Date: 2014-07-03 07:04-0000\n"
+"PO-Revision-Date: 2014-07-03 07:04-0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -611,6 +611,22 @@ msgstr ""
 #: ../page-templates/custom_home.php:142 ../page-templates/custom_home.php:151
 #: ../page-templates/custom_home.php:160
 msgid "Insert Image"
+msgstr ""
+
+#: ../page-templates/custom_home.php:82
+msgid "Find Out More"
+msgstr ""
+
+#: ../page-templates/custom_home.php:91
+msgid "Recent Posts"
+msgstr ""
+
+#: ../page-templates/custom_home.php:116
+msgid "More"
+msgstr ""
+
+#: ../page-templates/custom_home.php:126
+msgid "Partners"
 msgstr ""
 
 #: ../search.php:12

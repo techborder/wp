@@ -42,7 +42,7 @@ get_header(); ?>
       <?php if ( get_theme_mod( 'header-one-file-upload' ) ) : ?>
      		<a href="<?php echo esc_url( get_theme_mod( 'header_one_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'header-one-file-upload' ) ); ?>"  alt="feature one"></a>
       <?php else : ?>
-      <?php echo '<h4>' . __('Insert Image', 'formation') . '</h4>'; ?>
+      <?php echo '<h4>' . __('Insert Image', 'Formation') . '</h4>'; ?>
       <?php endif; ?>
 			 <h3><a href="<?php echo esc_url( get_theme_mod( 'header_one_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_one' ) ); ?></a></h3>
              <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_one' ) ); ?></p>
@@ -54,7 +54,7 @@ get_header(); ?>
       <?php if ( get_theme_mod( 'header-two-file-upload' ) ) : ?>
      		<a href="<?php echo esc_url( get_theme_mod( 'header_two_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'header-two-file-upload' ) ); ?>"  alt="feature two"></a>
       <?php else : ?>
-      <?php echo '<h4>' . __('Insert Image', 'formation') . '</h4>'; ?>
+      <?php echo '<h4>' . __('Insert Image', 'Formation') . '</h4>'; ?>
       <?php endif; ?>
 			<h3><a href="<?php echo esc_url( get_theme_mod( 'header_two_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_two' ) ); ?></a></h3>
              <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_two' ) ); ?></p>
@@ -66,7 +66,7 @@ get_header(); ?>
       <?php if ( get_theme_mod( 'header-three-file-upload' ) ) : ?>
      		<a href="<?php echo esc_url( get_theme_mod( 'header_three_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'header-three-file-upload' ) ); ?>"  alt="feature three"></a>
       <?php else : ?>
-      <?php echo '<h4>' . __('Insert Image', 'formation') . '</h4>'; ?>
+      <?php echo '<h4>' . __('Insert Image', 'Formation') . '</h4>'; ?>
       <?php endif; ?>
 			 <h3><a href="<?php echo esc_url( get_theme_mod( 'header_three_url' ) ); ?>"><?php echo esc_html(get_theme_mod( 'featured_textbox_header_three' ) ); ?></a></h3>
              <p><?php echo esc_html(get_theme_mod( 'featured_textbox_text_three' ) ); ?></p>
@@ -79,7 +79,7 @@ get_header(); ?>
 			 <h3><?php echo esc_html(get_theme_mod( 'featured_textbox' ) ); ?></h3>
              <div class="featuretext_button">
             <?php if ( get_theme_mod( 'featured_button_url' ) ) : ?>
-			<a href="<?php echo esc_url( get_theme_mod( 'featured_button_url' ) ); ?>" >Find out More</a>
+			<a href="<?php echo esc_url( get_theme_mod( 'featured_button_url' ) ); ?>" ><?php echo __('Find Out More', 'Formation'); ?></a>
 			<?php endif; ?>
 			</div>  
 	</div> 
@@ -88,7 +88,7 @@ get_header(); ?>
 			<div id="content" class="fullwidth" role="main">
     
      <div class="section_thumbnails group">
-	<h3>Recent Posts</h3>
+    <?php echo '<h3>' . __('Recent Posts', 'Formation') . '</h3>'; ?>
     <div class="unity-separator"></div>
 
   <?php $the_query = new WP_Query(array(
@@ -113,7 +113,7 @@ get_header(); ?>
  			</div>
     			 </div>
 				<p><?php echo get_recentposts_excerpt(); ?></p>
-                <div class="thumbs-more-link"><a href="<?php the_permalink() ?>"> More</a></div>
+                <div class="thumbs-more-link"><a href="<?php the_permalink() ?>"> <?php echo __('More', 'Formation'); ?></a></div>
     </article>
     </div>	
 		
@@ -123,7 +123,7 @@ get_header(); ?>
     
     <div class="section_clients group">
    <div class="client">
-    <h3>Partners</h3>
+    <?php echo '<h3>' . __('Partners', 'Formation') . '</h3>'; ?>
     <div class="unity-separator"></div>
      <div class="col span_1_of_4">
      <div class="client_recent">

@@ -650,6 +650,25 @@ if ( ! function_exists( 'pinboard_call_scripts' ) ) :
 function pinboard_call_scripts() { ?>
 <script>
 /* <![CDATA[ */
+	jQuery(window).load(function() {
+		<?php if( ( is_home() && ! is_paged() ) || ( is_front_page() && ! is_home() ) || is_page_template( 'template-landing-page.php' ) ) : ?>
+			jQuery('#slider').flexslider({
+				selector: '.slides > li',
+				video: true,
+				prevText: '&larr;',
+				nextText: '&rarr;',
+				pausePlay: true,
+				pauseText: '||',
+				playText: '>',
+				before: function() {
+					jQuery('#slider .entry-title').hide();
+				},
+				after: function() {
+					jQuery('#slider .entry-title').fadeIn();
+				}
+			});
+		<?php endif; ?>
+	});
 	jQuery(document).ready(function($) {
 		$('#access .menu > li > a').each(function() {
 			var title = $(this).attr('title');
@@ -757,23 +776,6 @@ function pinboard_call_scripts() { ?>
 				$(this).parent().children('ul').slideToggle(250);
 			});
 		}
-		<?php if( ( is_home() && ! is_paged() ) || ( is_front_page() && ! is_home() ) || is_page_template( 'template-landing-page.php' ) ) : ?>
-			$('#slider').flexslider({
-				selector: '.slides > li',
-				video: true,
-				prevText: '&larr;',
-				nextText: '&rarr;',
-				pausePlay: true,
-				pauseText: '||',
-				playText: '>',
-				before: function() {
-					$('#slider .entry-title').hide();
-				},
-				after: function() {
-					$('#slider .entry-title').fadeIn();
-				}
-			});
-		<?php endif; ?>
 		<?php if( ! is_singular() || is_page_template( 'template-blog.php' ) || is_page_template( 'template-blog-full-width.php' ) || is_page_template( 'template-blog-four-col.php' ) || is_page_template( 'template-blog-left-sidebar.php' ) || is_page_template( 'template-blog-no-sidebars.php' ) || is_page_template( 'template-blog-no-sidebars.php' ) || is_page_template( 'template-portfolio.php' ) || is_page_template( 'template-portfolio-right-sidebar.php' ) || is_page_template( 'template-portfolio-four-col.php' ) || is_page_template( 'template-portfolio-left-sidebar.php' ) || is_page_template( 'template-portfolio-no-sidebars.php' ) ) : ?>
 			var $content = $('.entries');
 			$content.imagesLoaded(function() {
@@ -1193,7 +1195,8 @@ function pinboard_custom_styles() {
 	<?php endif; ?>
 	<?php if( $default_options['menu_hover_color'] != pinboard_get_option( 'menu_hover_color' ) ) : ?>
 		#access a:hover,
-		#access li.current_page_item > a {
+		#access li.current_page_item > a,
+		#access li.current-menu-item > a {
 			color:<?php echo esc_attr( pinboard_get_option( 'menu_hover_color' ) ); ?>;
 		}
 	<?php endif; ?>

@@ -8,7 +8,7 @@ editor-style, featured-images, full-width-template, microformats,
 post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 3.9
 Tested up to: 3.9.1
-Stable tag: 1.1.6
+Stable tag: 1.1.8
 
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
 
@@ -198,6 +198,19 @@ You may remove any copyright references (unless required by third party componen
 The theme is offered free of charge. If someone asked money for it, someone just tricked you.
 
 == Changelog ==
+
+= 1.1.8 =
+
+* Updated FlexSlider to version 2.2.2
+* Moved flexslider(); call to jQuery(window).load();
+* Fixed custom menu item color not displaying on current items
+* Fixed post thumbnails skewed by 1px
+
+= 1.1.7 =
+
+* Fixed thumbnail size on one-column posts in full width layout
+* Updated Theme URI
+* Updated Screenshot with size 880x660
 
 = 1.1.6 =
 

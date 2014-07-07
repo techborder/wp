@@ -7,7 +7,7 @@
 				<p class="copyright twocol"><?php pinboard_copyright_notice(); ?></p>
 				<?php if( pinboard_get_option( 'theme_credit_link' ) || pinboard_get_option( 'author_credit_link' )  || pinboard_get_option( 'wordpress_credit_link' ) ) : ?>
 					<p class="credits twocol">
-						<?php $theme_credit_link = '<a href="' . esc_url( 'http://www.onedesigns.com/wordpress-themes/pinboard' ) . '" title="' . esc_attr( __( 'Pinboard Theme', 'pinboard' ) ) . '">' . __( 'Pinboard Theme', 'pinboard' ) . '</a>'; ?>
+						<?php $theme_credit_link = '<a href="' . esc_url( 'http://www.onedesigns.com/themes/pinboard' ) . '" title="' . esc_attr( __( 'Pinboard Theme', 'pinboard' ) ) . '">' . __( 'Pinboard Theme', 'pinboard' ) . '</a>'; ?>
 						<?php $author_credit_link = '<a href="' . esc_url( 'http://www.onedesigns.com/' ) . '" title="' . esc_attr( __( 'One Designs', 'pinboard' ) ) . '">' . __( 'One Designs', 'pinboard' ) . '</a>'; ?>
 						<?php $wordpress_credit_link = '<a href="' . esc_url( 'http://wordpress.org/' ) . '" title="' . esc_attr( __( 'WordPress', 'pinboard' ) ) . '">' . __( 'WordPress', 'pinboard' ) . '</a>';; ?>
 						<?php if( pinboard_get_option( 'theme_credit_link' ) && pinboard_get_option( 'author_credit_link' ) && pinboard_get_option( 'wordpress_credit_link' ) ) : ?>

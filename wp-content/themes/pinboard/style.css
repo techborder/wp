@@ -1,9 +1,9 @@
 @charset "utf-8";
 /*
 Theme Name: Pinboard
-Theme URI: http://www.onedesigns.com/wordpress-themes/pinboard
+Theme URI: http://www.onedesigns.com/themes/pinboard
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
-Version: 1.1.6
+Version: 1.1.8
 Author: One Designs
 Author URI: http://www.onedesigns.com/
 Tags: blue, gray, silver, white, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
@@ -1281,7 +1281,7 @@ a.social-media-icon:hover {
 .entry,
 #comments,
 #respond {
-	margin:2.5%;
+	margin:2.48%;
 	background:#fff;
 	border-bottom:#DDD 1px solid;
 	border-bottom:rgba(0, 0, 0, .13) 1px solid;
@@ -1303,7 +1303,7 @@ a.social-media-icon:hover {
 .onecol .threecol .entry,
 #sidebar-boxes .widget,
 .threecol .widget {
-	margin:5%;
+	margin:4.87%;
 }
 
 .threefourthcol .threecol .entry,
@@ -1349,7 +1349,6 @@ a.social-media-icon:hover {
 	width:100%;
 }
 
-.page-template-template-full-width-php .hentry.onecol .wp-post-image,
 .page-template-template-full-width-php .hentry.onecol .entry-attachment,
 .page-template-template-full-width-php .hentry.onecol .post-gallery {
 	float:right;

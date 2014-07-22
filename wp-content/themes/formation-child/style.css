@@ -609,7 +609,10 @@ body.archive .page-title {
 footer.entry-meta {
 }
 .entry-meta a {
-	color: #639E3F;
+	color: #222;
+}
+.entry-meta a:visited {
+	color: #E0CCA9;
 }
 .entry-meta a:hover {
 	color: #333;

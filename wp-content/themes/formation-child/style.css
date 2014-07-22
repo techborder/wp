@@ -369,8 +369,14 @@ a.more-link:hover {
 
 .site-logo {
 }
+
 .flex-caption-title {
 	background-color: #639E3F;
+}
+
+/* Raise caption on slider to not cover words. */
+.flex-caption {
+	bottom: 120px !important;
 }
 
 /* =Menu

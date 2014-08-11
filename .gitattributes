@@ -1,10 +1,11 @@
-# Keyword substitution when creating an archive. For version tracking.
-repo-archive-version.txt      export-subst
-**/themes/*/style.css
+# Auto detect text files and perform LF normalization. Line endings are converted
+# to native line endings on checkout.
 
-# Auto detect text files and perform LF normalization
+# # Set the default behavior, in case people don't have core.autocrlf set.
 *        text=auto
 
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
 *.cs     text diff=csharp
 *.java   text diff=java
 *.html   text diff=html
@@ -12,10 +13,13 @@ repo-archive-version.txt      export-subst
 *.js     text
 *.sql    text
 *.php    text
+*.c      text
+*.h      text
 
+# Declare files that will always have CRLF line endings on checkout.
 # MS Visual Studio only
-# *.csproj text merge=union
-# *.sln    text merge=union eol=crlf
+*.csproj text merge=union
+*.sln    text merge=union eol=crlf
 
 *.docx   diff=astextplain
 *.DOCX   diff=astextplain
@@ -26,3 +30,8 @@ repo-archive-version.txt      export-subst
 
 # paths that don't start with / are treated relative to the .gitattributes folder
 # relative/path/*.txt text eol-lf
+
+# Keyword substitution when creating an archive. For version tracking.
+repo-archive-version.txt      export-subst
+**/themes/*/style.css
+

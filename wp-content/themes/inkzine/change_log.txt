@@ -1,0 +1,58 @@
+Version 1.0
+
+	i) Initial Release.
+	
+Version 1.0.0.1
+
+	i) Resolved Issues with Text Domain	
+	
+Version 1.0.1
+
+	i) 	Fixed Security Issues.
+	ii) Removed Header Footer Scripts
+	iii) Renamed Image Extension to avoid issues on Linux Server.
+	
+Version 1.0.1.2
+
+	i) Updated Support Forum Link
+	ii) Cleaned Options Panel with smaller headings	
+	
+Version 1.0.1.3
+
+	i)	[BUG-FIX] Continue Reading Spelling Corrected
+	ii) [BUG-FIX] Text Domains in content.php
+	
+Version 1.0.1.4
+
+	i) [BUGFIX] Top bar border now covers full screen width
+	ii) [BUGFIX] Last menu item in dropdown fixed.	
+	
+Version 1.0.1.5
+
+	i) [LANG] Translation File Updated.	
+
+Version 1.0.1.6
+
+	i) [LANG] French Added
+	ii) [LANG] Spanish Added
+	
+Version 1.0.1.7
+
+	i) [BUGFIX] Fixed a bug which caused Full Width Pages to display incorrectly.		
+	
+Version 1.0.1.8
+
+	i) [BUGFIX] Minor Fix to solve issues with Child themes	
+	
+Version 1.0.1.9
+
+	i) [BUGFIX] Added wp_reset_postdata to WP_query call.	
+	
+Version 1.0.2
+
+	i) [LANG] Portuguese Added.
+	ii) [LANG] Italian Added.	
+	
+Version 1.0.2.1
+
+	i) Removed Unused js and css files.	

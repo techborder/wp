@@ -17,4 +17,4 @@ wp-snapshots/*_installer.php
 wp-admin/error_log
 error_log
 wp-content/plugins/wordfence/tmp/
-
+.DS_Store

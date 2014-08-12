@@ -1,20 +1,23 @@
+# Normalization seems to be creating a mess. Modifying files on checkout and causing 
+# branching. Disabling for now. DRegal, 2014-08-22.
+
 # Auto detect text files and perform LF normalization. Line endings are converted
 # to native line endings on checkout.
 
 # # Set the default behavior, in case people don't have core.autocrlf set.
-*        text=auto
+#*        text=auto
 
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
-*.cs     text diff=csharp
-*.java   text diff=java
-*.html   text diff=html
-*.css    text
-*.js     text
-*.sql    text
-*.php    text
-*.c      text
-*.h      text
+#*.cs     text diff=csharp
+#*.java   text diff=java
+#*.html   text diff=html
+#*.css    text
+#*.js     text
+#*.sql    text
+#*.php    text
+#*.c      text
+#*.h      text
 
 # Declare files that will always have CRLF line endings on checkout.
 # MS Visual Studio only

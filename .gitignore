@@ -11,9 +11,7 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
-wp-snapshots/*.zip
-wp-snapshots/*.sql
-wp-snapshots/*_installer.php
+wp-snapshots/*
 wp-admin/error_log
 error_log
 wp-content/plugins/wordfence/tmp/

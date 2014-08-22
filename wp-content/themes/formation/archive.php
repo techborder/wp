@@ -9,7 +9,8 @@
  */
 
 get_header(); ?>
-		<header class="page-header">
+		<header class="entry-header">
+        	<div class="title-container">
 					<h1 class="page-title">
 						<?php
 							if ( is_category() ) {
@@ -43,8 +44,8 @@ get_header(); ?>
 								_e( 'Archives', 'Formation' );
 
 							}
-						?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
-					</h1>
+						?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
+					
 					<?php
 						if ( is_category() ) {
 							// show an optional category description
@@ -59,6 +60,7 @@ get_header(); ?>
 								echo apply_filters( 'tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
 						}
 					?>
+                    </div>
 				</header><!-- .page-header -->
 		<div id="primary_wrap">
 		<section id="primary" class="content-area">

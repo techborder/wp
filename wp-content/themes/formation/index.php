@@ -14,11 +14,13 @@
 
 get_header(); ?>
 		<header class="entry-header">
+        	<div class="title-container">
                     <h1 class="page-title"><?php if( is_home() && get_option('page_for_posts') ) { ?>
 					<?php echo apply_filters('the_title',get_page( get_option('page_for_posts') )->post_title); ?>
                     <?php } elseif( is_singular() ) { ?>
                     <?php the_title(); ?>
-                    <?php } ?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
+                    <?php } ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
+            </div>
         </header><!-- .entry-header -->
 		<div id="primary_wrap">
 		<div id="primary" class="content-area">

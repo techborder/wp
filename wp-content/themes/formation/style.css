@@ -4,7 +4,7 @@ Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Ossie Heffell
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
-Version: 1.9.5
+Version: 1.9.6
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -973,6 +973,8 @@ a.more-link:hover {
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
+	display: block; 
+	min-height: 70px;
 }
 .page-header {
 	background-color: #EFEFEF;
@@ -991,12 +993,15 @@ a.more-link:hover {
 	color: #333;
 	text-shadow: 0px 1px 0 #FFF;
 }
+.title-container{
+	margin: 0 auto;
+	max-width: 1140px;
+}
 .page-title {
 	font-size: 18px;
     font-size: 1.8rem;
-	padding: 24px;
-	margin: 0 auto;
-	max-width: 1140px;
+	padding: 20px 6px;
+	float: left;
 }
 .entry-title {
 	font-size: 14px;
@@ -1015,7 +1020,14 @@ a.more-link:hover {
 	float: right;
 	text-transform: none;
 	font-size: 12px;
-	padding: 3px 2px 0 0;
+	padding: 12px 6px 0 10px;
+	color: #333;
+}
+.breadcrumbs a{
+	color: #666;
+}
+.breadcrumbs a:hover{
+	color: #CCC;
 }
 body.search .page-title,
 body.archive .page-title {
@@ -1144,7 +1156,8 @@ footer.entry-meta {
 }
 .entry-content ul li {
 	list-style-type: square;
-	list-style-position: inside;
+	list-style-position: outside;
+	margin-left: 1em;
 }
 .entry-content ol {
 	list-style: decimal;
@@ -1870,10 +1883,9 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
    display: inline-block;
    text-decoration: none;
    padding:0;
-   padding-top: 30%;
    text-indent:-9999px;
    width:32px;
-   height:32px;
+   height:100%;
 }
 
 .third-effect .mask {
@@ -2248,8 +2260,11 @@ MEDIA QUERIES
 	}
 	.page-title {
 	text-align: center;
-	padding-top: 10px;
+	padding: 10px;
+	padding-bottom: 0;
 	clear: both;
+	float: none;
+	margin: 0;
 	}
 	.breadcrumbs {
 	text-align: center;

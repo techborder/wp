@@ -62,6 +62,7 @@ function Formation_setup() {
 	add_theme_support('post-thumbnails');
 	add_image_size( 100, 300, true);
 	add_image_size( 'featured', 670, 300, true );
+	add_image_size( 'recent', 700, 400, true );
 
 	/**
 	 * Add support for the Aside Post Formats
@@ -196,6 +197,18 @@ function Formation_scripts() {
 	
 	if (!is_admin()) {
 		wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
+	}
+	
+	if (!is_admin()) {
+	wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.min.css');
+	}
+	
+	if (!is_admin()) {
+	wp_enqueue_script( 'inview', get_template_directory_uri() . '/js/Inview.js', array('jquery'));
+	}
+	
+	if (!is_admin()) {
+	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/animate.js', array('jquery', 'inview'));
 	}
 }
 add_action( 'wp_enqueue_scripts', 'Formation_scripts' );

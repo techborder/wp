@@ -56,9 +56,9 @@
   								'call_us_text'=>'Call us on',									
   								 
   							  	'home_feature'=> $template_uri.'/images/default/home_banner.jpg',							   
-  								'first_thumb_image'=>$template_uri.'/images/default/home_thumb.jpg',
-  								'second_thumb_image'=>$template_uri.'/images/default/home_thumb.jpg',
-  								'third_thumb_image'=>$template_uri.'/images/default/home_thumb.jpg',
+  								'first_thumb_image'=>$template_uri.'/images/default/home_thumb3.jpg',
+  								'second_thumb_image'=>$template_uri.'/images/default/home_thumb1.jpg',
+  								'third_thumb_image'=>$template_uri.'/images/default/home_thumb2.jpg',
   								'enable_services' => 'yes', 
   								'service1_title'=>__('Spa Treatment','sis_spa'),
   								'service1_image'=>$template_uri.'/images/default/home_service_thumb.jpg',
@@ -107,6 +107,27 @@
   								'footer_tagline' => __('&copy; 2013. All Rights Reserved by ','sis_spa'),
   								'footer_designedby' =>__('webriti','sis_spa'),
   								
+								'banner_title_one_category' => 'GET YOURSELF',
+								'banner_title_two_category' => 'REFRESHED',
+								'banner_description_category' => ' Banner Description Donec justo odio, lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla. Curabitur sed lectus nulla.lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla rutrum sit amet mauris',
+								
+								'banner_title_one_author' => 'GET YOURSELF',
+								'banner_title_two_author' => 'REFRESHED',
+								'banner_description_author' => ' Banner Description Donec justo odio, lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla. Curabitur sed lectus nulla.lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla rutrum sit amet mauris',
+								'banner_number_author' => '9998131659',
+								
+								'banner_title_one_404' => 'GET YOURSELF',
+								'banner_title_two_404' => 'REFRESHED',
+								'banner_description_404' => ' Banner Description Donec justo odio, lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla. Curabitur sed lectus nulla.lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla rutrum sit amet mauris',
+								
+								'banner_title_one_tag' => 'GET YOURSELF',
+								'banner_title_two_tag' => 'REFRESHED',
+								'banner_description_tag' => ' Banner Description Donec justo odio, lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla. Curabitur sed lectus nulla.lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla rutrum sit amet mauris',
+								
+								'banner_title_one_search' => 'GET YOURSELF',
+								'banner_title_two_search' => 'REFRESHED',
+								'banner_description_search' => ' Banner Description Donec justo odio, lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla. Curabitur sed lectus nulla.lobortis eget congue sed, rutrum sit amet mauris. Curabitur sed lectus nulla rutrum sit amet mauris',
+								
   								'upload_image'=>'',
   								'height'=>'60',
   								'width'=>'250',

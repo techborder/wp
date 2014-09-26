@@ -61,7 +61,7 @@ add_action( 'init', 'blogBox_register_menu' );
 
 /**
  * Register Side bars
- * Thans to Justin Tadlock for the post on sidebars 
+ * Thanks to Justin Tadlock for the post on sidebars 
  * @link http://justintadlock.com/archives/2010/11/08/sidebars-in-wordpress
  */
 
@@ -229,17 +229,6 @@ if ( !function_exists ('blogBox_load_js')){
 			if ( $blogBox_option['bB_include_mobile_design'] == 1 ) {
 				wp_enqueue_script( 'mobile_doc_ready', get_template_directory_uri() . '/js/mobile-doc-ready.js', array( 'jquery' ), '' );
 			}
-			
-			if ( $wp_version < 3.6 ) {
-				if ( $blogBox_option['bB_disable_audiojs'] != 1 ) {
-					wp_enqueue_script( 'audiojs', get_template_directory_uri() . '/js/audiojs/audio.js', array( 'jquery' ), '' );
-					wp_enqueue_script( 'audiojs_doc_ready', get_template_directory_uri() . '/js/audiojs/audiojs-doc-ready.js', array( 'jquery' ), '' );
-				}
-			} else {
-				/*Put in a forum post in the beta section, in the GitHub, and stackoverflow regarding the problem of responsiveness. I got no response so I hacked the plugin myself.*/
-				wp_deregister_script('mediaelement');
-				wp_enqueue_script('mediaelement',get_template_directory_uri() . '/js/mediaelement-and-player-min.js', array( 'jquery' ), '' ,true);
-			}
 
 			if ( $blogBox_option['bB_disable_colorbox'] != 1 ) {
 				wp_enqueue_script( 'colorbox', get_template_directory_uri() . '/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '' );
@@ -265,13 +254,6 @@ if ( !function_exists ('blogBox_styles')) {
 		wp_register_style( 'font_awesome_style',get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css',array() );
 		wp_enqueue_style( 'font_awesome_style' );
 		
-		if ( $wp_version < 3.6 ) {
-			if ( $blogBox_option['bB_disable_audiojs'] != 1 ) {
-				wp_register_style( 'audiojs_style',get_template_directory_uri() . '/js/audiojs/audiojs.css',array() );
-				wp_enqueue_style( 'audiojs_style' );
-			}
-		}
-		
 		if ( $blogBox_option['bB_disable_colorbox'] != 1 ) {
 			wp_register_style( 'colorbox_style',get_template_directory_uri() . '/js/colorbox/colorbox.css',array() );
 			wp_enqueue_style( 'colorbox_style' );
@@ -291,17 +273,6 @@ if ( !function_exists ('blogBox_setup')){// load custom styles and fonts
 	         include( get_template_directory() . '/library/custom-styles.php' );
 	 }
 	add_action( 'wp_print_styles', 'blogbox_setup' );
-}
-
-if ( !function_exists ('blogBox_enqueue_ie_script')){//Script for loading js shiv for ie HTML5
-	function blogBox_enqueue_ie_script() {
-		global $is_IE;
-		if ( $is_IE ) {
-			wp_register_script( 'ie_html5_shiv', BLOGBOX_JS.'/html5.js', array( 'jquery' ), '');
-			wp_enqueue_script('ie_html5_shiv');
-		}
-	}
-	add_action('wp_enqueue_scripts', 'blogBox_enqueue_ie_script');
 }
 
 if ( !function_exists ('blogBox_title_filter')){
@@ -734,126 +705,6 @@ if ( !function_exists ('blogBox_exclude_categories')){//Exclude categories helpe
 	}
 }
 
-/**
- * Custom WordPress Gallery code
- * 
- * Remove Wordpress gallery shortcode and add our own. The purpose is to remove the css from
- * being injected into the post, and to fix the dd error.
- * Basis is from @link http://wpengineer.com/1802/a-solution-for-the-wordpress-gallery/
- * 
- * Note : This is not set up as a conditional load because it will not work. Therefore you can't 
- * modify this function in a child theme
- * 
- */
-//deactivate WordPress function
-remove_shortcode('gallery', 'gallery_shortcode');
-//activate own function
-add_shortcode('gallery', 'blogBox_gallery_shortcode');
-//the own renamed function
-function blogBox_gallery_shortcode($attr) {
-	$post = get_post();
-
-	static $instance = 0;
-	$instance++;
-
-	if ( ! empty( $attr['ids'] ) ) {
-		// 'ids' is explicitly ordered, unless you specify otherwise.
-		if ( empty( $attr['orderby'] ) )
-			$attr['orderby'] = 'post__in';
-		$attr['include'] = $attr['ids'];
-	}
-
-	// Allow plugins/themes to override the default gallery template.
-	$output = apply_filters('post_gallery', '', $attr);
-	if ( $output != '' )
-		return $output;
-
-	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
-	if ( isset( $attr['orderby'] ) ) {
-		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
-		if ( !$attr['orderby'] )
-			unset( $attr['orderby'] );
-	}
-
-	extract(shortcode_atts(array(
-		'order'      => 'ASC',
-		'orderby'    => 'menu_order ID',
-		'id'         => $post->ID,
-		'itemtag'    => 'dl',
-		'icontag'    => 'dt',
-		'captiontag' => 'dd',
-		'columns'    => 3,
-		'size'       => 'thumbnail',
-		'include'    => '',
-		'exclude'    => ''
-	), $attr));
-
-	$id = intval($id);
-	if ( 'RAND' == $order )
-		$orderby = 'none';
-
-	if ( !empty($include) ) {
-		$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-
-		$attachments = array();
-		foreach ( $_attachments as $key => $val ) {
-			$attachments[$val->ID] = $_attachments[$key];
-		}
-	} elseif ( !empty($exclude) ) {
-		$attachments = get_children( array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-	} else {
-		$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-	}
-
-	if ( empty($attachments) )
-		return '';
-
-	if ( is_feed() ) {
-		$output = "\n";
-		foreach ( $attachments as $att_id => $attachment )
-			$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
-		return $output;
-	}
-
-	$itemtag = tag_escape($itemtag);
-	$captiontag = tag_escape($captiontag);
-	$columns = intval($columns);
-	//$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
-	$float = is_rtl() ? 'right' : 'left';
-
-	$selector = "gallery-{$instance}";
-
-	$output = apply_filters('gallery_style', "<div id='$selector' class='gallery galleryid-{$id}'>");
-	$i = 0;
-	foreach ( $attachments as $id => $attachment ) {
-		$link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
-
-		$output .= "<{$itemtag} class='gallery-item col-{$columns}'>";
-		$output .= "
-			<{$icontag} class='gallery-icon'>
-				$link
-			</{$icontag}>";
-		if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$output .= "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
-		} else {
-			$output .= "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				
-				</{$captiontag}>";
-		}
-		$output .= "</{$itemtag}>";
-		if ( $columns > 0 && ++$i % $columns == 0 )
-			$output .= '<br/>';
-	}
-
-	$output .= "</div>\n";
-
-	return $output;
-}
-
 if ( !function_exists ('blogBox_feature_slider')){    
 	function blogBox_feature_slider() {
 		global $blogBox_option;
@@ -869,6 +720,10 @@ if ( !function_exists ('blogBox_feature_slider')){
 			echo '<div class="slider-wrapper theme-default">';
 				echo '<div class="ribbon"></div>';
 				echo '<div id="full-slider-thumb">';
+		} elseif ( $feature_option == "Full feature slides-nonav" ) {
+			echo '<div class="slider-wrapper theme-default">';
+				echo '<div class="ribbon"></div>';
+				echo '<div id="full-slider-nonav">';
 		} elseif ( $feature_option == "Small slides and feature text box" ) {
 			echo '<div class="half-slider-wrapper theme-default">';
 				echo '<div class="ribbon"></div>';
@@ -877,6 +732,10 @@ if ( !function_exists ('blogBox_feature_slider')){
 			echo '<div class="half-slider-wrapper theme-default">';
 				echo '<div class="ribbon"></div>';
 				echo '<div id="half-slider-thumb">';
+		} elseif ( $feature_option == "Small slides and feature text box-nonav" ) {
+			echo '<div class="half-slider-wrapper theme-default">';
+				echo '<div class="ribbon"></div>';
+				echo '<div id="half-slider-nonav">';
 		} elseif ( $feature_option == "Small single image and feature text box" ) {
 			$category_ID = get_cat_ID('Feature');
 			global $post;
@@ -973,7 +832,7 @@ if ( !function_exists ('blogBox_feature_slider')){
 				echo '</div>';
 			echo '</div>';
 		}
-		if( $feature_option == "Small slides and feature text box" || $feature_option == "Small slides and feature text box-thumbnails" || $feature_option == "Small single image and feature text box" ) {
+		if( $feature_option == "Small slides and feature text box" || $feature_option == "Small slides and feature text box-thumbnails" || $feature_option == "Small single image and feature text box" || $feature_option == "Small slides and feature text box-nonav" ) {
 			echo '<div id="leftfeature">';
 				if( $use_feature_widget_area != 1 ) {
 					echo "<h1>".stripslashes($blogBox_option['bB_left_feature_title'])."</h1>";

@@ -1,6 +1,20 @@
 == Changelog ==
 
-ersion 4.0.2 - Released dd-Mon-14
+Version 4.0.3 - Released 1-Oct-14
+----------------------------------------------------------------
+- modufied header widget to remove kist styles
+- Fixed homesection2 column height by changing to table
+- Added home.php to comply with new WordPress.org requirements
+- Removed audio.js
+- Updated colorbox to 1.5.14
+- added no nav option to sliders
+- updated Font Awesome to 4.2
+- Removed gallery shortcode modification to allow Jetpack Tiled 
+  Galleries to work, in Standard Post Format Only
+- removed farbtastic as admin color-picker option
+- minor theme improvements
+
+Version 4.0.2 - Released 21-Mar-14
 ----------------------------------------------------------------
 - Fixed demo2 reference on default slide to demo1
 - Fixed three box height problem, home page will refresh on resize

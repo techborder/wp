@@ -75,14 +75,6 @@ function optionsframework_options() {
 	$options[] = array(
 		'desc' => __('For More Cuztomization Options including Favicon, Styles, etc., <a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Upgrade to Pro Now.</a> ', 'inkzine'),
 		'type' => 'info');				
-
-	$options[] = array(
-		'name' => __('Homepage Title For Posts Area', 'inkzine'),
-		'desc' => __('The title of the Posts Area', 'inkzine'),
-		'id' => 'hp-post-title',
-		'std' => 'Recent Articles',
-		'type' => 'text');	
-		
 	
 	$options[] = array(
 		'name' => __('Copyright Text', 'inkzine'),
@@ -120,24 +112,6 @@ function optionsframework_options() {
 		'id' => 'style2',
 		'std' => '',
 		'type' => 'textarea');
-	
-	//CAROUSEL SETTINGS
-	$options[] = array(
-		'name' => __('Carousel', 'inkzine'),
-		'type' => 'heading');	
-
-	$options[] = array(
-		'desc' => __('Inkzine Plus supports a full fledged Carousel. <a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Upgrade to Pro Now.</a> ', 'inkzine'),
-		'type' => 'info');	
-	
-	//Slider SETTINGS
-	$options[] = array(
-		'name' => __('Slider', 'inkzine'),
-		'type' => 'heading');	
-
-	$options[] = array(
-		'desc' => __('Inkzine Plus supports a full fledged Slider with plenty of customization settings including speed, transition effects, etc. <a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Upgrade to Pro Now.</a> ', 'inkzine'),
-		'type' => 'info')	;
 		
 
 	//TICKR SETTINGS
@@ -273,6 +247,93 @@ function optionsframework_options() {
 		'class' => 'mini', //mini, tiny, small
 		'options' => $carousel_count);			
 
+
+	//Slider
+	//Slider Settings
+	
+	$options[] = array(
+		'name' => __('Slider', 'inkzine'),
+		'type' => 'heading');
+		
+	$options[] = array(
+		'name' => __('Enable Slider', 'inkzine'),
+		'desc' => __('Enable Slider on HomePage', 'inkzine'),
+		'id' => 'slider_enabled',
+		'type' => 'checkbox',
+		'std' => '0' );	
+		
+	$options[] = array(
+		'desc' => __('Enable Slider on Static Front Page', 'inkzine'),
+		'id' => 'slider_enabled_front',
+		'type' => 'checkbox',
+		'std' => '0' );	
+		
+		
+	$options[] = array(
+		'name' => __('Using the Slider', 'inkzine'),
+		'desc' => __('This Slider supports upto 3 Images. To show only 2 Slides in the slider, upload only 3 images. Leave the rest Blank. For best results, upload images of size 1180x500px.', 'inkzine'),
+		'type' => 'info');
+
+	$options[] = array(
+		'name' => __('Slider Image 1', 'inkzine'),
+		'desc' => __('First Slide', 'inkzine'),
+		'id' => 'slide1',
+		'class' => '',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'desc' => __('Title', 'inkzine'),
+		'id' => 'slidetitle1',
+		'std' => '',
+		'type' => 'text');
+				
+		
+	$options[] = array(
+		'desc' => __('Url', 'inkzine'),
+		'id' => 'slideurl1',
+		'std' => '',
+		'type' => 'text');		
+	
+	$options[] = array(
+		'name' => __('Slider Image 2', 'inkzine'),
+		'desc' => __('Second Slide', 'inkzine'),
+		'class' => '',
+		'id' => 'slide2',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'desc' => __('Title', 'inkzine'),
+		'id' => 'slidetitle2',
+		'std' => '',
+		'type' => 'text');	
+		
+		
+	$options[] = array(
+		'desc' => __('Url', 'inkzine'),
+		'id' => 'slideurl2',
+		'std' => '',
+		'type' => 'text');	
+		
+	$options[] = array(
+		'name' => __('Slider Image 3', 'inkzine'),
+		'desc' => __('Third Slide', 'inkzine'),
+		'id' => 'slide3',
+		'class' => '',
+		'type' => 'upload');	
+	
+	$options[] = array(
+		'desc' => __('Title', 'inkzine'),
+		'id' => 'slidetitle3',
+		'std' => '',
+		'type' => 'text');	
+		
+			
+	$options[] = array(
+		'desc' => __('Url', 'inkzine'),
+		'id' => 'slideurl3',
+		'std' => '',
+		'type' => 'text');	
+
 	//Social Settings
 	
 	$options[] = array(
@@ -341,31 +402,7 @@ function optionsframework_options() {
 		'id' => 'youtube',
 		'std' => '',
 		'class' => 'mini',
-		'type' => 'text');
-		
-	$options[] = array(
-		'name' => __('Tumblr', 'inkzine'),
-		'desc' => __('Your Tumblr Blog URL', 'inkzine'),
-		'id' => 'tumblr',
-		'std' => '',
-		'class' => 'mini',
-		'type' => 'text');
-		
-	$options[] = array(
-		'name' => __('Flickr', 'inkzine'),
-		'desc' => __('Your Flickr Profile URL', 'inkzine'),
-		'id' => 'flickr',
-		'std' => '',
-		'class' => 'mini',
-		'type' => 'text');
-		
-	$options[] = array(
-		'name' => __('Dribbble', 'inkzine'),
-		'desc' => __('Your Dribble Profile URL', 'inkzine'),
-		'id' => 'dribble',
-		'std' => '',
-		'class' => 'mini',
-		'type' => 'text');	
+		'type' => 'text');		
 		
 	$options[] = array(
 		'desc' => __('Inkzine Plus Has More Social Icons. We can add any custom social icon on request. <a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Read Features and Buy Inkzine Plus.</a> ', 'inkzine'),
@@ -418,13 +455,14 @@ function optionsframework_options() {
 		'std' => '0',
 		'type' => 'checkbox');
 
+		//CAROUSEL SETTINGS
 	$options[] = array(
-		'name' => __('Upgrade to Pro', 'inkzine'),
-		'type' => 'heading');
-			
+		'name' => __('Carousel', 'inkzine'),
+		'type' => 'heading');	
+
 	$options[] = array(
-		'desc' => __('Pro Version of Inkzine Plus Comes with a Huge Set of Features inlcuding Custom Widgets, Support for Older Browsers, Multiple Layouts for HomePage, More Skins, More Features, More Settings, etc. <a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Read all features and Upgrade to Inkzine Plus.</a> ', 'inkzine'),
-		'type' => 'info');	
+		'desc' => __('Inkzine Plus supports a full fledged Carousel and Slider with plenty of customization settings including speed, transition effects, etc.<a target="_blank" href="http://inkhive.com/product/inkzine-plus/">Upgrade to Pro Now.</a> ', 'inkzine'),
+		'type' => 'info');		
 	
 	
 

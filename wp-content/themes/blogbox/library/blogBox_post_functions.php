@@ -241,11 +241,11 @@ if (!function_exists ('blogBox_post_metatop')){
 		echo '<div class="postmeta">';
 		
 		if( true != $exclude_timestamp  ) { ?>
-			<span class="timestamp"><i class="icon-time" title="Timestamp"></i>&nbsp;<?php the_time(get_option('date_format')); ?></span>
+			<span class="timestamp"><i class="fa fa-clock-o" title="Timestamp"></i>&nbsp;<?php the_time(get_option('date_format')); ?></span>
 		<?php }
 		
 		if( true != $exclude_author ) { ?>
-			 <span class="author"><i class="icon-user" title="Author"></i>&nbsp;<?php the_author_posts_link(); ?></span>
+			 <span class="author"><i class="fa fa-user" title="Author"></i>&nbsp;<?php the_author_posts_link(); ?></span>
 		<?php }
 		
 		echo '</div>';
@@ -266,22 +266,22 @@ if (!function_exists ('blogBox_post_metabottom')){
 		echo '<div class="postmetabottom">';
 		
 		if( $bB_post_format == 'status' || $bB_post_format == 'aside' ) {
-			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="icon-edit" title="Edit"></i>&nbsp;','</span>');
+			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
 		} else { ?>
 			
-			<span class="pagelist"><?php $page_text = '<i class="icon-copy" title="Pages"></i>&nbsp;'; wp_link_pages('before='.$page_text.':&after='); ?></span>
+			<span class="pagelist"><?php $page_text = '<i class="fa fa-copy" title="Pages"></i>&nbsp;'; wp_link_pages('before='.$page_text.':&after='); ?></span>
 			
 			<?php if( true != $exclude_category ) { 
-				if( has_category() == true ) { ?><span class="categories"><i class="icon-bookmark" title="Categories"></i>&nbsp;<?php the_category(', '); ?></span><?php }
+				if( has_category() == true ) { ?><span class="categories"><i class="fa fa-bookmark" title="Categories"></i>&nbsp;<?php the_category(', '); ?></span><?php }
 			}
 			
 			if( true != $exclude_tags ) {
-				if( has_tag() == true ) { ?><span class="taglist"><i class="icon-tags" title="Tags"></i>&nbsp;<?php the_tags('') ?></span><?php }
+				if( has_tag() == true ) { ?><span class="taglist"><i class="fa fa-tags" title="Tags"></i>&nbsp;<?php the_tags('') ?></span><?php }
 			}
 			
-			if( get_the_title() == "" ) echo '<span class="no-title"><a href="'.get_permalink().'" rel="bookmark" title="Untitled Link" ><i class="icon-warning-sign"></i>'.__("Single Page Link","blogBox").'</a></span>';
+			if( get_the_title() == "" ) echo '<span class="no-title"><a href="'.get_permalink().'" rel="bookmark" title="Untitled Link" ><i class="fa fa-warning-sign"></i>'.__("Single Page Link","blogBox").'</a></span>';
 			
-			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="icon-edit" title="Edit"></i>&nbsp;','</span>');
+			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
 		}
 		echo '</div>';
 		

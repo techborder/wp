@@ -16,23 +16,25 @@
 <?php 
 	global $blogBox_option;
 	$blogBox_option = blogBox_get_options();
- ?>
+?>
 
 <div id="fullwidth">
 
 	<?php if(sanitize_text_field($blogBox_option['bB_home1feature_options']) !== "No feature") blogBox_feature_slider(); ?>
 	
-	<div id="home1post">
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
-			<div class="post">
-				<div class="entry">
-					<?php the_content('Read more'); ?>
+	
+		<?php if (have_posts()) : while (have_posts()) : the_post();
+			if( !empty($post->post_content)) { ?>
+				<div id="home1post">
+					<div class="post">
+						<div class="entry">
+							<?php the_content('Read more'); ?>
+						</div>
+					</div>
 				</div>
-			</div>
-			
- 		<?php endwhile; else : endif; ?>
-	</div>
+			<?php  }
+ 		endwhile; else : endif; ?>
+	
 	
 	<?php blogBox_home_sections(); ?>
 

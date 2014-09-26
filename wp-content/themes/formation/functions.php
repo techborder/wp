@@ -246,8 +246,13 @@ function Formation_theme_customizer( $wp_customize ) {
     'description' => __( 'Upload a logo to replace the default site name and description in the header', 'Formation' ),
 	'priority'    => 30,
 ) );
-
-   $wp_customize->add_setting( 'Formation_logo' );
+   
+   $wp_customize->add_setting( 
+   		'Formation_logo',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
 
    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'Formation_logo', array(
     'label'    => __( 'Logo', 'Formation' ),
@@ -315,7 +320,12 @@ $wp_customize->add_control(
     )
 );
 
-$wp_customize->add_setting( 'featured_button_url' );
+$wp_customize->add_setting( 
+   		'featured_button_url',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
 	
 	$wp_customize->add_control(
 		'featured_button_url',
@@ -341,7 +351,12 @@ function featured_text_one_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-one-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-one-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -420,7 +435,12 @@ function featured_text_two_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-two-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-two-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -498,7 +518,12 @@ function featured_text_three_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-three-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-three-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -573,7 +598,6 @@ $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
 $excerpt = strip_shortcodes($excerpt);
 $excerpt = strip_tags($excerpt);
 $excerpt = substr($excerpt, 0, 150);
-$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
 $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
 return $excerpt;
 }
@@ -655,12 +679,12 @@ function Formation_wp_title( $title ) {
 function formation_breadcrumbs() {
  
 	/* === OPTIONS === */
-	$text['home']     = 'Home'; // text for the 'Home' link
-	$text['category'] = 'Archive by Category "%s"'; // text for a category page
-	$text['search']   = 'Search Results for "%s" Query'; // text for a search results page
-	$text['tag']      = 'Posts Tagged "%s"'; // text for a tag page
-	$text['author']   = 'Articles Posted by %s'; // text for an author page
-	$text['404']      = 'Error 404'; // text for the 404 page
+	$text['home']     = __('Home','Formation'); // text for the 'Home' link
+	$text['category'] = __('Archive by Category "%s"','Formation'); // text for a category page
+	$text['search']   = __('Search Results for "%s" Query','Formation'); // text for a search results page
+	$text['tag']      = __('Posts Tagged "%s"','Formation'); // text for a tag page
+	$text['author']   = __('Articles Posted by %s','Formation'); // text for an author page
+	$text['404']      = __('Error 404','Formation'); // text for the 404 page
  
 	$show_current   = 1; // 1 - show current post/page/category title in breadcrumbs, 0 - don't show
 	$show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
@@ -835,7 +859,12 @@ function client_logo_one_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-one-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-one-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -880,7 +909,12 @@ function client_logo_two_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-two-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-two-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -925,7 +959,12 @@ function client_logo_three_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-three-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-three-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -970,7 +1009,12 @@ function client_logo_four_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-four-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-four-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_url',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(

@@ -11,7 +11,7 @@ Supports Thumbs: true
 .slider-wrapper {
 	width: 92%;
 	height: auto;
-	margin: 1em 0em .625em 0em;
+	margin: 0;
 	padding: 0em 4% 0em 4%;
 }
 
@@ -19,7 +19,8 @@ Supports Thumbs: true
 	max-width: 60px;
 }
 
-#full-slider img, #full-slider-thumb img {
+#full-slider img, #full-slider-thumb img,
+#full-slider-nonav img {
 	display: none;
 	margin: 0px;
 	padding: 0px;
@@ -55,12 +56,12 @@ Supports Thumbs: true
 	overflow: hidden;
 }
 
-#half-slider {
+#half-slider,#half-slider-nonav,#half-slider-thumb {
 	width: 98%;
 	height: auto;
 }
 
-#half-slider img {
+#half-slider img,#half-slider-thumb img,#half-slider-nonav img {
 	display: none;
 	margin: 0px;
 	padding: 0px;
@@ -81,24 +82,13 @@ Supports Thumbs: true
 	margin-right: 0px;
 }
 
-#half-slider-thumb {
-	width: 98%;
-	height: auto;
-}
-
-#half-slider-thumb img {
-	display: none;
-	margin: 0px;
-	padding: 0px;
-}
-
 /* ----------------- end custom styles --------------------------------- */
 
 .theme-default .nivoSlider {
 	position:relative;
 	background:#fff url(loading.gif) no-repeat 50% 50%;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin: 0;/*ka was 20px 0 10px*/
+   
     border-radius: 5px;
     -webkit-box-shadow: 5px 6px 7px 0px #9E9E9E;
     -moz-box-shadow: 5px 6px 7px 0px #9E9E9E;
@@ -118,8 +108,7 @@ Supports Thumbs: true
 
 .theme-default .nivo-controlNav {
 	text-align: center;
-	padding: 10px 0;
-
+	padding: 5px 0 0 0; /* was 10px 0*/
 }
 .theme-default .nivo-controlNav a {
 	display:inline-block;
@@ -191,4 +180,5 @@ Supports Thumbs: true
 	display: block;
 	width: 120px;
 	height: auto;
+	margin: 10px 0 0 0;
 }

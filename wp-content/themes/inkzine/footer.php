@@ -46,20 +46,11 @@
 	             <?php if ( of_get_option('youtube', true) != "") { ?>
 				 <a href="<?php echo esc_url(of_get_option('youtube', true)); ?>" title="YouTube" ><i class="social-icon fa fa-youtube-square"></i></a>
 	             <?php } ?>
-	             <?php if ( of_get_option('tumblr', true) != "") { ?>
-				 <a href="<?php echo esc_url(of_get_option('tumblr', true)); ?>" title="Tumblr" ><i class="social-icon fa fa-tumblr-square"></i></a>
-	             <?php } ?>
-	             <?php if ( of_get_option('flickr', true) != "") { ?>
-				 <a href="<?php echo esc_url(of_get_option('flickr', true)); ?>" title="Flickr" ><i class="social-icon fa fa-flickr"></i></a>
-	             <?php } ?>
-	             <?php if ( of_get_option('dribble', true) != "") { ?>
-				 <a href="<?php echo esc_url(of_get_option('dribble', true)); ?>" title="Dribbble" ><i class="social-icon fa fa-dribbble"></i></a>
-	             <?php } ?>
          
 	</div>
 	</div>   
 	</footer><!-- #colophon -->
-	
+	</div>	
 	</div><!-- #footer-sidebar -->
 	
 	

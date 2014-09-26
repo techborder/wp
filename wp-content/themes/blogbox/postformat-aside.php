@@ -21,7 +21,7 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 <h2 class="post-title">
 	<?php 	
 		if ( $display_post_icon == 1 ) {
-			echo '<span class="post-icon"><i class="icon-info-sign" title="Aside"></i></span>';
+			echo '<span class="post-icon"><i class="fa fa-info-circle" title="Aside"></i></span>';
 		} 
 	?>
 </h2>

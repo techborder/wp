@@ -86,8 +86,10 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'twitter', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
+	
 
 
 
@@ -106,6 +108,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'facebook', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -126,6 +129,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'googleplus', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -146,6 +150,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'linkedin', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -166,6 +171,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'flickr', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -186,6 +192,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'pinterest', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -206,6 +213,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'youtube', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -226,6 +234,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'vimeo', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -246,6 +255,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'tumblr', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -266,6 +276,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'dribble', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -286,6 +297,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'github', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 
@@ -305,6 +317,7 @@ function Formation_customize($wp_customize) {
 	$wp_customize->add_setting( 'instagram', array(
 
 		'default'        => '',
+		'sanitize_callback' => 'Formation_sanitize_text',
 
 	) );
 

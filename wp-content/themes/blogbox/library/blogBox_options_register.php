@@ -6,7 +6,7 @@
  * Options for the blogBox Theme.
  * 
  * @package 	blogBox
- * @copyright	Copyright (c) 2011, Chip Bennett
+ * @copyright	Copyright (c) 2012, Kevin Archibald
  * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License, v2 (or newer)
  *
  * @since 		blogBox 1.0

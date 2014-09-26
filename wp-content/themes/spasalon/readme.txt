@@ -50,6 +50,48 @@ All images in Spasalon are licensed under the terms of the GNU GPL.
 This is the main catch with the theme which can be configured very easily via theme options panel.
 
 
+License
+-------
+
+Spasalon WordPress Theme, Copyright 2014 Priyanshu Mittal
+Spasalon is distributed under the terms of the GNU GPL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see .
+
+Spasalon WordPress Theme bundles the following third-party resources:
+
+Font License
+    Applies to all desktop and webfont files in the following directory: /fonts/.
+    License: SIL OFL 1.1
+    URL: http://scripts.sil.org/OFL
+
+JavaScripts		
+		1. Bootstrap.js => http://pixabay.com/go/?t=%2Fservice%2Fterms%2F%23download_terms
+		
+Images
+		1. Static Home Feature Image all created by webriti
+		2. Image in the screenshot are taken from pixabay.com
+			a. http://pixabay.com/get/2ab2705edb79cca0850b/1412585655/wellness-285590_1920.jpg
+			b. http://pixabay.com/static/uploads/photo/2014/03/11/22/56/wellness-285588_640.jpg
+			c. http://pixabay.com/static/uploads/photo/2014/03/11/22/57/wellness-285591_640.jpg
+			d. http://pixabay.com/static/uploads/photo/2014/03/11/22/56/wellness-285587_640.jpg
+		License: CC0 Public Domain
+		URL: http://pixabay.com/go/?t=%2Fservice%2Fterms%2F%23download_terms
+		
+----------------------------------------------------------------------
+
+
 	
 Support
 -------
@@ -57,8 +99,22 @@ Support
 Do you enjoy this theme? Send your ideas - issues - on the theme forms . Thank you!
 
 ============================Change Log================================
+@version 1.5.1.1
+1. New screenshot added.
+@version 1.5.1
+1. sidebar managed properly. If no widget added than page automatically goes to full width.
+2. Default widgets removed from sdiebar.
+3. Banner configuration module added. With this you can edit banner content in category,archive,404,search and tag templates. 
+4. Strings added in the pot files.
+@version 1.5
+1. woocommerce support added
+2. Sidebar formatting issues fixed.
+3. other formatting managed.
+4. sidebar managed
+@Version:1.4.4.7
+1. Tag-Line of Pink-Banner else text removed .
 @Version:1.4.4.6
-1. Comment Date function Changed used-> comment_date() 
+1.	Comment Date Function Used.
 @Version:1.4.4.5
 1. All files Properly Indented.
 @Version:1.4.4.4

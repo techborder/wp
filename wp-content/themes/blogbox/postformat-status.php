@@ -21,7 +21,7 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 <h2 class="post-title">
 	<?php 	
 		if ( $display_post_icon == 1 ) {
-			echo '<span class="post-icon"><i class="icon-exclamation-sign" title="Status"></i></span>';
+			echo '<span class="post-icon"><i class="fa fa-exclamation-circle" title="Status"></i></span>';
 		} 
 	?>
 </h2>
@@ -30,7 +30,7 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 	<span class="timestamp"><?php the_time(get_option('date_format')); ?></span>
 	<?php if ( comments_open()) {
 		$post_comments = get_comments( array ( 'type' => 'comment', 'post_id' => $post->ID )); ?>
-		<span class="comments"><a href="<?php comments_link(); ?>"><i class="icon-comment" title="Comments"></i>&nbsp;<?php echo count($post_comments); ?></a></span>
+		<span class="comments"><a href="<?php comments_link(); ?>"><i class="fa fa-comment" title="Comments"></i>&nbsp;<?php echo count($post_comments); ?></a></span>
 	<?php } ?>
 	<div class="clearfix"></div>
 	<?php

@@ -60,6 +60,7 @@ code {
   right: 0;
   bottom: 0;
   z-index: 1;
+  background-size: cover;
 }
 #page {
   position: relative;
@@ -76,9 +77,7 @@ code {
   position: relative;
   z-index: 99999;
   opacity: 1;
-  border-bottom: 2px solid #B2B2B2;
-  background: url(../../images/topbar.png) top center repeat-x, #ffffff;
-  padding-top: 24px;
+  border-bottom: 2px solid #eee;
 }
 #top-bar .container {
   position: relative;
@@ -132,6 +131,7 @@ body {
 }
 #masthead {
   margin: 60px auto;
+  margin-bottom: 20px;
   text-align: center;
 }
 .site-title {
@@ -157,6 +157,32 @@ body {
 }
 .main_logo {
   max-width: 390px;
+}
+#social-icons-top {
+  text-align: center;
+}
+#social-icons-top a {
+  display: inline-block;
+  opacity: 0.9;
+  -webkit-perspective: 1000;
+}
+#social-icons-top a:hover img {
+  -webkit-perspective: 1000;
+  -webkit-transform: rotateX(-30deg);
+  transform: rotateX(-30deg);
+  transform-origin: bottom;
+  opacity: 1;
+}
+#social-icons-top img {
+  width: 36px;
+  height: 36px;
+  opacity: .9;
+  transition: 0.4s all ease;
+  display: inline-block;
+  -webkit-perspective: 1000;
+}
+#social-icons-top img:hover {
+  opacity: 1;
 }
 @media screen and (max-width: 400px) {
   .main_logo {
@@ -191,145 +217,162 @@ a:active {
 }
 /* 5. Carousel Wrapper
 ------------------------------------------------------- */
+/*
+
 #carousel-wrapper {
-  margin-bottom: 55px;
-  padding: 0px;
-}
-#carousel-wrapper #carousel-title {
-  background: red;
-  padding: 6px 15px;
-  display: inline-block;
-  color: white;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-}
-#carousel-wrapper #carousel-title:after {
-  content: url(../../images/poonch.png);
-  height: 0;
-  width: 0;
-  position: absolute;
-  top: 0;
-  margin-top: 27px;
-  margin-left: -2px;
-}
-#carousel-wrapper .bx-wrapper .bx-next {
-  background: none;
-  margin-right: 10px;
-}
-#carousel-wrapper .bx-wrapper .bx-next .c-nav-bg {
-  color: white;
-  font-size: 42px;
-  margin-top: 21px;
-}
-#carousel-wrapper .bx-wrapper .bx-prev {
-  background: none;
-  margin-left: -50px;
-}
-#carousel-wrapper .bx-wrapper .bx-prev .c-nav-bg {
-  color: white;
-  font-size: 42px;
-  margin-top: 21px;
-}
-#carousel-wrapper .bx-wrapper .bx-viewport {
-  box-shadow: none;
-  max-height: 250px !important;
-}
-#carousel-wrapper .bx-wrapper .bx-viewport ul {
-  margin-left: 0px;
-}
-#carousel-wrapper .bx-wrapper .bx-controls-direction a {
-  text-indent: 0px;
-  font-size: 42px;
-  top: 37%;
-}
-#carousel-wrapper .bx-wrapper .bx-caption {
-  pointer-events: none;
-  position: absolute;
-  bottom: 3px;
-  left: 4px;
-  max-width: 98% ;
-  margin-bottom: -80px;
-}
-#carousel-wrapper .bx-wrapper .bx-caption a:hover {
-  text-decoration: underline;
-}
-#carousel-wrapper .bx-wrapper .bx-caption span {
-  font-family: "Lato", Times, serif;
-  -webkit-font-smoothing: antialiased;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.2);
-  color: white;
-  font-weight: normal;
-}
-#carousel-wrapper .bx-wrapper .bx-caption span:hover {
-  background-color: #ff1a1a !important;
-}
-#carousel-wrapper .bx-wrapper .bx-pager .bx-page-item {
-  width: 35px;
-}
-#carousel-wrapper .bx-wrapper .bx-pager .bx-pager-link {
-  width: 20px;
-  height: 8px;
-  border-radius: 1px;
-}
-#carousel-wrapper .bx-wrapper .bx-pager .active {
-  background: red !important;
+	margin-bottom: 55px;
+	padding: 0px;
+	
+	#carousel-title {
+		background: red;
+		padding: 6px 15px;
+		display: inline-block;
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 25px;
+		&:after {
+			content: "";
+			height: 0;
+			width: 0;
+			position: absolute;
+			border-top: solid 8px @link-color;
+			top: 0;
+			margin-top: 27px;
+			margin-left: -2px;
+		}
+	}
+	.bx-wrapper {
+		 .bx-next {
+		 	background: none;
+			 margin-right: 10px;
+			 .c-nav-bg {
+				 color: white;
+				 font-size: 42px;
+				 margin-top: 21px;
+			 }
+		 }
+		 .bx-prev {
+			 background: none;
+			 margin-left: -50px;
+			 .c-nav-bg {
+				 color: white;
+				 font-size: 42px;
+				 margin-top: 21px;
+			 }
+		 }
+		 .bx-viewport {
+			 box-shadow: none;
+			 max-height: 250px !important;
+			 ul {
+				 margin-left: 0px;
+			}
+		}
+		.bx-controls-direction a {
+			text-indent: 0px;
+			font-size: 42px;
+			top:37%;
+		}
+		.bx-caption {
+			pointer-events: none;
+			position: absolute;
+			bottom: 3px;
+			left: 4px;
+			max-width: 98% ;
+			margin-bottom: -80px;
+			a {
+			
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			span {
+				.font;
+				text-transform: uppercase;
+				background:rgba(0,0,0,0.2);
+				color: white;
+				font-weight: normal;
+				&:hover {
+					background-color: @link-hover-color !important;
+				}
+			}
+		}
+		.bx-pager
+	    {
+	    	.bx-page-item {
+	    		width: 35px;
+	    	}
+	    	.bx-pager-link {
+		    	width: 20px;
+		    	height: 8px;
+		    	border-radius: 1px;
+	    	}
+		    .active {
+			background: red !important;
+			}
+		}
+	}
 }
 @media screen and (max-width: 767px) {
-  .bx-controls-direction {
-    display: none;
-  }
-  #carousel-wrapper {
-    width: 95%;
-  }
+	.bx-controls-direction {
+		display: none;
+	}
+	#carousel-wrapper {
+		width: 95%;
+	}
 }
 @media screen and (max-width: 420px) {
-  
 }
+*/
 #tickr-wrapper {
-  height: 49px;
-  background: url(../../images/tickrbg.png) repeat;
-  margin-bottom: 50px;
+  height: 40px;
+  background-image: url(../../images/pattern.jpg);
+  padding: 0px;
+}
+#tickr-wrapper #tickr-bg {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  overflow: auto;
+  height: 100%;
 }
 #tickr-wrapper .bx-viewport {
-  height: 30px;
+  height: 25px;
 }
 #tickr-wrapper .tickr-inner-wrapper {
-  max-width: 1180px;
   overflow: hidden;
-  background: white;
   padding: 0px 10px;
   margin-top: 7px;
   height: 35px;
 }
 #tickr-wrapper .bxtickr {
   margin-left: 0px;
-  max-width: 1180px;
   overflow: hidden;
-  padding: 8px;
-  height: 30px;
-  background: white;
+  background: none;
+  padding: 1px 8px;
+  height: 25px;
 }
 #tickr-wrapper .bxtickr li {
   display: inline;
   padding: 0px 20px;
 }
 #tickr-wrapper .bxtickr a {
-  color: #9f9f9f;
+  color: #ffffff;
 }
 /* 5. Showcase
 -------------------------------------------------------	*/
+#showcase {
+  padding: 45px;
+  background: #eee;
+  border-top: solid 4px #ddd;
+}
 #showcase ul.sc {
   margin-left: 0px;
   /* list-style: none; */
-
 }
 #showcase ul.sc li {
   list-style: none;
   display: block;
   clear: both;
   /* background: green; */
-
   padding-bottom: 18px;
 }
 #showcase ul.sc li img {
@@ -340,7 +383,7 @@ a:active {
   margin-bottom: 10px;
 }
 #showcase ul.sc a {
-  color: #b3b3b3;
+  color: #838383;
 }
 #showcase ul.sc .sc-date {
   font-style: italic;
@@ -354,29 +397,32 @@ a:active {
   text-transform: uppercase;
   margin-bottom: 35px;
   padding-right: 20px;
+  position: relative;
 }
 #showcase .sc-heading:after {
+  content: "";
   height: 0;
-  width: 0;
+  width: 5px;
   position: absolute;
-  top: 0;
-  margin-top: 31px;
-  margin-left: -3px;
+  bottom: -12px;
+  right: 0;
 }
 .showcase-1 .sc-heading {
   background: #31ad7d;
 }
 .showcase-1 .sc-heading:after {
-  content: url(../../images/poonch-1.png);
+  border-top: solid 12px #207152;
+  border-right: solid 22px transparent;
 }
 .showcase-1 .sc-date {
-  color: #31ad7d;
+  color: #2a956c;
 }
 .showcase-2 .sc-heading {
   background: #2963d6;
 }
 .showcase-2 .sc-heading:after {
-  content: url(../../images/poonch-2.png);
+  border-top: solid 12px #1d4596;
+  border-right: solid 22px transparent;
 }
 .showcase-2 .sc-date {
   color: #2963d6;
@@ -385,7 +431,8 @@ a:active {
   background: #9a21a4;
 }
 .showcase-3 .sc-heading:after {
-  content: url(../../images/poonch-3.png);
+  border-top: solid 12px #5e1464;
+  border-right: solid 22px transparent;
 }
 .showcase-3 .sc-date {
   color: #9a21a4;
@@ -427,7 +474,6 @@ a:active {
 }
 #primary-navigation ul li:hover > ul {
   /* Dropdown*/
-
   display: block;
 }
 #primary-navigation ul ul {
@@ -437,7 +483,7 @@ a:active {
   top: 3.3em;
   left: 0;
   z-index: 99999;
-  background: #eeeeee;
+  background: #f7f7f7;
   text-align: left;
   border: none;
   padding-top: 0px;
@@ -466,9 +512,7 @@ a:active {
   position: relative;
   clear: right;
   /* box-shadow: 9px 0px 12px -12px #222; */
-
   /* border-right: solid 1px #eee; */
-
   margin-bottom: 5px;
 }
 #primary-navigation li li {
@@ -487,7 +531,6 @@ a:active {
 }
 #primary-navigation a {
   display: block;
-  text-shadow: 0px 1px 1px #999;
   color: #727272;
   text-decoration: none;
   padding: 15px 20px;
@@ -506,7 +549,7 @@ a:active {
 }
 #primary-navigation li:hover > a {
   color: #ff0000;
-  background: #eee;
+  background: #f7f7f7;
 }
 #primary-navigation ul ul li:hover > a {
   background: #ffffff;
@@ -588,21 +631,35 @@ a:active {
 }
 @media screen and (max-width: 1100px) {
   /*
-  	#site-navigation {
-  		float: none;
-  		width: 100%;
-  		margin: auto;
-  	}
-  */
+	#site-navigation {
+		float: none;
+		width: 100%;
+		margin: auto;
+	}
+*/
 }
 /* 6. Slider
 -------------------------------------------------*/
-.slider-wrapper {
+#slider-wrapper {
   margin: auto;
-  margin-top: 35px;
+  margin-top: 45px;
   background: rgba(255, 255, 255, 0.8);
   padding-top: 15px;
-  margin-bottom: 40px;
+  margin-bottom: -10px;
+}
+#slider-wrapper .fa-angle-left {
+  margin-left: 20px;
+  color: white;
+}
+#slider-wrapper .fa-angle-left:hover {
+  color: #eee;
+}
+#slider-wrapper .fa-angle-right {
+  margin-left: 45px;
+  color: white;
+}
+#slider-wrapper .fa-angle-right:hover {
+  color: #eee;
 }
 .slide-title {
   font-family: "Armata", Arial, Helvetica, sans-serif;
@@ -640,9 +697,8 @@ div.slide-description {
 ------------------------------------------------------- */
 #content {
   background: white;
-  border-top: solid 4px #ffffff;
   padding: none;
-  padding-top: 15px;
+  padding-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -663,15 +719,18 @@ div.slide-description {
   color: white;
   text-transform: uppercase;
   margin-bottom: 25px;
+  position: relative;
+  margin-left: 15px;
 }
 #primary-home #primary-title:after {
-  content: url(../../images/poonch.png);
+  content: "";
+  border-top: solid 12px #b30000;
+  border-right: solid 22px transparent;
   height: 0;
   width: 0;
+  right: 0;
   position: absolute;
-  top: 0;
-  margin-top: 27px;
-  margin-left: -2px;
+  bottom: -12px;
 }
 #primary-home .masa {
   float: none;
@@ -686,11 +745,8 @@ div.slide-description {
 }
 #primary-home #masonry {
   margin-bottom: 60px;
-}
-@media screen and (min-width: 992px) {
-  #masonry {
-    width: 102%;
-  }
+  overflow: visible;
+  margin-left: -10px;
 }
 #title-bar {
   background-attachment: scroll;
@@ -702,6 +758,8 @@ div.slide-description {
   color: white;
   font-weight: lighter;
   padding: 25px 0px;
+  border-top: none;
+  margin-top: 40px;
   box-shadow: inset 0px 5px 10px -5px #4a4a4a, inset 0px -5px 10px -5px #4a4a4a;
   font-family: "Lato", Times, serif;
   -webkit-font-smoothing: antialiased;
@@ -722,6 +780,7 @@ div.slide-description {
   overflow: hidden;
   width: 95%;
   padding: 0px;
+  transition: 0.4s all ease;
 }
 .featured-thumb .img-meta {
   position: absolute;
@@ -731,9 +790,11 @@ div.slide-description {
   -webkit-font-smoothing: antialiased;
   width: 100%;
   height: 100%;
-  left: 0px;
-  display: none;
+  top: -30%;
+  opacity: 0;
+  display: block;
   text-align: center;
+  transition: 0.4s all ease;
 }
 .featured-thumb .img-meta .meta-title {
   color: white;
@@ -775,9 +836,12 @@ div.slide-description {
 }
 .featured-thumb:hover .img-meta {
   background: rgba(0, 0, 0, 0.65);
+  top: 0;
+  opacity: 1;
 }
 .featured-thumb:hover img {
-  -webkit-transform: scale(1.05);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
   opacity: 0.98;
 }
 .featured-thumb img {
@@ -787,8 +851,74 @@ div.slide-description {
   min-width: 100%;
   height: auto;
 }
+.artmain .main-article {
+  margin: 10px auto;
+  border: 10px solid #f5f5f5;
+  outline: solid 1px #e6e6e6;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  margin-bottom: 0;
+}
+.artmain .main-article .main-content,
+.artmain .main-article .content {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  padding-top: 20px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.artmain .main-article a {
+  color: white;
+  text-shadow: 0 0 1px #4a4a4a;
+}
+.artmain .main-article img {
+  display: block;
+  margin: auto;
+}
+.artmain .main-entry-title {
+  text-transform: none;
+  text-align: center;
+  position: relative;
+  font-size: 14px;
+  background: #f5f5f5;
+  outline: solid 1px #e6e6e6;
+  padding: 10px;
+  margin: 0px 0 0 0;
+}
+.artmain .main-entry-title a {
+  color: #888;
+}
+.artmain .main-article p {
+  font-family: "Lato", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 13px;
+  font-weight: normal;
+  position: relative;
+  color: #fff;
+  padding: 10px 20px 20px;
+  text-align: center;
+}
+.artmain .main-article a.readmore {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: black;
+  border-radius: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000000;
+}
+.artmain .main-article a.readmore:hover {
+  background: #ff0000;
+}
 #primary {
   padding: 20px 15px;
+  padding-top: 0;
 }
 #primary .byline {
   display: inline;
@@ -825,8 +955,6 @@ article.archive .article-rest {
 body.archive .entry-title {
   font-family: "Armata", Arial, Helvetica, sans-serif;
   /* box-shadow: 0px 22px 0px -17px #eBeBeB; */
-
-  border-bottom: double 4px #d9d9d9;
   margin-bottom: 20px;
   padding-bottom: 19px;
   display: block;
@@ -973,6 +1101,8 @@ h1.page-title {
   margin-left: 5px;
 }
 #secondary ul li:before {
+  display: inline;
+  float: left;
   margin-right: 5px;
   content: "\f0da";
   font-family: "FontAwesome";
@@ -1056,54 +1186,108 @@ h1.page-title {
   height: 0;
   width: 0;
   position: absolute;
-  top: 56px;
   margin-left: 1px;
-  content: url(../../images/poonch-4.png);
 }
 #secondary .rp-date {
   font-size: 12px;
 }
 #secondary aside:nth-child(even) h1.widget-title {
   background: #4ea33a;
+  position: relative;
 }
 #secondary aside:nth-child(even) h1.widget-title:after {
-  content: url(../../images/poonch-5.png);
+  content: "";
+  border-top: solid 12px #336b26;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(2) h1.widget-title {
   background: #4ea33a;
+  position: relative;
 }
 #secondary aside:nth-child(2) h1.widget-title:after {
-  content: url(../../images/poonch-5.png);
+  content: "";
+  border-top: solid 12px #336b26;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(odd) h1.widget-title {
   background: #b90480;
+  position: relative;
 }
 #secondary aside:nth-child(odd) h1.widget-title:after {
-  content: url(../../images/poonch-6.png);
+  content: "";
+  border-top: solid 12px #6e024c;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(3) h1.widget-title {
   background: #b90480;
+  position: relative;
 }
 #secondary aside:nth-child(3) h1.widget-title:after {
-  content: url(../../images/poonch-6.png);
+  content: "";
+  border-top: solid 12px #6e024c;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(4) h1.widget-title {
   background: #13b7ce;
+  position: relative;
 }
 #secondary aside:nth-child(4) h1.widget-title:after {
-  content: url(../../images/poonch-4.png);
+  content: "";
+  border-top: solid 12px #0d7988;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(5) h1.widget-title {
   background: #9a21a4;
+  position: relative;
 }
 #secondary aside:nth-child(5) h1.widget-title:after {
-  content: url(../../images/poonch-3.png);
+  content: "";
+  border-top: solid 12px #5e1464;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary aside:nth-child(1) h1.widget-title {
   background: #13b7ce;
+  position: relative;
 }
 #secondary aside:nth-child(1) h1.widget-title:after {
-  content: url(../../images/poonch-4.png);
+  content: "";
+  border-top: solid 12px #0d7988;
+  border-right: solid 22px transparent;
+  height: 0;
+  width: 0;
+  right: 0;
+  position: absolute;
+  bottom: -12px;
 }
 #secondary .widget_search label {
   width: 100%;
@@ -1142,7 +1326,11 @@ h1.page-title {
   color: white;
   background: url(../../images/pattern.jpg);
   box-shadow: inset 0px 8px 12px -8px #4a4a4a;
+  padding: 0;
   font-family: "Maven Pro", sans-serif;
+}
+#footer-sidebar #footer-inner-wrapper {
+  background: rgba(0, 0, 0, 0.6);
 }
 #footer-sidebar a {
   color: white;
@@ -1176,6 +1364,8 @@ h1.page-title {
 #footer-sidebar ul li:before {
   margin-right: 5px;
   content: "\f0da";
+  display: inline;
+  float: left;
   font-family: "FontAwesome";
 }
 #footer-sidebar ul li {
@@ -1246,11 +1436,7 @@ h1.page-title {
   transition: ease 0.4s all;
 }
 #footer-sidebar .social-icon:hover {
-  color: #fff;
-  text-shadow: none;
-  -webkit-transform: rotate(-30deg);
-  -moz-transform: rotate(-30deg);
-  transform: rotate(-30deg);
+  color: #ddd;
 }
 #footer-sidebar a:hover .social-icon {
   text-decoration: none;
@@ -1268,6 +1454,75 @@ h1.page-title {
 }
 #footer-sidebar .widget_search ::-moz-input-placeholder {
   color: #fff;
+}
+/* 5. Slider Wrapper
+------------------------------------------------------- */
+#slider-wrapper {
+  width: 100%;
+}
+#slider-wrapper ul {
+  margin-left: 0;
+}
+#slider-wrapper ul .bx-caption {
+  background: rgba(0, 0, 0, 0.6);
+  font-family: "Armata", Helvetica, sans-serif;
+  padding-bottom: 10px;
+  font-size: 25px;
+  pointer-events: none;
+  text-align: center;
+}
+#slider-wrapper ul .bx-next {
+  margin-right: 15px;
+}
+#slider-wrapper ul .xslide {
+  width: 100%;
+  margin-left: 0px;
+}
+#slider-wrapper .bx-wrapper .bx-controls-direction a.bx-next {
+  margin-right: 40px;
+}
+#slider-wrapper .bx-pager .bx-page-item {
+  width: 35px;
+}
+#slider-wrapper .bx-pager .bx-pager-link {
+  width: 20px;
+  height: 8px;
+  border-radius: 1px;
+}
+#slider-wrapper .bx-pager .active {
+  background: red !important;
+}
+#slider-wrapper .bx-next {
+  background: none;
+  margin-right: 40px;
+}
+#slider-wrapper .bx-next .c-nav-bg {
+  color: white;
+  font-size: 42px;
+  margin-top: 21px;
+}
+#slider-wrapper .bx-prev {
+  background: none;
+  margin-left: -19px;
+}
+#slider-wrapper .bx-prev .c-nav-bg {
+  color: white;
+  font-size: 42px;
+  margin-top: 21px;
+}
+#slider-wrapper .bx-controls-direction a {
+  text-indent: 0px;
+  font-size: 42px;
+  top: 40%;
+  opacity: 0.8;
+}
+#slider-wrapper .bx-viewport {
+  /* 			box-shadow: none; */
+}
+@media screen and (max-width: 767px) {
+  #slider-wrapper ul .bx-caption {
+    font-size: 13px;
+  }
 }
 /* 8. Pagination
 -----------------------------------------------*/

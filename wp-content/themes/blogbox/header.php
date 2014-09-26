@@ -18,7 +18,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-<meta http-equiv="x-ua-compatible" content="IE=edge" >
+
 <meta charset=<?php bloginfo('charset'); ?> />
 
 <title><?php wp_title(''); ?></title>

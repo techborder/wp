@@ -3,7 +3,7 @@ Theme Name: blogBox
 Author: Kevin Archibald
 Author URI: http://kevinsspace.ca/
 Theme URI: http://demo1.kevinsspace.ca/
-Version: 4.0.2
+Version: 4.0.3
 License: GNU General Public License V3
 License URI:http://www.gnu.org/licenses/quick-guide-gplv3.html
 Tags: blue,brown,gray,white,light,dark,one-column,two-columns,left-sidebar,right-sidebar,
@@ -19,8 +19,8 @@ colors, text colors, font styles, static pages, sidebars, captcha for comments a
 	control the look of the theme, and many options for special pages and content. 
 
 	1) Home Page
-	    - full width feature slider, button or thumbnail navigation
-	    - small feature slider with a text area, buttons or thumbnail navigation, 
+	    - full width feature slider, button, thumbnail, or no navigation
+	    - small feature slider with a text area, button, thumbnail, or no navigation, 
 	      complete with an option to widgetize the text area
 	    - single image options
 	    - two slogan areas
@@ -146,10 +146,6 @@ Custom Menu System
  - Superfish - jQuery menu widget
  - Copyright 2013 jQuery Foundation and other contributors
  - http://jquery.com
- 
-Audio player (audio.js)
-------------------------
- - Copyright (c) 2010 Anthony Kolber (http://aestheticallyloyal.com), MIT License
  
 fitvids.js
 -------------

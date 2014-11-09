@@ -14,5 +14,5 @@ sitemap.xml.gz
 wp-snapshots/*
 wp-admin/error_log
 error_log
-wp-content/plugins/wordfence/tmp/
+wp-content/plugins/wordfence/
 .DS_Store

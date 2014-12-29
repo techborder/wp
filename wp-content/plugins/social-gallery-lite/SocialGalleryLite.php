@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.2.6
+Version: 2.2.7
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2
@@ -56,7 +56,7 @@ if ($socialGalleryProof){
 	
 		global $socialGalleryLite_urls;
 	$socialGalleryLite_urls['home'] 		= "http://www.socialgalleryplugin.com";
-	$socialGalleryLite_urls['support']		= "http://forum.socialgalleryplugin.com";
+	$socialGalleryLite_urls['support']		= "http://epicplugins.com/help";
 	$socialGalleryLite_urls['forum'] 		= "http://forum.socialgalleryplugin.com";
 	$socialGalleryLite_urls['faq'] 			= "http://www.socialgalleryplugin.com/frequently-asked-questions/";
 	$socialGalleryLite_urls['subscribe'] 	= "http://eepurl.com/Yx1-r";
@@ -484,6 +484,7 @@ function sgp010f9_html(){
 	$premiumMsgShort = '<div class="socGalPremium">Pro Version Feature. <a href="'.$socialGalleryLite_urls['gopro'].'">Get Social Gallery Pro</a></div>';
 	
 		?>
+		<a href="http://epicplugins.com/pluginhunt"><img src = "https://epicplugins.com/wp-content/uploads/2014/12/plugin-hunt-theme-banner.png" /></a>
         <p id="sgpDesc">Here you can set the configuration options for your Social Gallery Plugin. Before changing anything please read our <a href="<?php echo $socialGalleryLite_urls['docs']; ?>" title="View Documentation" target="_blank">setup guide</a>.</p>
         <form action="?page=<?php echo $socialGalleryLite_slugs['settings']; ?>&save=1" method="post">
         <div id="socialGallerySettings">

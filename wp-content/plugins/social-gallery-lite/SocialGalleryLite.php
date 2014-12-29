@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.2.5
+Version: 2.2.6
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2
@@ -59,7 +59,7 @@ if ($socialGalleryProof){
 	$socialGalleryLite_urls['support']		= "http://forum.socialgalleryplugin.com";
 	$socialGalleryLite_urls['forum'] 		= "http://forum.socialgalleryplugin.com";
 	$socialGalleryLite_urls['faq'] 			= "http://www.socialgalleryplugin.com/frequently-asked-questions/";
-	$socialGalleryLite_urls['subscribe'] 	= "http://www.socialgalleryplugin.com/join-social-gallery-newsletter/";
+	$socialGalleryLite_urls['subscribe'] 	= "http://eepurl.com/Yx1-r";
 	$socialGalleryLite_urls['docs'] 		= "http://socialgalleryplugin.com/documentation/lite/";
 	$socialGalleryLite_urls['showcase']		= 'http://www.socialgalleryplugin.com/showcase/';
 	$socialGalleryLite_urls['updateCheck']	= 'http://www.socialgalleryplugin.com/updateEngine/lite/';
@@ -262,7 +262,9 @@ function sgp11f(){}					function sgpc317e4f(){
 			if (isset($_POST['updateme'])) { $subscribeflag = sanitize_text_field($_POST['updateme']); $wizardObj['subscribeflag'] = $subscribeflag; }
 			
 						$p = wp_count_posts(); $p = (int)$p->publish; $pa = wp_count_posts('page'); $pa = (int)$pa->publish; $n = 0; if (class_exists('nggdb')) $n = 1; $j = 0; if (class_exists('JustifiedImageGrid')) $j = 1;
-			sgp33da($userEmail,$userName,$subscribeflag,$p,$pa,$n,$j);
+			
+
+			// sgp33da($userEmail,$userName,$subscribeflag,$p,$pa,$n,$j);
 						
 			$wizardObj['stage'] = 1;			
 			update_option('socialGalleryLite_wizardObject',$wizardObj);
@@ -314,7 +316,6 @@ function sgp11f(){}					function sgpc317e4f(){
     <tr style="display:none" id="nameShow"><td colspan="2"><div class="wError">This field is required!</div></td></tr>
     <tr><td class="sgwL">Your Email Address:</td><td><input type="text" value="<?php echo get_option('admin_email'); ?>" name="email" id="email" style="width:200px" /></td></tr>
     <tr style="display:none" id="emailShow"><td colspan="2"><div class="wError">This field is required!</div></td></tr>
-    <tr><td class="sgwL">Get Notified about updates:</td><td><input type="checkbox" name="updateme" id="updateme" value="1" checked="checked" /></td></tr>
     <tr><td class="sgwL">&nbsp;</td><td style="text-align:right"><button type="button" id="sgNextStep" class="SocialGalleryOB">Next Step</button></td></tr>
     </table>
 	<script type="text/javascript">jQuery(document).ready(function(e) {
@@ -452,7 +453,7 @@ function sgLiteMailchimp(){
 				'fname' 	=> 		$current_user->user_firstname,
 				'lname' 	=> 		$current_user->user_lastname
 				    );
-	sgLiteFireHit($data);
+	// sgLiteFireHit($data);  
 }
 
 function sgLiteFireHit($data){
@@ -1529,6 +1530,77 @@ function SGLite_custom_add_facebook_open_graph_tags() {
 }
 add_action('wp_head', 'SGLite_custom_add_facebook_open_graph_tags',1); 
 
+//the new pointers
+add_action( 'admin_enqueue_scripts', 'epic_custom_admin_pointers_header' );
+
+function epic_custom_admin_pointers_header() {
+   if ( custom_admin_pointers_check() ) {
+      add_action( 'admin_print_footer_scripts', 'custom_admin_pointers_footer' );
+
+      wp_enqueue_script( 'wp-pointer' );
+      wp_enqueue_style( 'wp-pointer' );
+   }
+}
+
+function custom_admin_pointers_check() {
+   $admin_pointers = custom_admin_pointers();
+   foreach ( $admin_pointers as $pointer => $array ) {
+      if ( $array['active'] )
+         return true;
+   }
+}
+
+function custom_admin_pointers_footer() {
+   $admin_pointers = custom_admin_pointers();
+   ?>
+<script type="text/javascript">
+/* <![CDATA[ */
+( function($) {
+   <?php
+   foreach ( $admin_pointers as $pointer => $array ) {
+      if ( $array['active'] ) {
+         ?>
+         $( '<?php echo $array['anchor_id']; ?>' ).pointer( {
+            content: '<?php echo $array['content']; ?>',
+            position: {
+            edge: '<?php echo $array['edge']; ?>',
+            align: '<?php echo $array['align']; ?>'
+         },
+            close: function() {
+               $.post( ajaxurl, {
+                  pointer: '<?php echo $pointer; ?>',
+                  action: 'dismiss-wp-pointer'
+               } );
+            }
+         } ).pointer( 'open' );
+         <?php
+      }
+   }
+   ?>
+} )(jQuery);
+/* ]]> */
+</script>
+   <?php
+}
+
+function custom_admin_pointers() {
+   $dismissed = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+   $version = '1_0'; // replace all periods in 1.0 with an underscore
+   $prefix = 'custom_admin_pointers' . $version . '_';
+
+   $new_pointer_content = '<h3>' . __( 'You are now Epic!' ) . '</h3>';
+   $new_pointer_content .= '<p>' . __( 'As a thank you for installing Social Gallery Lite we wanted to offer you <b>FREE</b> access to our VIP list <b>FOREVER</b> (usually $39.99 per year).<br/><br/> <a href="http://eepurl.com/782FP">Sign up here for FREE</a> <br/><br/><b>LIMITED</b> spaces available for this exclusive offer' ) . '</p>';
+
+   return array(
+      $prefix . 'new_items' => array(
+         'content' => $new_pointer_content,
+         'anchor_id' => '#wp-admin-bar-new-content',
+         'edge' => 'top',
+         'align' => 'left',
+         'active' => ( ! in_array( $prefix . 'new_items', $dismissed ) )
+      ),
+   );
+}
 
 function sgpe24($value)
 {

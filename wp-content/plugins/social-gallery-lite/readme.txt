@@ -3,7 +3,7 @@ Contributors: mikemayhem3030
 Donate link: http://www.socialgalleryplugin.com
 Tags: social, gallery, comments, lightbox, social lightbox, +1, admin, bookmark, button, buzz, Facebook, facebook like, google, google plus, google plus one, icon, icons, image, images, like, linkedin, linked in, tumblr, stumble upon, twitter, tweet, pinterest, page, pages, posts, plugin, plus 1, plus one, Post, posts, seo, sexybookmarks, sharing, NextGen, social bookmars, stumbleupon, widget, social gallery, gallery share, share, adsense, disqus, css3 animation, CSS3, theme, DFP, Fullscreen, swipe, ie, chrome, firefox, opera, jquery, light-box, social sharing, compatibility, free, analytics
 Requires at least: 3.1
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 2.2.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ Social Gallery is the Ultimate Social Lightbox Plugin for WordPress. This is the
 That's right – you can now get a Lite version of the best-selling [Social Gallery](http://www.socialgalleryplugin.com "Social Gallery Plugin") for Free!  
 It’s not quite as [feature packed](http://www.socialgalleryplugin.com/social-gallery-feature-list/ "Social Gallery Features") as [Social Gallery Pro](http://www.socialgalleryplugin.com "Social Gallery Plugin") but it’s still kick ass. If you are looking to test out Social Gallery or your on a small (or zero) budget you can get a copy here, just click the red "Download Version 2.2.5” button above.
 
-Epicplugins has acquired the Social Gallery suite of plugins and is driving forward the development. 
+Epicplugins has acquired the Social Gallery suite of plugins and is driving forward the development. We have some Epic New Themes available [Check them out](https://epicplugins.com/two-new-epic-themes/)
 
 
 Version 3 of [Social Gallery Pro](http://www.socialgalleryplugin.com) has been released with a load of new features
@@ -34,6 +34,7 @@ Along with our usual powerful
 *   [Setup Tutorial Guides](http://epicplugins.com/social-gallery-photo-tutorials/)
 *   Pride of the mantlepiece over at [Epicplugins](http://epicplugins.com/)
 *   Epic Hints and Tips from years of experience
+*   The Best Social Lightbox out there.
 
 
 = Killer features of Social Gallery Lite =
@@ -51,7 +52,7 @@ Along with our usual powerful
 
 = 40,000+ Blogs running Social Gallery! =
 *	Over 38,000 downloads of Social Gallery Lite
-*	Over 2,600 copies sold of [Social Gallery Pro](http://www.socialgalleryplugin.com "Social Gallery Plugin")
+*	Over 3,000 copies sold of [Social Gallery Pro](http://www.socialgalleryplugin.com "Social Gallery Plugin")
 *	Thanks to all of you awesome users!
 *  Please do rate the plugin :)
 

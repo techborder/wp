@@ -299,7 +299,7 @@
 		progress_delay		:	false,				// Delay after resize before resuming slideshow
 		thumb_page 			: 	false,				// Thumbnail page
 		thumb_interval 		: 	false,				// Thumbnail interval
-		image_path			:	'wp-content/themes/skt_full_width/images/img/',				// Default image path
+		image_path			:	'wp-content/themes/skt-full-width/images/img/',				// Default image path
 													
 		// General Elements							
 		play_button			:	'#pauseplay',		// Play/Pause button

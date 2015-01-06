@@ -554,7 +554,6 @@ function pinboard_register_styles() {
 		$pinboard_deps = false;
 	wp_register_style( 'pinboard', get_stylesheet_uri(), $pinboard_deps, null );
 	wp_register_style( 'colorbox', get_template_directory_uri() . '/styles/colorbox.css', false, null );
-	wp_register_style( 'mediaelementplayer', get_template_directory_uri() . '/styles/mediaelementplayer.css', false, null );
 }
 endif;
 
@@ -573,7 +572,6 @@ function pinboard_enqueue_styles() {
 	wp_enqueue_style( 'pinboard' );
 	if( pinboard_get_option( 'lightbox' ) )
 		wp_enqueue_style( 'colorbox' );
-	wp_enqueue_style( 'mediaelementplayer' );
 }
 endif;
 
@@ -813,14 +811,7 @@ function pinboard_call_scripts() { ?>
 										pinboard_move_elements($(this));
 									});
 								}
-								$('audio,video').mediaelementplayer({
-									videoWidth: '100%',
-									videoHeight: '100%',
-									audioWidth: '100%',
-									alwaysShowControls: true,
-									features: ['playpause','progress','tracks','volume'],
-									videoVolume: 'horizontal'
-								});
+								$('.wp-audio-shortcode, .wp-video-shortcode').css('visibility', 'visible');
 								$(".entry-attachment, .entry-content").fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});
 								<?php if( pinboard_get_option( 'lightbox' ) ) : ?>
 									$('.entry-content a[href$=".jpg"],.entry-content a[href$=".jpeg"],.entry-content a[href$=".png"],.entry-content a[href$=".gif"],a.colorbox').colorbox({
@@ -864,14 +855,7 @@ function pinboard_call_scripts() { ?>
 								pinboard_move_elements($(this));
 							});
 						}
-						$('audio,video').mediaelementplayer({
-							videoWidth: '100%',
-							videoHeight: '100%',
-							audioWidth: '100%',
-							alwaysShowControls: true,
-							features: ['playpause','progress','tracks','volume'],
-							videoVolume: 'horizontal'
-						});
+						$('.wp-audio-shortcode, .wp-video-shortcode').css('visibility', 'visible');
 						$(".entry-attachment, .entry-content").fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});
 						<?php if( pinboard_get_option( 'lightbox' ) ) : ?>
 							$('.entry-content a[href$=".jpg"],.entry-content a[href$=".jpeg"],.entry-content a[href$=".png"],.entry-content a[href$=".gif"],a.colorbox').colorbox({
@@ -883,7 +867,7 @@ function pinboard_call_scripts() { ?>
 				<?php endif; ?>
 			<?php endif; ?>
 		<?php endif; ?>
-		$('audio,video').mediaelementplayer({
+		$('.entry-attachment audio, .entry-attachment video').mediaelementplayer({
 			videoWidth: '100%',
 			videoHeight: '100%',
 			audioWidth: '100%',
@@ -998,6 +982,11 @@ function pinboard_custom_styles() {
 		}
 		#access {
 			background: <?php echo esc_attr( pinboard_get_option( 'menu_background' ) ); ?>;
+		}
+		@media screen and (max-width: 760px) {
+			#access {
+				background: none;
+			}
 		}
 	<?php endif; ?>
 	<?php if( $default_options['submenu_background'] != pinboard_get_option( 'submenu_background' ) ) : ?>

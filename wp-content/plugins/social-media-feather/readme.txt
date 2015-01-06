@@ -16,9 +16,7 @@ Super lightweight, simple, nice, modern looking and effective social media shari
 
 Check out this introductory tutorial on [how to install and get started with Social Media for WordPress](http://youtu.be/iJAq2nJi6BM) by a helpful user of Social Media Feather!
 
-[embed]
-http://youtu.be/iJAq2nJi6BM
-[/embed]
+https://www.youtube.com/watch?v=iJAq2nJi6BM
 
 Now the only social sharing and bookmarking plugin with full support for the **Retina and high resolution displays** as used in iPad 5 and other devices!
 
@@ -101,6 +99,7 @@ For following buttons you can use:
 * [WordPress Social Media Plugin Official Page](http://synved.com/wordpress-social-media-feather/ "WordPress Social Media Feather – lightweight social sharing and following")
 * [Extra Social Icons Skins](http://synved.com/product/feather-extra-social-icons/ "Add 8 extra social icon skins to the Social Media Feather plugin!")
 * [Grey Fade addon that can grey out and fade out any social icons set](http://synved.com/product/feather-grey-fade/ "Customize any of the available social icon skins with 2 cool effects!")
+* [Light Prompt that adds counts for social shares](http://synved.com/product/feather-light-prompt/ "Add counters for social shares using Light Prompt")
 * [Our own site](http://synved.com/) where you can see social sharing and following in action
 * [Stripefolio theme demo](http://wpdemo.synved.com/stripefolio/) where you can see some of the social sharing and following features in action
 * [The free Stripefolio WordPress portfolio theme](http://synved.com/stripefolio-free-wordpress-portfolio-theme/ "A free WordPress theme that serves as a readable blog and a full-screen portfolio showcase") the Official page for the theme in the above demo link
@@ -137,6 +136,17 @@ You can achieve this by using *Custom Fields*. Simply set a custom field of `syn
 7. This shows the available social sharing and following widgets and their settings 
 
 == Changelog ==
+
+= 1.7.1 =
+* Fix for Easy Digital Downloads adding HTML tags to titles that were then posted to social sharing
+* Fix for certain quote characters not being properly converted on share
+
+= 1.7 =
+* Performance improvements
+
+= 1.6.15 =
+* Fix for PHP notice in rare cases
+* Prevent certain fancybox plugins from trying to open fancybox on share/follow icons
 
 = 1.6.14 =
 * Adjusted description

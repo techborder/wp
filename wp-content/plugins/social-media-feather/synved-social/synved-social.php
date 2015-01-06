@@ -3,7 +3,7 @@
 Module Name: Synved Social
 Description: Social sharing and following tools
 Author: Synved
-Version: 1.6.14
+Version: 1.7.1
 Author URI: http://synved.com/
 License: GPLv2
 
@@ -18,8 +18,8 @@ In no event shall Synved Ltd. be liable to you or any third party for any direct
 
 
 define('SYNVED_SOCIAL_LOADED', true);
-define('SYNVED_SOCIAL_VERSION', 100060014);
-define('SYNVED_SOCIAL_VERSION_STRING', '1.6.14');
+define('SYNVED_SOCIAL_VERSION', 100070001);
+define('SYNVED_SOCIAL_VERSION_STRING', '1.7.1');
 
 define('SYNVED_SOCIAL_ADDON_PATH', str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, dirname(__FILE__) . '/addons'));
 
@@ -346,28 +346,42 @@ function synved_social_service_provider_list($context, $raw = false)
 
 function synved_social_icon_skin_list()
 {
-	$path = synved_social_path();
-	$uri = synved_social_path_uri();
+	global $synved_social;
 	
-	$icons = array(
-		'regular' => array(
-			'label' => __('Regular'), 
-			'image' => $uri . '/image/social/regular/preview.png', 
-			'folder' => '/image/social/regular/', 
-			'path' => $path . '/image/social/regular/', 
-			'uri' => $uri . '/image/social/regular/'
-		)
-	);
-	
-	$icons_extra = null;
-	
-	if (function_exists('synved_social_addon_extra_icons_get'))
+	if (!isset($synved_social['skin_list']) || $synved_social['skin_list'] == null)
 	{
-		$icons_extra = synved_social_addon_extra_icons_get();
-		$icons = array_merge($icons, $icons_extra);
+		$path = synved_social_path();
+		$uri = synved_social_path_uri();
+	
+		$icons = array(
+			'regular' => array(
+				'label' => __('Regular'), 
+				'image' => $uri . '/image/social/regular/preview.png', 
+				'folder' => '/image/social/regular/', 
+				'path' => $path . '/image/social/regular/', 
+				'uri' => $uri . '/image/social/regular/'
+			)
+		);
+	
+		$icons_extra = null;
+	
+		if (function_exists('synved_social_addon_extra_icons_get'))
+		{
+			$icons_extra = synved_social_addon_extra_icons_get();
+			$icons = array_merge($icons, $icons_extra);
+		}
+	
+		$icons = apply_filters('synved_social_icon_skin_list', $icons);
+	
+		foreach ($icons as $skin_name => $skin)
+		{
+			$icons[$skin_name]['name'] = $skin_name;
+		}
+	
+		$synved_social['skin_list'] = $icons;
 	}
 	
-	return apply_filters('synved_social_icon_skin_list', $icons);
+	return $synved_social['skin_list'];
 }
 
 function synved_social_icon_skin_get($name = null)
@@ -412,8 +426,48 @@ function synved_social_icon_skin_current()
 	return synved_social_icon_skin_get();
 }
 
+// XXX internal, don't use
+function synved_social_icon_skin_set($name, $skin)
+{
+	global $synved_social;
+	
+	// ensure the global is set
+	synved_social_icon_skin_list();
+	
+	if (isset($synved_social['skin_list']) && $synved_social['skin_list'] != null)
+	{
+		if (!isset($synved_social['skin_list'][$name]))
+		{
+			$synved_social['skin_list'][$name] = array();
+		}
+		
+		foreach ($skin as $key => $value)
+		{
+			$synved_social['skin_list'][$name][$key] = $value;
+		}
+	}
+}
+
 function synved_social_icon_skin_get_size_list($skin)
 {
+	if (isset($skin['size-list']))
+	{
+		return $skin['size-list'];
+	}
+	
+	if (isset($skin['name']))
+	{
+		$skin_fresh = synved_social_icon_skin_get($skin['name']);
+		
+		if (isset($skin['path']) && isset($skin_fresh['path']) && $skin['path'] == $skin_fresh['path'])
+		{
+			if (isset($skin_fresh['size-list']))
+			{
+				return $skin_fresh['size-list'];
+			}
+		}
+	}
+	
 	$path = synved_social_path();
 	$skin_path = isset($skin['path']) ? $skin['path'] : ($path . '/image/social/regular/');
 	
@@ -433,6 +487,11 @@ function synved_social_icon_skin_get_size_list($skin)
 	}
 	
 	sort($size_list, SORT_NUMERIC);
+	
+	if (isset($skin['name']))
+	{
+		synved_social_icon_skin_set($skin['name'], array('size-list' => $size_list));
+	}
 	
 	return $size_list;
 }
@@ -658,8 +717,11 @@ function synved_social_button_list_markup($context, $vars = null, $buttons = nul
 	if ($id == null)
 	{
 		global $post;
-	
-		$id = $post->ID;
+		
+		if ($post != null)
+		{
+			$id = $post->ID;
+		}
 	}
 	
 	if (!isset($vars['url']) || !isset($vars['short_url']))
@@ -763,7 +825,27 @@ function synved_social_button_list_markup($context, $vars = null, $buttons = nul
 	
 	if (!isset($vars['title']))
 	{
+		$title_filter = null;
+		
+		if (is_singular('download') && 'download' == get_post_type(intval($id)))
+		{
+			$priority = has_filter('the_title', 'edd_microdata_title');
+			
+			if ($priority !== false)
+			{
+      	$wp_filter = $GLOBALS['wp_filter'];
+      	
+      	$title_filter = array('function' => 'edd_microdata_title', 'priority' => $priority);
+      	remove_filter('the_title', 'edd_microdata_title', $priority);
+			}
+		}
+		
 		$vars['title'] = html_entity_decode(get_the_title());
+		
+		if ($title_filter != null)
+		{
+    	add_filter('the_title', $title_filter['function'], $title_filter['priority'], 2);
+		}
 	}
 	
 	if (!isset($vars['message']))
@@ -875,6 +957,8 @@ function synved_social_button_list_markup($context, $vars = null, $buttons = nul
 		$vars['title'] = str_ireplace('+', '%20', $vars['title']);
 		
 		// urlencode_deep tries to be smart and apostrophes (') to %19 not %27 and double quotes (") to their equivalent open/closed counterparts which doesn't work on most social networks sharings
+		$vars['message'] = str_ireplace('%18', '%27', $vars['message']);
+		$vars['title'] = str_ireplace('%18', '%27', $vars['title']);
 		$vars['message'] = str_ireplace('%19', '%27', $vars['message']);
 		$vars['title'] = str_ireplace('%19', '%27', $vars['title']);
 		$vars['message'] = str_ireplace('%1c', '%22', $vars['message']);
@@ -1103,6 +1187,8 @@ function synved_social_button_list_markup($context, $vars = null, $buttons = nul
 			{
 				$class_extra = ' ' . implode(' ', $class);
 			}
+			
+			$class_extra .= ' nofancybox';
 			
 			$out_button = array(
 				'tag' => 'a',

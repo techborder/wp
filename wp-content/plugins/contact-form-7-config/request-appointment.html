@@ -1,0 +1,28 @@
+<fieldset>
+<h2>Personal Information</h2>
+<div>
+	Name (Required)
+	[text* customer-name]
+</div>
+
+<div>
+	<label for="phone-number">Phone (Required)</label>
+	[tel* phone-number id:phone-number 20/20 placeholder "###-###-####"]
+</div>
+
+<div>
+	<label for="email">Your Email (required)</label><br />
+	[email* email]
+</div>
+
+<h2>Appointment Information</h2>
+
+<div>
+	1. I was greeted and waited on promptly.
+	[radio survey-question "Strongly Agree" "Agree" "Disagree" "Strongly Disagree" "Not Applicable"]
+</div>
+
+<div>
+	[submit "Send"]
+</div>
+</fieldset>

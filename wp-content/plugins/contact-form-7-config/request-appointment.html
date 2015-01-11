@@ -1,39 +1,27 @@
 <fieldset>
 <h2>Personal Information</h2>
 <div>
-	Name (Required)
-	[text* customer-name]
+	<label for="name">Your Name*</label>
+	[text* name id:name 40/100 placeholder "First Last (required)"]</div>
 </div>
-
 <div>
-	<label for="phone-number">Phone (Required)</label>
-	[tel* phone-number id:phone-number 20/20 placeholder "###-###-####"]
+	<label for="phone-number">Phone</label>
+	[tel* phone-number id:phone-number 20/20 placeholder "###-###-#### (required)"]
 </div>
-
 <div>
-	<label for="email">Your Email (required)</label><br />
-	[email* email]
+	<label for="email">Email</label>
+	[email* email id:email placeholder "johnsmith@gmail.com (required)"]
 </div>
 
 <h2>Appointment Information</h2>
-
 <div>
-	1. I was greeted and waited on promptly.
+	Preferred Method of Contact
 	[radio survey-question "Strongly Agree" "Agree" "Disagree" "Strongly Disagree" "Not Applicable"]
 </div>
 
 
-PERSONAL INFORMATION
-Name (R)
-Phone (R)
-Email (R)
-  
-Preferred Method of Contact
-Phone Call
-Text
-Email
-
-
+<div>
+	
 APPOINTMENT INFORMATION
 
 Type of Appointment
@@ -66,7 +54,8 @@ Model (R)
 
 SERVICES REQUESTED/COMMENTS
 
-[Textarea]
+Textarea
+</div>
 
 <div>
 	[submit "Send"]

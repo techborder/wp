@@ -27,6 +27,11 @@ def get_args_parser():
 		default=False,
 		action='store_true',
 		help="show this help message and exit.")
+	parser.add_argument("--exclude_type_quiz",
+		default=True,
+		action='store_true',
+		help="Exclude quizes. Default is to include. Quizes are often used for simple captcha.")
+
 	return parser
 
 def main():
@@ -51,6 +56,8 @@ def main():
 	incoming = options.infile
 	output = options.outfile
 	# End common section
+	if options.exclude_type_quiz:
+		exclude_type_quiz = True
 
 	#todo: Make cf7 tag optional or change search logic to search first for label then cf7 tag depending on multiline or not
 	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
@@ -67,10 +74,6 @@ def main():
 		logging.debug('Line: ' + line)
 		# Init vars
 		suffix = ""
-		if not is_mid_multiline:
-			label_matched = False
-			field_type_matched = False
-			field_match = False
 		
 		pattern = pattern_section
 		if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
@@ -104,7 +107,7 @@ def main():
 				logging.debug('Result groups: ')
 				logging.debug(result.groups())
 		else:
-			pattern = pattern_label + '\s*' + pattern_input_field
+			pattern = pattern_label
 			# Add in other pattern to capture and print headings
 			if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
 				result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
@@ -115,41 +118,47 @@ def main():
 					label_matched = False
 					label = ""
 					
-				if result.group(4):
+			pattern = pattern_input_field
+			if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
+				result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
+				if result.group(1):
 					field_type_matched = True
-					field_type = result.group(4).encode('utf-8')
+					field_type = result.group(1).encode('utf-8')
 				else:
 					field_type_matched = False
 					field_type = ""
 					
-				if result.group(5):
+				if result.group(2):
 					field_matched = True
-					field = result.group(5).encode('utf-8')
+					field = result.group(2).encode('utf-8')
 				else:
 					field_matched = False
 					field = ""
 				logging.debug('Label: ' + label)
 				logging.debug('Result groups: ')
 				logging.debug(result.groups())
-		#if field_type_matched:
-		#	print "field_type matched"
-		#else:
-		#	print "field_type matched not"
+				
 		# Add a line break after last mailing address field (Zip code). Layout specific.
 		if label_matched:
 			if field_type_matched and field_matched:
 				is_mid_multiline = False
+				label_matched = False
+				field_type_matched = False
+				field_match = False
 				logging.debug("Info found. Printout label, field type and name.")
 				if re.match("date", field_type, re.I):
 					# Change formatting to U.S. style
 					field = "_format_" + field + ' "m/d/y"'
 				if re.match(".*-zip", field, re.I):
 					suffix = "<br/>"
-				output.write( "<strong>" + label + ":</strong> [" + field + "]" + suffix + "\n")
+				skip = exclude_type_quiz and re.match("quiz", field_type, re.I)
+				if not skip:
+					output.write( "<strong>" + label + ":</strong> [" + field + "]" + suffix + "\n")
+				# else skip
 			#else:
 				#print "Not matched"
 			else:
-				logging.debug("Info not found. Keep searching.")
+				logging.debug("Found label: " + label + " but not other info. Keep searching.")
 				# Found a label for input. Keep looking for CF7 tag for field type and name.
 				is_mid_multiline = True
 		else:

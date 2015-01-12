@@ -52,6 +52,7 @@ def main():
 	output = options.outfile
 	# End common section
 
+	#todo: Make cf7 tag optional or change search logic to search first for label then cf7 tag depending on multiline or not
 	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
 	#\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>\s*\[([\w-]*)\*?\s+([\w\d-]+)
 	pattern_label = '\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>'
@@ -66,11 +67,12 @@ def main():
 		logging.debug('Line: ' + line)
 		# Init vars
 		suffix = ""
-		pattern = pattern_section
 		if not is_mid_multiline:
 			label_matched = False
 			field_type_matched = False
 			field_match = False
+		
+		pattern = pattern_section
 		if re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U ):
 			result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
 			logging.debug('Result groups: ')
@@ -78,6 +80,7 @@ def main():
 			markup_end = result.group(3).encode('utf-8')
 			section_title = result.group(2).encode('utf-8')
 			output.write( markup_begin + section_title + markup_end + "\n")
+		
 		if is_mid_multiline:
 			pattern = pattern_input_field
 			# Add in other pattern to capture and print headings
@@ -89,12 +92,14 @@ def main():
 				else:
 					field_type_matched = False
 					field_type = ""
-				if result.group(1):
+					
+				if result.group(2):
 					field_matched = True
-					field = result.group(1).encode('utf-8')
+					field = result.group(2).encode('utf-8')
 				else:
 					field_matched = False
 					field = ""
+					
 				logging.debug('Label: ' + label)
 				logging.debug('Result groups: ')
 				logging.debug(result.groups())
@@ -109,12 +114,14 @@ def main():
 				else:
 					label_matched = False
 					label = ""
+					
 				if result.group(4):
 					field_type_matched = True
 					field_type = result.group(4).encode('utf-8')
 				else:
 					field_type_matched = False
 					field_type = ""
+					
 				if result.group(5):
 					field_matched = True
 					field = result.group(5).encode('utf-8')

@@ -22,12 +22,25 @@
 <div><label for="message">Your Message</label> [textarea* message id:message]</div>
 <div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [checkbox* is-legal-age id:is-legal-age class:question use_label_element "Yes" "No"]</div>
 <div class="question"><label class="question">Have you ever filed an application with us before?*</label> [checkbox* previous-filed-application id:previous-filed-application class:question use_label_element "Yes" "No"] </div>
-<div><label for="date-of-previous-app">If yes, give date:*</label> [date* date-of-previous-app id:date-of-previous-app min:1899-01-01]</div>
+<div>
+    <label for="date-of-previous-app">If yes, give date:*</label>
+    [date* date-of-previous-app id:date-of-previous-app min:1899-01-01]
+</div>
 <div>
     <label for="quiz-test">Is fire hot or cold?</label> [quiz quiz-test id:quiz-test 10/10 "|hot"]
     <span class="instructions">This proves you are not a spammer.</span>
 </div>
-<div><label for="file-upload">Upload additional details:*</label> [file* file-upload id:file-upload filetypes:.doc|.docx|.pdf|.rtf|.txt]
-<span class="instructions">File types allowed: .doc, .docx, .pdf, .rtf, .txt</span></div>
-<div>[submit "Send"]</div>
+<div>
+	Friendly Service?
+	[radio survey-question "Strongly Agree" "Agree" "Disagree" "Strongly Disagree" "Not Applicable"]
+</div>
+
+<div>
+    <label for="file-upload">Upload additional details:*</label>
+    [file* file-upload id:file-upload filetypes:.doc|.docx|.pdf|.rtf|.txt]
+    <span class="instructions">File types allowed: .doc, .docx, .pdf, .rtf, .txt</span>
+</div>
+<div>
+    [submit "Send"]
+</div>
 </fieldset>

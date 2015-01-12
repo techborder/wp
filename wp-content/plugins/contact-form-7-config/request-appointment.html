@@ -1,62 +1,63 @@
 <fieldset>
-<h2>Personal Information</h2>
 <div>
-	<label for="name">Your Name*</label>
-	[text* name id:name 40/100 placeholder "First Last (required)"]</div>
-</div>
-<div>
-	<label for="phone-number">Phone</label>
-	[tel* phone-number id:phone-number 20/20 placeholder "###-###-#### (required)"]
-</div>
-<div>
-	<label for="email">Email</label>
-	[email* email id:email placeholder "johnsmith@gmail.com (required)"]
-</div>
-
-<h2>Appointment Information</h2>
-<div>
-	Preferred Method of Contact
-	[radio survey-question "Strongly Agree" "Agree" "Disagree" "Strongly Disagree" "Not Applicable"]
+	<h2>Personal Information</h2>
+	<div>
+		<label for="name">Your Name</label>
+		[text* name id:name 40/100 placeholder "First Last (required)"]
+	</div>
+	<div>
+		<label for="phone-number">Phone</label>
+		[tel* phone-number id:phone-number 20/20 placeholder "###-###-#### (required)"]
+	</div>
+	<div>
+		<label for="email">Email</label>
+		[email* email id:email placeholder "johnsmith@gmail.com (required)"]
+	</div>
 </div>
 
-
 <div>
+	<h2>Appointment Information</h2>
+	<div>
+		<label>Type of Appointment</label>
+		[radio type-of-appointment use_label_element "Drop Off" "Waiting"]
+	</div>
+	<h2>Appointment Information</h2>
 	
-APPOINTMENT INFORMATION
-
-Type of Appointment
-Drop Off
-Waiting
-
-
-PREFERRED APPOINTMENT
-(Please give a 24 hour minimum notice)
-
-Option 1 Date (R)
-
-Option 1 Time
-
-Option 2 Date
-
-Option 2 Time
-   
-Please Note: These dates and times are not scheduling an actual appointment. Someone will contact you with a confirmed date and time.
-
-
-VEHICLE INFORMATION
-
-Year (R)
-
-Make (R)
-
-Model (R)
-
-
-SERVICES REQUESTED/COMMENTS
-
-Textarea
+	<h3>Preferred Appointment</h3>
+	(Please give a 24 hour minimum notice)
+	
+	<div>
+		<label for="date-1-option">Option 1 Date</label>
+		[date* date-1-option id:date-1-option date-format:mm/dd/yy min-date:01/01/15 max-date:01/01/99 first-day:0 no-weekends placeholder "mm/dd/yy (required)"]
+	</div>
+	<div>
+		<label for="option-1-time">Option 1 Time</label>
+		[time* option-1-time id:option-1-time time-format:HH:mm min-hour:07 max-hour:17 step-hour:1 step-minute:5 placeholder "HH:mm (required)"]
+	</div>
+	
+	
+	Option 2 Time
+	   
+	Please Note: These dates and times are not scheduling an actual appointment. Someone will contact you with a confirmed date and time.
 </div>
 
+<h2>VEHICLE INFORMATION</h2>
+<div>
+	<label for="vehicle-year">Year</label>
+	[text* vehicle-year id:vehicle-year 15/4 placeholder "2016 (required)"]
+</div>
+<div>
+	<label for="vehicle-make">Make</label>
+	[text* vehicle-make id:vehicle-make 40/60 placeholder "Honda (required)"]
+</div>
+<div>
+	<label for="vehicle-model">Make</label>
+	[text* vehicle-model id:vehicle-model 40/60 placeholder "Civic (required)"]
+</div>
+<div>
+	<h2><label for="services-requested-comments">SERVICES REQUESTED/COMMENTS</label></h2>
+	[textarea* services-requested-comments id:services-requested-comments]
+</div>
 <div>
 	[submit "Send"]
 </div>

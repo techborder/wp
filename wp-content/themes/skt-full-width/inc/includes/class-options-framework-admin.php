@@ -85,7 +85,7 @@ class Options_Framework_Admin {
             'page_title' => __( 'Theme Options', 'skt-fullwidth' ),
 			'menu_title' => __( 'Theme Options', 'skt-fullwidth' ),
 			'capability' => 'edit_theme_options',
-			'menu_slug' => 'sktfullwidth-options',
+			'menu_slug' => 'fullwidth-options',
             'parent_slug' => 'themes.php',
 
             // Menu default settings

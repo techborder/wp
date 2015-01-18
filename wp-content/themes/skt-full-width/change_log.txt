@@ -63,3 +63,6 @@ Version 1.5
 
 Version 1.6
 	i) Resolved play/pause button issue and options framework updated.
+
+Version 1.6.1
+	i) Theme options from old version not getting migrated to new version solved.

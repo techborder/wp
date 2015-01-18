@@ -1,7 +1,8 @@
 <fieldset>
 <div>
 	<label for="name">Your Name</label>
-	[text* name id:name 40/100 placeholder "First Last  (required)"]</div>
+	[text* name id:name 40/100 placeholder "First Last  (required)"]
+</div>
 <div>
 	<label for="phone-number">Phone</label>
 	[tel* phone-number id:phone-number 20/20 placeholder "###-###-#### (required)"]
@@ -19,7 +20,10 @@
     <div><label for="mail-zip">Zip*</label> [text* mail-zip 10/10 id:mail-zip class:address-zip placeholder "Zip Code"]</div></div>
 <div><label for="date-of-birth">Date of Birth*</label> [date* date-of-birth id:date-of-birth min:1899-01-01]</div>
 <div><label for="subject">Subject*</label> [text* subject id:subject]</div>
-<div><label for="message">Your Message</label> [textarea* message id:message]</div>
+<div>
+    <label for="message">Your Message</label>
+    [textarea* message id:message]
+</div>
 <div class="question"><label class="question">If you are under 18 years of age, can you provide required proof of your eligibility to work?</label> [checkbox* is-legal-age id:is-legal-age class:question use_label_element "Yes" "No"]</div>
 <div class="question"><label class="question">Have you ever filed an application with us before?*</label> [checkbox* previous-filed-application id:previous-filed-application class:question use_label_element "Yes" "No"] </div>
 <div>

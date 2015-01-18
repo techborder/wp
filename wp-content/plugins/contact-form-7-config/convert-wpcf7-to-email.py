@@ -60,7 +60,7 @@ def main():
 		exclude_type_quiz = True
 
 	#todo: Make cf7 tag optional or change search logic to search first for label then cf7 tag depending on multiline or not
-	pattern_section = '(\<h\d\>)\<span class="section-title"\s*\>\s*(.+)\s*\<\/span\>(\<\/h\d\>)'
+	pattern_section = '(\<h\d\>)(\<span class="section-title"\s*\>)?\s*(.+)\s*(\<\/span\>)?(\<\/h\d\>)'
 	#\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>\s*\[([\w-]*)\*?\s+([\w\d-]+)
 	pattern_label = '\<label(\sfor="[\w\d-]+")?\s*(\sclass="[\w\d-]+")?\s*\>\s*(.+)[\*\s]*\<\/label\>'
 	pattern_input_field = '\[([\w-]*)\*?\s*([\w\d-]+)?'
@@ -80,8 +80,8 @@ def main():
 			result = re.search(pattern.decode('utf-8'),line.decode('utf-8'), re.I | re.U )
 			logging.debug('Result groups: ')
 			markup_begin = result.group(1).encode('utf-8')
-			markup_end = result.group(3).encode('utf-8')
-			section_title = result.group(2).encode('utf-8')
+			markup_end = result.group(5).encode('utf-8')
+			section_title = result.group(3).encode('utf-8')
 			output.write( markup_begin + section_title + markup_end + "\n")
 		
 		if is_mid_multiline:

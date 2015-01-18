@@ -37,7 +37,7 @@ function pinboard_admin_options_page() { ?>
 			<?php settings_fields( 'pinboard_theme_options' ); ?>
 			<?php do_settings_sections('pinboard_options'); ?>
 			<p>&nbsp;</p>
-			<?php $tab = ( isset( $_GET['tab'] ) ? $_GET['tab'] : 'general' ); ?>
+			<?php $tab = ( isset( $_GET['tab'] ) ? esc_attr( $_GET['tab'] ) : 'general' ); ?>
 			<input name="pinboard_theme_options[submit-<?php echo $tab; ?>]" type="submit" class="button-primary" value="<?php _e( 'Save Settings', 'pinboard' ); ?>" />
 			<input name="pinboard_theme_options[reset-<?php echo $tab; ?>]" type="submit" class="button-secondary" value="<?php _e( 'Reset Defaults', 'pinboard' ); ?>" />
 			<script>

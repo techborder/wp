@@ -7,7 +7,7 @@
 
 function optionsframework_option_name() {
 	// Change this to use your theme slug
-	return 'sktfullwidth-theme';
+	return 'optionsframework_skt_full_width';
 }
 
 /**

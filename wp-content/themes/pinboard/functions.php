@@ -33,6 +33,9 @@ function pinboard_theme_setup() {
 			'primary_nav' => 'Primary Menu', // You can add more menus here
 		)
 	);
+	
+	// Add support for core rendered <title> tag
+	add_theme_support( 'title-tag' );
 
 	// Add support for HTML5 gallery and caption tags
 	add_theme_support( 'html5', array( 'gallery', 'caption' ) );
@@ -1271,6 +1274,10 @@ if ( ! function_exists( 'pinboard_doc_title' ) ) :
  * @since Pinboard 1.0
  */
 function pinboard_doc_title( $doc_title ) {
+	if( function_exists( '_wp_render_title_tag' ) ) {
+		return $doc_title;
+	}
+	
 	global $page, $paged;
 	$doc_title = str_replace( '&raquo;', '', $doc_title );
 	$site_description = get_bloginfo( 'description', 'display' );

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /wp/prodautosmithnet/wp-admin/
+Disallow: /wp-admin/
+Sitemap: http://autosmith.net/sitemap.xml

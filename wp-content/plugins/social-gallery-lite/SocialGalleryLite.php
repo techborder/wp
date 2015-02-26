@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.2.7
+Version: 2.3
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2
@@ -51,15 +51,15 @@ if ($socialGalleryProof){
 					
 
 		global $socialGalleryLite_db_version;
-	$socialGalleryLite_db_version 			= "2.2";
-	$socialGalleryLite_version 				= "2.2 Lite";
+	$socialGalleryLite_db_version 			= "2.3";
+	$socialGalleryLite_version 				= "2.3 Lite";
 	
 		global $socialGalleryLite_urls;
 	$socialGalleryLite_urls['home'] 		= "http://www.socialgalleryplugin.com";
 	$socialGalleryLite_urls['support']		= "http://epicplugins.com/help";
 	$socialGalleryLite_urls['forum'] 		= "http://forum.socialgalleryplugin.com";
 	$socialGalleryLite_urls['faq'] 			= "http://www.socialgalleryplugin.com/frequently-asked-questions/";
-	$socialGalleryLite_urls['subscribe'] 	= "http://eepurl.com/Yx1-r";
+	$socialGalleryLite_urls['subscribe'] 	= "http://eepurl.com/782FP";
 	$socialGalleryLite_urls['docs'] 		= "http://socialgalleryplugin.com/documentation/lite/";
 	$socialGalleryLite_urls['showcase']		= 'http://www.socialgalleryplugin.com/showcase/';
 	$socialGalleryLite_urls['updateCheck']	= 'http://www.socialgalleryplugin.com/updateEngine/lite/';
@@ -88,7 +88,7 @@ function sgp08b(){
     add_option("socialGalleryLite_version",			$socialGalleryLite_version);
 	add_option("socialGalleryLite_reg", 			"1");	
 	
-		add_option('socialGalleryLite_selectorType',			1);
+	add_option('socialGalleryLite_selectorType',			1);
     add_option('socialGalleryLite_selector',				'.socialGallery');
 	add_option("socialGalleryLite_bgColor",					'000000');
 	add_option("socialGalleryLite_bgOpacity", 				0.8);
@@ -106,7 +106,7 @@ function sgp08b(){
 	add_option("socialGalleryLite_incHomeCall", 			1);
 	add_option('socialGalleryLite_autoDisableNextGen',		1);
 	
-		add_option('socialGalleryLite_upscaleFactor',	 		1.2);
+	add_option('socialGalleryLite_upscaleFactor',	 		1.2);
 	add_option('socialGalleryLite_marginBounds',	 		0.1);
 	add_option('socialGalleryLite_hiddenMsgs',				array());
 	add_option('socialGalleryLite_LastComCheck',			0);
@@ -165,6 +165,8 @@ function sgp3222() {
 		echo '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
 	
 }
+
+
 
 function sgpa5c() {
     
@@ -933,13 +935,34 @@ function sgpc1a_html(){
     <div class="postbox-container" id="main-container" style="width:75%;">
             <div class="postbox">
                 <h3 style="text-align:center"><label><img src="<?php echo plugins_url('/i/thanks-for-using-social-gallery.png',__FILE__); ?>" alt="Thanks For Using Social Gallery" style="margin:8px" /></label></h3>
+<div class="inside" style="text-align:center">
+	<p><h3>Join our Epic VIP Newsletter and find out:</h3>
+		<ul>
+			<li>* Why losing <strong>$33,000</strong> was the best thing to happen to us</li>
+			<li>* The latest on our Plugin and Theme Development</li>
+			<li>* Special <strong>Discounts</strong> and Launch Offers on our Plugins and Themes</li>
+		</ul>
+</p>
+         <form class="snp-subscribeform snp_subscribeform" action="//epicplugins.us6.list-manage.com/subscribe/post?u=1c0fcf180d7cda3d5add7ba76&amp;id=7e0200edcc" method="post">
+         <fieldset>
+			<input type="text" name="EMAIL" id="mce-EMAIL" placeholder="Your Email..." class="snp-field snp-field-email">
+			<input type="text" name="FNAME" id="mce-FNAME" placeholder="First Name..." class="snp-field snp-field-name">
+			<input type="submit" class="button-primary snp-subscribe-button snp-submit" data-loading="Please wait..." data-success="Thank you!" value="Sign me up!">
+        </fieldset>
+        </form>
+</div>
+<br/><br/>
+<div class='mid' style="width:80%;text-align:center;margin:auto">
+<hr/>
+</div>
+<br/><br/>
+
                 <div class="inside">
-                    <p style="text-align:center"><strong>Welcome to Social Gallery Lite</strong>, the Free version of the Ultimate Social Lightbox Plugin for WordPress. Social Gallery has lots of bells and whistles, you can dive right in below by changing a setting, or you can just go right ahead and enjoy all of the extra social interaction your blog will now have! If you want to join the hundreds of other users of Social Gallery Pro <a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" target="_blank">Buy Social Gallery Pro Now</a> (just $25!)</div>
+                    <p style="text-align:center"><strong>Welcome to Social Gallery Lite</strong>, the Free version of the Ultimate Social Lightbox Plugin for WordPress. Social Gallery has lots of bells and whistles, you can dive right in below by changing a setting, or you can just go right ahead and enjoy all of the extra social interaction your blog will now have! If you want to join the hundreds of other users of Social Gallery Pro <a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" target="_blank">Buy Social Gallery Pro Now</a> (just $28!)</div>
                     <div style="clear:both"></p>
                     <div id="SocialGalleryBenefits">
                     	<div style="font-weight:bold;font-size:14px;margin-bottom:10px;">There are lots of benefits of buying the full version of Social Gallery, here's why most customers tell us it's great:</div>
                         <ul style="margin-left:125px;">
-                        	<li>Access to Support Forum</li>
                         	<li>More Preset Modes (NextGen &amp; Justified Image Grid)</li>
                         	<li>Fullscreen Mode</li>
                             <li>Add Twitter, Google+, Linked in and Others</li>
@@ -948,11 +971,13 @@ function sgpc1a_html(){
                             <li>Adsense Compatibility</li>
                             <li>Lots more features...</li>                            
                         </ul>
-                        <div style="margin-top:12px"><a href="admin.php?page=<?php echo $socialGalleryLite_slugs['settings']; ?>" class="SocialGalleryOB">Settings</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" class="sgplBtn sgplBtn-primary" target="_blank">Buy Social Gallery Pro Now</a> ($25)</div>
+                        <div style="margin-top:12px"><a href="admin.php?page=<?php echo $socialGalleryLite_slugs['settings']; ?>" class="SocialGalleryOB">Settings</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" class="sgplBtn sgplBtn-primary" target="_blank">Buy Social Gallery Pro Now</a> ($28)</div>
                     </div>
                     <div style="clear:both"></div>
                 </div>
             </div>
+
+          
             <div class="postbox">
                 <h3 style="padding:8px;"><label><?php _e('Social Gallery News'); ?></label></h3>
                 <div class="inside">
@@ -976,11 +1001,6 @@ function sgpc1a_html(){
    </div>
    <?php } ?>
 
-    <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
-            <div class="postbox">   
- 				  <a href = "http://goo.gl/DcIBqo"><img src = "http://www.socialgalleryplugin.com/wp-content/uploads/2014/04/thebundle.png" width = "295px"/></a>
-   			</div>
-   </div>
    
     <div class="postbox-container" id="side-container" style="width:24%;margin-left:1%">
             <div class="postbox">
@@ -1085,7 +1105,7 @@ function sgp1bf8a8c(){}					function sgpbeaa2(){
 		<a href="<?php echo $socialGalleryLite_urls['home']; ?>" title="Social Gallery Plugin Homepage" target="_blank">Social Gallery Plugin.com</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['faq']; ?>" title="Frequently Asked Questions" target="_blank">FAQ</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['docs']; ?>" title="View Documentation" target="_blank">Documentation</a> | 
-		<a href="<?php echo $socialGalleryLite_urls['subscribe']; ?>" title="Join the Updates Newsletter List" target="_blank">Join Update List</a> | 
+		<a href="<?php echo $socialGalleryLite_urls['subscribe']; ?>" title="Join the Updates Newsletter List" target="_blank">Join Epic VIP</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" title="Become a Pro" target="_blank">Get Full Version</a> | Version <?php echo $socialGalleryLite_version; ?>
     </div>
 

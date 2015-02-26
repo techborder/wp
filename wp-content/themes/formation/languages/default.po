@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Formation\n"
-"POT-Creation-Date: 2014-07-03 07:04-0000\n"
-"PO-Revision-Date: 2014-07-03 07:04-0000\n"
+"POT-Creation-Date: 2014-11-20 14:42-0000\n"
+"PO-Revision-Date: 2014-11-20 14:42-0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -39,37 +39,37 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: ../archive.php:16
+#: ../archive.php:17
 #, php-format
 msgid "Category Archives: %s"
 msgstr ""
 
-#: ../archive.php:19
+#: ../archive.php:20
 #, php-format
 msgid "Tag Archives: %s"
 msgstr ""
 
-#: ../archive.php:26
+#: ../archive.php:27
 #, php-format
 msgid "Author Archives: %s"
 msgstr ""
 
-#: ../archive.php:34
+#: ../archive.php:35
 #, php-format
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: ../archive.php:37
+#: ../archive.php:38
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: ../archive.php:40
+#: ../archive.php:41
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: ../archive.php:43 ../sidebar.php:18
+#: ../archive.php:44 ../sidebar.php:18
 msgid "Archives"
 msgstr ""
 
@@ -104,31 +104,24 @@ msgid "Pages:"
 msgstr ""
 
 #: ../content-aside.php:23 ../content.php:48
-#: ../page-templates/blog-full-width.php:58
 msgid "Leave a comment"
 msgstr ""
 
 #: ../content-aside.php:23 ../content.php:48
-#: ../page-templates/blog-full-width.php:58
 msgid "1 Comment"
 msgstr ""
 
 #: ../content-aside.php:23 ../content.php:48
-#: ../page-templates/blog-full-width.php:58
 msgid "% Comments"
 msgstr ""
 
 #: ../content-aside.php:26 ../content-page.php:16 ../content-single.php:59
 #: ../content.php:51 ../image.php:34 ../image.php:100
-#: ../page-templates/blog-full-width.php:61 ../page-templates/blog-grid.php:57
 msgid "Edit"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 #: ../content-single.php:27 ../content.php:26 ../content.php:36
-#: ../page-templates/blog-full-width.php:36
-#: ../page-templates/blog-full-width.php:46 ../page-templates/blog-grid.php:36
-#: ../page-templates/blog-grid.php:46
 msgid ", "
 msgstr ""
 
@@ -160,28 +153,26 @@ msgid ""
 "\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: ../content.php:30 ../page-templates/blog-full-width.php:40
-#: ../page-templates/blog-grid.php:40
+#: ../content.php:30
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: ../content.php:41 ../page-templates/blog-full-width.php:51
-#: ../page-templates/blog-grid.php:51
+#: ../content.php:41
 #, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
-#: ../content.php:62 ../page-templates/blog-full-width.php:68
+#: ../content.php:62
 msgid "Read More"
 msgstr ""
 
 #: ../footer.php:21 ../footer.php:30 ../footer.php:40
-#: ../page-templates/twocolleftsidebar.php:31
+#: ../page-templates/twocolleftsidebar.php:33
 msgid "Widget Ready"
 msgstr ""
 
-#: ../footer.php:22 ../page-templates/twocolleftsidebar.php:32
+#: ../footer.php:22 ../page-templates/twocolleftsidebar.php:34
 msgid "This left column is widget ready! Add one in the admin panel."
 msgstr ""
 
@@ -205,234 +196,262 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: ../functions.php:110
+#: ../functions.php:111
 msgid "Primary Sidebar"
 msgstr ""
 
-#: ../functions.php:119
+#: ../functions.php:120
 msgid "Secondary Sidebar"
 msgstr ""
 
-#: ../functions.php:128
+#: ../functions.php:129
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:137
+#: ../functions.php:138
 msgid "Left Footer Column"
 msgstr ""
 
-#: ../functions.php:139
+#: ../functions.php:140
 msgid "Widget area for footer left column"
 msgstr ""
 
-#: ../functions.php:146
+#: ../functions.php:147
 msgid "Center Footer Column"
 msgstr ""
 
-#: ../functions.php:148
+#: ../functions.php:149
 msgid "Widget area for footer center column"
 msgstr ""
 
-#: ../functions.php:155
+#: ../functions.php:156
 msgid "Right Footer Column"
 msgstr ""
 
-#: ../functions.php:157
+#: ../functions.php:158
 msgid "Widget area for footer right column"
 msgstr ""
 
-#: ../functions.php:232 ../functions.php:240
+#: ../functions.php:226 ../functions.php:239
 msgid "Logo"
 msgstr ""
 
-#: ../functions.php:233
+#: ../functions.php:227
 msgid ""
 "Upload a logo to replace the default site name and description in the header"
 msgstr ""
 
-#: ../functions.php:254
+#: ../functions.php:253
 msgid "Contact Details"
 msgstr ""
 
-#: ../functions.php:255
+#: ../functions.php:254
 msgid "This is a settings section to change the contact details in the header."
 msgstr ""
 
-#: ../functions.php:262
+#: ../functions.php:261
 msgid "Default Contact Details"
 msgstr ""
 
-#: ../functions.php:269
+#: ../functions.php:268
 msgid "Contact Details Text"
 msgstr ""
 
-#: ../functions.php:284
+#: ../functions.php:283
 msgid "Featured Text Area"
 msgstr ""
 
-#: ../functions.php:285 ../functions.php:326 ../functions.php:405
-#: ../functions.php:483
+#: ../functions.php:284 ../functions.php:330 ../functions.php:414
+#: ../functions.php:497
 msgid "This is a settings section to change the homepage featured text area."
 msgstr ""
 
-#: ../functions.php:292
+#: ../functions.php:291
 msgid "Default Featured Text"
 msgstr ""
 
-#: ../functions.php:299
+#: ../functions.php:298
 msgid "Featured Text Header"
 msgstr ""
 
-#: ../functions.php:310
+#: ../functions.php:314
 msgid "Featured Button url"
 msgstr ""
 
-#: ../functions.php:325
+#: ../functions.php:329
 msgid "Featured Text Box 1"
 msgstr ""
 
-#: ../functions.php:338
+#: ../functions.php:347
 msgid "Header Image One File Upload"
 msgstr ""
 
-#: ../functions.php:347
+#: ../functions.php:356
 msgid "Header One Link"
 msgstr ""
 
-#: ../functions.php:354 ../functions.php:433 ../functions.php:511
+#: ../functions.php:363 ../functions.php:447 ../functions.php:530
 msgid "Header Image url"
 msgstr ""
 
-#: ../functions.php:363 ../functions.php:442 ../functions.php:520
+#: ../functions.php:372 ../functions.php:456 ../functions.php:539
 msgid "Default featured text Header"
 msgstr ""
 
-#: ../functions.php:371
+#: ../functions.php:380
 msgid "Featured Header Text"
 msgstr ""
 
-#: ../functions.php:380 ../functions.php:459 ../functions.php:537
+#: ../functions.php:389 ../functions.php:473 ../functions.php:556
 msgid "Default featured text"
 msgstr ""
 
-#: ../functions.php:388 ../functions.php:467 ../functions.php:545
+#: ../functions.php:397 ../functions.php:481 ../functions.php:564
 msgid "Featured text"
 msgstr ""
 
-#: ../functions.php:404
+#: ../functions.php:413
 msgid "Featured Text Box 2"
 msgstr ""
 
-#: ../functions.php:417
+#: ../functions.php:431
 msgid "Header Image Two File Upload"
 msgstr ""
 
-#: ../functions.php:426
+#: ../functions.php:440
 msgid "Header Two Link"
 msgstr ""
 
-#: ../functions.php:450 ../functions.php:528
+#: ../functions.php:464 ../functions.php:547
 msgid "Featured Header text"
 msgstr ""
 
-#: ../functions.php:482
+#: ../functions.php:496
 msgid "Featured Text Box 3"
 msgstr ""
 
-#: ../functions.php:495
+#: ../functions.php:514
 msgid "Header Image Three File Upload"
 msgstr ""
 
-#: ../functions.php:504
+#: ../functions.php:523
 msgid "Header Three Link"
 msgstr ""
 
-#: ../functions.php:632
+#: ../functions.php:650
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../functions.php:779
+#: ../functions.php:663
+msgid "Home"
+msgstr ""
+
+#: ../functions.php:664
+#, php-format
+msgid "Archive by Category \"%s\""
+msgstr ""
+
+#: ../functions.php:665
+#, php-format
+msgid "Search Results for \"%s\" Query"
+msgstr ""
+
+#: ../functions.php:666
+#, php-format
+msgid "Posts Tagged \"%s\""
+msgstr ""
+
+#: ../functions.php:667
+#, php-format
+msgid "Articles Posted by %s"
+msgstr ""
+
+#: ../functions.php:668
+msgid "Error 404"
+msgstr ""
+
+#: ../functions.php:797
 msgid "Page"
 msgstr ""
 
-#: ../functions.php:819
+#: ../functions.php:837
 msgid "Client logo 1"
 msgstr ""
 
-#: ../functions.php:820
+#: ../functions.php:838
 msgid "This is a settings section to change the homepage logo area one."
 msgstr ""
 
-#: ../functions.php:832
+#: ../functions.php:855
 msgid "Client logo One File Upload"
 msgstr ""
 
-#: ../functions.php:841
+#: ../functions.php:864
 msgid "logo One Link"
 msgstr ""
 
-#: ../functions.php:848
+#: ../functions.php:871
 msgid "Client logo one url"
 msgstr ""
 
-#: ../functions.php:864
+#: ../functions.php:887
 msgid "Client logo 2"
 msgstr ""
 
-#: ../functions.php:865
+#: ../functions.php:888
 msgid "This is a settings section to change the homepage logo area two."
 msgstr ""
 
-#: ../functions.php:877
+#: ../functions.php:905
 msgid "Client logo two File Upload"
 msgstr ""
 
-#: ../functions.php:886
+#: ../functions.php:914
 msgid "logo two Link"
 msgstr ""
 
-#: ../functions.php:893
+#: ../functions.php:921
 msgid "Client logo two url"
 msgstr ""
 
-#: ../functions.php:909
+#: ../functions.php:937
 msgid "Client logo 3"
 msgstr ""
 
-#: ../functions.php:910
+#: ../functions.php:938
 msgid "This is a settings section to change the homepage logo area three."
 msgstr ""
 
-#: ../functions.php:922
+#: ../functions.php:955
 msgid "Client logo three File Upload"
 msgstr ""
 
-#: ../functions.php:931
+#: ../functions.php:964
 msgid "logo three Link"
 msgstr ""
 
-#: ../functions.php:938
+#: ../functions.php:971
 msgid "Client logo three url"
 msgstr ""
 
-#: ../functions.php:954
+#: ../functions.php:987
 msgid "Client logo 4"
 msgstr ""
 
-#: ../functions.php:955
+#: ../functions.php:988
 msgid "This is a settings section to change the homepage logo area four."
 msgstr ""
 
-#: ../functions.php:967
+#: ../functions.php:1005
 msgid "Client logo four File Upload"
 msgstr ""
 
-#: ../functions.php:976
+#: ../functions.php:1014
 msgid "logo four Link"
 msgstr ""
 
-#: ../functions.php:983
+#: ../functions.php:1021
 msgid "Client logo four url"
 msgstr ""
 
@@ -487,51 +506,51 @@ msgstr ""
 msgid "Both comments and trackbacks are currently closed."
 msgstr ""
 
-#: ../inc/customizer.php:96
+#: ../inc/customizer.php:98
 msgid "Twitter url:"
 msgstr ""
 
-#: ../inc/customizer.php:116
+#: ../inc/customizer.php:119
 msgid "Facebook url:"
 msgstr ""
 
-#: ../inc/customizer.php:136
+#: ../inc/customizer.php:140
 msgid "Google + url:"
 msgstr ""
 
-#: ../inc/customizer.php:156
+#: ../inc/customizer.php:161
 msgid "LinkedIn url:"
 msgstr ""
 
-#: ../inc/customizer.php:176
+#: ../inc/customizer.php:182
 msgid "Flickr url:"
 msgstr ""
 
-#: ../inc/customizer.php:196
+#: ../inc/customizer.php:203
 msgid "Pinterest url:"
 msgstr ""
 
-#: ../inc/customizer.php:216
+#: ../inc/customizer.php:224
 msgid "YouTube url:"
 msgstr ""
 
-#: ../inc/customizer.php:236
+#: ../inc/customizer.php:245
 msgid "Vimeo url:"
 msgstr ""
 
-#: ../inc/customizer.php:256
+#: ../inc/customizer.php:266
 msgid "Tumblr url:"
 msgstr ""
 
-#: ../inc/customizer.php:276
+#: ../inc/customizer.php:287
 msgid "Dribble url:"
 msgstr ""
 
-#: ../inc/customizer.php:296
+#: ../inc/customizer.php:308
 msgid "Github url:"
 msgstr ""
 
-#: ../inc/customizer.php:315
+#: ../inc/customizer.php:328
 msgid "Instagram url:"
 msgstr ""
 
@@ -629,7 +648,7 @@ msgstr ""
 msgid "Partners"
 msgstr ""
 
-#: ../search.php:12
+#: ../search.php:13
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""

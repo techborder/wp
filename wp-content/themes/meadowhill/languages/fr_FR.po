@@ -1,0 +1,793 @@
+# Translation of the WordPress theme MeadowHill 1.0 by Tomas Toman.
+# This file is distributed under the same license as the MeadowHill package.
+# Tomas Toman <webdesign@tomastoman.cz>, 2013.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: MeadowHill 1.0\n"
+"POT-Creation-Date: 2013-11-22 11:35+0100\n"
+"PO-Revision-Date: 2014-05-03 09:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: Tomas Toman <webdesign@tomastoman.cz>\n"
+"Language: Français\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: 404.php:12 search.php:34
+msgid "Nothing Found"
+msgstr "Recherche infructueuse"
+
+#: 404.php:13
+msgid ""
+"Apologies, but no results were found for your request. Perhaps searching "
+"will help you to find a related content."
+msgstr ""
+"Désolé, mais recherche infructueuse. Peut-être faudrait-il chercher sur un "
+"critère connexe."
+
+#: archive.php:14
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "Archives journalières: %s"
+
+#: archive.php:16
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Archives mensuelles: %s"
+
+#: archive.php:18
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "Archives annuelles: %s"
+
+#: archive.php:20
+msgid "Archives"
+msgstr "Archives "
+
+#: author.php:13
+#, php-format
+msgid "Author Archive: %s"
+msgstr "Archives par auteur: %s"
+
+#: author.php:19
+#, php-format
+msgid "About %s"
+msgstr "Au sujet de %s"
+
+#: class-tgm-plugin-activation.php:156 functions.php:373
+msgid "Install Required Plugins"
+msgstr "Installer les extensions requises"
+
+#: class-tgm-plugin-activation.php:157 functions.php:374
+msgid "Install Plugins"
+msgstr "Installer les extensions"
+
+#: class-tgm-plugin-activation.php:158 functions.php:378
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Installation de l'extension: %s"
+
+#: class-tgm-plugin-activation.php:159
+msgid "Something went wrong."
+msgstr "Une erreur est apparue."
+
+#: class-tgm-plugin-activation.php:170 functions.php:384
+msgid "Return to Required Plugins Installer"
+msgstr "Retour à l'installation des extensions requises."
+
+#: class-tgm-plugin-activation.php:171
+msgid "Return to the dashboard"
+msgstr "Retour au tableau de bord"
+
+#: class-tgm-plugin-activation.php:172 class-tgm-plugin-activation.php:1840
+msgid "Plugin activated successfully."
+msgstr "L'extension a bien été activée."
+
+#: class-tgm-plugin-activation.php:173
+msgid "The following plugin was activated successfully:"
+msgstr "L'extension suivante a bien été activée:"
+
+#: class-tgm-plugin-activation.php:174
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Toutes les extensions ont été installées et activées. %1$s"
+
+#: class-tgm-plugin-activation.php:175
+msgid "Dismiss this notice"
+msgstr "Omettre ce conseil"
+
+#: class-tgm-plugin-activation.php:1085
+msgid "External Link"
+msgstr "Lien externe"
+
+#: class-tgm-plugin-activation.php:1090
+msgid "Private Repository"
+msgstr "Référentiel privé"
+
+#: class-tgm-plugin-activation.php:1093
+msgid "Pre-Packaged"
+msgstr "Pré-packagé"
+
+#: class-tgm-plugin-activation.php:1097
+msgid "WordPress Repository"
+msgstr "Référentiel WordPress"
+
+#: class-tgm-plugin-activation.php:1100
+msgid "Required"
+msgstr "Requis(e)"
+
+#: class-tgm-plugin-activation.php:1100
+msgid "Recommended"
+msgstr "Recommandé(e)"
+
+#: class-tgm-plugin-activation.php:1103
+msgid "Not Installed"
+msgstr "Non installé(e)"
+
+#: class-tgm-plugin-activation.php:1105
+msgid "Installed But Not Activated"
+msgstr "Installé(e) mais non activé(e)"
+
+#: class-tgm-plugin-activation.php:1275
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+"Pas d'extension à installer ou à activer. <a href=\"%1$s\" title=\"Retour au "
+"tableau de bord\">Retour au tableau de bord</a>"
+
+#: class-tgm-plugin-activation.php:1291
+msgid "Plugin"
+msgstr "Extension"
+
+#: class-tgm-plugin-activation.php:1292
+msgid "Source"
+msgstr "Source"
+
+#: class-tgm-plugin-activation.php:1293
+msgid "Type"
+msgstr "Type"
+
+#: class-tgm-plugin-activation.php:1294
+msgid "Status"
+msgstr "Statut"
+
+#: class-tgm-plugin-activation.php:1312
+msgid "Install"
+msgstr "Installer"
+
+#: class-tgm-plugin-activation.php:1313
+msgid "Activate"
+msgstr "Activer"
+
+#: class-tgm-plugin-activation.php:1823
+msgid "Install package not available."
+msgstr "Installation du package, impossible."
+
+#: class-tgm-plugin-activation.php:1824
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+"Chargement du package d'installation de <span class=\"code\">%s</span>&#8230;"
+
+#: class-tgm-plugin-activation.php:1825
+msgid "Unpacking the package&#8230;"
+msgstr "Décompression du package&#8230;"
+
+#: class-tgm-plugin-activation.php:1826
+msgid "Installing the plugin&#8230;"
+msgstr "Installation de l'extension&#8230;"
+
+#: class-tgm-plugin-activation.php:1827
+msgid "Plugin install failed."
+msgstr "L'installation de l'extension a échoué."
+
+#: class-tgm-plugin-activation.php:1828
+msgid "Plugin installed successfully."
+msgstr "L'extension a bien été installée."
+
+#: class-tgm-plugin-activation.php:1839
+msgid "Plugin activation failed."
+msgstr "L'activation de l'extension a échoué."
+
+#: class-tgm-plugin-activation.php:1949
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"Démarrage de l'installation et de l'activation de l'extension. Son "
+"déroulement, selon l'hôte, peut prendre un certain temps. Patienter..."
+
+#: class-tgm-plugin-activation.php:1950
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s a bien été installé et activé."
+
+#: class-tgm-plugin-activation.php:1950 class-tgm-plugin-activation.php:1959
+msgid "Show Details"
+msgstr "Montrer les détails"
+
+#: class-tgm-plugin-activation.php:1950 class-tgm-plugin-activation.php:1959
+msgid "Hide Details"
+msgstr "Cacher les détails"
+
+#: class-tgm-plugin-activation.php:1951
+msgid "All installations and activations have been completed."
+msgstr "Toutes les instalations et activations ont été effectuées."
+
+#: class-tgm-plugin-activation.php:1952
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Installation et activation de l'extension %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:1956
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"Démarrage de l'installation. Cela, selon l'hôte, peut prendre un certain "
+"temps. Patienter...."
+
+#: class-tgm-plugin-activation.php:1957
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Une erreur est apparue lors de l'installation de: %1$s: <strong>%2$s</"
+"strong>."
+
+#: class-tgm-plugin-activation.php:1958
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "L'installation de %1$s a échoué."
+
+#: class-tgm-plugin-activation.php:1959
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s a bien été installé."
+
+#: class-tgm-plugin-activation.php:1960
+msgid "All installations have been completed."
+msgstr "Toutes les installations sont terminées."
+
+#: class-tgm-plugin-activation.php:1961
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installation de l'extension %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:2052
+msgid "Return to the Dashboard"
+msgstr "Retour au tableau de bord"
+
+#: comments.php:29
+msgid "Comment navigation"
+msgstr "Navigation dans les commentaires"
+
+#: comments.php:30
+msgid "&larr; Older Comments"
+msgstr "&larr; Commentaires plus anciens"
+
+#: comments.php:31
+msgid "Newer Comments &rarr;"
+msgstr "Commentaires plus récents &rarr;"
+
+#: comments.php:36
+msgid "Comments are closed."
+msgstr "L'ajoût de commentaire est désormais suspendu."
+
+#: comments.php:41
+msgid "Your name"
+msgstr "Votre nom"
+
+#: comments.php:42
+msgid "Website"
+msgstr "Site web"
+
+#: comments.php:43
+msgid "Comment..."
+msgstr "Commentaire..."
+
+#: comments.php:47
+msgid "Leave a Comment"
+msgstr "Laisser un commentaire"
+
+#: content-archives.php:19 header.php:62 index.php:96 index.php:121
+msgid "READ MORE"
+msgstr "SAVOIR PLUS"
+
+#: functions.php:101
+msgid "Header Menu"
+msgstr "Menu d'en-tête"
+
+#: functions.php:102
+msgid "Sidebar Menu"
+msgstr "Menu de barre latérale"
+
+#: functions.php:114
+msgid "Main Sidebar"
+msgstr "Principal Sidebar"
+
+#: functions.php:116
+msgid "Right sidebar which appears on posts and pages."
+msgstr ""
+"La barre latérale droite apparaitra dans les articles et dans les pages."
+
+#: functions.php:123
+msgid "Footer left widget area"
+msgstr "Widget de pied de page gauche"
+
+#: functions.php:125
+msgid "Left column with widgets in footer."
+msgstr "La colonne de gauche avec des widgets en bas de page."
+
+#: functions.php:132
+msgid "Footer middle widget area"
+msgstr "Widget de pied de page médian"
+
+#: functions.php:134
+msgid "Middle column with widgets in footer."
+msgstr "Colonne du milieu avec des widgets en bas de page."
+
+#: functions.php:141
+msgid "Footer right widget area"
+msgstr "Widget de pied de page droit"
+
+#: functions.php:143
+msgid "Right column with widgets in footer."
+msgstr "Colonne de droite avec les widgets en bas de page."
+
+#: functions.php:150
+msgid "Footer notices"
+msgstr "Notifications de pied de page"
+
+#: functions.php:152
+msgid ""
+"The line for copyright and other notices below the footer widget areas. "
+"Insert here one Text widget. The \"Title\" field at this widget should stay "
+"empty."
+msgstr ""
+"Ligne pour le copyright et autres notifications, sous la zone de widget de "
+"pied de page. N'insérer qu'un seul Texte widget dans cette zone. Champ Titre "
+"à ce widget doit rester vide."
+
+#: functions.php:159
+msgid "About Section on homepage"
+msgstr "About Section sur la page d'accueil"
+
+#: functions.php:161
+msgid ""
+"Insert here as many Text widgets as you want for displaying information in "
+"About Section on your homepage."
+msgstr "Insérer ici que de nombreux widgets de Texte."
+
+#: functions.php:168
+msgid "Informational Section on homepage"
+msgstr "Informational Section sur la page d'accueil"
+
+#: functions.php:170
+msgid ""
+"Insert here as many Text widgets as you want for displaying information in "
+"Informational Section on your homepage."
+msgstr "Insérer ici que de nombreux widgets de Texte."
+
+#: functions.php:189 functions.php:203
+msgid "Post navigation"
+msgstr "Navigation dans les articles"
+
+#: functions.php:190
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Articles plus anciens"
+
+#: functions.php:191
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Articles plus récents <span class=\"meta-nav\">&rarr;</span>"
+
+#: functions.php:204
+msgid "&larr; Previous post"
+msgstr "&larr; Article précédent"
+
+#: functions.php:205
+msgid "Next post &rarr;"
+msgstr "Article suivant &rarr;"
+
+#: functions.php:221
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:221
+msgid "(Edit)"
+msgstr "(Edit)"
+
+#: functions.php:234
+msgid "(Post author)"
+msgstr "(Auteur de l'article)"
+
+#: functions.php:240
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s à %2$s"
+
+#: functions.php:246
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#: functions.php:251
+msgid "Edit"
+msgstr "Editer"
+
+#: functions.php:255
+msgid "Reply"
+msgstr "Répondre"
+
+#: functions.php:375
+#, php-format
+msgid ""
+"The %1$s plugin is required for this theme. Click on the big blue button "
+"below to install and activate %1$s."
+msgstr ""
+"L'extension %1$s est requise pour ce thème. Cliquer sur le bouton bleu, ci-"
+"dessous, pour l'installer et l'activer %1$s."
+
+#: functions.php:376
+#, php-format
+msgid ""
+"The %1$s is installed but currently inactive. Please go to the <a href=\"%2$s"
+"\">plugin administration page</a> page to activate it."
+msgstr ""
+"L'extension %1$s est installée, mais pas encore activée. Aller sur <a href="
+"\"%2$s\">page de gestion des extensions</a> pour l'ativer."
+
+#: functions.php:377
+#, php-format
+msgid "Install %s Now"
+msgstr "Installer %s maintenant"
+
+#: functions.php:379
+msgid "Something went wrong with the plugin API."
+msgstr "Une erreur est apparue avec l'API de l'extension."
+
+#: functions.php:380
+#, php-format
+msgid ""
+"This theme requires the %1$s plugin. <a href=\"%2$s\"><strong>Click here to "
+"begin the installation process</strong></a>. You may be asked for FTP "
+"credentials based on your server setup."
+msgstr ""
+"Ce thème nécessite l'extension %1$s. <a href=\"%2$s\"><strong>Cliquer ici, "
+"pour démarrer son installation</strong></a>. Les carctéristiques de "
+"connexion FTP vont être demandées."
+
+#: functions.php:381
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"installed."
+msgstr ""
+"Désolé. Vous n'avez pas les autorisations nécessaires pour installer "
+"l'extension %s. Contacter l'admiistrateur de votre site, pour l'installer."
+
+#: functions.php:382
+#, php-format
+msgid ""
+"This theme requires the %1$s plugin. That plugin is currently inactive, so "
+"please go to the <a href=\"%2$s\">plugin administration page</a> to activate "
+"it."
+msgstr ""
+"Ce thème nécessite l'extension %1$s. Cette extension n'est actuellement, pas "
+"activée, aller sur <a href=\"%2$s\">gestion des extensions</a>pour l'activer."
+
+#: functions.php:383
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgstr ""
+"Désolé, vous n'avez pas les autorisations nécessaires pour activer "
+"l'extension %s. Contacter votre administrateur de site, pour l'activer."
+
+#: index.php:14
+msgid ""
+"For editing this area, please go to the <strong>Appearance > Widgets</"
+"strong> panel in your WordPress administration and insert as many Text "
+"widgets as you like into \"<strong>About Section on homepage</strong>\" "
+"widget area. You also can insert into the Text widgets the custom shortcodes "
+"(for displaying images, specific post listings, etc. - see Theme "
+"documentation)."
+msgstr ""
+"Pour l'édition de cette zone, aller à l'<strong>Apparence > Widgets</strong> "
+"et insert autant de Texte widgets que vous le souhaitez dans \"<strong>About "
+"Section sur la page d'accueil</strong>\" de la zone widget."
+
+#: index.php:15 index.php:81
+msgid ""
+"If you do not want to display this area, go to the \"Theme Options\" panel. "
+"In \"Homepage Settings\", you can hide this area."
+msgstr ""
+"Pour masquer ces boîtes aller à \"Options du thème\". Dans \"Homepage "
+"Settings\", vous pouvez masquer cette zone. Même façon, vous pouvez renommer "
+"ou masquer les autres domaines aussi."
+
+#: index.php:47
+msgid "Portfolio Item 1"
+msgstr "Point de portefeuille 1"
+
+#: index.php:51
+msgid "Portfolio Item 2"
+msgstr "Point de portefeuille 2"
+
+#: index.php:55
+msgid "Portfolio Item 3"
+msgstr "Point de portefeuille 3"
+
+#: index.php:59
+msgid "Portfolio Item 4"
+msgstr "Point de portefeuille 4"
+
+#: index.php:63
+msgid "Portfolio Item 5"
+msgstr "Point de portefeuille 5"
+
+#: index.php:67
+msgid "Portfolio Item 6"
+msgstr "Point de portefeuille 6"
+
+#: index.php:80
+msgid ""
+"For editing this area, please go to the <strong>Appearance > Widgets</"
+"strong> panel in your WordPress administration and insert as many Text "
+"widgets as you like into \"<strong>Informational Section on homepage</strong>"
+"\" widget area. You also can insert into the Text widgets the custom "
+"shortcodes (for displaying images, specific post listings, etc. - see Theme "
+"documentation)."
+msgstr ""
+"Pour l'édition de cette zone, aller à l'<strong>Apparence > Widgets</strong> "
+"et insert autant de Texte widgets que vous le souhaitez dans "
+"\"<strong>Informational Section sur la page d'accueil</strong>\" de la zone "
+"widget."
+
+#: index.php:92
+msgid ""
+"For editing this text, go to Theme Options > Homepage Settings > Image "
+"Section."
+msgstr ""
+"Pour l'édition de ce texte, aller à Options du thème > Homepage Settings > "
+"Image Section."
+
+#: search.php:12
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Recherche pour: %s"
+
+#: search.php:13
+msgid "Number of Results: "
+msgstr "Nombre de résultats: "
+
+#: search.php:26
+msgid "Search results navigation"
+msgstr "Navigation dans les résultats de la recherche"
+
+#: search.php:27
+msgid "<span class=\"meta-nav\">&larr;</span> Previous results"
+msgstr "<span class=\"meta-nav\">&larr;</span> Résultats précédents"
+
+#: search.php:28
+msgid "Next results <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Résultats suivants <span class=\"meta-nav\">&rarr;</span>"
+
+#: search.php:35
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à votre critère de recherche. Réessayer avec "
+"d'autres mots clés."
+
+#: searchform.php:9
+msgid "Search..."
+msgstr "Recherche..."
+
+#: sidebar.php:11
+msgid "Menu"
+msgstr "Menu"
+
+#: single.php:22
+msgid "Pages:"
+msgstr "Pages:"
+
+#: tag.php:12
+#, php-format
+msgid "Tag Archive: %s"
+msgstr "Archives de mots clés: %s"
+
+#: functions/be/fw-options.php:1415
+msgid "settings reset."
+msgstr "Reset des options."
+
+#: functions/be/fw-setup.php:51
+msgid "Theme Options"
+msgstr "Options du thème"
+
+#: functions/fe/facebook-widget.php:12
+msgid "Displays Facebook Like Box."
+msgstr "Afficher Facebook Like Box."
+
+#: functions/fe/facebook-widget.php:14
+msgid "MeadowHill Facebook Like Box Widget"
+msgstr "MeadowHill Facebook Like Box Widget"
+
+#: functions/fe/facebook-widget.php:56 functions/fe/social-widget.php:86
+#: functions/fe/twitter-widget.php:39
+msgid "Title:"
+msgstr "Titre:"
+
+#: functions/fe/facebook-widget.php:63
+msgid "Facebook Page URL:"
+msgstr "Page Facebook URL:"
+
+#: functions/fe/facebook-widget.php:67
+msgid ""
+"Insert here the full URL of your Facebook Page that will be liked (example: "
+"http://www.facebook.com/FacebookDevelopers)."
+msgstr ""
+"Insérer l'URL complet de votre page Facebook (exemple: http://www.facebook."
+"com/FacebookDevelopers)."
+
+#: functions/fe/facebook-widget.php:73
+msgid "Like Box Height: (optional)"
+msgstr "Like Box Hauteur: (facultatif)"
+
+#: functions/fe/facebook-widget.php:77
+msgid ""
+"Insert here the height of Like Box. The value is in pixels, but in the field "
+"please write ONLY NUMBERS (without symbol \"px\")!"
+msgstr ""
+"Insérer ici la hauteur de Like Box. La valeur est exprimée en pixels, mais "
+"s'il vous plaît écrivez ICI NOMBRES (sans le \"px\")!"
+
+#: functions/fe/facebook-widget.php:83
+msgid "Show Faces:"
+msgstr "Voir Faces:"
+
+#: functions/fe/facebook-widget.php:90
+msgid "Specify whether to display profile photos of people who like the page."
+msgstr ""
+"Afficher ou masquer les photos de profil des personnes qui aiment la page."
+
+#: functions/fe/facebook-widget.php:96
+msgid "Show Stream:"
+msgstr "Afficher les Stream:"
+
+#: functions/fe/facebook-widget.php:103
+msgid "Specify whether to display a stream of the latest posts by the Page."
+msgstr "Afficher ou masquer les derniers messages de la page."
+
+#: functions/fe/social-widget.php:12
+msgid "A Social widget by MeadowHill"
+msgstr "Un widget social par MeadowHill"
+
+#: functions/fe/social-widget.php:14
+msgid "MeadowHill Social Widget"
+msgstr "MeadowHill Social Widget"
+
+#: functions/fe/social-widget.php:93
+msgid "Twitter:"
+msgstr "Twitter:"
+
+#: functions/fe/social-widget.php:97
+msgid "Insert the full URL of your Twitter profile."
+msgstr "Insérer l'URL complet de votre profil Twitter."
+
+#: functions/fe/social-widget.php:103
+msgid "Facebook:"
+msgstr "Facebook:"
+
+#: functions/fe/social-widget.php:107
+msgid "Insert the full URL of your Facebook profile, page or group."
+msgstr "Insérer l'URL complet de votre profil Facebook, page ou groupe."
+
+#: functions/fe/social-widget.php:113
+msgid "RSS:"
+msgstr "RSS:"
+
+#: functions/fe/social-widget.php:117
+msgid "Insert the Url of your RSS. You may include your RSS from Feedburner."
+msgstr ""
+"Insérer l'URL complet de votre RSS. Vous pouvez stipuler votre RSS "
+"Feedburner."
+
+#: functions/fe/social-widget.php:123
+msgid "Google Plus:"
+msgstr "Google Plus:"
+
+#: functions/fe/social-widget.php:127
+msgid "Insert the full URL of your Google Plus profile"
+msgstr "Insérer l'URL complet de votre profil Google Plus."
+
+#: functions/fe/social-widget.php:133
+msgid "You Tube:"
+msgstr "You Tube:"
+
+#: functions/fe/social-widget.php:137
+msgid "Insert the full URL of your YouTube profile."
+msgstr "Insérer l'URL complet de votre profil YouTube."
+
+#: functions/fe/social-widget.php:143
+msgid "Linkedin:"
+msgstr "Linkedin:"
+
+#: functions/fe/social-widget.php:147
+msgid "Insert the full URL of your Linkedin profile."
+msgstr "Insérer l'URL complet de votre profil Linkedin."
+
+#: functions/fe/social-widget.php:153
+msgid "Delicious:"
+msgstr "Delicious:"
+
+#: functions/fe/social-widget.php:157
+msgid "Insert the full URL of your Delicious profile."
+msgstr "Insérer l'URL complet de votre profil Delicious."
+
+#: functions/fe/social-widget.php:163
+msgid "Pinterest:"
+msgstr "Pinterest:"
+
+#: functions/fe/social-widget.php:167
+msgid "Insert the full URL of your Pinterest profile."
+msgstr "Insérer l'URL complet de votre profil Pinterest."
+
+#: functions/fe/social-widget.php:173
+msgid "Flickr:"
+msgstr "Flickr:"
+
+#: functions/fe/social-widget.php:177
+msgid "Insert the full URL of your Flickr profile."
+msgstr "Insérer l'URL complet de votre profil Flickr."
+
+#: functions/fe/twitter-widget.php:13
+msgid "Twitter widget by MeadowHill"
+msgstr "Twitter widget par MeadowHill"
+
+#: functions/fe/twitter-widget.php:15
+msgid "MeadowHill Twitter Widget"
+msgstr "MeadowHill Twitter Widget"
+
+#: functions/fe/twitter-widget.php:25
+msgid "Join us on Twitter"
+msgstr "Nous joindre sur Twitter"
+
+#: functions/fe/twitter-widget.php:46
+msgid "Twitter Username:"
+msgstr "Nom utilisateur sur Twitter:"
+
+#: functions/fe/twitter-widget.php:50
+msgid "Insert your Twitter username. (ex: meadowhill)."
+msgstr "Insérer votre nom utilisateur Twitter. (exemple: meadowhill)."
+
+#: comments.php:18
+msgid "Comment (1)"
+msgid_plural "Comments (%1$s)"
+msgstr[0] "Commentaire (1)"
+msgstr[1] "Commentaires (%1$s)"
+
+#: single.php:45
+msgid "Related Posts"
+msgstr "Articles liés"
+
+#: template-logged-in.php:26
+msgid "You must be logged in to view this page."
+msgstr "Vous devez être connecté pour voir cette page."
+
+#: functions.php:247 search.php:28
+msgid "&larr; Previous"
+msgstr "&larr; Précédent"
+
+#: functions.php:248 search.php:29
+msgid "Next &rarr;"
+msgstr "Suivant &rarr;"

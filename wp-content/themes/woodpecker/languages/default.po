@@ -1,0 +1,147 @@
+# Copyright (C) 2013 WordPress
+# This file is distributed under the same license as the WordPress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woodpecker\n"
+"Report-Msgid-Bugs-To: http://wppolyglots.wordpress.com\n"
+"POT-Creation-Date: 2013-12-08 08:13:13+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-12-30 12:12+0530\n"
+"Last-Translator: \n"
+"Language-Team: InkThemes <admin@inkthemes.com>\n"
+"X-Generator: Poedit 1.5.7\n"
+"Language: eng-US\n"
+
+#: define_template.php:2
+msgid "Daily Archives"
+msgstr ""
+
+#: define_template.php:3
+msgid "Monthly Archives"
+msgstr ""
+
+#: define_template.php:4
+msgid "Yearly Archives"
+msgstr ""
+
+#: define_template.php:5
+msgid "Blog Archives"
+msgstr ""
+
+#: define_template.php:6
+msgid "&larr; Older Posts"
+msgstr ""
+
+#: define_template.php:7
+msgid "Newer posts &rarr;"
+msgstr ""
+
+#: define_template.php:8
+msgid "Return to %s"
+msgstr ""
+
+#: define_template.php:9
+msgid "By %2$s"
+msgstr ""
+
+#: define_template.php:10
+msgid "View all posts by %s"
+msgstr ""
+
+#: define_template.php:11
+msgid "Published %2$s"
+msgstr ""
+
+#: define_template.php:12
+msgid "Full size is %s pixels"
+msgstr ""
+
+#: define_template.php:13
+msgid "Link to full-size image"
+msgstr ""
+
+#: define_template.php:14
+msgid "Edit"
+msgstr ""
+
+#: define_template.php:15
+msgid "Bookmark the"
+msgstr ""
+
+#: define_template.php:16
+msgid "&nbsp;permalink"
+msgstr ""
+
+#: define_template.php:17
+msgid "Pages:"
+msgstr ""
+
+#: define_template.php:18
+msgid "Author Archives: %s"
+msgstr ""
+
+#: define_template.php:19
+msgid "About %s"
+msgstr ""
+
+#: define_template.php:20
+msgid "Home"
+msgstr ""
+
+#: define_template.php:21
+msgid "Sorry no post matched your criteria"
+msgstr ""
+
+#: define_template.php:22
+msgid "Primary Widget Area"
+msgstr ""
+
+#: define_template.php:23
+msgid "The primary widget area"
+msgstr ""
+
+#: define_template.php:24
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: define_template.php:25
+msgid "The secondary widget area"
+msgstr ""
+
+#: define_template.php:26
+msgid "First Footer Widget Area"
+msgstr ""
+
+#: define_template.php:27
+msgid "The first footer widget area"
+msgstr ""
+
+#: define_template.php:28
+msgid "Second Footer Widget Area"
+msgstr ""
+
+#: define_template.php:29
+msgid "The second footer widget area"
+msgstr ""
+
+#: define_template.php:30
+msgid "Third Footer Widget Area"
+msgstr ""
+
+#: define_template.php:31
+msgid "The third footer widget area"
+msgstr ""
+
+#: define_template.php:32
+msgid "Fourth Footer Widget Area"
+msgstr ""
+
+#: define_template.php:33
+msgid "The fourth footer widget area"
+msgstr ""
+
+#: define_template.php:32
+msgid "Main Menu"
+msgstr ""

@@ -1,0 +1,14 @@
+<a id="link_{uID}" onmouseover="hover{uID}({uID});" onmouseout="out{uID}({uID});" href="{URL}" style="{BG}; color:{COLOR};" class="wd_link wd_link_{STYLE} wd_link_{ALIGN}">{TEXT}</a>
+<script>
+	function hover{uID}(id){
+		$("#link_"+id).css({color:"{HOVERCOLOR}"});
+		$("#link_"+id+":link").css({color:"{HOVERCOLOR}"});
+		$("#link_"+id+":visited").css({color:"{HOVERCOLOR}"});
+	}
+	
+	function out{uID}(id){
+		$("#link_"+id).css({color:"{COLOR}"});
+		$("#link_"+id+":link").css({color:"{COLOR}"});
+		$("#link_"+id+":visited").css({color:"{COLOR}"});
+	}
+</script>

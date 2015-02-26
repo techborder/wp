@@ -13,14 +13,19 @@ add_action( 'admin_menu', 'catchevolution_options_menu' );
 /**
  * Enqueue admin script and styles
  *
- * @uses wp_register_script, wp_enqueue_script and wp_enqueue_style
- * @Calling jquery, jquery-ui-tabs,jquery-cookie, jquery-ui-sortable, jquery-ui-draggable, media-upload, thickbox, colorpicker
+ * @uses wp_register_script, wp_enqueue_script, wp_enqueue_media and wp_enqueue_style
+ * @Calling jquery, jquery-ui-tabs,jquery-cookie, jquery-ui-sortable, jquery-ui-draggable
  */
 function catchevolution_admin_scripts() {
 	//jquery-cookie registered in functions.php
 	wp_enqueue_script( 'catchevolution_admin', get_template_directory_uri().'/inc/panel/admin.min.js', array( 'jquery', 'jquery-ui-tabs', 'jquery-cookie', 'jquery-ui-sortable', 'jquery-ui-draggable' ) );
-	wp_enqueue_script( 'catchevolution_upload', get_template_directory_uri().'/inc/panel/add_image_scripts.min.js', array( 'jquery','media-upload','thickbox' ) );
-	wp_enqueue_style( 'catchevolution_admin',get_template_directory_uri().'/inc/panel/admin.min.css', array('thickbox' ), '1.0', 'screen' );
+	
+    //For media uploader
+    wp_enqueue_media();
+        
+    wp_enqueue_script( 'catchevolution_upload', get_template_directory_uri().'/inc/panel/add_image_scripts.min.js', array( 'jquery' ) );
+	
+    wp_enqueue_style( 'catchevolution_admin',get_template_directory_uri().'/inc/panel/admin.min.css', '',  '1.0', 'screen' );
 }
 add_action( 'admin_print_styles-appearance_page_theme_options', 'catchevolution_admin_scripts' );
 
@@ -114,7 +119,7 @@ function catchevolution_theme_options_do_page() {
                     <li><a href="#slidersettings"><?php _e( 'Featured Post Slider', 'catchevolution' );?></a></li>
                     <li><a href="#sociallinks"><?php _e( 'Social Links', 'catchevolution' );?></a></li>
                     <?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
-                    	<li><a href="#webmaster"><?php _e( 'Webmaster Tools', 'catchevolution' );?></a></li>
+                    	<li><a href="#webmaster"><?php _e( 'Tools', 'catchevolution' );?></a></li>
                    	<?php endif; ?>
                 </ul><!-- .tabsNavigation #mainNav -->
                    
@@ -138,7 +143,7 @@ function catchevolution_theme_options_do_page() {
                                             <?php } else { ?>
                                                 <input size="65" type="text" name="catchevolution_options[fav_icon]" value="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" alt="fav" />
                                             <?php }  ?> 
-                                            <input id="st_upload_button" class="st_upload_button button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Fav Icon','catchevolution' );?>" />
+                                            <input ref="<?php esc_attr_e( 'Insert as Fav Icon','catchevolution' );?>" class="catchevolution_upload_image button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Fav Icon','catchevolution' );?>" />
                                         </td>
                                     </tr>
                                     
@@ -177,7 +182,7 @@ function catchevolution_theme_options_do_page() {
                                             <?php } else { ?>
                                                 <input size="65" type="text" name="catchevolution_options[web_clip]" value="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon.png" alt="fav" />
                                             <?php }  ?> 
-                                            <input id="st_upload_button" class="st_upload_button button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Web Clip Icon','catchevolution' );?>" />
+                                            <input ref="<?php esc_attr_e( 'Insert as Web Clip Icon','catchevolution' );?>" class="catchevolution_upload_image button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Web Clip Icon','catchevolution' );?>" />
                                         </td>
                                     </tr>
                                     
@@ -231,7 +236,7 @@ function catchevolution_theme_options_do_page() {
                                                  <input class="upload-url" size="65" type="text" name="catchevolution_options[featured_logo_header]" value="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="logo" />
                                                  <?php }  ?>
                                                 
-                                                <input id="st_upload_button" class="st_upload_button button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Header Logo','catchevolution' ); ?>" />
+                                                <input ref="<?php esc_attr_e( 'Insert as Header Logo','catchevolution' );?>" class="catchevolution_upload_image button" name="wsl-image-add" type="button" value="<?php esc_attr_e( 'Change Header Logo','catchevolution' ); ?>" />
                                         </td>
                                     </tr>
                                 	<tr>                            
@@ -286,9 +291,9 @@ function catchevolution_theme_options_do_page() {
                             <table class="form-table">  
                                 <tbody>
                                 	<tr>
-                                        <th scope="row"><?php _e( 'Menu Tutorial from WordPress.com', 'catchevolution' ); ?></th>
+                                        <th scope="row"><?php _e( 'Menu Tutorial', 'catchevolution' ); ?></th>
                                         <td>
-                                            <a class="button" href="<?php echo esc_url( __( 'http://en.support.wordpress.com/menus/','catchevolution' ) ); ?>" title="<?php esc_attr_e( 'Menu Tutorial', 'catchevolution' ); ?>" target="_blank"><?php _e( 'Click Here to Read Menu Tutorial', 'catchevolution' );?></a>
+                                            <a class="button" href="<?php echo esc_url( __( 'http://catchthemes.com/blog/custom-menus-wordpress-themes/','catchevolution' ) ); ?>" title="<?php esc_attr_e( 'Menu Tutorial', 'catchevolution' ); ?>" target="_blank"><?php _e( 'Click Here to Read Menu Tutorial', 'catchevolution' );?></a>
                                         </td>
                                     </tr>
                                     <tr>                            
@@ -621,6 +626,12 @@ function catchevolution_theme_options_do_page() {
                         <h3 class="option-toggle"><a href="#"><?php _e( 'Featured Post Slider Options', 'catchevolution' ); ?></a></h3>
                         <div class="option-content inside">
                             <table class="form-table">
+                            	<tr>
+                                    <th scope="row"><?php _e( 'Post Slider Tutorial', 'catchevolution' ); ?></th>
+                                    <td>
+                                        <a class="button" href="<?php echo esc_url( __( 'http://catchthemes.com/blog/videos-blog/video-series-adding-featured-post-slider/','catchevolution' ) ); ?>" title="<?php esc_attr_e( 'Post Slider Tutorial', 'catchevolution' ); ?>" target="_blank"><?php _e( 'Click Here to Read Post Slider Tutorial', 'catchevolution' );?></a>
+                                    </td>
+                              	</tr>
                                 <tr>                            
                                     <th scope="row"><?php _e( 'Exclude Slider post from Homepage posts?', 'catchevolution' ); ?></th>
                                      <input type='hidden' value='0' name='catchevolution_options[exclude_slider_post]'>
@@ -759,7 +770,22 @@ function catchevolution_theme_options_do_page() {
                                     <th scope="row"><h4><?php _e( 'Email', 'catchevolution' ); ?></h4></th>
                                     <td><input type="text" size="45" name="catchevolution_options[social_email]" value="<?php echo sanitize_email( $options[ 'social_email' ] ); ?>" />
                                     </td>
-                                </tr>                                 
+                                </tr> 
+                                <tr>
+                                    <th scope="row"><h4><?php _e( 'Contact', 'catchevolution' ); ?></h4></th>
+                                    <td><input type="text" size="45" name="catchevolution_options[social_contact]" value="<?php echo esc_url( $options[ 'social_contact' ] ); ?>" />
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row"><h4><?php _e( 'Xing', 'catchevolution' ); ?></h4></th>
+                                    <td><input type="text" size="45" name="catchevolution_options[social_xing]" value="<?php echo esc_url( $options[ 'social_xing' ] ); ?>" />
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row"><h4><?php _e( 'Meetup', 'catchevolution' ); ?></h4></th>
+                                    <td><input type="text" size="45" name="catchevolution_options[social_meetup]" value="<?php echo esc_url( $options[ 'social_meetup' ] ); ?>" />
+                                    </td>
+                                </tr>                                                                
                             </tbody>
                         </table>                           
                         <p class="submit"><input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'catchevolution' ); ?>" /></p>
@@ -1056,9 +1082,18 @@ function catchevolution_theme_options_validate( $options ) {
 	if( isset( $input[ 'social_email' ] ) &&  isset( $input[ 'social_email' ] )  ) {
 		$input_validated[ 'social_email' ] = sanitize_email( $input[ 'social_email' ] );
 	}	
+	if( isset( $input[ 'social_contact' ] ) ) {
+		$input_validated[ 'social_contact' ] = esc_url_raw( $input[ 'social_contact' ] );
+	}
+	if( isset( $input[ 'social_xing' ] ) ) {
+		$input_validated[ 'social_xing' ] = esc_url_raw( $input[ 'social_xing' ] );
+	}
+	if( isset( $input[ 'social_meetup' ] ) ) {
+		$input_validated[ 'social_meetup' ] = esc_url_raw( $input[ 'social_meetup' ] );
+	}	
 
 		
-	//Webmaster Tool Verification
+	//Tool Verification
 	if( isset( $input[ 'analytic_header' ] ) ) {
 		$input_validated[ 'analytic_header' ] = wp_kses_stripslashes( $input[ 'analytic_header' ] );
 	}
@@ -1100,74 +1135,78 @@ add_action( 'save_post', 'catchevolution_post_invalidate_caches' );
 
 
 /**
- * Creates new shortcodes for use in any shortcode-ready area.  This function uses the add_shortcode() 
- * function to register new shortcodes with WordPress.
- *
- * @uses add_shortcode() to create new shortcodes.
- */
-function catchevolution_add_shortcodes() {
-	/* Add theme-specific shortcodes. */
-	add_shortcode( 'footer-image', 'catchevolution_footer_image_shortcode' );
-	add_shortcode( 'the-year', 'catchevolution_the_year_shortcode' );
-	add_shortcode( 'site-link', 'catchevolution_site_link_shortcode' );
-	add_shortcode( 'wp-link', 'catchevolution_wp_link_shortcode' );
-	add_shortcode( 'theme-link', 'catchevolution_theme_link_shortcode' );
-	
-}
-/* Register shortcodes. */
-add_action( 'init', 'catchevolution_add_shortcodes' );
-
-
-/**
- * Shortcode to display Footer Image.
+ * Function to display the current year.
  *
  * @uses date() Gets the current year.
  * @return string
  */
-function catchevolution_footer_image_shortcode() {
-	if( function_exists( 'catchevolution_footerlogo' ) ) :
-    	return catchevolution_footerlogo(); 
-    endif;
+function catchevolution_the_year() {
+    return date( __( 'Y', 'catchevolution' ) );
 }
 
 
 /**
- * Shortcode to display the current year.
- *
- * @uses date() Gets the current year.
- * @return string
- */
-function catchevolution_the_year_shortcode() {
-	return date( __( 'Y', 'catchevolution' ) );
-}
-
-
-/**
- * Shortcode to display a link back to the site.
+ * Function to display a link back to the site.
  *
  * @uses get_bloginfo() Gets the site link
  * @return string
  */
-function catchevolution_site_link_shortcode() {
-	return '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" ><span>' . get_bloginfo( 'name', 'display' ) . '</span></a>';
+function catchevolution_site_link() {
+    return '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" ><span>' . get_bloginfo( 'name', 'display' ) . '</span></a>';
 }
 
 
 /**
- * Shortcode to display a link to WordPress.org.
+ * Function to display a link to WordPress.org.
  *
  * @return string
  */
-function catchevolution_wp_link_shortcode() {
-	return '<a href="http://wordpress.org" target="_blank" title="' . esc_attr__( 'WordPress', 'catchevolution' ) . '"><span>' . __( 'WordPress', 'catchevolution' ) . '</span></a>';
+function catchevolution_theme_name() {
+    return '<span class="theme-name">' . __( 'Theme: Catch Evolution by ', 'catchevolution' ) . '</span>';    
 }
 
 
 /**
- * Shortcode to display a link to Theme Link.
+ * Function to display a link to Theme Link.
  *
  * @return string
  */
-function catchevolution_theme_link_shortcode() {
-	return '<a href="http://catchthemes.com/themes/catch-evolution" target="_blank" title="' . esc_attr__( 'Catch Evolution', 'catchevolution' ) . '"><span>' . __( 'Catch Evolution', 'catchevolution' ) . '</span></a>';
+function catchevolution_theme_author() {
+    
+    return '<span class="theme-author"><a href="' . esc_url( 'http://catchthemes.com/' ) . '" target="_blank" title="' . esc_attr__( 'Catch Themes', 'catchevolution' ) . '">' . __( 'Catch Themes', 'catchevolution' ) . '</a></span>';
+
 }
+
+
+/**
+ * Function to display Catch Evolution Assets
+ *
+ * @return string
+ */
+function catchevolution_assets(){
+    $catchevolution_content = '<div class="copyright">'. esc_attr__( 'Copyright', 'catchevolution' ) . ' &copy; '. catchevolution_the_year() . ' ' . catchevolution_site_link() . ' ' . esc_attr__( 'All Rights Reserved', 'catchevolution' ) . '.</div><div class="powered">'. catchevolution_theme_name() . catchevolution_theme_author() . '</div>';
+    return $catchevolution_content;
+}
+
+
+/**
+ * Custom scripts and styles on Customizer for Catch Evolution
+ *
+ * @since Catch Evolution 2.3
+ */
+function catchevolution_customize_scripts() {
+    wp_register_script( 'catchevolution_customizer_custom', get_template_directory_uri() . '/inc/panel/customizer-custom-scripts.js', array( 'jquery' ), '20140108', true );
+
+    $catchevolution_misc_links = array(
+                            'upgrade_link'              => esc_url( admin_url( 'themes.php?page=theme_options' ) ),
+                            'upgrade_text'              => __( 'More Theme Options &raquo;', 'catchevolution' ),
+                            );
+
+    //Add More Theme Options Button
+    wp_localize_script( 'catchevolution_customizer_custom', 'catchevolution_misc_links', $catchevolution_misc_links );
+
+    wp_enqueue_script( 'catchevolution_customizer_custom' );
+
+    wp_enqueue_style( 'catchevolution_customizer_custom', get_template_directory_uri() . '/inc/panel/catchevolution-customizer.css');
+}
+add_action( 'customize_controls_print_footer_scripts', 'catchevolution_customize_scripts');

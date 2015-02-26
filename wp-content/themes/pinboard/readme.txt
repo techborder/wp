@@ -7,8 +7,8 @@ custom-background, custom-colors, custom-header, custom-menu,
 editor-style, featured-images, full-width-template, microformats,
 post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 3.9
-Tested up to: 3.9.1
-Stable tag: 1.1.8
+Tested up to: 4.1
+Stable tag: 1.1.12
 
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
 
@@ -198,6 +198,31 @@ You may remove any copyright references (unless required by third party componen
 The theme is offered free of charge. If someone asked money for it, someone just tricked you.
 
 == Changelog ==
+
+= 1.1.12 =
+
+* Fixed XSS vulnerability in Theme Options
+* Fixed z-index for navigation menu when slider is active
+* Added support for WP core title rendering
+
+= 1.1.11 =
+
+* Fixed FlexSlider control nav z-index
+
+= 1.1.10 =
+
+* Fixed custom navigation background overlaying header on mobile devices
+* Updated credit links
+
+= 1.1.9 =
+
+* Fixed editor style content margin
+* Cleared floated elements before #container
+* Fixed z-index for navigation menu when slider is active
+* Fixed position of search widget in header on mobile devices
+* Replaced custom MediaElement.js skin with default WP MediaElement skin
+* Fallback to default HTML5 player for audio and video shortcodes on AJAX and infinite scroll navigation
+* Custom MediaElement callback now active only for audio and video post formats
 
 = 1.1.8 =
 

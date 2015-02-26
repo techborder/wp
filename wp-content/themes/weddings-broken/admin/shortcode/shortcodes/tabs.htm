@@ -1,0 +1,54 @@
+<script type="text/javascript" src="http://localhost/wordpress/wp-includes/js/jquery/jquery.js?ver=1.8.3"></script>
+<script>
+jQuery(document).ready(function(){
+	$("#"+id).css({visibility:"hidden"});
+	var id=$(".wd_tabs_block").not(".active").eq(0).attr("id");
+	$("#"+id).addClass("active");
+	$("#"+id+".wd_tabs_block").append('<ul class="wd_tabs"></ul>');
+	$("#"+id+".wd_tabs_block").append('<ul class="wd_tabs_content"></ul>');
+
+	
+	$("#"+id+".wd_tabs_block").find('.wd_tabs').append($("#"+id+" li.tab").removeClass());
+	$("#"+id+".wd_tabs_block").find('.wd_tabs_content').append($("#"+id+" li.content").removeClass());
+	
+	$("#"+id+".wd_tabs_block").find('.wd_tabs li:first-child a').addClass("active");
+	$("#"+id+".wd_tabs_block").find('.wd_tabs_content li:first-child').addClass("active");
+	
+
+	$("#"+id+".wd_tabs_block .wd_tabs li").each(function(index){
+		$("#"+id+".wd_tabs_block .wd_tabs li").eq(index).attr("id",id+"wd_tabs_"+(index+1));
+		$("#"+id+".wd_tabs_block .wd_tabs li a").eq(index).attr("href","#"+id+"wd_tabs_content_"+(index+1));
+		$("#"+id+".wd_tabs_block .wd_tabs_content li").eq(index).attr("id",id+"wd_tabs_content_"+(index+1));
+	});
+	
+	$(window).resize(function(){
+		//maxheight(id);
+	});
+
+	maxheight(id);
+	function maxheight(id){
+		var maxHeight = -1;	
+		$("#"+id+".wd_tabs_block .wd_tabs_content li > div").each(function(){
+			if ($(this).height() > maxHeight)
+			maxHeight = $(this).outerHeight();
+		});
+		
+		$("#"+id).height($("#"+id+" .wd_tabs").height()*1+maxHeight+20);
+		$("#"+id+" .wd_tabs_content").height(maxHeight);
+		$("#"+id+".wd_tabs_block .wd_tabs_content li>div").height(maxHeight);
+	}
+	
+	$("#"+id+" .wd_tabs").not(".preview").on("click"," li a",function(){
+		$("#"+id+" .wd_tabs li a").removeClass("active");
+		$(this).addClass("active");
+		$("#"+id+" .wd_tabs_content li").css({visibility:"hidden"})
+		var content=$(this).attr("href").replace("#","");
+		$('#'+content).css({visibility:"visible"});
+		return false;
+	});
+	
+	//$("#"+id).height($("#"+id+" .wd_tabs").height()*1+$("#"+id+" .wd_tabs_content li").height()*1+5);
+	$("#"+id).css({visibility:"visible"});
+});
+
+</script>

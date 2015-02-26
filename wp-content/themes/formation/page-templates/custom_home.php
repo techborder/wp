@@ -24,7 +24,7 @@ get_header(); ?>
                     <div class="flex-caption-title">
                     <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                     </div>
-                    <p><?php echo get_slider_excerpt(); ?>
+                    <p><?php echo Formation_get_slider_excerpt(); ?>
                     <a href="<?php the_permalink() ?>">...</a></p>
                     </div>
                     </div>
@@ -36,8 +36,8 @@ get_header(); ?>
               </div>
 	</div>
     <div class="featuretext_middle">
-    <div class="section group">
-	<div class="col span_1_of_3">         
+    <div class="section group animated" data-fx="fadeInUp">
+    <div class="col span_1_of_3">       
     <div class="featuretext">
       <?php if ( get_theme_mod( 'header-one-file-upload' ) ) : ?>
      		<a href="<?php echo esc_url( get_theme_mod( 'header_one_url' ) ); ?>"><img src="<?php echo esc_url( get_theme_mod( 'header-one-file-upload' ) ); ?>"  alt="feature one"></a>
@@ -75,7 +75,7 @@ get_header(); ?>
     </div> 
     </div> 
     
-     <div class="featuretext_top">
+     <div class="featuretext_top animated" data-fx="fadeInUp">
 			 <h3><?php echo esc_html(get_theme_mod( 'featured_textbox' ) ); ?></h3>
              <div class="featuretext_button">
             <?php if ( get_theme_mod( 'featured_button_url' ) ) : ?>
@@ -87,7 +87,7 @@ get_header(); ?>
         <div id="primary_home" class="content-area">
 			<div id="content" class="fullwidth" role="main">
     
-     <div class="section_thumbnails group">
+     <div class="section_thumbnails group animated" data-fx="fadeInUp">
     <?php echo '<h3>' . __('Recent Posts', 'Formation') . '</h3>'; ?>
     <div class="unity-separator"></div>
 
@@ -104,7 +104,7 @@ get_header(); ?>
                  <div class="view third-effect">
 				<?php
 			if ( has_post_thumbnail() ) {
-    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),'featured' );
+    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),'recent' );
      echo '<img alt="post" class="imagerct" src="' . $image_src[0] . '">';
 }
   			?>
@@ -112,7 +112,7 @@ get_header(); ?>
    					 <a href="<?php the_permalink(); ?>" class="info">Full Image</a>  
  			</div>
     			 </div>
-				<p><?php echo get_recentposts_excerpt(); ?></p>
+				<p><?php echo Formation_get_recentposts_excerpt(); ?></p>
                 <div class="thumbs-more-link"><a href="<?php the_permalink() ?>"> <?php echo __('More', 'Formation'); ?></a></div>
     </article>
     </div>	
@@ -121,7 +121,7 @@ get_header(); ?>
 
     </div>
     
-    <div class="section_clients group">
+    <div class="section_clients group animated" data-fx="fadeInUp">
    <div class="client">
     <?php echo '<h3>' . __('Partners', 'Formation') . '</h3>'; ?>
     <div class="unity-separator"></div>

@@ -12,7 +12,6 @@
 		}
 	} 
 	
-	
 	DUP_Util::InitSnapshotDirectory();
 
 	$Package = DUP_Package::GetActive();
@@ -34,18 +33,19 @@
 	div.dup-sys-section {margin:1px 0px 5px 0px}
 	div.dup-sys-title {display:inline-block; width:250px; padding:1px; }
 	div.dup-sys-title div {display:inline-block;float:right; }
-	div.dup-sys-info {display:none; max-width: 800px}	
+	div.dup-sys-info {display:none; max-width: 98%; margin:4px 4px 12px 4px}	
 	div.dup-sys-pass {display:inline-block; color:green;}
 	div.dup-sys-fail {display:inline-block; color:#AF0000;}
 	div.dup-sys-contact {padding:5px 0px 0px 10px; font-size:11px; font-style:italic}
 	span.dup-toggle {float:left; margin:0 2px 2px 0; }
+	table.dup-sys-info-results td:first-child {width:200px}
 
 	/* -----------------------------
 	PACKAGE OPTS*/
 	form#dup-form-opts label {line-height:22px}
 	form#dup-form-opts input[type=checkbox] {margin-top:3px}
-	form#dup-form-opts fieldset {border-radius:4px; border:1px solid #ccc;  line-height:20px}
-	form#dup-form-opts fieldset{padding:10px 15px 15px 15px; min-height:275px}
+	form#dup-form-opts fieldset {border-radius:4px;  border-top:1px solid #dfdfdf;  line-height:20px}
+	form#dup-form-opts fieldset{padding:10px 15px 15px 15px; min-height:275px; margin:0 10px 10px 10px}
 	form#dup-form-opts textarea, input[type="text"] {width:100%}
 	form#dup-form-opts textarea#filter-dirs {height:85px}
 	form#dup-form-opts textarea#filter-exts {height:27px}
@@ -105,115 +105,113 @@ META-BOX1: SYSTEM REQUIREMENTS -->
 		<div class="dup-sys-section">
 			<i><?php _e("System requirments must pass for the Duplicator to work properly.  Click each link for details.", 'wpduplicator'); ?></i>
 		</div>
-
-		<!-- PERMISSIONS: SYS-100 -->
-		<div class='dup-sys-req'>
-			<div class='dup-sys-title'>
-				<a><?php _e('Permissions', 'wpduplicator');?></a> <div><?php echo $dup_tests['SYS-100'];?></div>
-			</div>
-			<div class="dup-sys-info dup-info-box">
-				<?php 
-					echo "<b>";  _e("Required Paths", 'wpduplicator'); echo ":</b><br/>";
-
-					$test = is_writeable(DUPLICATOR_WPROOTPATH) ? 'Pass' : 'Fail';
-					printf("<b>%s</b> [%s] <br/>", $test, DUPLICATOR_WPROOTPATH);
-					$test = is_writeable(DUPLICATOR_SSDIR_PATH) ? 'Pass' : 'Fail';
-					printf("<b>%s</b> [%s] <br/>", $test, DUPLICATOR_SSDIR_PATH);
-					$test = is_writeable(DUPLICATOR_SSDIR_PATH_TMP) ? 'Pass' : 'Fail';
-					printf("<b>%s</b> [%s] <br/><br/>", $test, DUPLICATOR_SSDIR_PATH_TMP);
-					
-					printf("<b>%s:</b> [%s] <br/><br/>", __('PHP Script Owner', 'wpduplicator'), DUP_Util::GetCurrentUser());
-					_e("The above paths should have permissions of 755 for directories and 644 for files. You can temporarily try 777 if you continue to have issues.  Also be sure to check the owner/group settings.  For more details contact your host or server administrator.", 'wpduplicator');
-				?>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-100</small>
-			</div>				
-		</div>
-
-		<!-- SYS-101 -->
-		<div class='dup-sys-req'>
-			<div class='dup-sys-title'>
-				<a><?php _e('Reserved Files', 'wpduplicator');?></a> <div><?php echo $dup_tests['SYS-101'];?></div>
-			</div>
-			<div class="dup-sys-info dup-info-box">
-				<form method="post" action="admin.php?page=duplicator-tools&tab=cleanup&action=installer">
-					<?php _e('A reserved file(s) was found in the WordPress root directory. Reserved file names are installer.php, installer-data.sql and installer-log.txt.  To archive your data correctly please remove any of these files from your WordPress root directory.  Then try creating your package again.', 'wpduplicator');?>
-					<br/><input type='submit' class='button action' value='<?php _e('Remove Files Now', 'wpduplicator')?>' style='font-size:10px; margin-top:5px;' />
-				</form>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-101</small>
-			</div>
-		</div>
-
-		<!-- SYS-102 -->
-		<div class='dup-sys-req'>
-			<div class='dup-sys-title'>
-				<a><?php _e('Zip Archive Enabled', 'wpduplicator');?></a> <div><?php echo $dup_tests['SYS-102'];?></div>
-			</div> 
-			<div class="dup-sys-info dup-info-box">
-				<?php _e("The ZipArchive extension for PHP is required for compression.  Please contact your hosting provider if you're on a hosted server.  For additional information see our online documentation.", 'wpduplicator'); ?>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-102</small>
-			</div>
-		</div>
-
-		<!-- SYS-103 -->
-		<div class='dup-sys-req'>
-			<div class='dup-sys-title'>
-				<a><?php _e('Safe Mode Off', 'wpduplicator');?></a>
-				<div><?php echo $dup_tests['SYS-103'];?></div>
-			</div>
-			<div class="dup-sys-info dup-info-box">
-				<?php
-					_e("Safe Mode should be set safe_mode=Off in you php.ini file. On hosted servers you may have to request this setting be turned off. Please note that Safe Mode is deprecated as of PHP 5.3.0" , 'wpduplicator'); 
-				?>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-103</small>
-			</div>
-		</div>
-
-		<!-- SYS-104 -->
-		<div class='dup-sys-req'>
-			<div class='dup-sys-title'>
-				<a><?php _e('MySQL Support', 'wpduplicator');?></a>
-				<div><?php echo $dup_tests['SYS-104'];?></div>
-			</div>
-			<div class="dup-sys-info dup-info-box">
-				<?php 
-					printf("<b>%s:</b> [%s]<br/><br/>",	__("MySQL version", 'wpduplicator'), $wpdb->db_version());
-					_e("MySQL version 5.0+ or better is required. If the MySQL version is valid and this requirement fails then the mysqli extension (note the trailing 'i') is not installed.  Contact your server administrator and request that mysqli extension and MySQL Server 5.0+ be installed. Please note in future version support for other databases and extensions will be added.", 'wpduplicator');
-					echo "&nbsp;<i><a href='http://php.net/manual/en/mysqli.installation.php' target='_blank'>[" . __('more info', 'wpduplicator')  . "]</a></i>";
-				?>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-104</small>
-			</div>
-		</div>
-
-		<!-- SYS-105 -->
+		
+		<!-- PHP SUPPORT -->
 		<div class='dup-sys-req'>
 			<div class='dup-sys-title'>
 				<a><?php _e('PHP Support', 'wpduplicator');?></a>
-				<div><?php echo $dup_tests['SYS-105'];?></div>
+				<div><?php echo $dup_tests['PHP']['ALL'];?></div>
 			</div>
 			<div class="dup-sys-info dup-info-box">
+				<table class="dup-sys-info-results">
+					<tr>
+						<td><?php printf("%s [%s]", __("PHP Version", 'wpduplicator'), phpversion());?></td>
+						<td><?php echo $dup_tests['PHP']['VERSION'] ?></td>
+					</tr>
+					<tr>
+						<td><?php _e('Zip Archive Enabled', 'wpduplicator');?></td>
+						<td><?php echo $dup_tests['PHP']['ZIP'] ?></td>
+					</tr>					
+					<tr>
+						<td><?php _e('Safe Mode Off', 'wpduplicator');?></td>
+						<td><?php echo $dup_tests['PHP']['SAFE_MODE'] ?></td>
+					</tr>					
+					<tr>
+						<td><?php _e('Function', 'wpduplicator');?> file_get_contents</td>
+						<td><?php echo $dup_tests['PHP']['FUNC_1'] ?></td>
+					</tr>					
+					<tr>
+						<td><?php _e('Function', 'wpduplicator');?> file_put_contents</td>
+						<td><?php echo $dup_tests['PHP']['FUNC_2'] ?></td>
+					</tr>
+				</table>
+				<small>
+					<?php _e("PHP versions 5.2.17+ or higher is required. Please note that in versioning logic a value such as 5.2.9 is less than 5.2.17. For compression to work the ZipArchive extension for PHP is required. Safe Mode should be set to 'Off' in you php.ini file and is deprecated as of PHP 5.3.0.  For any issues in this section please contact your hosting provider or server administrator.  For additional information see our online documentation.", 'wpduplicator'); ?>
+				</small>
+			</div>
+		</div>		
+
+		<!-- PERMISSIONS -->
+		<div class='dup-sys-req'>
+			<div class='dup-sys-title'>
+				<a><?php _e('Permissions', 'wpduplicator');?></a> <div><?php echo $dup_tests['IO']['ALL'];?></div>
+			</div>
+			<div class="dup-sys-info dup-info-box">
+				<b><?php _e("Required Paths", 'wpduplicator'); ?></b>
+				<div style="padding:3px 0px 0px 15px">
 				<?php 
-					$php_test1 = function_exists("file_get_contents") ? 'Pass' : 'Fail';
-					$php_test2 = function_exists("file_put_contents") ? 'Pass' : 'Fail';
-					printf("<b>%s:</b> [%s]<br/><br/>",	__("PHP version", 'wpduplicator'), phpversion());	
-					printf("<b>%s</b>:<br/>", __("Requried Functions", 'wpduplicator'));
-					printf("<b>%s</b> [file_get_contents] <br/>", $php_test1);
-					printf("<b>%s</b> [file_put_contents] <br/><br/>", $php_test2);
-					_e("PHP versions 5.2.17+ or higher is required. Please note that in versioning logic a value such as 5.2.9 is less than 5.2.17.  Please contact your server administrator to upgrade to a stable and secure version of PHP", 'wpduplicator');
+					printf("<b>%s</b> &nbsp; [%s] <br/>", $dup_tests['IO']['WPROOT'], DUPLICATOR_WPROOTPATH);
+					printf("<b>%s</b> &nbsp; [%s] <br/>", $dup_tests['IO']['SSDIR'], DUPLICATOR_SSDIR_PATH);
+					printf("<b>%s</b> &nbsp; [%s] <br/>", $dup_tests['IO']['SSTMP'], DUPLICATOR_SSDIR_PATH_TMP);
+					//printf("<b>%s:</b> [%s] <br/>", __('PHP Script Owner', 'wpduplicator'), DUP_Util::GetCurrentUser());	
+					//printf("<b>%s:</b> [%s] <br/>", __('PHP Process Owner', 'wpduplicator'), DUP_Util::GetProcessOwner());	
 				?>
-				<small><?php _e('Status Code', 'wpduplicator');?>: SYS-105</small>
+				</div>
+
+				<small>
+					<?php _e("Permissions can be difficult to resolve on some systems. If the plugin can not read the above paths here are a few things to try. 1) Set the above paths to have permissions of 755 for directories and 644 for files. You can temporarily try 777 however, be sure you don’t leave them this way. 2) Check the owner/group settings for both files and directories. The PHP script owner and the process owner are different. The script owner owns the PHP script but the process owner is the user the script is running as, thus determining its capabilities/privileges in the file system. For more details contact your host or server administrator or visit the 'Help' menu under Duplicator for additional online resources.", 'wpduplicator'); ?>
+				</small>					
+			</div>
+		</div>
+
+		<!-- SERVER SUPPORT -->
+		<div class='dup-sys-req'>
+			<div class='dup-sys-title'>
+				<a><?php _e('Server Support', 'wpduplicator');?></a>
+				<div><?php echo $dup_tests['SRV']['ALL'];?></div>
+			</div>
+			<div class="dup-sys-info dup-info-box">
+				<table class="dup-sys-info-results">
+					<tr>
+						<td><?php printf("%s [%s]", __("MySQL Version", 'wpduplicator'), $wpdb->db_version());?></td>
+						<td><?php echo $dup_tests['SRV']['MYSQL_VER'] ?></td>
+					</tr>
+					<tr>
+						<td><?php printf("%s", __("MySQLi Support", 'wpduplicator'));?></td>
+						<td><?php echo $dup_tests['SRV']['MYSQLi'] ?></td>
+					</tr>
+				</table>
+				<small>
+					<?php 
+						_e("MySQL version 5.0+ or better is required and the PHP MySQLi extension (note the trailing 'i') is also required.  Contact your server administrator and request that mysqli extension and MySQL Server 5.0+ be installed. Please note in future versions support for other databases and extensions will be added.", 'wpduplicator');
+						echo "&nbsp;<i><a href='http://php.net/manual/en/mysqli.installation.php' target='_blank'>[" . __('more info', 'wpduplicator')  . "]</a></i>";
+					?>										
+				</small>
+			</div>
+		</div>
+		
+		<!-- RESERVED FILES -->
+		<div class='dup-sys-req'>
+			<div class='dup-sys-title'>
+				<a><?php _e('Reserved Files', 'wpduplicator');?></a> <div><?php echo $dup_tests['RES']['INSTALL'];?></div>
+			</div>
+			<div class="dup-sys-info dup-info-box">
+				<?php if ($dup_tests['RES']['INSTALL'] == 'Pass')  :	?>
+					<?php _e('None of the reserved files (installer.php, installer-data.sql and installer-log.txt) where found from a previous install.  This means you are clear to create a new package.', 'wpduplicator');?>
+				<?php else: ?> 
+					<form method="post" action="admin.php?page=duplicator-tools&tab=cleanup&action=installer">
+						<?php _e('A reserved file(s) was found in the WordPress root directory. Reserved file names are installer.php, installer-data.sql and installer-log.txt.  To archive your data correctly please remove any of these files from your WordPress root directory.  Then try creating your package again.', 'wpduplicator');?>
+						<br/><input type='submit' class='button action' value='<?php _e('Remove Files Now', 'wpduplicator')?>' style='font-size:10px; margin-top:5px;' />
+					</form>
+				<?php endif; ?>
 			</div>
 		</div>
 
 		<!-- ONLINE SUPPORT -->
 		<div class="dup-sys-contact">
 			<?php 	
-				printf("<i class='fa fa-info'></i> %s <i>%s</i>", 
-						__("For additional online help please visit", 'wpduplicator'), 
-						"<a href='" . DUPLICATOR_HELPLINK . "' target='_blank'>support.lifeinthegrid.com</a><br/>" );
-				printf("<i class='fa fa-lightbulb-o'></i> %s <i><a href='%s' target='_blank'>%s</a></i>?", 
-						__("Need a hosting provider that is", 'wpduplicator'), 
-						DUPLICATOR_CERTIFIED,
-						__("duplicator approved", 'wpduplicator'));
+				printf("<i class='fa fa-question-circle'></i> %s <a href='admin.php?page=duplicator-help'>[%s]</a>", 
+						__("For additional help please see the ", 'wpduplicator'), 	__("help page", 'wpduplicator'));
 			?>
 		</div>
 
@@ -223,7 +221,7 @@ META-BOX1: SYSTEM REQUIREMENTS -->
 
 <!-- =========================================
 FORM PACKAGE OPTIONS -->
-<div style="padding:2px 5px 2px 5px">
+<div style="padding:5px 5px 2px 5px">
 	<?php include('new1.inc.form.php'); ?>
 </div>
 
@@ -279,7 +277,7 @@ jQuery(document).ready(function($) {
 	/*	----------------------------------------
 	*	METHOD: Appends a path to the directory filter  */ 
 	Duplicator.Pack.AddExcludePath = function(path) {
-		var text = $("#filter-dirs").val() + path + ';';
+		var text = $("#filter-dirs").val()  + path + ';\n';
 		$("#filter-dirs").val(text);
 	};
 	

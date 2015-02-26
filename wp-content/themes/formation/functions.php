@@ -62,6 +62,7 @@ function Formation_setup() {
 	add_theme_support('post-thumbnails');
 	add_image_size( 100, 300, true);
 	add_image_size( 'featured', 670, 300, true );
+	add_image_size( 'recent', 700, 400, true );
 
 	/**
 	 * Add support for the Aside Post Formats
@@ -178,9 +179,7 @@ add_action( 'widgets_init', 'Formation_widgets_init' );
 function Formation_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 	
-	if (!is_admin()) {
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
-	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -190,20 +189,17 @@ function Formation_scripts() {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 	
-	if (!is_admin()) {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
-	
-	if (!is_admin()) {
+
 		wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
-	}
+	
+	wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.min.css');
+	
+	wp_enqueue_script( 'inview', get_template_directory_uri() . '/js/Inview.js', array('jquery'));
+	
+	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/animate.js', array('jquery', 'inview'));
 }
 add_action( 'wp_enqueue_scripts', 'Formation_scripts' );
-
-/**
- * Implement the Custom Header feature
- */
-require( get_template_directory() . '/inc/custom-header.php' );
 
 
 /**
@@ -211,10 +207,8 @@ require( get_template_directory() . '/inc/custom-header.php' );
  */
 
 function Formation_add_scripts() {
-	if (!is_admin()) {
     wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider-min.js', array('jquery'));
     wp_enqueue_script('flexslider-init', get_template_directory_uri().'/js/flexslider-init.js', array('jquery', 'flexslider'));
-	}
 }
 add_action('wp_enqueue_scripts', 'Formation_add_scripts');
 
@@ -233,8 +227,13 @@ function Formation_theme_customizer( $wp_customize ) {
     'description' => __( 'Upload a logo to replace the default site name and description in the header', 'Formation' ),
 	'priority'    => 30,
 ) );
-
-   $wp_customize->add_setting( 'Formation_logo' );
+   
+   $wp_customize->add_setting( 
+   		'Formation_logo',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
 
    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'Formation_logo', array(
     'label'    => __( 'Logo', 'Formation' ),
@@ -302,7 +301,12 @@ $wp_customize->add_control(
     )
 );
 
-$wp_customize->add_setting( 'featured_button_url' );
+$wp_customize->add_setting( 
+   		'featured_button_url',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
 	
 	$wp_customize->add_control(
 		'featured_button_url',
@@ -328,7 +332,12 @@ function featured_text_one_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-one-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-one-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -345,7 +354,7 @@ function featured_text_one_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'header_one_url',
     array(
         'default' => __( 'Header One Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -407,7 +416,12 @@ function featured_text_two_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-two-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-two-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -424,7 +438,7 @@ function featured_text_two_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'header_two_url',
     array(
         'default' => __( 'Header Two Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -485,7 +499,12 @@ function featured_text_three_customizer( $wp_customize ) {
         )
     );
 	
-	$wp_customize->add_setting( 'header-three-file-upload' );
+	$wp_customize->add_setting( 
+   		'header-three-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -502,7 +521,7 @@ function featured_text_three_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'header_three_url',
     array(
         'default' => __( 'Header Three Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -554,13 +573,12 @@ add_action( 'customize_register', 'featured_text_three_customizer' );
 /**
  * Implement excerpt for homepage slider
  */
-function get_slider_excerpt(){
+function Formation_get_slider_excerpt(){
 $excerpt = get_the_content();
 $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
 $excerpt = strip_shortcodes($excerpt);
 $excerpt = strip_tags($excerpt);
 $excerpt = substr($excerpt, 0, 150);
-$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
 $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
 return $excerpt;
 }
@@ -568,7 +586,7 @@ return $excerpt;
 /**
  * Implement excerpt for homepage recent posts
  */
-function get_recentposts_excerpt(){
+function Formation_get_recentposts_excerpt(){
 $excerpt = get_the_content();
 $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
 $excerpt = strip_shortcodes($excerpt);
@@ -586,8 +604,8 @@ return $excerpt;
     return wp_kses_post( force_balance_tags( $input ) );
 }
 
-function Formation_sanitize_url( $input ) {
-    return wp_kses_post( force_balance_tags( $input ) );
+function Formation_sanitize_upload($input){
+	return esc_url_raw($input);	
 }
 
 add_filter( 'wp_title', 'Formation_wp_title' );
@@ -596,7 +614,7 @@ add_filter( 'wp_title', 'Formation_wp_title' );
 /**
  * Implement excerpt for homepage thumbnails
  */
-function content($limit) {
+function Formation_content($limit) {
   $content = explode(' ', get_the_content(), $limit);
   if (count($content)>=$limit) {
     array_pop($content);
@@ -642,12 +660,12 @@ function Formation_wp_title( $title ) {
 function formation_breadcrumbs() {
  
 	/* === OPTIONS === */
-	$text['home']     = 'Home'; // text for the 'Home' link
-	$text['category'] = 'Archive by Category "%s"'; // text for a category page
-	$text['search']   = 'Search Results for "%s" Query'; // text for a search results page
-	$text['tag']      = 'Posts Tagged "%s"'; // text for a tag page
-	$text['author']   = 'Articles Posted by %s'; // text for an author page
-	$text['404']      = 'Error 404'; // text for the 404 page
+	$text['home']     = __('Home','Formation'); // text for the 'Home' link
+	$text['category'] = __('Archive by Category "%s"','Formation'); // text for a category page
+	$text['search']   = __('Search Results for "%s" Query','Formation'); // text for a search results page
+	$text['tag']      = __('Posts Tagged "%s"','Formation'); // text for a tag page
+	$text['author']   = __('Articles Posted by %s','Formation'); // text for an author page
+	$text['404']      = __('Error 404','Formation'); // text for the 404 page
  
 	$show_current   = 1; // 1 - show current post/page/category title in breadcrumbs, 0 - don't show
 	$show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
@@ -822,7 +840,12 @@ function client_logo_one_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-one-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-one-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -839,7 +862,7 @@ function client_logo_one_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'logo_one_url',
     array(
         'default' => __( 'logo One Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -867,7 +890,12 @@ function client_logo_two_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-two-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-two-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -884,7 +912,7 @@ function client_logo_two_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'logo_two_url',
     array(
         'default' => __( 'logo two Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -912,7 +940,12 @@ function client_logo_three_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-three-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-three-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -929,7 +962,7 @@ function client_logo_three_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'logo_three_url',
     array(
         'default' => __( 'logo three Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -957,7 +990,12 @@ function client_logo_four_customizer( $wp_customize ) {
         )
     );
 
-	$wp_customize->add_setting( 'logo-four-file-upload' );
+	$wp_customize->add_setting( 
+   		'logo-four-file-upload',
+		array(
+			'sanitize_callback' => 'Formation_sanitize_upload',
+		)
+	);
  
 	$wp_customize->add_control(
     new WP_Customize_Upload_Control(
@@ -974,7 +1012,7 @@ function client_logo_four_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'logo_four_url',
     array(
         'default' => __( 'logo four Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_url',
+		'sanitize_callback' => 'Formation_sanitize_upload',
     ) );
 	
 	$wp_customize->add_control(
@@ -988,3 +1026,145 @@ function client_logo_four_customizer( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'client_logo_four_customizer' );
+
+/**
+ * Implement the Custom Header feature
+ */
+add_theme_support( 'custom-header' );
+
+function Formation_custom_header_setup() {
+	$args = array(
+		'default-image'          => '',
+		'default-text-color'     => '222',
+		'width'                  => 2000,
+		'height'                 => 500,
+		'flex-height'            => true,
+		'wp-head-callback'       => 'Formation_header_style',
+		'admin-head-callback'    => 'Formation_admin_header_style',
+		'admin-preview-callback' => 'Formation_admin_header_image',
+	);
+
+	$args = apply_filters( 'Formation_custom_header_args', $args );
+
+	if ( function_exists( 'wp_get_theme' ) ) {
+		add_theme_support( 'custom-header', $args );
+	} 
+}
+add_action( 'after_setup_theme', 'Formation_custom_header_setup' );
+
+
+if ( ! function_exists( 'Formation_header_style' ) ) :
+/**
+ * Styles the header image and text displayed on the blog
+ *
+ * @see Formation_custom_header_setup().
+ *
+ * @since Formation 1.0
+ */
+function Formation_header_style() {
+
+	// If no custom options for text are set, let's bail
+	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
+	if ( HEADER_TEXTCOLOR == get_header_textcolor() && '' == get_header_image() )
+		return;
+	// If we get this far, we have custom styles. Let's do this.
+	?>
+	<style type="text/css">
+	<?php
+		// Do we have a custom header image?
+		if ( '' != get_header_image() ) :
+	?>
+		.site-header img {
+			display: block;
+		}
+	<?php endif;
+
+		// Has the text been hidden?
+		if ( 'blank' == get_header_textcolor() ) :
+	?>
+		.site-title,
+		.site-description {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		.site-header hgroup {
+			background: none;
+			padding: 0;
+		}
+	<?php
+		// If the user has set a custom color for the text use that
+		else :
+	?>
+		.site-title a,
+		.site-description {
+			color: #<?php echo get_header_textcolor(); ?> !important;
+		}
+	<?php endif; ?>
+	</style>
+	<?php
+}
+endif; // Formation_header_style
+
+if ( ! function_exists( 'Formation_admin_header_style' ) ) :
+/**
+ * Styles the header image displayed on the Appearance > Header admin panel.
+ *
+ * @see Formation_custom_header_setup().
+ *
+ * @since Formation 1.0
+ */
+function Formation_admin_header_style() {
+?>
+	<style type="text/css">
+	.appearance_page_custom-header #headimg {
+		background: #FFF;
+		border: none;
+		min-height: 200px;
+	}
+	#headimg h1 {
+		font-size: 20px;
+		font-family: 'open_sansbold', sans-serif;
+		font-weight: normal;
+		padding: 0.8em 0.5em 0;
+	}
+	#desc {
+		padding: 0 2em 2em;
+	}
+	#headimg h1 a,
+	#desc {
+		color: #222;
+		text-decoration: none;
+	}
+	#headimg img {
+	}
+	</style>
+<?php
+}
+endif; // Formation_admin_header_style
+
+if ( ! function_exists( 'Formation_admin_header_image' ) ) :
+/**
+ * Custom header image markup displayed on the Appearance > Header admin panel.
+ *
+ * @see Formation_custom_header_setup().
+ *
+ * @since Formation 1.0
+ */
+function Formation_admin_header_image() { ?>
+	<div id="headimg">
+		<?php
+		if ( 'blank' == get_header_textcolor() || '' == get_header_textcolor() )
+			$style = ' style="display:none;"';
+		else
+			$style = ' style="color:#' . get_header_textcolor() . ';"';
+		?>
+		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+		<?php $header_image = get_header_image();
+		if ( ! empty( $header_image ) ) : ?>
+			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
+		<?php endif; ?>
+	</div>
+<?php }
+endif; // Formation_admin_header_image

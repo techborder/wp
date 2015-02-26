@@ -1,0 +1,16 @@
+<div id="button_{uID}" class="friendly_button friendly_button_{TYPE} friendly_button_{BORDERSTYLE} friendly_button_{ALIGN} ">
+	<a href="{URL}" style="background-color:{BGCOLOR}; border-color:{BORDERCOLOR}"; target="{TARGET}" onmouseover="hover{uID}({uID});" onmouseout="out{uID}({uID});" >
+		<span style="{BG}; color:{COLOR}; font-size:{SIZE}px">
+			{CONTENT}
+		</span>
+	</a>
+	<script>
+		function hover{uID}(id){
+			$("#button_"+id+" a span").css({color:"{HOVERCOLOR}"});
+		}
+		
+		function out{uID}(id){
+			$("#button_"+id+" a span").css({color:"{COLOR}"});
+		}
+	</script>
+</div>

@@ -1,0 +1,33 @@
+<div id="web-business-popup-settings">
+		<div>
+			<label for="tabs-width">Width</label>
+			<input type="text" name="tabs-width" id="tabs-width" value="100%" />
+		</div>
+		<div>
+			<label for="tabs-tabsize">Link Font Size</label>
+			<input type="text" name="tabs-tabsize" value="12" id="tabs-tabsize" />
+		</div>
+		<div>
+			<label for="tabs-contentsize">Content Font Size</label>
+			<input type="text" name="tabs-contentsize" value="12" id="tabs-contentsize" />
+		</div>
+		<div>
+			<a class="add-new-tab" href="#add-new">ADD New Tab</a>
+		</div>
+		<div class="tab-settings" data-id="1">
+			<span class="number">Tab No#1</span>
+			<a class="remove" href="#remove">Remove</a>
+			<label>Title</label><input data-id="wd_tabs_input_1" value="Title 1" type="text" />
+			<label>Content</label><textarea data-id="wd_tabs_content_input_1">Content 1</textarea>
+		</div>
+</div>
+<div id="web-business-popup-preview">
+	<div id="preview-tabs" class="wd_tabs_block">
+		<ul class="wd_tabs preview">
+			<li id="wd_tabs_1"><a href="#wd_tabs_content_1" class="active">First tab</a></li>
+		</ul>
+		<ul class="wd_tabs_content preview">
+			<li id="wd_tabs_content_1" class="active"><div>First Content</div></li>
+		</ul>
+	</div>
+</div>

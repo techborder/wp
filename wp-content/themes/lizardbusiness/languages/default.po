@@ -1,0 +1,364 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Business v1.0\n"
+"POT-Creation-Date: 2013-12-16 14:25+0400\n"
+"PO-Revision-Date: 2013-12-16 14:25+0400\n"
+"Last-Translator: \n"
+"Language-Team: LizardThemes.com <support@lizardthemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../archive.php:1
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../archive.php:1
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../archive.php:1
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../archive.php:1
+msgid "Archives"
+msgstr ""
+
+#: ../author.php:3
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../category.php:4
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../comments.php:13
+#, php-format
+msgid "One Response to &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: ../comments.php:24
+msgid "Comment navigation"
+msgstr ""
+
+#: ../comments.php:25
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:26
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../comments.php:33
+msgid "Comments are closed."
+msgstr ""
+
+#: ../content-page.php:11
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../content-page.php:12 ../content.php:21
+msgid "Pages:"
+msgstr ""
+
+#: ../content-slide.php:12
+msgid "Read More"
+msgstr ""
+
+#: ../content.php:7 ../content.php:28
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../content.php:28
+msgid "MORE"
+msgstr ""
+
+#: ../content.php:33
+msgid "Tags"
+msgstr ""
+
+#: ../functions.php:95 ../inc/default.php:78
+msgid "Main Menu"
+msgstr ""
+
+#: ../functions.php:96
+msgid "Extra Menu"
+msgstr ""
+
+#: ../functions.php:104 ../functions.php:106 ../inc/author.php:44
+msgid "Right sidebar"
+msgstr ""
+
+#: ../functions.php:113 ../functions.php:115 ../inc/author.php:45
+msgid "Left sidebar"
+msgstr ""
+
+#: ../functions.php:122
+msgid "Tabs"
+msgstr ""
+
+#: ../functions.php:124
+msgid "Sadebar for Tabs widget"
+msgstr ""
+
+#: ../functions.php:131
+msgid "Footer left"
+msgstr ""
+
+#: ../functions.php:133
+msgid "Left footer widgets"
+msgstr ""
+
+#: ../functions.php:140
+msgid "Footer middle"
+msgstr ""
+
+#: ../functions.php:142
+msgid "Middle footer widgets"
+msgstr ""
+
+#: ../functions.php:149
+msgid "Footer right"
+msgstr ""
+
+#: ../functions.php:151
+msgid "Right footer widgets"
+msgstr ""
+
+#: ../functions.php:346
+msgid "Home"
+msgstr ""
+
+#: ../functions.php:370
+msgid "Pingback:"
+msgstr ""
+
+#: ../functions.php:370 ../functions.php:399
+msgid "Edit"
+msgstr ""
+
+#: ../functions.php:383
+msgid "Post author"
+msgstr ""
+
+#: ../functions.php:388
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../functions.php:394
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../functions.php:403
+msgid "Reply"
+msgstr ""
+
+#: ../functions.php:425
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../loop.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: ../loop.php:18
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../navigation.php:9
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../navigation.php:10
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../navigation.php:31
+msgid "Next page"
+msgstr ""
+
+#: ../relatedposts.php:1
+msgid "Related Posts"
+msgstr ""
+
+#: ../relatedposts.php:1
+msgid "No related posts"
+msgstr ""
+
+#: ../search.php:4
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../searchform.php:1
+msgid "search"
+msgstr ""
+
+#: ../tag.php:4
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../inc/admin.php:58
+msgid "New configuration saved."
+msgstr ""
+
+#: ../inc/admin.php:74
+msgid "Your message was sent to support."
+msgstr ""
+
+#: ../inc/author.php:15
+msgid "Show this record in the showroom"
+msgstr ""
+
+#: ../inc/author.php:16
+msgid "Select page template"
+msgstr ""
+
+#: ../inc/author.php:31
+msgid "To show this item in showroom, select \""
+msgstr ""
+
+#: ../inc/author.php:43 ../inc/frontend.php:26
+msgid "Default"
+msgstr ""
+
+#: ../inc/author.php:46
+msgid "Both sidebars"
+msgstr ""
+
+#: ../inc/author.php:47
+msgid "Full width"
+msgstr ""
+
+#: ../inc/dashboard.php:179
+msgid "How to start"
+msgstr ""
+
+#: ../inc/dashboard.php:180
+msgid "Theme Homepage"
+msgstr ""
+
+#: ../inc/dashboard.php:181
+msgid "Support Forums"
+msgstr ""
+
+#: ../inc/dashboard.php:196
+msgid "Save Changes"
+msgstr ""
+
+#: ../inc/dashboard.php:197
+msgid "Reset"
+msgstr ""
+
+#: ../inc/dashboard.php:197
+msgid "settings"
+msgstr ""
+
+#: ../inc/dashboard.php:203
+msgid "How to start?"
+msgstr ""
+
+#: ../inc/dashboard.php:251
+msgid "Theme Author"
+msgstr ""
+
+#: ../inc/dashboard.php:278 ../inc/dashboard.php:413 ../inc/dashboard.php:435
+msgid "Upload"
+msgstr ""
+
+#: ../inc/dashboard.php:346
+msgid "Attach system details to the message"
+msgstr ""
+
+#: ../inc/dashboard.php:347
+msgid "Type your message here..."
+msgstr ""
+
+#: ../inc/dashboard.php:409 ../inc/dashboard.php:429
+msgid "Remove"
+msgstr ""
+
+#: ../inc/dashboard.php:412 ../inc/dashboard.php:434
+msgid "Title"
+msgstr ""
+
+#: ../inc/dashboard.php:413 ../inc/dashboard.php:435
+msgid "Image"
+msgstr ""
+
+#: ../inc/dashboard.php:414 ../inc/dashboard.php:436
+msgid "Description"
+msgstr ""
+
+#: ../inc/dashboard.php:415 ../inc/dashboard.php:437
+msgid "Link"
+msgstr ""
+
+#: ../inc/dashboard.php:421 ../inc/dashboard.php:443
+msgid "Add new slide..."
+msgstr ""
+
+#: ../inc/dashboard.php:426 ../inc/dashboard.php:434
+msgid "New slide"
+msgstr ""
+
+#: ../inc/default.php:75
+msgid "Logo"
+msgstr ""
+
+#: ../inc/default.php:76
+msgid "Search"
+msgstr ""
+
+#: ../inc/default.php:77
+msgid "Secondary Menu"
+msgstr ""
+
+#: ../inc/default.php:79
+msgid "Slider"
+msgstr ""
+
+#: ../inc/default.php:80
+msgid "Showroom"
+msgstr ""
+
+#: ../inc/default.php:81
+msgid "Left Sidebar"
+msgstr ""
+
+#: ../inc/default.php:82
+msgid "Right Sidebar"
+msgstr ""
+
+#: ../inc/default.php:83
+msgid "Footer"
+msgstr ""
+
+#: ../inc/frontend.php:23
+msgid "Heading font"
+msgstr ""
+
+#: ../inc/frontend.php:24
+msgid "Text font"
+msgstr ""
+
+#: ../inc/frontend.php:25
+msgid "Menus and buttons font"
+msgstr ""

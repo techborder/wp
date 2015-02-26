@@ -13,7 +13,9 @@
 
 get_header(); ?>
 		<header class="entry-header">
-		<h1 class="page-title"><?php the_title(); ?> <span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
+        <div class="title-container">
+		<h1 class="page-title"><?php the_title(); ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
+        </div>
 		</header><!-- .entry-header -->
 		<div id="primary_wrap">
 		<div id="primary" class="content-area">

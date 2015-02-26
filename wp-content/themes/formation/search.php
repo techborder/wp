@@ -9,7 +9,9 @@
 get_header(); ?>
 
 		<header class="entry-header">
-		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'Formation' ), '<span>' . get_search_query() . '</span>' ); ?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
+        <div class="title-container">
+		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'Formation' ), '<span>' . get_search_query() . '</span>' ); ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
+        </div>
 		</header><!-- .entry-header -->
 
 		<div id="primary_wrap">

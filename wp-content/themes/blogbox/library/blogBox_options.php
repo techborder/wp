@@ -25,24 +25,13 @@
 global $blogBox_options; // This is the array that holds all the options
 
 function blogBox_enqueue_admin_style($hook) {// Enqueue Custom Admin Page Stylesheet
+
 	//Only enqueue if the admin page is loaded
 	 if( 'appearance_page_blogBox-settings' != $hook ) return;
 	//Page is loaded so go ahead
-	global $wp_version;
-	//$wp_version = 3.4;
 	wp_enqueue_style( 'blogBox_admin_stylesheet', get_template_directory_uri() . '/library/blogBox_options_css.css', '', false );
-	//If the WordPress version is greater than or equal to 3.5, then load the new WordPress color picker.
-    if ( 3.5 <= $wp_version ){
-        //Both the necessary css and javascript have been registered already by WordPress, so all we have to do is load them with their handle.
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'wp-color-picker' );
-    }
-    //If the WordPress version is less than 3.5 load the older farbtasic color picker.
-    else {
-        //As with wp-color-picker the necessary css and javascript have been registered already by WordPress, so all we have to do is load them with their handle.
-        wp_enqueue_style( 'farbtastic' );
-        wp_enqueue_script( 'farbtastic' );
-    }
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script( 'wp-color-picker' );
 	wp_enqueue_script( 'blogBox_theme_settings_js', get_template_directory_uri() . '/library/blogBox_options_js.js', array('jquery'), '1', true );
 	wp_enqueue_script('thickbox');  
     wp_enqueue_style('thickbox');  
@@ -162,56 +151,6 @@ function blogBox_get_option_parameters() {
 			'tab' => 'general',
 			'default' => 0, // 0 for off
 			'class' => 'checkbox'
-		),	
-		'bB_use_post_format_icons' => array(
-			'name' => 'bB_use_post_format_icons',
-			'title' => __('Use post format icons','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to include the different post icons.','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0, // 0 for off
-			'class' => 'checkbox'
-		),
-		'bB_exclude_timestamp' => array(
-			'name' => 'bB_exclude_timestamp',
-			'title' => __('Exclude timestamp in posts','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to exclude','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0, // 0 for off
-			'class' => 'checkbox'
-		),
-		'bB_exclude_author' => array(
-			'name' => 'bB_exclude_author',
-			'title' => __('Exclude author in posts','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to exclude','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0, // 0 for off
-			'class' => 'checkbox'
-		),
-		'bB_exclude_category' => array(
-			'name' => 'bB_exclude_category',
-			'title' => __('Exclude categories in posts','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to exclude','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0, // 0 for off
-			'class' => 'checkbox'
-		),
-		'bB_exclude_tags' => array(
-			'name' => 'bB_exclude_tags',
-			'title' => __('Exclude tags in posts','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to exclude','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0, // 0 for off
-			'class' => 'checkbox'
 		),
 		'bB_exclude_mystery_gravatar' => array(
 			'name' => 'bB_exclude_mystery_gravatar',
@@ -253,16 +192,6 @@ function blogBox_get_option_parameters() {
 			'default' => 0,// 0 for off
 			'class' => 'checkbox' 
 		),
-		'bB_use_fullwidth_single_post' => array(
-			'name' => 'bB_use_fullwidth_single_post',
-			'title' => __('Use fullwidth for single post','blogBox'),
-			'type' => 'checkbox',
-			'description' => __('Check to use fullwidth','blogBox'),
-			'section' => 'general',
-			'tab' => 'general',
-			'default' => 0,// 0 for off
-			'class' => 'checkbox' 
-		),
 		'bB_disable_colorbox' => array(
 			'name' => 'bB_disable_colorbox',
 			'title' => __('Disable Colorbox jQuery plugin','blogBox'),
@@ -293,12 +222,78 @@ function blogBox_get_option_parameters() {
 			'default' => 1,// 0 for off
 			'class' => 'checkbox' 
 		),
-		'bB_disable_audiojs' => array(
-			'name' => 'bB_disable_audiojs',
-			'title' => __('Disable Audio jQuery player','blogBox'),
+/* Blog Section */
+		'bB_blog_layout_option' => array(
+			'name' => 'bB_blog_layout_option',
+			'title' => __('Blog Layout Option','blogBox'),
+			'type' => 'select',
+			'valid_options' => array( 
+				'normal-no slider or home sections',
+				'fullwidth-no slider or home sections',
+				'feature slider plus home sections'							
+			),
+			'description' => __('Select the layout you want)','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 'normal-no slider or home sections',
+			'class' => 'select'
+		),
+		'bB_use_post_format_icons' => array(
+			'name' => 'bB_use_post_format_icons',
+			'title' => __('Use post format icons','blogBox'),
 			'type' => 'checkbox',
-			'description' => __('Select disable the audio.js player','blogBox'),
-			'section' => 'general',
+			'description' => __('Check to include the different post icons.','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 0, // 0 for off
+			'class' => 'checkbox'
+		),
+		'bB_exclude_timestamp' => array(
+			'name' => 'bB_exclude_timestamp',
+			'title' => __('Exclude timestamp in posts','blogBox'),
+			'type' => 'checkbox',
+			'description' => __('Check to exclude','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 0, // 0 for off
+			'class' => 'checkbox'
+		),
+		'bB_exclude_author' => array(
+			'name' => 'bB_exclude_author',
+			'title' => __('Exclude author in posts','blogBox'),
+			'type' => 'checkbox',
+			'description' => __('Check to exclude','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 0, // 0 for off
+			'class' => 'checkbox'
+		),
+		'bB_exclude_category' => array(
+			'name' => 'bB_exclude_category',
+			'title' => __('Exclude categories in posts','blogBox'),
+			'type' => 'checkbox',
+			'description' => __('Check to exclude','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 0, // 0 for off
+			'class' => 'checkbox'
+		),
+		'bB_exclude_tags' => array(
+			'name' => 'bB_exclude_tags',
+			'title' => __('Exclude tags in posts','blogBox'),
+			'type' => 'checkbox',
+			'description' => __('Check to exclude','blogBox'),
+			'section' => 'blog',
+			'tab' => 'general',
+			'default' => 0, // 0 for off
+			'class' => 'checkbox'
+		),
+		'bB_use_fullwidth_single_post' => array(
+			'name' => 'bB_use_fullwidth_single_post',
+			'title' => __('Use fullwidth for single post','blogBox'),
+			'type' => 'checkbox',
+			'description' => __('Check to use fullwidth','blogBox'),
+			'section' => 'blog',
 			'tab' => 'general',
 			'default' => 0,// 0 for off
 			'class' => 'checkbox' 
@@ -1218,9 +1213,11 @@ function blogBox_get_option_parameters() {
 			'valid_options' => array( 
 				'Small slides and feature text box',
 				'Small slides and feature text box-thumbnails',
+				'Small slides and feature text box-nonav',
 				'Small single image and feature text box',
 				'Full feature slides',
 				'Full feature slides-thumbnails',
+				'Full feature slides-nonav',
 				'Full single image',
 				'No feature'
 			),
@@ -1891,6 +1888,11 @@ function blogBox_get_settings_page_tabs() {
 				'general' => array(
 					'name' => 'general',
 					'title' => __( 'General Options', 'blogBox' ),
+					'description' => ''
+				),
+				'blog' => array(
+					'name' => 'blog',
+					'title' => __( 'Blog Options', 'blogBox' ),
 					'description' => ''
 				),
 				'header' => array(

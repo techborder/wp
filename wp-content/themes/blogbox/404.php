@@ -15,10 +15,10 @@
 
 <div id="widecolumn">
 	<div class="not_found_404">
-		<i class="red icon-frown icon-4x"></i>
+		<i class="red fa fa-frown-o fa-4x"></i>
 		<h1><?php _e('Sorry - Page Not Found','blogBox'); ?></h1><br/><br/>
 		<h2><?php _e('Sorry but we can\'t find what you were looking for.','blogBox'); ?>
-		<?php _e('Can you refine your search and try again?','blogBox'); ?>&nbsp;<i class="green icon-smile icon-2x"></i></h2>
+		<?php _e('Can you refine your search and try again?','blogBox'); ?>&nbsp;<i class="green fa fa-smile-o fa-2x"></i></h2>
 	</div>
 </div>
 <?php get_sidebar('404'); ?>

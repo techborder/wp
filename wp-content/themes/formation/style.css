@@ -3,8 +3,8 @@ Theme Name: Formation
 Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Ossie Heffell
 Author URI: http://www.templateexpress.com/
-Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes.
-Version: 1.9.6
+Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes. This theme is WPML compatible.
+Version: 1.9.8
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -637,6 +637,10 @@ a.more-link:hover {
 	float: left;
 	width: 28%;
 	padding: 12px 0;
+	
+}
+.header-image img {
+	margin-bottom: -10px;
 	
 }
 .site-title {

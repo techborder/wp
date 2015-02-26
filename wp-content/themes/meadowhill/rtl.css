@@ -1,0 +1,189 @@
+/*
+Theme Name: MeadowHill
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+*/
+
+p, ul, ol, li, dl, address {
+  text-align: right;
+}
+ul {
+  margin-right: 15px;   
+}
+ol {
+  margin-right: 20px;
+}
+table, td, th {
+  text-align: right;
+}
+blockquote, q { 
+  border-left: none;
+  border-right: 1px solid #cccccc;
+  padding-right: 20px;
+}
+
+
+/* basic structure
+-------------------------------------------------------------- */
+
+body {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+#content {
+  float: right;
+  margin: 0 0 40px 50px; 
+}
+#wrapper .full-width {
+  margin-left: 0;                   
+}
+#sidebar {
+  float: left;
+}
+.scroll-top {
+  left: 10px;
+  right: auto;            
+}
+
+
+/* header
+-------------------------------------------------------------- */
+
+.header-bar {
+  right: 0;          
+}
+.title-box {
+  float: right;           
+}
+.menu-box {
+  float: left;           
+}
+.site-title {
+  margin: 15px 22px 0 0;    
+}
+.header-logo {
+  right: 22px;            
+}
+#header .header-description {  
+  right: 0;                           
+}
+
+/* header menu */
+/* 
+This copyright notice must be untouched at all times.
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/final_drop3.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any 
+way to fit your requirements. */
+/* style the outer div to give it width */
+/* remove all the bullets, borders and padding from the default list styling */
+.menu-box ul {
+  float: left;
+}
+/* float the top list items to make it horizontal and a relative positon so that you can control the dropdown menu positon */
+.menu-box ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 37px;
+}
+/* style the links for the top level */
+.menu-box a,
+.menu-box a:visited {
+  float: right;
+}
+/* hide the sub levels and give them a positon absolute so that they take up no room */
+.menu-box ul ul {
+  left: 0px;
+}
+/* position the third level flyout menu */
+.menu-box ul ul ul {
+  right: -212px;
+} 
+
+
+/* main content
+-------------------------------------------------------------- */
+
+#content .section-headline {
+  text-align: right;                           
+}
+#meadowhill-post-nav {
+  text-align: right;                     
+}
+
+/* post entry */
+.post-thumbnail {
+  clear: right;
+  float: right;
+  margin: 0 30px 0 25px;          
+}
+.post-entry-content {
+  float: left;
+  margin-left: 30px;
+  margin-right: 0;               
+}
+.post-info span { 
+  border: none;
+  padding: 0 34px 0 10px;
+  text-align: right;                
+}
+.post-info .post-info-date {
+  background: right top no-repeat url(images/icon-date.png);
+  padding-right: 22px;               
+}
+.post-info .post-info-author {
+  background: right top no-repeat url(images/icon-author.png);                
+}
+.post-info .post-info-category {
+  background: right top no-repeat url(images/icon-category.png);                
+}
+.post-info .post-info-tags {
+  background: right top no-repeat url(images/icon-tag.png);                
+}
+.post-info .post-info-comments {
+  background: right top no-repeat url(images/icon-comments.png);               
+}
+
+
+/* form fields
+-------------------------------------------------------------- */
+
+#searchform .searchform-wrapper #s {
+  padding: 5px 10px 5px 0;
+  left: 0;        
+}
+
+
+/* comments area
+-------------------------------------------------------------- */
+
+#comments .avatar,
+#comments .fn {
+  float: right;                  
+}
+#comments time,
+#comments .edit-link {
+  float: left;             
+}
+#comments #comment-nav-below {
+  text-align: right;                  
+}
+#content .comment-content .edit-link {
+  text-align: left;                                    
+}
+
+
+/* media queries
+-------------------------------------------------------------- */
+
+@media screen and (max-width: 1100px) {
+  .post-entry .post-thumbnail {
+    margin: 0 3% 0 3%;                  
+}
+}
+
+@media screen and (max-width: 800px) {
+  #wrapper #wrapper-header #header .header-logo {
+    right: 5%;              
+}
+}

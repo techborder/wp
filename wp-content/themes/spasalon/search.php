@@ -1,8 +1,8 @@
-<?php get_header();?>
+<?php get_template_part('pink','header'); ?>
 <div class="container">
   <div class="_blank"></div>
   <div class="row-fluid">
-    <div class="span8" id="main-content">
+    <div class="<?php if(!is_active_sidebar('sidebar-primary')){ echo 'span12'; }else { echo 'span8'; } ?>" id="main-content">
       <?php if ( have_posts() ) : ?>
       <h2><?php printf( __( "Search Results for:", 'sis_spa' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
       <?php /* Start the Loop */ ?>
@@ -20,7 +20,7 @@
           </ul>
         </div>
         <div class="media-body">
-          <h4 class="blog-detail-head"><a href="<?php the_permalink(); ?>"title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
+        <h4 class="blog-detail-head"><a href="<?php the_permalink(); ?>"title="<?php get_search_query(); ?>"></a></h4>
           <div class="blog_content">
             <p><?php the_excerpt();?></p>
           </div>

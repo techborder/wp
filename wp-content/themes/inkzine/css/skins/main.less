@@ -74,6 +74,7 @@ code {
 	right: 0;
 	bottom: 0;
 	z-index: 1;
+	background-size: cover;
 }
 #page {
 	position: relative;
@@ -90,9 +91,7 @@ code {
 	position: relative;
 	z-index: 99999;
 	opacity: 1;
-	border-bottom: 2px solid #B2B2B2;
-	background: url(../../images/topbar.png) top center repeat-x, white;
-	padding-top: 24px;
+	border-bottom: 2px solid #eee;
 }
 #top-bar .container {
 	position: relative;
@@ -104,7 +103,7 @@ code {
 	background: #fff;
 	padding: 5px 20px;
 	box-shadow: 0 2px 2px #8a8a8a;
-	border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px; 
 	border-bottom-right-radius: 5px;
 	.show-fake {
 		font-size: 22px;
@@ -148,6 +147,7 @@ body {
 }
 #masthead {
 	margin: 60px auto;
+	margin-bottom: 20px;
 	text-align: center;	
 }
 .site-title {
@@ -172,6 +172,32 @@ body {
 }
 .main_logo {
 	max-width: 390px;
+}
+#social-icons-top {
+	text-align: center;
+	a {
+		display: inline-block;
+		opacity: 0.9;
+		-webkit-perspective: 1000;
+		&:hover img {
+			-webkit-perspective: 1000;
+			-webkit-transform: rotateX(-30deg);
+			transform: rotateX(-30deg);
+			transform-origin: bottom;
+			opacity: 1;
+		}
+	}
+	img {
+		width:36px;
+		height: 36px;
+		opacity: .9;
+		transition: 0.4s all ease;
+		display: inline-block;
+		-webkit-perspective: 1000;
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
 @media screen and (max-width: 400px) {
 	.main_logo {
@@ -204,8 +230,11 @@ a:active {
 	color: @link-hover-color;
 }
 
+
+
 /* 5. Carousel Wrapper
 ------------------------------------------------------- */
+/*
 
 #carousel-wrapper {
 	margin-bottom: 55px;
@@ -219,10 +248,11 @@ a:active {
 		text-transform: uppercase;
 		margin-bottom: 25px;
 		&:after {
-			content: url(../../images/poonch.png);
+			content: "";
 			height: 0;
 			width: 0;
 			position: absolute;
+			border-top: solid 8px @link-color;
 			top: 0;
 			margin-top: 27px;
 			margin-left: -2px;
@@ -309,30 +339,33 @@ a:active {
 }
 @media screen and (max-width: 420px) {
 }
-@tickr-color: #9f9f9f;
+*/
+@tickr-color: #fff;
 #tickr-wrapper {
-	height: 49px;
-	background: url(../../images/tickrbg.png) repeat;
-	margin-bottom: 50px;
+	height: 40px;
+	background-image: url(../../images/pattern.jpg);
+	padding: 0px;;
+	#tickr-bg {
+		background: rgba(0,0,0,0.6);
+		width: 100%;
+		overflow: auto;
+		height: 100%;
+	}
 	.bx-viewport {
-		height: 30px;
+		height: 25px;
 	}
 	.tickr-inner-wrapper {
-		max-width: 1180px;
 		overflow: hidden;
-		background: white;
 		padding: 0px 10px;
 		margin-top: 7px;
 		height: 35px;
 	}
 	.bxtickr {
 		margin-left: 0px;
-		max-width: 1180px;
 		overflow: hidden;
-		background: white;
-		padding: 8px;
-		height: 30px;
-		background: white;
+		background:none;
+		padding: 1px 8px;
+		height: 25px;
 		li {
 			display: inline;
 			padding: 0px 20px;
@@ -353,6 +386,9 @@ a:active {
 @cat-6: #B90480;
 
 #showcase {
+	padding: 45px;
+	background: #eee;
+	border-top: solid 4px #ddd;
 	ul.sc {
 		margin-left: 0px;
 		/* list-style: none; */
@@ -371,7 +407,7 @@ a:active {
 			}
 		}
 		a {
-			color: lighten(grey,20%);
+			color: lighten(grey,1%);
 		}
 		.sc-date {
 			font-style: italic;
@@ -386,14 +422,14 @@ a:active {
 		text-transform: uppercase;
 		margin-bottom: 35px;
 		padding-right: 20px;
+		position: relative;
 		&:after {
+			content: "";
 			height: 0;
-			width: 0;
+			width: 5px;
 			position: absolute;
-			top: 0;
-			margin-top: 31px;
-			margin-left: -3px;
-			
+			bottom: -12px;
+			right: 0;
 		}
 	}	
 }
@@ -401,18 +437,21 @@ a:active {
 	.sc-heading {
 		background: @cat-1;
 		&:after {
-			content: url(../../images/poonch-1.png); }
+			border-top: solid 12px darken(@cat-1,15%);
+			border-right: solid 22px transparent; 
+		}
 	}
 	.sc-date {
-			color: @cat-1;
+			color: darken(@cat-1,6%);
 		}
-
 }
 .showcase-2 {
 	.sc-heading {
 		background: @cat-2;
 		&:after {
-			content: url(../../images/poonch-2.png); }
+			border-top: solid 12px darken(@cat-2,15%);
+			border-right: solid 22px transparent; 
+		}
 	}
 	.sc-date {
 			color: @cat-2;
@@ -423,7 +462,9 @@ a:active {
 	.sc-heading {
 		background: @cat-3;
 		&:after {
-			content: url(../../images/poonch-3.png); }
+			border-top: solid 12px darken(@cat-3,15%);
+			border-right: solid 22px transparent; 
+		}
 	}
 	.sc-date {
 			color: @cat-3;
@@ -472,7 +513,7 @@ a:active {
 				top: 3.3em;
 				left: 0;
 			z-index: 99999;
-			background: @menu-hover;
+			background: #f7f7f7;
 			text-align: left;
 			border: none;
 			padding-top: 0px;
@@ -522,7 +563,6 @@ a:active {
 	a {
 		display: block;
 		text-decoration: none;
-		text-shadow: 0px 1px 1px #999;
 		color: @menu-link-color;
 		text-decoration: none;
 		padding: 15px 20px;
@@ -541,7 +581,7 @@ a:active {
 	}
 	li:hover > a {
 			color: @link-color;
-			background: #eee;
+			background: #f7f7f7;
 		}
 	ul ul li:hover > a {
 		background: @menu-bar-bg;
@@ -639,17 +679,29 @@ a:active {
 	}
 */
 }
-
-
 /* 6. Slider
 -------------------------------------------------*/
 
-.slider-wrapper {
+#slider-wrapper {
 	margin: auto;
-	margin-top: 35px;
+	margin-top: 45px;
 	background: fade(white,80%);
 	padding-top: 15px;
-	margin-bottom: 40px;
+	margin-bottom: -10px;
+	.fa-angle-left {
+		margin-left: 20px;
+		color: white;
+		&:hover {
+			color: #eee;
+		}
+	}
+	.fa-angle-right {
+		margin-left: 45px;	
+		color: white;
+		&:hover {
+			color: #eee;
+		}
+	}
 }
 .slide-title {
 	.font-heading;
@@ -662,6 +714,7 @@ a:active {
   bottom: 15px;
   left: 10px;
 }
+
 .nivo-html-caption {
 	display: none;
 }
@@ -690,10 +743,9 @@ div.slide-description {
 
 #content {
 	background: white;
-	border-top: solid 4px @top-bar-bg;
 	padding: none;
-	padding-top: 15px;
-	margin-right: 0px;
+	padding-top: 0px;
+	margin-right: 0px;  
 	margin-left: 0px;
 }
 
@@ -704,8 +756,8 @@ div.slide-description {
 	margin-top: 60px;
 	overflow: hidden;
 	-webkit-backface-visibility: hidden;
--moz-backface-visibility:    hidden;
--ms-backface-visibility:     hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
 	padding: 0px;
 	#primary-title {
 		background: red;
@@ -714,14 +766,17 @@ div.slide-description {
 		color: white;
 		text-transform: uppercase;
 		margin-bottom: 25px;
+		position: relative;
+		margin-left: 15px;
 		&:after {
-			content: url(../../images/poonch.png);
+			content: "";
+			border-top: solid 12px darken(@link-color,15%);
+			border-right: solid 22px transparent; 
 			height: 0;
 			width: 0;
+			right: 0;
 			position: absolute;
-			top: 0;
-			margin-top: 27px;
-			margin-left: -2px;
+			bottom: -12px;
 		}
 	}
 	.masa {
@@ -737,11 +792,8 @@ div.slide-description {
 	}
 	#masonry {
 		margin-bottom: 60px;
-	}
-}
-@media screen and (min-width: 992px) {
-	#masonry {
-		width: 102%;
+		overflow: visible;
+		margin-left: -10px;
 	}
 }
 
@@ -755,6 +807,8 @@ div.slide-description {
 	color: white;
 	font-weight: lighter;
 	padding: 25px 0px;
+	border-top: none;
+	margin-top: 40px;
 	box-shadow: inset 0px 5px 10px -5px #4a4a4a, inset 0px -5px 10px -5px #4a4a4a;
 	.font;
 	.bar-entry-title {
@@ -774,6 +828,7 @@ div.slide-description {
 	overflow: hidden;
 	width: 95%;
 	padding: 0px; 
+	transition: 0.4s all ease;
 	.img-meta {
 		position: absolute;
 		z-index: 9999;
@@ -781,9 +836,11 @@ div.slide-description {
 		.font;
 		width: 100%;
 		height: 100%;
-		left: 0px;
-		display: none;
+		top: -30%;
+		opacity: 0;
+		display: block;
 		text-align: center;
+		transition: 0.4s all ease;
 		.meta-title {
 			color: white;
 			font-size: 17px;
@@ -826,9 +883,12 @@ div.slide-description {
 	&:hover {
 		.img-meta {
 			background: fade(black,65%);
+			top: 0;
+			opacity: 1;
 		}
 		img {
-			-webkit-transform: scale(1.05);
+			transform: scale(1.1);
+			-webkit-transform: scale(1.1);
 			opacity: 0.98;
 		}
 	}
@@ -840,8 +900,72 @@ div.slide-description {
 		height: auto; 
 	}
 }
+.artmain {
+	.main-article {
+		margin: 10px auto;
+	    border: 10px solid darken(@default-background,4%);
+	    outline: solid 1px darken(@default-background,10%);
+	    overflow: hidden;
+	    position: relative;
+	    text-align: center;
+	    cursor: default;
+	    margin-bottom: 0;
+	}
+	.main-article .main-content, .main-article .content {
+	    position: absolute;
+	    overflow: hidden;
+	    top: 0;
+	    left: 100%;
+	    height: 100%;
+	    padding-top: 20px;
+	    width: 100%;
+	    background: rgba(0,0,0,0.6);
+	}
+	.main-article a {
+		color: white;
+		text-shadow: 0 0 1px #4a4a4a;
+	}
+	.main-article img {
+	    display: block;
+	    margin: auto;
+	}
+	.main-entry-title {
+	    text-transform: none;
+	    a { color: #888; }
+	    text-align: center;
+	    position: relative;
+	    font-size: 14px;
+	    background: darken(@default-background, 4%);
+	    outline: solid 1px darken(@default-background,10%);
+	    padding: 10px;
+	    margin: 0px 0 0 0;
+	}
+	.main-article p {
+	    .font;
+	    font-size: 13px;
+	    font-weight: normal;
+	    position: relative;
+	    color: #fff;
+	    padding: 10px 20px 20px;
+	    text-align: center;
+	}
+	.main-article a.readmore {
+	    display: inline-block;
+	    text-decoration: none;
+	    padding: 7px 14px;
+	    background: black;
+	    border-radius: 1px;
+	    color: #fff;
+	    text-transform: uppercase;
+	    box-shadow: 0 0 1px #000
+	}
+	.main-article a.readmore:hover {
+		background: @link-color;	
+	}
+}
 #primary {
 	padding: 20px 15px;
+	padding-top: 0;
 	.byline {
 		display: inline;
 	}		
@@ -883,7 +1007,6 @@ article.archive {
 	 .entry-title {
 		.font-heading;
 		/* box-shadow: 0px 22px 0px -17px #eBeBeB; */
-		border-bottom: double 4px lighten(@sidebar-link-color,25%);
 		margin-bottom: 20px;
 		padding-bottom: 19px;
 		display: block;
@@ -1031,6 +1154,8 @@ h1.page-title {
 		list-style: none;
 		margin-left: 5px;
 		li:before {
+			display: inline;
+			float: left;
 			margin-right: 5px;
 			content:"\f0da";
 			font-family: "FontAwesome";
@@ -1120,9 +1245,7 @@ h1.page-title {
 			height: 0;
 			width: 0;
 			position: absolute;
-			top: 56px;
 			margin-left: 1px;
-			content: url(../../images/poonch-4.png); 
 			
 		}
 		
@@ -1132,44 +1255,100 @@ h1.page-title {
 	}
 	aside:nth-child(even) h1.widget-title {
 		background: @cat-5;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-5.png);
+			content: "";
+			border-top: solid 12px darken(@cat-5,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(2) h1.widget-title {
 		background: @cat-5;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-5.png);
+			content: "";
+			border-top: solid 12px darken(@cat-5,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(odd) h1.widget-title {
 		background: @cat-6;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-6.png);
+			content: "";
+			border-top: solid 12px darken(@cat-6,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(3) h1.widget-title {
 		background: @cat-6;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-6.png);
+			content: "";
+			border-top: solid 12px darken(@cat-6,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(4) h1.widget-title {
 		background: @cat-4;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-4.png);
+			content: "";
+			border-top: solid 12px darken(@cat-4,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(5) h1.widget-title {
 		background: @cat-3;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-3.png);
+			content: "";
+			border-top: solid 12px darken(@cat-3,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	aside:nth-child(1) h1.widget-title {
 		background: @cat-4;
+		position: relative;
 		&:after {
-			content: url(../../images/poonch-4.png);
+			content: "";
+			border-top: solid 12px darken(@cat-4,15%);
+			border-right: solid 22px transparent; 
+			height: 0;
+			width: 0;
+			right: 0;
+			position: absolute;
+			bottom: -12px;
 		}
 	}
 	.widget_search {
@@ -1209,10 +1388,14 @@ h1.page-title {
 /* 8. Footer Widget Area
 -----------------------------------------------*/
 #footer-sidebar {
+	#footer-inner-wrapper {
+		background: fade(black,60%);
+	}
 	width: 100%;
 	color: white;
 	background: url(../../images/pattern.jpg);
 	box-shadow: inset 0px 8px 12px -8px #4a4a4a;
+	padding: 0;
 	.font-footer;	
 	a {
 		color: white;
@@ -1246,6 +1429,8 @@ h1.page-title {
 		li:before {
 			margin-right: 5px;
 			content:"\f0da";
+			display: inline;
+			float: left;
 			font-family: "FontAwesome";
 		}
 		li {
@@ -1323,11 +1508,8 @@ h1.page-title {
 		font-size: 27px;
 		transition: ease 0.4s all;		
 		&:hover {
-			color: #fff;
-			text-shadow: none;
-			-webkit-transform: rotate(-30deg);
-			-moz-transform: rotate(-30deg);
-			transform: rotate(-30deg);
+			color: #ddd;
+			
 		}
 	}
 	a:hover .social-icon {
@@ -1351,6 +1533,91 @@ h1.page-title {
 	}
 	
 }
+
+/* 5. Slider Wrapper
+------------------------------------------------------- */
+
+	#slider-wrapper {
+		width: 100%;
+		ul {
+			margin-left: 0;
+			.bx-caption {
+					background: rgba(0,0,0,0.6);
+					.font-title;
+					padding-bottom: 10px;
+					font-size: 25px;
+					pointer-events: none;
+					text-align: center;
+				}
+				.bx-next {
+					margin-right: 15px;
+				}
+				.xslide {
+					width: 100%;
+					margin-left: 0px;
+				}	
+				.bx-viewport {
+				}	
+		}
+		.bx-wrapper {
+				.bx-controls-direction a.bx-next {
+					margin-right: 40px;
+				}
+		}	
+		.bx-pager
+	    {
+	    	.bx-page-item {
+	    		width: 35px;
+	    	}
+	    	.bx-pager-link {
+		    	width: 20px;
+		    	height: 8px;
+		    	border-radius: 1px;
+	    	}
+		    .active {
+			background: red !important;
+			}
+		}
+		.bx-next {
+		 	background: none;
+			 margin-right: 40px;
+			 .c-nav-bg {
+				 color: white;
+				 font-size: 42px;
+				 margin-top: 21px;
+			 }
+		 }
+		 .bx-prev {
+			 background: none;
+			 margin-left: -19px;
+			 .c-nav-bg { 
+				 color: white;
+				 font-size: 42px;
+				 margin-top: 21px;
+			 }
+		 }
+		 .bx-controls-direction a {
+			text-indent: 0px;
+			font-size: 42px;
+			top:40%;
+			opacity: 0.8;
+		}
+		.bx-viewport {
+/* 			box-shadow: none; */
+		}
+	}
+	
+@media screen and (max-width: 767px) {
+	#slider-wrapper {
+	 ul {
+		.bx-caption {
+			font-size: 13px;
+		}
+	}}
+}	
+	
+
+
 /* 8. Pagination
 -----------------------------------------------*/
 .pagination {

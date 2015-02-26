@@ -2,8 +2,8 @@
 Contributors: solarissmoke
 Donate link: http://rayofsolaris.net/donate.php
 Tags: comments, disable, global
-Requires at least: 3.5
-Tested up to: 3.9
+Requires at least: 3.6
+Tested up to: 4.0
 Stable tag: trunk
 
 Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. Multisite friendly.
@@ -16,11 +16,11 @@ Additionally, comment-related items can be removed from the Dashboard, Widgets, 
 
 **Important note**: Use this plugin if you don't want comments at all on your site (or on certain post types). Don't use it if you want to selectively disable comments on individual posts - WordPress lets you do that anyway. If you don't know how to disable comments on individual posts, there are instructions in [the FAQ](http://wordpress.org/extend/plugins/disable-comments/faq/).
 
-If you come across any bugs or have suggestions, please use the plugin support forum or contact me at [rayofsolaris.net](http://rayofsolaris.net). I can't fix it if I don't know it's broken! Please check the [FAQ](http://wordpress.org/extend/plugins/disable-comments/faq/) for common issues.
+If you come across any bugs or have suggestions, please use the plugin support forum. I can't fix it if I don't know it's broken! Please check the [FAQ](http://wordpress.org/extend/plugins/disable-comments/faq/) for common issues.
 
 Want to contribute? Here's the [GitHub development repository](https://github.com/solarissmoke/disable-comments).
 
-Thanks to the following people for contributing translations of this plugin: French - [Murat](http://wptheme.fr), German - [Christian Foellmann](http://foe-services.de), Indonesian - [Nasrulhaq Muiz](http://al-badar.net), Russian - [Elvis](http://turkenichev.ru), Vietamese - Rong Say.
+A [must-use version](https://github.com/solarissmoke/disable-comments-mu) of the plugin is also available.
 
 == Frequently Asked Questions ==
 
@@ -48,7 +48,7 @@ If you still see the message, then it means your theme is overriding this behavi
 
 = I only want to disable comments on certain posts, not globally. What do I do? =
 
-For starters, don't install this plugin!
+Don't install this plugin!
 
 Go to the edit page for the post you want to disable comments on. Scroll down to the "Discussion" box, where you will find the comment options for that post. If you don't see a "Discussion" box, then click on "Screen Options" at the top of your screen, and make sure the "Discussion" checkbox is checked.
 
@@ -73,6 +73,12 @@ The plugin provides the option to **completely disable the commenting feature in
 **Please delete any existing comments on your site before applying this setting, otherwise (depending on your theme) those comments may still be displayed to visitors.**
 
 == Changelog ==
+
+= 1.2 =
+* Allow network administrators to disable comments on custom post types across the whole network.
+
+= 1.1.1 =
+* Fix PHP warning when active_sitewide_plugins option doesn't contain expected data type.
 
 = 1.1 =
 * Attempt to hide the comments template ("Comments are closed") whenever comments are disabled.

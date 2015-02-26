@@ -10,6 +10,7 @@ function wppp_render_paypal_button_with_other_amt($args)
 		'return' => site_url(),
 		'country_code' => '',
 		'button_image' => '',
+                'button_text' => '',
 		'cancel_url' => '',
                 'new_window' => '',
                 'tax' => '',
@@ -40,7 +41,7 @@ function wppp_render_paypal_button_with_other_amt($args)
 	$output .= '<div class="wp_paypal_button_widget_any_amt">';
 	$output .= '<form name="_xclick" class="wp_accept_pp_button_form_any_amount" action="https://www.paypal.com/cgi-bin/webscr" method="post" '.$window_target.'>';
 
-	$output .= 'Amount: <input type="text" name="amount" value="" size="5">';
+	$output .= '<div class="wp_pp_button_amount_section">Amount: <input type="text" name="amount" value="" size="5"> '.$currency.'</div>';
 
 	if(!empty($reference)){
 		$output .= '<div class="wp_pp_button_reference_section">';
@@ -51,7 +52,7 @@ function wppp_render_paypal_button_with_other_amt($args)
 		$output .= '</div>';
 	}
 			
-	$output .= '<input type="hidden" name="cmd" value="_xclick">';
+	$output .= '<input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="bn" value="TipsandTricks_SP" />';
 	$output .= '<input type="hidden" name="business" value="'.$email.'">';
 	$output .= '<input type="hidden" name="currency_code" value="'.$currency.'">';
 	$output .= '<input type="hidden" name="item_name" value="'.stripslashes($description).'">';
@@ -67,7 +68,13 @@ function wppp_render_paypal_button_with_other_amt($args)
 	}
 
 	$output .= '<div class="wp_pp_button_submit_btn">';
-	$output .= '<input type="image" id="buy_now_button" src="'.$payment_button_img_src.'" border="0" name="submit" alt="Make payments with PayPal">';
+        if(!empty($button_text)){//Use text button
+            $button_class = apply_filters('wppp_text_button_class','');
+            $output .= '<input type="submit" name="submit" class="'.$button_class.'" value="'.$button_text.'" />';
+        }
+        else{//Use image button
+            $output .= '<input type="image" id="buy_now_button" src="'.$payment_button_img_src.'" border="0" name="submit" alt="Make payments with PayPal">';
+        }	
 	$output .= '</div>';
 	$output .= '</form>';
 	$output .= '</div>';
@@ -86,6 +93,7 @@ function wppp_render_paypal_button_form($args)
 		'country_code' => '',
 		'payment_subject' => '',
 		'button_image' => '',
+                'button_text' => '',
 		'cancel_url' => '',
                 'new_window' => '',
                 'tax' => '',
@@ -124,7 +132,7 @@ function wppp_render_paypal_button_form($args)
 		<?php 
 		if(!empty($other_amount)){
 			echo '<div class="wp_pp_button_other_amt_section">';
-			echo 'Other Amount: <input type="text" name="other_amount" value="" size="4">';
+			echo 'Other Amount: <input type="text" name="other_amount" value="" size="4"> '.$currency;
 			echo '</div>';
 		}
 
@@ -144,6 +152,7 @@ function wppp_render_paypal_button_form($args)
 		<?php } ?>
 		
 		<input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="bn" value="TipsandTricks_SP" />
 		<input type="hidden" name="business" value="<?php echo $email; ?>">
 		<input type="hidden" name="currency_code" value="<?php echo $currency; ?>">
 		<input type="hidden" name="item_name" value="">
@@ -160,10 +169,17 @@ function wppp_render_paypal_button_form($args)
 		if(!empty($country_code)){
 			echo '<input type="hidden" name="lc" value="'.$country_code.'" />';
 		}
-		?>
-		<div class="wp_pp_button_submit_btn">
-			<input type="image" id="buy_now_button" src="<?php echo $payment_button_img_src; ?>" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-		</div>
+                
+                echo '<div class="wp_pp_button_submit_btn">';
+                if(!empty($button_text)){//Use text button
+                    $button_class = apply_filters('wppp_text_button_class','');
+                    echo '<input type="submit" name="submit" class="'.$button_class.'" value="'.$button_text.'" />';
+                }
+		else{//Use image button
+                    echo '<input type="image" id="buy_now_button" src="'.$payment_button_img_src.'" border="0" name="submit" alt="Make payments with PayPal">';
+                }
+		echo '</div>';
+                ?>
 	</form>	
 </div>
 

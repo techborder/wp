@@ -20,6 +20,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<a href="https://plus.google.com/117330832843068038552" rel="publisher">Google+</a>
+
 	<?php remove_filter ('the_content', 'wpautop'); ?>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>

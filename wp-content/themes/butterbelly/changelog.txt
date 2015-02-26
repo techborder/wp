@@ -1,0 +1,66 @@
+== Changelog ==
+
+= Theme Name: ButterBelly
+= Version: 1.1.0 =
+1. Text wrapped issue fixed.
+2. Miner changes in style.css.
+
+= Version: 1.0.9 =
+1. This theme has raw text, please make sure everything is wrapped before it is output even if a default setting. issue fixed.
+
+= Version: 1.0.8 =
+****************************
+1. screen_icon() found in the file plugin-activation.php. Deprecated since version 3.8 issue fixed.
+2. Removed front-page.php, used home.php instead.
+3. Added slider and feature boxes.
+4. Added Blog Feature boxes.
+5. Added Default footer widgets.
+6. The flexible-width and fixed-width tags changed to fluid-layout and fixed-layout tags in WordPress 3.8 issue fixed.
+7. Mine changes in style.css.
+ 
+= Version: 1.0.7 =
+****************************
+1. Home page feature area, feature links are not working issue fixed.
+
+= Version: 1.0.6 =
+****************************
+1. Admin theme option radio design issue fixed.
+2. Front page configured for reading setting changes.
+3. Design issue fixed for sub menu list.
+
+= Version: 1.0.5 =
+****************************
+* Option added for footer contact details.
+* Screenshot changed for preview version issue.
+
+= Version: 1.0.4 =
+****************************
+* Renamed blog.php as home.php.
+* Added blog posts on static front page.
+
+= Version: 1.0.3 =
+****************************
+* bloginfo( 'stylesheet_url' ); changed to echo get_stylesheet_uri();
+
+= Version: 1.0.2 =
+****************************
+* Front page image changed.
+* Screenshot changed. 
+
+= Version: 1.0.1 =
+****************************
+* Declared the theme copyright.
+* Declared license, copyrights and resources links in readme.txt
+* add_editor_style() function placed into after_setup_theme action.
+* register_nav_menu function placed into after_setup_theme action.
+* Favicon implemented off by default.
+* All PHP/Scripts Errors, Warnings, Notices and/or Deprecated Calls issue fixed.
+* Removed wp_enqueue_script('jquery');
+* All scripts code indented.
+* Escaped all urls.
+* All js enqueued in one function.
+* wp_title filtered with additional content.
+* Site title and site description added in header, if site logo uploaded via theme option, site title and description will be disappeared.
+
+= Version: 1.0.0 =
+ButterBelly Created On 15 Nov 2013.

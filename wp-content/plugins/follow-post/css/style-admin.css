@@ -1,0 +1,25 @@
+.fldset {
+	border: 1px solid rgb(221, 221, 221); 
+	padding-bottom: 10px;
+	margin-top: 10px;
+}
+.lgnd {
+	margin-left: 5px;
+	padding: 0pt 5px; 
+	color: rgb(36, 129, 198); 
+}
+.wpfp_page_link {
+	float: right;
+	padding-top: 20px;
+}
+p {
+	padding-left: 10px;
+}
+.wpfp_clear_both {
+	clear: both;
+}
+.wpfp_view_title {
+	float:left;
+	width:100px;
+	font-weight: bold;
+}

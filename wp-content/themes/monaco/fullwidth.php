@@ -9,6 +9,8 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
 
+<a href="https://plus.google.com/117330832843068038552" rel="publisher">Google+</a>
+
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
 					if ( comments_open() || '0' != get_comments_number() ) :
@@ -22,3 +24,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
+
+

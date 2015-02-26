@@ -1,11 +1,11 @@
 @charset "utf-8";
 /*
 Theme Name: Pinboard
-Theme URI: http://www.onedesigns.com/themes/pinboard
+Theme URI: https://www.onedesigns.com/themes/pinboard
 Description: A crafty and elegant theme powered by an advanced theme framework and grid system. With virtually unlimited layout options and styles, ideal for showcasing your portfolio of works or other multimedia elements like images, photo galleries, videos and podcasts.
-Version: 1.1.8
+Version: 1.1.12
 Author: One Designs
-Author URI: http://www.onedesigns.com/
+Author URI: https://www.onedesigns.com/
 Tags: blue, gray, silver, white, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
 
 License: GNU General Public License v2.0
@@ -824,6 +824,8 @@ a.social-media-icon:hover {
 }
 
 #access {
+	position: relative;
+	z-index: 3;
 	padding:0 20px;
 	background:#111;
 	box-shadow:0 0 7px rgba(0, 0, 0, .1);
@@ -978,6 +980,7 @@ a.social-media-icon:hover {
 	margin:0;
 	padding:0;
 	list-style:none;
+	z-index: 2;
 }
 
 .slides {
@@ -1223,6 +1226,7 @@ a.social-media-icon:hover {
 }
 
 #container {
+	clear: both;
 	margin:1.6%;
 }
 
@@ -1373,6 +1377,15 @@ a.social-media-icon:hover {
 
 .format-audio object {
 	height:24px;
+}
+
+.entry-attachment audio {
+	width: 100%;
+}
+
+.entry-attachment video {
+	width: 100%;
+	height: auto;
 }
 
 .twocol .entry-attachment p {
@@ -2905,6 +2918,10 @@ a.ajax-load:hover {
 		float:none;
 		width:278px;
 		margin: 18px auto;
+	}
+	
+	#header #sidebar-header #searchform {
+		margin-top: 0;
 	}
 	
 	#header input#s {

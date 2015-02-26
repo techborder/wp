@@ -24,7 +24,7 @@ get_header(); ?>
                     <div class="flex-caption-title">
                     <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                     </div>
-                    <p><?php echo get_slider_excerpt(); ?>
+                    <p><?php echo Formation_get_slider_excerpt(); ?>
                     <a href="<?php the_permalink() ?>">...</a></p>
                     </div>
                     </div>
@@ -112,7 +112,7 @@ get_header(); ?>
    					 <a href="<?php the_permalink(); ?>" class="info">Full Image</a>  
  			</div>
     			 </div>
-				<p><?php echo get_recentposts_excerpt(); ?></p>
+				<p><?php echo Formation_get_recentposts_excerpt(); ?></p>
                 <div class="thumbs-more-link"><a href="<?php the_permalink() ?>"> <?php echo __('More', 'Formation'); ?></a></div>
     </article>
     </div>	

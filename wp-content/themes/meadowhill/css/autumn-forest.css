@@ -1,0 +1,64 @@
+/* Color scheme Autumn Forest
+----------------------------------------------- */
+#wrapper-header .header-bar,
+body #wrapper-footer,
+.post-entry .post-read-more,
+body input[type="submit"],
+body input[type="reset"],
+body .centered-button,
+body .custom-button,
+table th {
+  background-color: #625719;           
+}
+.portfolio-boxes-wrapper .portfolio-box img {
+  border-color: #625719;           
+}
+#wrapper-footer .footer-signature .footer-signature-content {
+  background-color: #453d12;                                                            
+}
+body #wrapper-footer,
+#wrapper-footer #footer .footer-widget .footer-headline {
+  border-color: #453d12;                     
+}
+body .post-entry .post-entry-headline a:hover {
+  color: #453d12;                                              
+}
+.post-entry .post-read-more:hover,
+body input[type="submit"]:hover,
+body input[type="reset"]:hover,
+body .centered-button:hover,
+body .custom-button:hover {
+  background-color: #403708;                                
+}     
+.portfolio-boxes-wrapper .portfolio-box :hover > img,
+body .menu-box ul ul {
+  border-color: #403708;                            
+}
+body .section-headline,
+body #content .section-headline,
+body .sidebar-widget .sidebar-headline,
+body .read-more-button {
+  color: #403708;                                
+}
+body .post-entry,
+.container .post-info span {
+  border-color: #b1a24e;                 
+} 
+body input[type="text"],
+body input[type="file"],
+body input[type="password"],
+body input[type="number"],
+body input[type="search"],
+body input[type="email"],
+body input[type="url"],
+body textarea,
+body select,
+body #searchform .searchform-wrapper {
+  border-color: #b1a668;
+}
+body a {
+  color: #6b6128;       
+}
+#sidebar .sidebar-widget a {
+  color: #7a6d1f;                           
+}

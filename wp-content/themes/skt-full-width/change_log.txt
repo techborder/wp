@@ -54,3 +54,15 @@ Version 1.3.8.1
 
 Version 1.3.9
 	i) Added WooCommerce compatability. 
+
+Version 1.4
+	i) Solved background color problem. 
+
+Version 1.5
+	i) Admin bar settings url fixed and added slider effects.
+
+Version 1.6
+	i) Resolved play/pause button issue and options framework updated.
+
+Version 1.6.1
+	i) Theme options from old version not getting migrated to new version solved.

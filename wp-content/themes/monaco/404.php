@@ -28,3 +28,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php get_footer(); ?>
+
+<a href="https://plus.google.com/117330832843068038552" rel="publisher">Google+</a>

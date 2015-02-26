@@ -232,7 +232,7 @@ $synved_social_options = array(
 			'settings' => array(
 				'icon_skin' => array(
 					'default' => 'regular',
-					'set' => synved_option_callback('synved_social_icon_skin_set', 'regular=Regular'),
+					'set' => synved_option_callback('synved_social_cb_icon_skin_set', 'regular=Regular'),
 					'label' => __('Icon Skin', 'synved-social'), 
 					'tip' => synved_option_callback('synved_social_setting_icon_skin_tip',__('Select the default skin to use for the icons', 'synved-social')),
 					'render' => 'synved_social_icon_skin_render'
@@ -341,7 +341,7 @@ function synved_social_page_settings_tip($tip, $item)
 {
 	if (!function_exists('synved_shortcode_version'))
 	{
-		$tip .= ' <div style="background:#f2f2f2;font-size:110%;color:#444;padding:10px 15px;"><b>' . __('Note', 'synved-social') . '</b>: ' . __('The Social Media Feather plugin is fully compatible with our free <a target="_blank" href="http://synved.com/wordpress-shortcodes/">WordPress Shortcodes</a> plugin!</span>', 'synved-social') . '</div>';
+		$tip .= ' <div style="background:#f2f2f2;font-size:110%;color:#444;margin-right:270px;padding:10px 15px;"><b>' . __('Note', 'synved-social') . '</b>: ' . sprintf(__('The Social Media Feather plugin is fully compatible with our free <a target="_blank" href="%1$s">WordPress Shortcodes</a> plugin! WordPress Shortcodes will simplify adding Social Media shortcodes to your posts and pages! You can install it using your <a href="%2$s">plugin installer</a>.', 'synved-social'), 'http://synved.com/wordpress-shortcodes/', add_query_arg(array('tab' => 'search', 's' => 'synved shortcodes'), admin_url('plugin-install.php'))) . '</div>';
 	}
 	
 	if (function_exists('synved_connect_support_social_follow_render'))
@@ -367,7 +367,7 @@ function synved_social_section_customize_look_tip($tip, $item)
 	return $tip;
 }
 
-function synved_social_icon_skin_set($set, $item) 
+function synved_social_cb_icon_skin_set($set, $item) 
 {
 	if ($set != null && !is_array($set))
 	{

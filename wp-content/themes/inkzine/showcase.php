@@ -1,5 +1,7 @@
 <?php if (of_get_option('showcase_enabled') != 0) { ?>
-	<div id="showcase" class="row">
+	</div>
+	<div id="showcase">
+	<div class="container">
 	<?php
 			// WP_Query arguments
 			$qa = array (
@@ -147,6 +149,7 @@
 			?>
 			</ul>
 			</div>
-	
+	</div>
 	</div><!--#showcase-->
+	<div class="container">
 <?php } ?>	

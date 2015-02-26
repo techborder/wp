@@ -23,13 +23,13 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 <h2 class="post-title">
 	 <?php 	
 		if ( $display_post_icon == 1 ) {
-			echo '<span class="post-icon"><i class="icon-th" title="Gallery"></i></span>';
+			echo '<span class="post-icon"><i class="fa fa-th" title="Gallery"></i></span>';
 		} 
 	?>
 	<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 	<?php if ( comments_open()) {
 		$post_comments = get_comments( array ( 'type' => 'comment', 'post_id' => $post->ID )); ?>
-		<span class="comments"><a href="<?php comments_link(); ?>"><i class="icon-comment" title="Comments"></i>&nbsp;<?php echo count($post_comments); ?></a></span>
+		<span class="comments"><a href="<?php comments_link(); ?>"><i class="fa fa-comment" title="Comments"></i>&nbsp;<?php echo count($post_comments); ?></a></span>
 	<?php } ?>	
 </h2>
 

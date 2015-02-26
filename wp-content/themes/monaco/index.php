@@ -41,6 +41,8 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
 
+<a href="https://plus.google.com/117330832843068038552" rel="publisher">Google+</a>
+
 		<?php endif; ?>
 
 		</main><!-- #main -->

@@ -9,7 +9,7 @@ get_header(); ?>
 
 	</div>
 	<?php while ( have_posts() ) : the_post(); ?>
-	<div id="title-bar">
+	<div id="title-bar" data-stellar-background-ratio="0.5">
 		<h1 class="bar-entry-title container"><?php the_title(); ?></h1>
 	</div>	
 	<?php endwhile; ?>	

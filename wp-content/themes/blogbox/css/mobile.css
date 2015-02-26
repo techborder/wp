@@ -70,9 +70,20 @@
 	
 	#slogan1 h1 {font-size: 16px;}
 	
+	#homesection2 {
+		width: 100%;
+		display: block;
+		float: left;
+		margin: 10px 0 10px 0;
+		padding: 0;
+	}
+	
 	#servicebox1,#servicebox2,#servicebox3 {
-		width: 95%!important;
+		width: 90%!important;
+		display: block;
+		float: left;
 		margin: 10px 2.5% 10px 2.5%!important;
+		padding: 2.5%;
 	}
 
 	#slogan2 p.slogan2line1 {font-size: 16px;}
@@ -170,9 +181,14 @@
 		text-align: center;
 	}
 	
+	.header-widget-narrow .bB-social-widget img {
+		padding:0;
+		margin: 0;
+	}
+	
 	.header-logo {
 		width: 100%;
-		margin: 15px 0px 0px 0px;
+		margin: 0;
 	}
 	
 	.center-50 {

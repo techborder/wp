@@ -1,30 +1,25 @@
 <?php
 /**
- * @package Inkzine
+ * @package InkZine
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("row archive col-md-4 col-sm-6 homepage-article"); ?>>	
-	<div class="featured-thumb col-md-12 col-xs-12">
-	<div class="img-meta">
-		<div class="meta-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
-		<div class="img-meta-link meta-icon"><a class='meta-link' href="<?php the_permalink() ?>"><i class="fa fa-link"></i></a></div>
-		<?php if (has_post_thumbnail()) : 
-					$thumb_id = get_post_thumbnail_id();
-					$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
-		?>
-		<div class="img-meta-img meta-icon"><a class='meta-link meta-link-img' title="<?php the_title(); ?>" href="<?php echo $thumb_url[0] ?>"><i class="fa fa-picture-o"></i></a></div>
-		<?php endif; ?>
-		
-	</div>
-	<a href="<?php the_permalink(); ?>">
-	<?php if (has_post_thumbnail()) :
-		the_post_thumbnail();
-		else: ?>
-	      <img src="<?php echo get_template_directory_uri() ?>/images/cthumb.png">
-	<?php				
-	endif; 
-	?>
-	</a>
-	</div>
+<article id="post-<?php the_ID(); ?>" <?php post_class("archive artmain col-md-4 col-sm-8 col-xs-12"); ?>>
+	
+	<div class="main-article curb-effect">   
+		<div class="feat-thumb-holder"> 
+			
+		    <?php if (has_post_thumbnail()) : 	
+				the_post_thumbnail('grid-thumb');	
+				else: ?>
+					<img width=330 height=270 src="<?php echo get_template_directory_uri()."/images/cthumb.png" ?>">
+				<?php endif;
+			?>  
+		</div>
+	     <div class="main-content"> 
+		     <p><?php echo substr(get_the_excerpt(),0,150)."..."; ?></p>  
+		         <a href="<?php the_permalink(); ?>" class="readmore"><?php _e('Read More','inkzine'); ?></a>  
+	     </div>  
+	</div> 
+	<h2 class="main-entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2> 
 </article><!-- #post-## -->

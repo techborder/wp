@@ -30,6 +30,7 @@ function skt_full_width_setup() {
 	load_theme_textdomain( 'skt-full-width', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'woocommerce' );
 	add_image_size('homepage-thumb',240,145,true);
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'skt-full-width' ),
@@ -60,10 +61,12 @@ function skt_full_width_widgets_init() {
 }
 add_action( 'widgets_init', 'skt_full_width_widgets_init' );
 
-if ( !function_exists( 'optionsframework_init' ) ) {
-	define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
-	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
-}
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
 
 
 function skt_full_width_scripts() {
@@ -141,7 +144,7 @@ function skt_full_width_custom_head_codes() {
 			stop_loop				:	0,			// Pauses slideshow on last slide
 			random					: 	0,			// Randomize slide order (Ignores start slide)
 			slide_interval          :   5000,		// Length between transitions
-			transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+			transition              :   <?php if(of_get_option('sliderefect',true) != ''){ echo of_get_option('sliderefect',true);}; ?>,
 			transition_speed		:	1000,		// Speed of transition
 			new_window				:	1,			// Image links open in new window/tab
 			pause_hover             :   0,			// Pause slideshow on hover

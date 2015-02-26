@@ -56,8 +56,10 @@ $catchevolution_options_defaults = array(
  	'social_instagram'					=> '',
  	'social_skype'						=> '',
 	'social_soundcloud'					=> '',
-	'social_email'						=> '',	
+	'social_email'						=> '',
+	'social_contact'					=> '',
 	'social_xing'						=> '',
+	'social_meetup'						=> '',
  	'custom_css'						=> '',
  	'analytic_header'					=> '',
  	'analytic_footer'					=> '',
@@ -66,8 +68,6 @@ $catchevolution_options_defaults = array(
  	'excerpt_length'					=> 30,
 	'reset_more_tag'					=> '2',
 	'feed_url'							=> '',
-	'footer_code'						=> '<div class="copyright">Copyright &copy; [the-year] [site-link]. All Rights Reserved.</div><div class="powered">Powered by: [wp-link] | Theme: [theme-link]</div>',
-	'reset_footer'						=> '2'
 );
 global $catchevolution_options_settings;
 $catchevolution_options_settings = catchevolution_options_set_defaults( $catchevolution_options_defaults );

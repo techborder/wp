@@ -85,10 +85,10 @@ function ampersand_getting_started_page() {
 			<ul class="inline-list">
 				<span class="inline-list-links">
 					<li class="current"><a id="help" href="#"><?php _e( 'Help File', 'ampersand' ); ?></a></li>
-					<li class="license-tab"><a id="license" href="#"><?php _e( 'License', 'ampersand' ); ?></a></li>
+					<li class="license-tab hide-cm"><a id="license" href="#"><?php _e( 'License', 'ampersand' ); ?></a></li>
 					<li><a id="updates" href="#"><?php _e( 'Latest Updates', 'ampersand' ); ?></a></li>
 				</span>
-				<li>
+				<li class="hide-cm">
 					<a href="http://array.is/support/forum/<?php echo $theme_name_lower; ?>" title="<?php esc_attr_e( 'View support forum', 'ampersand' ); ?>"><?php _e( 'Support Forum &rarr;', 'ampersand' ); ?></a>
 				</li>
 			</ul>
@@ -162,17 +162,23 @@ function ampersand_getting_started_page() {
 						}
 					} ?>
 
-					<div class="panel-aside">
+					<div class="panel-aside hide-cm">
 						<h4><?php _e( 'Visit the Knowledge Base', 'ampersand' ); ?></h4>
 						<p><?php _e( 'New to the WordPress world? Our Knowledge Base has over 20 video tutorials, from installing WordPress to working with themes and more.', 'ampersand' ); ?></p>
 
-						<a class="button button-primary" href="https://array.is/articles/" title="<?php esc_attr_e( 'Visit the knowledge base', 'ampersand' ); ?>"><?php _e( 'Visit the Knowledge Base', 'ampersand' ); ?></a>
+						<a class="button button-primary" href="https://array.is/articles/" title="<?php esc_attr_e( __( 'Visit the knowledge base', 'ampersand' ) ); ?>"><?php _e( 'Visit the Knowledge Base', 'ampersand' ); ?></a>
+					</div>
+
+					<div class="panel-aside show-cm">
+						<h4><?php _e( 'Theme Support', 'ampersand' ); ?></h4>
+						<p><?php _e( 'If you have a question about your theme, send us a message via our Creative Market profile page. Simply click the little envelope under our bio to send us a message.', 'ampersand' ); ?></p>
+						<a class="button button-primary" href="https://creativemarket.com/ArrayThemes" title="<?php echo esc_attr__( 'Send Us A Message', 'ampersand' ); ?>"><?php _e( 'Send Us A Message &rarr;', 'ampersand' ); ?></a>
 					</div>
 				</div>
 			</div><!-- #help-panel -->
 
 			<!-- License panel -->
-			<div id="license-panel" class="panel clearfix">
+			<div id="license-panel" class="panel clearfix hide-cm">
 				<div class="panel-left">
 					<h3><?php _e( 'Activate your license for seamless updates!', 'ampersand' ); ?></h3>
 					<p>

@@ -47,7 +47,7 @@
 					<div class="navigation-wrap-inside clearfix">
 						<div class="navigation-toggle">
 							<nav role="navigation" class="site-navigation main-navigation">
-								<h1 class="assistive-text"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'ampersand' ); ?></h1>
+								<h1 class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'ampersand' ); ?></h1>
 								<div class="assistive-text skip-link"><a href="#content"><?php _e( 'Skip to content', 'ampersand' ); ?></a></div>
 								<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 							</nav><!-- .site-navigation .main-navigation -->

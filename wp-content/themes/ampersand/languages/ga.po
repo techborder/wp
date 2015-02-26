@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Ampersand package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-08-20 03:13:07+0000\n"
+"PO-Revision-Date: 2014-12-06 16:14:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions.php:380
+#: functions.php:383
 msgid "Page %s"
 msgstr "Leathanach %s"
 
@@ -74,18 +74,23 @@ msgstr "Leathanach %s"
 msgid "Hide Site Tagline"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio Item"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio"
 msgstr "Saothar"
 
+#. Template Name of the plugin/theme
 msgid "Homepage"
 msgstr "Leathanach baile"
 
+#. Description of the plugin/theme
 msgid "Ampersand is a portfolio style theme with an empasis on beautiful, legible typography and graceful resizing for mobile browsing."
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Full Width"
 msgstr "Lánleithead"
 
@@ -147,7 +152,7 @@ msgstr "Cartlanna"
 
 #: search.php:41
 msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
-msgstr ""
+msgstr "Sén chaoi nach raibh aon cheo ag teacht leis an méid a chuartaigh tú. B’fhéidir go dtraíálfá focla eile."
 
 #: inc/template-tags.php:54 template-portfolio.php:71
 msgid "Newer posts"
@@ -261,36 +266,37 @@ msgstr "Beir go dtí an t-alt féin mé"
 msgid "Menu"
 msgstr "Roghchlár"
 
-#: functions.php:348
+#: functions.php:351
 msgid "Your comment is awaiting moderation."
 msgstr "Tá do fhreagra fós le ceadú."
 
-#: functions.php:327
+#: functions.php:330
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr "<cite class=\"fn\">%s</cite>"
 
-#: functions.php:335
+#. translators: 1: date, 2: time
+#: functions.php:338
 msgid "%1$s at %2$s"
 msgstr "%1$s ag %2$s"
 
-#: functions.php:246
+#: functions.php:249
 msgid "Footer Center"
 msgstr "Lárbhuntásc"
 
-#: functions.php:255
+#: functions.php:258
 msgid "Footer Right"
 msgstr "Ar Dheis an Bhuntáisc"
 
-#: functions.php:237
+#: functions.php:240
 msgid "Footer Left"
 msgstr "An Buntásc ar Chlé"
 
-#: functions.php:169
+#: functions.php:172
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:228
+#: functions.php:231
 msgid "Sidebar"
 msgstr "Taobh-Bharra"
 

@@ -66,7 +66,7 @@ msgstr "Instagram"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: functions.php:380
+#: functions.php:383
 msgid "Page %s"
 msgstr "Page %s"
 
@@ -74,18 +74,23 @@ msgstr "Page %s"
 msgid "Hide Site Tagline"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio Item"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio"
 msgstr "Portfolio"
 
+#. Template Name of the plugin/theme
 msgid "Homepage"
 msgstr "Page d’accueil "
 
+#. Description of the plugin/theme
 msgid "Ampersand is a portfolio style theme with an empasis on beautiful, legible typography and graceful resizing for mobile browsing."
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Full Width"
 msgstr "Pleine largeur"
 
@@ -261,36 +266,37 @@ msgstr "Aller au contenu principal"
 msgid "Menu"
 msgstr "Menu"
 
-#: functions.php:348
+#: functions.php:351
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: functions.php:327
+#: functions.php:330
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr "<cite class=\"fn\">%s</cite>"
 
-#: functions.php:335
+#. translators: 1: date, 2: time
+#: functions.php:338
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: functions.php:246
+#: functions.php:249
 msgid "Footer Center"
 msgstr "Pied&nbsp;de&nbsp;page Centre"
 
-#: functions.php:255
+#: functions.php:258
 msgid "Footer Right"
 msgstr "Pied&nbsp;de&nbsp;page Droit"
 
-#: functions.php:237
+#: functions.php:240
 msgid "Footer Left"
 msgstr "Pied&nbsp;de&nbsp;page Gauche"
 
-#: functions.php:169
+#: functions.php:172
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: functions.php:228
+#: functions.php:231
 msgid "Sidebar"
 msgstr "Colonne latérale"
 

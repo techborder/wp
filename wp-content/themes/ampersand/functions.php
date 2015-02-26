@@ -117,6 +117,9 @@ function ampersand_scripts() {
 		)
 	);
 
+	// HoverIntent JS
+	wp_enqueue_script( 'hoverIntent' );
+
 	// Flexslider
 	if ( is_page_template( 'homepage.php' ) ) {
 		// Flexslider CSS
@@ -136,7 +139,7 @@ function ampersand_scripts() {
 	wp_enqueue_script( 'ampersand-fitvids-js', get_template_directory_uri() . '/js/jquery.fitvids.js', array(), '1.0.3', true );
 
 	// Backstretch
-	if ( get_option( 'ampersand_customizer_bg_disable' ) == 'enable' ) {
+	if ( get_option( 'ampersand_customizer_bg_disable' ) !== 'disable' ) {
 		wp_enqueue_script( 'ampersand-backstretch-js', get_template_directory_uri() . '/js/jquery.backstretch.js', array(), '2.0.4', true );
 	}
 

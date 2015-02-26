@@ -3,8 +3,8 @@ Contributors: array
 Donate link: https://array.is/
 Tags: portfolio, photography, blogging, business
 Requires at least: 3.8
-Tested up to: 3.9.1
-Stable tag: 2.2.5
+Tested up to: 4.1
+Stable tag: 2.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,13 +36,25 @@ Visit our support forum at array.is and we'll give you a hand.
 1. The theme home page filled with demo content.
 
 == Change Log ==
-= 2.2.5 = 10/21/14 =
+= 2.2.9 - 2/11/15 =
+* Fixed post content output on portfolio template.
+
+= 2.2.8 - 12/1/14 =
+* Added a fix for mobile menus.
+
+= 2.2.7 - 11/13/14 =
+* Fixed backstretch enqueuing bug.
+
+= 2.2.6 - 11/11/14 =
+* Added hoverIntent to main navigation drop menu.
+
+= 2.2.5 - 10/21/14 =
 * Added back the subtitle feature that we removed by mistake.
 
-= 2.2.4 = 10/20/14 =
+= 2.2.4 - 10/20/14 =
 * Removed unused video metabox. Videos can be added to your post content area.
 
-= 2.2.3 = 9/21/14 =
+= 2.2.3 - 9/21/14 =
 * Fixed bug that prevented RSS feed icon from showing in footer.
 
 = 2.2.2 - 8/27/14 =

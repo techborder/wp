@@ -66,7 +66,7 @@ msgstr ""
 msgid "Twitter"
 msgstr "توئیتر"
 
-#: functions.php:380
+#: functions.php:383
 msgid "Page %s"
 msgstr "صفحهٔ %s"
 
@@ -74,18 +74,23 @@ msgstr "صفحهٔ %s"
 msgid "Hide Site Tagline"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio Item"
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Portfolio"
 msgstr "نمونه‌کار"
 
+#. Template Name of the plugin/theme
 msgid "Homepage"
 msgstr "آغازه"
 
+#. Description of the plugin/theme
 msgid "Ampersand is a portfolio style theme with an empasis on beautiful, legible typography and graceful resizing for mobile browsing."
 msgstr ""
 
+#. Template Name of the plugin/theme
 msgid "Full Width"
 msgstr "پهنای کامل"
 
@@ -261,36 +266,37 @@ msgstr "پرش به محتوا"
 msgid "Menu"
 msgstr "گزینگان"
 
-#: functions.php:348
+#: functions.php:351
 msgid "Your comment is awaiting moderation."
 msgstr "دیدگاه شما چشم به راه بررسی است."
 
-#: functions.php:327
+#: functions.php:330
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr "<cite class=\"fn\">%s</cite>"
 
-#: functions.php:335
+#. translators: 1: date, 2: time
+#: functions.php:338
 msgid "%1$s at %2$s"
 msgstr "%1$s در %2$s"
 
-#: functions.php:246
+#: functions.php:249
 msgid "Footer Center"
 msgstr "مرکز پسایند"
 
-#: functions.php:255
+#: functions.php:258
 msgid "Footer Right"
 msgstr "راست پسایند"
 
-#: functions.php:237
+#: functions.php:240
 msgid "Footer Left"
 msgstr "چپ پسایند"
 
-#: functions.php:169
+#: functions.php:172
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "فعال"
 
-#: functions.php:228
+#: functions.php:231
 msgid "Sidebar"
 msgstr "ستون کناری"
 

@@ -229,13 +229,18 @@
 	display: none;
 }
 
-.getting-started #install-video {
+.hide-creative {
+	display: none !important;
+}
+
+.show-cm {
 	display: none;
 }
 
-.getting-started .arrayvideo {
-	padding: 3% 0;
+.show-creative {
+	display: inline-block;
 }
+
 #updates-panel ul {
 	border-bottom: 1px dotted #ddd;
 	padding: 1% 0 5% 3%;

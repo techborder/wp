@@ -4,7 +4,7 @@ Theme URI: https://array.is/themes/ampersand-wordpress-theme/
 Author: Array
 Author URI: https://array.is
 Description: Ampersand is a portfolio style theme with an empasis on beautiful, legible typography and graceful resizing for mobile browsing.
-Version: 2.2.5
+Version: 2.2.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blue, gray, green, light, white, two-columns, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, full-width-template, infinite-scroll, post-formats, post-slider, rtl-language-support, sticky-post, theme-options, translation-ready, design, photography, portfolio, clean, contemporary, minimal, simple
@@ -612,10 +612,6 @@ blockquote p { margin: 0 }
 
 .main-navigation ul li.current-menu-ancestor:hover a:before { border-bottom: 5px solid #333 }
 
-.main-navigation ul ul li.current-menu-item {
-
-}
-
 .main-navigation ul ul li:hover > a { border-bottom: none }
 
 .sub-menu li.current-menu-item a {
@@ -628,13 +624,11 @@ blockquote p { margin: 0 }
 
 .sub-menu li.current-menu-item > a:before { display: none }
 
-.main-navigation ul li:hover > ul { display: block }
-
 /* Small menu */
 
 .menu-toggle {
-	float: left;
-	width: 75%;
+	float: right;
+	display: none;
 	cursor: pointer;
 	color: #fff;
 	text-transform: uppercase;
@@ -3704,6 +3698,7 @@ div.sharedaddy h3.sd-title:before {
 	.site-header .menu > li:first-child .sub-menu a { padding-left: 0 }
 
 	.menu-toggle {
+		display: block;
 		text-align: center;
 		float: none;
 		position: absolute;

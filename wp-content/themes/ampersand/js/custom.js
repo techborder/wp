@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	//Backstretch
-	if ( ( ampersand_header_js_vars.header_bg ) == 'enable' && ( ampersand_custom_js_vars.bg_image_url ) ) {
+	if ( ( ampersand_header_js_vars.header_bg ) !== 'disable' && ( ampersand_custom_js_vars.bg_image_url ) ) {
 		$( ".header-wrap" ).backstretch( ampersand_custom_js_vars.bg_image_url, { speed: 600 } );
 	}
 
@@ -74,5 +74,19 @@ jQuery(document).ready(function ($) {
 
 	//Wrap share modules
 	$( "body:not(.wpcom) .post-content .sharedaddy" ).wrapAll( "<div id='jp-post-flair'></div>" );
+
+	// Drop menu
+	$( ".main-navigation li" ).hoverIntent( {
+		over:navover,
+		out:navout,
+		timeout: 100
+	} );
+
+	function navover() {
+		$( this ).children( "ul" ).fadeIn( 50 );
+	}
+	function navout() {
+		$( this ).children( "ul" ).fadeOut( 50 );
+	}
 
 });

@@ -70,7 +70,7 @@ function synved_social_provider_settings()
 				array(
 					$provider_name . '_share_link' => array(
 						'label' => __($provider_label . ' Share Link', 'synved-social'), 
-						'tip' => __('The link used by default for sharing content on ' . $provider_label . ' (a standard one will be used if left empty)', 'synved-social'),
+						'tip' => __('The link used by default for sharing content on ' . $provider_label . '. <b>Note: this generally doesn\'t need to be changed, only change it if you know what you\'re doing.</b>', 'synved-social'),
 						'hint' => $share_item['link']
 					),
 					$provider_name . '_share_title' => array(
@@ -90,7 +90,7 @@ function synved_social_provider_settings()
 				array(
 					$provider_name . '_follow_link' => array(
 						'label' => __($provider_label . ' Follow Link', 'synved-social'), 
-						'tip' => __('The link used by default for following you on ' . $provider_label, 'synved-social'),
+						'tip' => __('The link used by default for following you on ' . $provider_label . '. Change this to point to your own social profile page on ' . $provider_label . '.', 'synved-social'),
 						'hint' => $follow_item['link']
 					),
 					$provider_name . '_follow_title' => array(
@@ -356,7 +356,7 @@ function synved_social_page_render_fragment($fragment, $out, $params)
 {
 	if ($fragment == 'page-submit-tail')
 	{
-		$out .= '<div style="clear:both; margin-top: -12px;"><a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/social-media-feather?rate=5#postform">If you like the plugin, you can help us by leaving a 5 stars review!</a></div>';
+		$out .= '<div style="clear:both; margin-top: -12px;"><a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/social-media-feather?rate=5#postform" style="font-size:120%"><b>We need your help!</b> If you like the plugin, you can help us by leaving a 5-stars review! It only takes a minute and it\'s free!</a></div>';
 	}
 	
 	return $out;

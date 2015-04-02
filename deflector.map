@@ -1,0 +1,12 @@
+##
+## deflector.map
+##
+## ATTENTION! This is a map, not a list, even when we treat it as such.
+## mod_rewrite parses it for key/value pairs, so at least a
+## dummy value "-" must be present for each entry.
+##
+##
+
+http://badguys.example.com/bad/index.html -
+http://badguys.example.com/bad/index2.html -
+http://badguys.example.com/bad/index3.html http://somewhere.example.com/

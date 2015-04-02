@@ -22,13 +22,15 @@
 			if ( 'blank' == to ) {
 				$( '.site-title, .site-description' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
+					'position': 'absolute',
+					'left'    : '-1000em',
 				} );
 			} else {
 				$( '.site-title, .site-description' ).css( {
 					'clip': 'auto',
 					'color': to,
-					'position': 'relative'
+					'position': 'relative',
+					'left'    : 'auto'
 				} );
 			}
 		} );

@@ -24,6 +24,12 @@ Bushwick is a lightweight, responsive blogging theme, designed to show beautiful
 
 == Changelog ==
 
+= 1.2.3 =
+* Bump up version number.
+
+= 1.2.2 =
+* Fixed mobile drop-down menus.
+
 = 1.2.1 =
 * Encode Google Font URL.
 

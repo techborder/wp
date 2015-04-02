@@ -10,6 +10,8 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
 msgstr "Bushwick は、画像とコンテンツを共に美しく表示できるように設計された軽量なレスポンシブデザインのブログテーマです。"
 
@@ -65,6 +67,7 @@ msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s時間"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -145,6 +148,9 @@ msgstr "投稿日: <span class=\"entry-date\"><time class=\"entry-date\" datetim
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"コメントを投稿\">コメントを投稿</a>するか、トラックバックを送信できます: <a class=\"trackback-link\" href=\"%s\" title=\"この投稿のトラックバック URL\" rel=\"trackback\">トラックバック URL</a>"
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
@@ -294,6 +300,7 @@ msgstr "日別アーカイブ: %s"
 msgid "Author: %s"
 msgstr "作成者: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "月別アーカイブを見てみてください。%1$s"

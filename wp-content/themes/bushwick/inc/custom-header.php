@@ -69,6 +69,7 @@ function bushwick_header_style() {
 		.site-description {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
+			left: -1000em;
 		}
 	<?php
 		// If the user has set a custom color for the text use that.

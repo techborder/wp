@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bushwick package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-06-01 14:35:49+0000\n"
+"PO-Revision-Date: 2014-06-30 17:28:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
-msgstr ""
+msgstr "Bushwick est un thème léger et réactif, parfaitement adapté pour bloguer et présenter un contenu attractif et de belles images."
 
 #: sidebar.php:24
 msgid "Meta"
@@ -70,6 +72,7 @@ msgid_plural "%s hours"
 msgstr[0] "%s heure"
 msgstr[1] "%s heures"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -151,6 +154,9 @@ msgstr "Publi&eacute; <span class=\"entry-date\"><time class=\"entry-date\" date
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"Poster un commentaire\">Poster un commentaire</a> ou un <a class=\"trackback-link\" href=\"%s\" title=\"URL du r&eacute;trolien\" rel=\"trackback\">r&eacute;trolien</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
@@ -301,6 +307,7 @@ msgstr "Archives du %s"
 msgid "Author: %s"
 msgstr "Auteur : %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Essayez du c&ocirc;t&eacute; des archives mensuelles. %1$s"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bushwick package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-06-01 14:35:48+0000\n"
+"PO-Revision-Date: 2014-07-03 11:32:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
-msgstr ""
+msgstr "Bushwick은 간단한 반응형 테마로 아름다운 콘텐츠를 아름다운 이미지와 함께 표시하도록 고안되었습니다."
 
 #: sidebar.php:24
 msgid "Meta"
@@ -65,6 +67,7 @@ msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s 시간"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -145,6 +148,9 @@ msgstr ""
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"댓글 달기\">댓글을 달거나</a> 트랙백을 남기세요: <a class=\"trackback-link\" href=\"%s\" title=\"글의 트랙백 URL\" rel=\"trackback\">트랙백 URL</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
@@ -294,6 +300,7 @@ msgstr "일간 보관물: %s"
 msgid "Author: %s"
 msgstr "글쓴이: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "월간 보관물을 확인해보세요. %1$s"

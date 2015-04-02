@@ -10,6 +10,8 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
 msgstr ""
 
@@ -85,6 +87,7 @@ msgstr[2] "%s huaire"
 msgstr[3] "%s n-uaire"
 msgstr[4] "%s uaire"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -169,6 +172,9 @@ msgstr "Foilsithe <span class=\"entry-date\"><time class=\"entry-date\" datetime
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"Scríobh freagra\">Scríobh freagra</a> nó déan blagthásc: <a class=\"trackback-link\" href=\"%s\" title=\"URL blagtháisc don alt\" rel=\"trackback\">URL blagtháisc</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
@@ -322,6 +328,7 @@ msgstr "Cartlanna Lae: %s"
 msgid "Author: %s"
 msgstr "Údar: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Amharc ar na cartlanna míosa. %1$s"

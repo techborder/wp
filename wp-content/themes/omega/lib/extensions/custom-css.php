@@ -67,9 +67,9 @@ function omega_customize_css_register( $wp_customize ) {
 		array(
 			'default'              => '',
 			'type'                 => 'theme_mod',
-			'capability' 		   => 'unfiltered_html',
-			'sanitize_callback'    => 'custom_css_sanitize',
-			//'sanitize_js_callback' => 'omega_customize_sanitize',
+			'capability' 		   => 'edit_theme_options',
+			'sanitize_callback'    => 'wp_filter_nohtml_kses',
+			'sanitize_js_callback' => 'wp_filter_nohtml_kses',
 			'transport'            => 'postMessage',
 		)
 	);
@@ -113,26 +113,6 @@ function omega_customize_preview_script() {
 	} )( jQuery )
 	</script>
 	<?php
-}
-
-/**
- * sanitize css input
- *
- * @since 0.9.5
- * @access private
- */
-function custom_css_sanitize($css) {
-
-	if (''!=$css) {
-		//$css = stripslashes( wp_filter_post_kses( addslashes( $value ) ) );
-		$css = str_replace( '<=', '&lt;=', $css );
-		$css = wp_kses_split( $css, array(), array() );
-		$css = str_replace( '&gt;', '>', $css );
-		$css = strip_tags( $css );
-	}
-
-	return $css;
-
 }
 
 ?>

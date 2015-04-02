@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bushwick package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-06-01 14:35:48+0000\n"
+"PO-Revision-Date: 2014-06-30 17:26:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
-msgstr ""
+msgstr "Bushwick es un tema para blogueros ligero y adaptativo, diseñado para mostrar un contenido interesante junto a unas imágenes atractivas."
 
 #: sidebar.php:24
 msgid "Meta"
@@ -70,6 +72,7 @@ msgid_plural "%s hours"
 msgstr[0] "%s hora"
 msgstr[1] "%s horas"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -151,6 +154,9 @@ msgstr "Publicado <span class=\"entry-date\"><time class=\"entry-date\" datetime
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"Publica un comentario\">Publica un comentario</a> o deja una referencia: <a class=\"trackback-link\" href=\"%s\" title=\"URL de la referencia a tu entrada\" rel=\"trackback\">URL de la referencia</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
@@ -301,6 +307,7 @@ msgstr "Archivos diarios: %s"
 msgid "Author: %s"
 msgstr "Autor: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Trata de buscar en los archivos mensuales. %1$s"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bushwick package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-06-01 14:35:48+0000\n"
+"PO-Revision-Date: 2014-11-15 21:42:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
-msgstr ""
+msgstr "Bushwick é um tema leve e interessante, criado para mostrar belos conteúdos e imagens."
 
 #: sidebar.php:24
 msgid "Meta"
@@ -70,6 +72,7 @@ msgid_plural "%s hours"
 msgstr[0] "%s hora"
 msgstr[1] "%s horas"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -100,7 +103,7 @@ msgstr "%s <span class=\"says\">disse:</span>"
 #: inc/template-tags.php:58
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span>"
-msgstr ""
+msgstr "<span class=\"meta-nav\">&larr;</span>"
 
 #: inc/template-tags.php:59
 msgctxt "Next post link"
@@ -151,10 +154,13 @@ msgstr "Publicado <span class=\"entry-date\"><time class=\"entry-date\" datetime
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"Comentar\">Comente</a> ou deixe um trackback: <a class=\"trackback-link\" href=\"%s\" title=\"URL do Trackback para o seu artigo\" rel=\"trackback\">URL do Trackback</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
-msgstr ""
+msgstr "on"
 
 #: image.php:24
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
@@ -199,7 +205,7 @@ msgstr "Esse post foi publicado em %1$s e marcado %2$s. Guardar <a href=\"%3$s\"
 #: content-single.php:28 content-single.php:29
 msgctxt "used between list items, there is a space after the comma"
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: content-single.php:34
 msgid "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
@@ -301,6 +307,7 @@ msgstr "Arquivo diário: %s"
 msgid "Author: %s"
 msgstr "Autor: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Tente olhar nos arquivos mensais. %1$s"

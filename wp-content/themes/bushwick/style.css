@@ -1,10 +1,10 @@
 /*
 Theme Name: Bushwick
-Theme URI: http://theme.wordpress.com/themes/bushwick/
+Theme URI: https://wordpress.com/themes/bushwick/
 Author: James Dinsdale and Automattic
 Author URI: http://molovo.co.uk
 Description: Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery.
-Version: 1.2.1
+Version: 1.2.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bushwick
@@ -401,6 +401,7 @@ a:active {
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	left: -1000em;
 }
 
 .screen-reader-text:hover,
@@ -465,14 +466,6 @@ a:active {
 	max-width: 90%;
 	padding: 1.5em;
 	position: absolute;
-}
-
-.site-title {
-	-webkit-hyphens: auto;
-	-moz-hyphens:    auto;
-	-ms-hyphens:     auto;
-	hyphens:         auto;
-	word-wrap: break-word;
 }
 
 .site-main,
@@ -558,7 +551,8 @@ body:not(.archive):not(.search) .hentry:first-of-type + .entry-preview,
 .navigation-main ul ul li.focus > a {
 	background-color: #efefef;
 }
-.navigation-main ul li:hover > ul {
+.navigation-main ul li:hover > ul,
+.navigation-main ul li.focus > ul {
 	display: block;
 }
 .navigation-main .current_page_item > a,
@@ -1255,7 +1249,7 @@ object {
 	}
 }
 
-@media (max-width: 599px) {
+@media (max-width: 641px) {
 	.site-header {
 		min-height: 0;
 	}

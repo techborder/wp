@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Bushwick package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-06-01 14:35:48+0000\n"
+"PO-Revision-Date: 2014-12-10 17:24:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,8 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Bushwick\n"
 
+#. Description of the plugin/theme
+#: wp-content/themes/pub/bushwick/style.css
 msgid "Bushwick is a lightweight, responsive blogging theme, designed to show beautiful content alongside beautiful imagery."
-msgstr ""
+msgstr "Bushwick është një temë blogu e lehtë, reaguese, e hartuar për shfaqje lëndë të hijshme bashkë me pamje të bukura."
 
 #: sidebar.php:24
 msgid "Meta"
@@ -70,6 +72,7 @@ msgid_plural "%s hours"
 msgstr[0] "%s orë"
 msgstr[1] "%s orë"
 
+#. translators: min=minute
 #: inc/template-tags.php:211
 msgid "%s min"
 msgid_plural "%s mins"
@@ -78,7 +81,7 @@ msgstr[1] "%s minuta"
 
 #: inc/template-tags.php:177
 msgid "Posted <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\">%4$s</time> ago</a><span class=\"byline\"> by <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>."
-msgstr ""
+msgstr "Postuar <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\">%4$s</time> më parë</a><span class=\"byline\"> nga <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>."
 
 #: inc/template-tags.php:183 sidebar-single.php:23
 msgid "View all posts by %s"
@@ -100,12 +103,12 @@ msgstr "%s <span class=\"says\">thotë:</span>"
 #: inc/template-tags.php:58
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span>"
-msgstr ""
+msgstr "<span class=\"meta-nav\">&larr;</span>"
 
 #: inc/template-tags.php:59
 msgctxt "Next post link"
 msgid "<span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "<span class=\"meta-nav\">&rarr;</span>"
 
 #: inc/template-tags.php:80
 msgid "Pingback:"
@@ -151,10 +154,13 @@ msgstr "Botuar më <span class=\"entry-date\"><time class=\"entry-date\" datetim
 msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
 msgstr "<a class=\"comment-link\" href=\"#respond\" title=\"Postoni një koment\">Postoni një koment</a> ose lini një pasgjurmim: <a class=\"trackback-link\" href=\"%s\" title=\"URL pasgjurmimi për te postimi juaj\" rel=\"trackback\">URL Pasgjurmimi</a>."
 
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate into your
+#. * own language.
 #: functions.php:97
 msgctxt "Lato: on or off"
 msgid "on"
-msgstr ""
+msgstr "on"
 
 #: image.php:24
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
@@ -199,7 +205,7 @@ msgstr "Ky zë u postua te %1$s dhe u etiketua si %2$s. Faqeruani <a href=\"%3$s
 #: content-single.php:28 content-single.php:29
 msgctxt "used between list items, there is a space after the comma"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: content-single.php:34
 msgid "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
@@ -301,13 +307,14 @@ msgstr "Arkiva Ditorë: %s"
 msgid "Author: %s"
 msgstr "Autor: %s"
 
+#. translators: %1$s: smiley
 #: 404.php:46
 msgid "Try looking in the monthly archives. %1$s"
 msgstr "Provoni të shihni arkivat mujorë. %1$s"
 
 #: 404.php:20
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
+msgstr "Duket se nuk u gjet gjë në këtë vend. Të provohet një nga lidhjet më poshtë, ose ndoshta një kërkim?"
 
 #: 404.php:29
 msgid "Most Used Categories"

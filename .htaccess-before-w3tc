@@ -1,0 +1,72 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} ^http://.*backgroundpictures\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*embedle\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*extener\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*fbfreegifts\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*feedouble\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*feedouble\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*joinandplay\.me/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*joingames\.org/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*kambasoft\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*musicprojectfoundation\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*myprintscreen\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*openfrost\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*openmediasoft\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*savetubevideo\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*semalt\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*softomix\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*softomix\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*softomix\.ru/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*soundfrost\.org/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*srecorder\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*vapmedia\.org/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*videofrost\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*videofrost\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*youtubedownload\.org/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*zazagames\.org/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*buttons\-for\-website\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*darodar\.com/ [NC,OR]
+RewriteCond %{HTTP_REFERER} ^http://.*7makemoneyonline\.com/ [NC]
+RewriteRule ^(.*)$ – [F,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Redirect top pages to new or equivalent page
+RewriteBase /
+RewriteRule ^Colorado\ Springs-helpful-info_spanish\.html$ colorado-springs-auto-repair-shop/colorado-springs-helpful-info/ [R=301,L]
+RewriteRule ^Colorado\ Springs-engine-maintenance\.html$ colorado-springs-auto-repair-shop/colorado-springs-general-maintenance/ [R=301,L]
+RewriteRule ^Colorado\ Springs-helpful-info_spanish\.html$ colorado-springs-auto-repair-shop/colorado-springs-helpful-info/ [R=301,L]
+RewriteRule ^Colorado\ Springs-engine-maintenance\.html$ colorado-springs-auto-repair-shop/colorado-springs-general-maintenance/ [R=301,L]
+RewriteRule ^Colorado\ Springs-fleet-drivetrain\.html$ colorado-springs-auto-repair-shop/fleet-maintenance/ [R=301,L]
+RewriteRule ^Colorado\ Springs-auto-brakes\.html$ trust-in-the-industry/colorado-springs-auto-service-repair-services-offered/ [R=301,L]
+RewriteRule ^Colorado\ Springs-auto-repair-services\.html$ trust-in-the-industry/colorado-springs-auto-service-repair-services-offered/ [R=301,L]
+RewriteRule ^Colorado\ Springs-roadside-services\.html$ trust-in-the-industry/colorado-springs-auto-service-repair-services-offered/ [R=301,L]
+RewriteRule ^Colorado\ Springs-engine-overhaul-replacement\.html$ trust-in-the-industry/colorado-springs-auto-service-repair-services-offered/ [R=301,L]
+RewriteRule ^Colorado\ Springs-auto-services\.html$ trust-in-the-industry/colorado-springs-auto-service-repair-services-offered/ [R=301,L]
+RewriteRule ^Colorado\ Springs-fleet-trailerwork\.html$ colorado-springs-auto-repair-shop/fleet-maintenance/ [R=301,L]
+RewriteRule ^Colorado\ Springs-fleet-suspensionwork\.html$ colorado-springs-auto-repair-shop/fleet-maintenance/ [R=301,L]
+RewriteRule ^Colorado\ Springs-auto-repair-shop-location\.html$ colorado-springs-auto-repair-shop-location/ [R=301,L]
+RewriteRule ^Colorado\ Springs-auto-repairs\.html$ / [R=301,L]
+</IfModule>
+
+# Allow access from all domains for webfonts.
+# Alternatively you could only whitelist your
+# subdomains like "subdomain.example.com".
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

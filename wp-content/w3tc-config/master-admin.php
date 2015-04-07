@@ -17,10 +17,10 @@ return array(
 	'extensions.configuration_sealed' => array(
 	),
 	'notes.minify_error' => false,
-	'minify.error.last' => '',
+	'minify.error.last' => 'File "/home8/novelcr1/public_html/wp/prodautosmithnet/wp/devautosmithnet/wp-includes/js/jquery/jquery.js" doesn\'t exist',
 	'minify.error.notification' => 'admin',
 	'minify.error.notification.last' => 0,
-	'minify.error.file' => '',
+	'minify.error.file' => 'c3793/default.include-footer.dde36b.js',
 	'track.maxcdn_signup' => 0,
 	'track.maxcdn_authorize' => 0,
 	'track.maxcdn_validation' => 0,

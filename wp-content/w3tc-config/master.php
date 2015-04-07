@@ -83,7 +83,7 @@ return array(
 	'fragmentcache.lifetime' => 180,
 	'fragmentcache.groups' => array(
 	),
-	'pgcache.enabled' => false,
+	'pgcache.enabled' => true,
 	'pgcache.comment_cookie_ttl' => 1800,
 	'pgcache.debug' => false,
 	'pgcache.engine' => 'file_generic',
@@ -228,7 +228,7 @@ return array(
 	'minify.js.combine.body' => false,
 	'minify.js.body.embed_type' => 'blocking',
 	'minify.js.combine.footer' => false,
-	'minify.js.footer.embed_type' => 'extsrc',
+	'minify.js.footer.embed_type' => 'nb-async',
 	'minify.js.strip.comments' => false,
 	'minify.js.strip.crlf' => false,
 	'minify.js.groups' => array(
@@ -237,12 +237,12 @@ return array(
 				'include' => array(
 					'files' => array(
 						0 => 'wp/devautosmithnet/wp-includes/js/jquery/jquery.js',
-						1 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-content/plugins/LayerSlider/static/js/layerslider.kreaturamedia.jquery.js?ver=5.3.2',
+						1 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1',
 					),
 				),
 				'include-body' => array(
 					'files' => array(
-						0 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1',
+						0 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-content/plugins/LayerSlider/static/js/layerslider.kreaturamedia.jquery.js?ver=5.3.2',
 						1 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-content/themes/Karma/js/superfish.js?ver=4.0',
 						2 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-content/themes/Karma/js/jquery.flexslider.js?ver=4.0',
 						3 => 'http://phoebe.novelcreator.com/wp/devautosmithnet/wp-content/themes/Karma/js/jquery.fitvids.js?ver=4.0',
@@ -496,7 +496,7 @@ return array(
 	'browsercache.other.etag' => true,
 	'browsercache.other.w3tc' => true,
 	'browsercache.other.replace' => true,
-	'browsercache.timestamp' => '1428429066',
+	'browsercache.timestamp' => '1428433636',
 	'browsercache.replace.exceptions' => array(
 		0 => '',
 	),
@@ -703,7 +703,7 @@ return array(
 	'notes.cdn_upload' => false,
 	'notes.cdn_reupload' => false,
 	'notes.need_empty_pgcache' => false,
-	'notes.need_empty_minify' => true,
+	'notes.need_empty_minify' => false,
 	'notes.need_empty_objectcache' => false,
 	'notes.root_rules' => true,
 	'notes.rules' => true,

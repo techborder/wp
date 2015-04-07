@@ -85,7 +85,7 @@ return array(
 	),
 	'pgcache.enabled' => true,
 	'pgcache.comment_cookie_ttl' => 1800,
-	'pgcache.debug' => true,
+	'pgcache.debug' => false,
 	'pgcache.engine' => 'file_generic',
 	'pgcache.file.gc' => 3600,
 	'pgcache.file.nfs' => false,
@@ -169,7 +169,7 @@ return array(
 	'pgcache.prime.post.enabled' => true,
 	'minify.enabled' => true,
 	'minify.auto' => false,
-	'minify.debug' => true,
+	'minify.debug' => false,
 	'minify.engine' => 'file',
 	'minify.file.gc' => 86400,
 	'minify.file.nfs' => false,
@@ -178,7 +178,7 @@ return array(
 		0 => '127.0.0.1:11211',
 	),
 	'minify.memcached.persistant' => true,
-	'minify.rewrite' => false,
+	'minify.rewrite' => true,
 	'minify.options' => array(
 	),
 	'minify.symlinks' => array(
@@ -207,6 +207,7 @@ return array(
 				'include' => array(
 					'files' => array(
 						0 => 'wp-content/plugins/captcha/css/style.css',
+						1 => 'wp-content/themes/monaco/css/jquery.fancybox.css',
 					),
 				),
 			),
@@ -215,7 +216,7 @@ return array(
 	'minify.js.enable' => true,
 	'minify.js.engine' => 'js',
 	'minify.js.combine.header' => false,
-	'minify.js.header.embed_type' => 'blocking',
+	'minify.js.header.embed_type' => 'nb-defer',
 	'minify.js.combine.body' => false,
 	'minify.js.body.embed_type' => 'nb-async',
 	'minify.js.combine.footer' => false,
@@ -230,9 +231,13 @@ return array(
 						0 => 'http://www.cheepchickadee.com/wp-includes/js/jquery/jquery.js?ver=1.11.1',
 						1 => 'http://www.cheepchickadee.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1',
 						2 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/navigation.js?ver=20120206',
-						3 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/skip-link-focus-fix.js?ver=20130115',
-						4 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/jquery.fancybox.pack.js?ver=4.1.1',
-						5 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/lightbox.js?ver=4.1.1',
+					),
+				),
+				'include-body' => array(
+					'files' => array(
+						0 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/skip-link-focus-fix.js?ver=20130115',
+						1 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/jquery.fancybox.pack.js?ver=4.1.1',
+						2 => 'http://www.cheepchickadee.com/wp-content/themes/monaco/js/lightbox.js?ver=4.1.1',
 					),
 				),
 			),
@@ -452,7 +457,7 @@ return array(
 	'browsercache.other.etag' => true,
 	'browsercache.other.w3tc' => true,
 	'browsercache.other.replace' => true,
-	'browsercache.timestamp' => '1428419618',
+	'browsercache.timestamp' => '1428425633',
 	'browsercache.replace.exceptions' => array(
 		0 => '',
 	),

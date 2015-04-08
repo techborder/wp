@@ -202,21 +202,13 @@ return array(
 	'minify.css.strip.crlf' => false,
 	'minify.css.imports' => 'process',
 	'minify.css.groups' => array(
-		'c3793' => array(
+		'60eac' => array(
 			'default' => array(
 				'include' => array(
 					'files' => array(
-						0 => 'wp-content/themes/Karma-Child-Theme/style.css',
-						1 => 'wp-content/themes/Karma/css/karma-teal-grey.css',
-						2 => 'wp-content/themes/Karma/css/secondary-teal-grey.css',
-						3 => 'wp-content/themes/Karma/css/_font-awesome.css',
-						4 => 'wp-content/themes/Karma/css/_mobile.css',
-						5 => 'wp-content/plugins/LayerSlider/static/css/layerslider.css',
-						6 => 'wp-content/uploads/layerslider.custom.css',
-						7 => 'wp-content/plugins/contact-form-7/includes/css/styles.css',
-						8 => 'wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.css',
-						9 => 'wp-content/plugins/google-places-reviews-pro/assets/css/google-places-reviews.min.css',
-						10 => 'wp-content/plugins/LayerSlider/static/skins/v5/skin.css',
+						0 => 'http://novelcreator.com/wp/devtemplate/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.1.1',
+						1 => 'http://novelcreator.com/wp/devtemplate/wp-content/themes/twentyfourteen/genericons/genericons.css?ver=3.0.3',
+						2 => 'http://novelcreator.com/wp/devtemplate/wp-content/themes/twentyfourteen/style.css?ver=4.1.1',
 					),
 				),
 			),
@@ -225,59 +217,34 @@ return array(
 	'minify.js.enable' => true,
 	'minify.js.engine' => 'js',
 	'minify.js.combine.header' => true,
-	'minify.js.header.embed_type' => 'blocking',
+	'minify.js.header.embed_type' => 'nb-async',
 	'minify.js.combine.body' => false,
-	'minify.js.body.embed_type' => 'blocking',
+	'minify.js.body.embed_type' => 'extsrc',
 	'minify.js.combine.footer' => false,
-	'minify.js.footer.embed_type' => 'nb-async',
+	'minify.js.footer.embed_type' => 'extsrc',
 	'minify.js.strip.comments' => false,
 	'minify.js.strip.crlf' => false,
 	'minify.js.groups' => array(
-		'c3793' => array(
+		'60eac' => array(
 			'default' => array(
 				'include' => array(
 					'files' => array(
-						0 => 'wp-includes/js/jquery/jquery.js',
-						1 => 'wp-includes/js/jquery/jquery-migrate.min.js',
-						2 => 'wp-content/plugins/LayerSlider/static/js/layerslider.kreaturamedia.jquery.js',
+						0 => 'http://novelcreator.com/wp/devtemplate/wp-includes/js/jquery/jquery.js?ver=1.11.1',
 					),
 				),
 				'include-body' => array(
 					'files' => array(
-						0 => 'wp-content/themes/Karma/js/superfish.js',
-						1 => 'wp-content/themes/Karma/js/jquery.flexslider.js',
-						2 => 'wp-content/themes/Karma/js/jquery.fitvids.js',
-						3 => 'wp-content/themes/Karma/js/jquery.isotope.js',
-						4 => 'wp-includes/js/jquery/ui/core.min.js',
-						5 => 'wp-includes/js/jquery/ui/widget.min.js',
-						6 => 'wp-includes/js/jquery/ui/tabs.min.js',
-						7 => 'wp-includes/js/jquery/ui/accordion.min.js',
-						8 => 'wp-content/themes/Karma/js/jquery.prettyPhoto.js',
-						9 => 'wp-includes/js/comment-reply.js',
-						10 => 'wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js',
-						11 => 'wp-content/plugins/contact-form-7/includes/js/scripts.js',
-						12 => 'wp-includes/js/jquery/ui/datepicker.min.js',
-						13 => 'wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.js',
-						14 => 'wp-includes/js/jquery/ui/mouse.min.js',
-						15 => 'wp-includes/js/jquery/ui/slider.min.js',
-						16 => 'wp-includes/js/jquery/ui/button.min.js',
-						17 => 'wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-sliderAccess.js',
-						18 => 'wp-content/plugins/LayerSlider/static/js/greensock.js',
-						19 => 'wp-content/plugins/LayerSlider/static/js/layerslider.transitions.js',
-						20 => 'wp-content/themes/Karma/js/custom-main.js',
-					),
-				),
-				'include-footer' => array(
-					'files' => array(
-						0 => 'wp-content/plugins/google-places-reviews-pro/assets/js/gpr-readmore.min.js',
-						1 => 'wp-content/plugins/google-places-reviews-pro/assets/js/google-places-reviews.min.js',
+						0 => 'http://novelcreator.com/wp/devtemplate/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1',
+						1 => 'http://novelcreator.com/wp/devtemplate/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20',
+						2 => 'http://novelcreator.com/wp/devtemplate/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.1.1',
+						3 => 'http://novelcreator.com/wp/devtemplate/wp-content/themes/twentyfourteen/js/functions.js?ver=20140616',
 					),
 				),
 			),
-			'single' => array(
+			'image' => array(
 				'include-body' => array(
 					'files' => array(
-						0 => 'wp-content/themes/Karma/js/jquery.prettySociable.js',
+						0 => 'http://novelcreator.com/wp/devtemplate/wp-content/themes/twentyfourteen/js/keyboard-image-navigation.js?ver=20130402',
 					),
 				),
 			),

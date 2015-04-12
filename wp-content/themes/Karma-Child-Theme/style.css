@@ -18,3 +18,7 @@ iframe, object, embed {
         max-width: 80%;
 }
 
+ul.social_icons.tt_vector_social_icons a.yelp:after {
+    content: "\f1e9";
+}
+

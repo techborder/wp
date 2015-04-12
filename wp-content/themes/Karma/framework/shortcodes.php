@@ -526,6 +526,8 @@ function truethemes_social_shortcode( $atts, $content = null ) {
   'dribbble_title'   => 'Dribbble',
   'skype'            => '',
   'skype_title'      => 'Skype',
+  'yelp'            => '',
+  'yelp_title'      => 'Yelp',
   ), $atts));
   
   if('image' == $style){ $style = 'tt_image_social_icons';}
@@ -569,6 +571,8 @@ if(!empty($dribbble)):
 $output .='<li><a title="'.$dribbble_title.'" class="dribbble" href="'.$dribbble.'" target="'.$target.'">'.$dribbble_title.'</a></li>'; endif;
 if(!empty($skype)):
 $output .='<li><a title="'.$skype_title.'" class="skype" href="'.$skype.'" target="'.$target.'">'.$skype_title.'</a></li>'; endif;
+if(!empty($yelp)):
+$output .='<li><a title="'.$yelp_title.'" class="yelp" href="'.$yelp.'" target="'.$target.'">'.$yelp_title.'</a></li>'; endif;
 
 $output .='</ul>
 [/raw]';

@@ -2,10 +2,10 @@
 Theme Name:     Karma Child Theme
 Theme URI:      http://themeforest.net/item/karma-clean-and-modern-wordpress-theme/168737?ref=TrueThemes
 Description:    Child theme for the Karma theme 
-Author:         TrueThemes
-Author URI:     http://themeforest.net/user/TrueThemes?ref=TrueThemes
+Author:         TrueThemes and customized by Techborder
+Author URI:     http://techborder.com
 Template:       Karma
-Version:        0.1.3
+Version:        0.0.2
 */
 
 @import url("../Karma/style.css");
@@ -18,6 +18,7 @@ iframe, object, embed {
         max-width: 80%;
 }
 
+/* plain-style retina-ready vector social icons (fontAwesome) */
 ul.social_icons.tt_vector_social_icons a.yelp:after {
     content: "\f1e9";
 }

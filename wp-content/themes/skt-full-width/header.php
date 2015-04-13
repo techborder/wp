@@ -82,9 +82,10 @@ $post_page = get_option('page_for_posts');
                 </div>
               
                 <div id="site-nav">
-                    <h1 class="menu-toggle"><?php _e( 'Menu', 'skt-full-width' ); ?></h1>
-                    <div class="screen-reader-text skip-link"><a href="#content"><?php _e( 'Skip to content', 'skt-full-width' ); ?></a></div>
-                    <?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'menu_class' => '') ); ?>
+                    <div class="mobile_nav"><?php _e('Menu...','skt-full-width'); ?></div>
+                     <nav id="nav">
+                       <?php wp_nav_menu( array('theme_location'  => 'primary' ) ); ?>
+                     </nav> 
                 </div><!-- site-nav -->
                 <div class="header-bottom">
                     <div id="header-bottom-shape">

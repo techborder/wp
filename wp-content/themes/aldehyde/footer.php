@@ -4,33 +4,26 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Aldehyde
+ * @package aldehyde
  */
 ?>
-	</div>
+
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer row" role="contentinfo">
-	<div class="container">
-	<?php if ( of_get_option('credit1', true) == 0 ) { ?>
-		<div class="site-info col-md-4">
-			<?php do_action( 'aldehyde_credits' ); ?>
-			<?php printf( __( 'Aldehyde Theme by %1$s.', 'aldehyde' ), '<a href="http://inkhive.com/product/aldehyde" rel="designer">InkHive</a>' ); ?>
+	<?php get_sidebar('footer'); ?>
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info container">
+			<?php printf( __( 'Theme Designed by %1$s.', 'aldehyde' ), '<a href="'.esc_url("http://inkhive.com/product/aldehyde/").'" rel="designer">InkHive</a>' ); ?>
+			<span class="sep"></span>
+			<?php echo ( get_theme_mod('aldehyde_footer_text') == '' ) ? ('&copy; '.date('Y').' '.get_bloginfo('name').__('. All Rights Reserved. ','aldehyde')) : get_theme_mod('aldehyde_footer_text'); ?>
 		</div><!-- .site-info -->
-	<?php } ?>	
-		<div id="footertext" class="col-md-7">
-        	<?php
-			if ( (function_exists( 'of_get_option' ) && (of_get_option('footertext2', true) != 1) ) ) {
-			 	echo of_get_option('footertext2', true); } ?>
-        </div>
-	</div>   
 	</footer><!-- #colophon -->
 	
 </div><!-- #page -->
 
-<?php		
-	if ( (function_exists( 'of_get_option' ) && (of_get_option('footercode1', true) != 1) ) ) {
-			 	echo of_get_option('footercode1', true); } ?>
+
 <?php wp_footer(); ?>
+
 </body>
 </html>

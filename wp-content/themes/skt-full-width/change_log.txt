@@ -66,3 +66,5 @@ Version 1.6
 
 Version 1.6.1
 	i) Theme options from old version not getting migrated to new version solved.
+Version 1.6.2
+	i) Resolved blogname first letter issue.

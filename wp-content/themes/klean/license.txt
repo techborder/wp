@@ -25,6 +25,10 @@ The theme comes under GNU General Public license. For more details about the lic
 
 	V.	Resource 	- Fonts(Source Sans Pro)
 		License 	- Open Source Web Font from Google
+
+	VI.	Resource	- SlickNav Menu
+		License		- MIT License 
+				  For more info, go to - https://github.com/ComputerWolf/SlickNav/blob/master/MIT-LICENSE.txt
 	
 
 Everything else used in this theme has been created by me, especially for Klean theme and is distributed under GPL license.

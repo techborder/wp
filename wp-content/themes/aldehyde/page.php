@@ -7,12 +7,12 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package Aldehyde
+ * @package aldehyde
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area col-md-8">
+	<div id="primary-mono" class="content-area <?php do_action('aldehyde_primary-width') ?> page">
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -21,8 +21,9 @@ get_header(); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() )
+					if ( comments_open() || get_comments_number() ) :
 						comments_template();
+					endif;
 				?>
 
 			<?php endwhile; // end of the loop. ?>

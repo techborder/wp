@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Goran 1.1.1\n"
+"Project-Id-Version: Goran 1.1.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/goran\n"
-"POT-Creation-Date: 2015-01-01 04:03:24+00:00\n"
+"POT-Creation-Date: 2015-02-25 04:19:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -94,23 +94,28 @@ msgid "<span class=\"meta-nav\">Next Post</span>%title"
 msgstr ""
 
 #. Theme Name of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "Goran"
 msgstr ""
 
 #. Theme URI of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "https://wordpress.com/themes/goran/"
 msgstr ""
 
 #. Description of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid ""
 "Goran is a functional and responsive multi-purpose theme that is the perfect "
 "solution for your business’s online presence."
 msgstr ""
 
 #. Author of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "Automattic"
 msgstr ""
 
 #. Author URI of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "https://wordpress.com/themes/"
 msgstr ""

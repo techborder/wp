@@ -1,6 +1,15 @@
 Theme Name: ColorWay
 ========================
 
+* Version 3.3.2
+***************************************
+1. Removed Wrong character from editor-style.css
+
+* Version 3.3.1
+***************************************
+1. One Admin Page Added.
+2. Theme Option File Updated
+
 * Version 3.3.0
 ***************************************
 1. Used sane defaults to theme options.

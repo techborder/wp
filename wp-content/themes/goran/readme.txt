@@ -126,6 +126,9 @@ For example:
 
 == Changelog ==
 
+= 1.1.2 - Apr 08 2015 =
+* Fixed language filenames
+
 = 1.1.1 - Jan 22 2015 =
 * Remove javascript dependency from the parent theme (Edin)
 

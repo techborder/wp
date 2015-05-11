@@ -25,14 +25,14 @@
 					</div>
                  <?php }?>
                     </div>
-                    
+                    <?php if ( has_nav_menu( "primary" ) ) {?>
                     	<button type="button" class="navbar-toggle site-nav-toggle" data-toggle="collapse" data-target="#navbar-collapse">
       				<span class="sr-only"><?php _e('Toggle navigation','singlepage');?></span>
       				<span class="icon-bar"></span>
       				<span class="icon-bar"></span>
      				<span class="icon-bar"></span>
    				</button>
-                
+                <?php }?>
 		 <nav class="site-nav main-menu" id="navbar-collapse" role="navigation">
 			<?php wp_nav_menu(array('theme_location'=>'primary','depth'=>0,'fallback_cb' =>false,'container'=>'','container_class'=>'main-menu','menu_id'=>'menu-main','menu_class'=>'main-nav','link_before' => '<span>', 'link_after' => '</span>','items_wrap'=> '<ul id="%1$s" class="%2$s">%3$s<li class="nav_focus">focus</li><li class="nav_default cur">default</li></ul>'));?>
 		</nav>

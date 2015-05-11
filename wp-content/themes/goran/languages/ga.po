@@ -23,6 +23,7 @@ msgid "<span class=\"meta-nav\">Next Post</span>%title"
 msgstr "<span class=\"meta-nav\">Soir</span>%title"
 
 #. Description of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "Goran is a functional and responsive multi-purpose theme that is the perfect solution for your business’s online presence."
 msgstr ""
 
@@ -31,14 +32,17 @@ msgid "Top Area Content"
 msgstr "Ábhar Uachtair"
 
 #. Theme Name of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "Goran"
 msgstr "Goran"
 
 #. Theme URI of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "https://wordpress.com/themes/goran/"
 msgstr "https://wordpress.com/themes/goran/"
 
 #. Author URI of the plugin/theme
+#: wp-content/themes/pub/goran/style.css
 msgid "https://wordpress.com/themes/"
 msgstr "https://wordpress.com/themes/"
 

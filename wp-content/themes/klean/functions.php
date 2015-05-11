@@ -426,9 +426,8 @@ function klean_customizer($wp_customize) {
 	$wp_customize-> add_section(
     'klean_pro',
     array(
-    	'title'			=> __('Your Opinion Matters','klean'),
-    	'description'	=> __('<i>Looking at the love and support this theme has recieved, I have decided to release a Pro version of the theme for more advanced users to create much more awesome stuff. Instead of stamping features on you, I decided to take your opinion regarding the features you would like in the Pro version. Don\'t worry, Klean will continue be the awesome theme it is.<br><br>
-    	For providing your Input, just go to <a href="www.divjot.co">www.divjot.co</a> and answer a poll there on the sidebar.</i>','klean'),
+    	'title'			=> __('GO PRO !!!','klean'),
+    	'description'	=> __('<i>Now you can upgrade to Klean Pro and unlock the full features of the theme. <br><br>The pro version is available at only $25.<br><br><b>To purchase the Pro version, go <a href="http://www.divjot.co/product/super-klean">here</a>.</b></i>','klean'),
     	'priority'		=> 999,
     	)
     );
@@ -612,6 +611,8 @@ function klean_scripts() {
 	 wp_enqueue_style('klean-font-awesome', get_template_directory_uri()."/assets/font-awesome/css/font-awesome.min.css", array('klean-main-skin'));
 	
 	wp_enqueue_script( 'klean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	
+	wp_enqueue_script( 'klean-menu-js', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array(), true );
 
 	wp_enqueue_script( 'klean-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -627,6 +628,17 @@ function klean_initialize_header() {
 	echo get_theme_mod('css');
 	
 	echo "</style>";
+	
+	echo "<script>"; ?>
+		
+		jQuery(function(){
+		jQuery('.nav-menu').slicknav({
+		});
+	});
+		
+	<?php
+	
+	echo "</script>";
 }
 
 add_action('wp_head', 'klean_initialize_header');

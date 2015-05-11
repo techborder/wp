@@ -21,7 +21,7 @@ a:hover,a:focus,a:active {color:#eeeded; }
 .header{ width:248px; margin:0; padding:0; border-left:1px solid #1b1b1b; border-right:1px solid #1b1b1b; float:left; }
 .header .logo{ width:100%; margin:0; padding:60px 0 30px; background:url(../images/menu-bg.png); text-align:center; }
 .header .logo h1.site-title a{font:700 45px 'Roboto Condensed', Arial; text-decoration:none; }
-.header .logo h1.site-title:first-letter{ color:#86c301; }
+
 /* NAVIGATION */
 /*.page-template-page-full-width-php #site-nav{display:none;}*/
 #site-nav{ width:100%; margin:0; padding:0 0 60px; background:url(../images/menu-bg.png); text-transform:uppercase; font:300 16px 'Roboto Condensed', Arial; }
@@ -301,8 +301,8 @@ mark{background-color:transparent !important;}
 	#wrapper{min-width:480px;}
 	#sidebar{width:100%; float:none; padding-top:30px;}
 	 .blog-post{float:none;}
-	.menu-toggle,.main-navigation.toggled .nav-menu {display:block; color:#5e5340; font-weight:bold; text-transform:uppercase; padding:10px; font-size:20px; padding-bottom:10px; position:relative; top:-8px; }
-	.menu-toggle:before {content:url('../images/menu.png'); height:0; width:0px; margin-right:20px; position:relative; top:10px; }
+	.mobile_nav,.main-navigation.toggled .nav-menu {display:block; color:#5e5340; font-weight:bold; text-transform:uppercase; padding:10px; font-size:20px; padding-bottom:10px; position:relative; top:-8px;}
+	.mobile_nav:before {content:url('../images/menu.png'); height:0; width:0px; margin-right:20px; position:relative; top:10px; }
 	#nav-wrapper {width:90%; margin-bottom:15px; text-align:center; box-shadow:none; }
 	.main-navigation ul {display:none; }
 	.main-navigation ul a {padding:5px; }

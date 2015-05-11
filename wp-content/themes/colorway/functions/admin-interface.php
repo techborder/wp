@@ -39,18 +39,46 @@ function inkthemes_reset_options($options, $page = '') {
 
 function inkthemes_optionsframework_options_page() {
     $options = inkthemes_options();
-    $themename = inkthemes_get_option('of_themename');
+    $themename = $options['theme_name'];
+	$pro_theme_url = 'http://www.inkthemes.com/wp-themes/colorway-wp-theme/';
+	$pro_theme_demo = 'http://inkthemes.com/wpthemes/colorwayngo/';
+    $site_url = 'http://www.inkthemes.com';
     ?>
+	<div class="colorway_advert" id="colorway_advert">	
+				<div class="colorway_block_wrapper">
+				<h3><?php _e('Colorway Pro Version Features', 'colorway'); ?></h3>
+				<div class="colorway_block block_two">				
+					<ul>						
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('8 Built in Color Schemes', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('PDF/Video Documentations', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Background Images Bonus', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Home Page Slider', 'colorway'); ?></li>
+					</ul>
+				</div>
+				<div class="colorway_block block_three">
+					<ul>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Seo optimized Theme', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Wpml Compatible Theme', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Improved Zoom-box', 'colorway'); ?></li>
+						<li><div class="dashicons dashicons-controls-play"></div><?php 
+						_e('Gallery & Contact Page', 'colorway'); ?></li>						
+					</ul>
+				</div>
+				<a href="<?php echo esc_url($pro_theme_demo); ?>" target="blank" class="btn btn-demo"><?php _e('View Pro Demo', 'colorway'); ?></a>
+				<a href="<?php echo esc_url($pro_theme_url); ?>" target="_blank" class="btn btn-upgrade"><?php _e('Upgrade to Pro', 'colorway'); ?></a>
+				</div>
+				<div class="colorway_block block_four">				
+				<img class="colorway_img_responsive " src="<?php echo get_template_directory_uri(); ?>/images/advert.png">				
+			</div>
+		</div>
     <div class="clear"></div>
-    <div class="trail-notify">
-        <?php
-        $pro_theme_url = 'http://www.inkthemes.com/wp-themes/colorway-wp-theme/';
-        $site_url = 'http://www.inkthemes.com';
-        ?>
-        <h1><?php _e('Get ColorWay Theme PRO!', 'colorway'); ?></h1>
-        <p style="font-size:15px; line-height: 20px;"><?php _e('You are using the Lite Version of ColorWay Theme. Upgrade to Pro for extra features like Home Page Slider Contact Page, Gallery Features, Portfolio Page Template, FullWidth Page Templates, Multiple Color Options and much more.', 'colorway'); ?></p>
-        <a href="<?php echo esc_url($pro_theme_url); ?>" target="blank"><?php _e('Upgrade to ColorWay PRO Theme here>>', 'colorway'); ?> </a>
-    </div>
     <div class="theme-option">
         <div class="wrap" id="of_container">
             <div id="of-popup-save" class="of-save-popup">
@@ -126,15 +154,21 @@ function inkthemes_optionsframework_options_page() {
             </div>
             <div class="horizontal-line"></div>
             <div>
-                <h3><?php _e('Get the Pro Theme', 'colorway'); ?></h3>
+                <h3><?php _e('Get the Colorway Pro Theme', 'colorway'); ?></h3>
                 <p><?php _e('You are using the Lite Version of ColorWay Theme. Upgrade to Pro for extra features like Home Page Slider Contact Page, Gallery Features, Portfolio Page Template, FullWidth Page Templates, Multiple Color Options and much more.', 'colorway'); ?></p>
-                <a class="button-primary" href="<?php echo esc_url($pro_theme_url); ?>" target="_blank"><?php _e('Get the Pro Pack', 'colorway'); ?></a>
+                <a class="button-primary" href="<?php echo esc_url($pro_theme_url); ?>" target="_blank"><?php _e('Get the Colorway Pro', 'colorway'); ?></a>
             </div>
             <div class="horizontal-line"></div>
             <div>
                 <h3><?php _e('Rate us on WordPress.org ', 'colorway'); ?></h3>
                 <p><?php _e('Get Best and free theme support. We are always ready to solve your queries. Just started your query at Wordpress.org', 'colorway'); ?></p>
                 <a class="button-primary" href="<?php echo esc_url('https://wordpress.org/support/theme/colorway'); ?>" target="_blank"><?php _e('Get Free Support', 'colorway'); ?></a>
+            </div>
+			<div class="horizontal-line"></div>
+			<div>
+                <h3><?php _e('Extra Benefits With Colorway Pro', 'colorway'); ?></h3>
+                <p><?php _e('Get Premium Support & Free Bonus that includes one WordPress Notification Plugin and free bonus psd', 'colorway'); ?></p>
+                <a class="" href="<?php echo esc_url('http://www.inkthemes.com/wp-themes/colorway-wp-theme/'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/benifits.png"/></a>
             </div>
         </div>
     </div>
@@ -574,7 +608,9 @@ function inkthemes_optionsframework_machine($options) {
         //End Heading
         $select_value = '';
         switch ($value['type']) {
-
+			case 'pro':		
+			$output .= '<a class="pro_link" href="http://www.inkthemes.com/wp-themes/colorway-wp-theme/" target="_blank"><div class="pro_feature_div">' . $value['msg'] .'  <span class="button-primary">Get Premium</span></div></a>';
+			break;
             case 'text':
                 $val = $value['std'];
                 $std = inkthemes_get_option($value['id']);
@@ -637,7 +673,7 @@ function inkthemes_optionsframework_machine($options) {
 
                 break;
             case "radio":
-                $select_value = get_option($value['id']);
+                $select_value = inkthemes_get_option($value['id']);
 
                 foreach ($value['options'] as $key => $option) {
                     $checked = '';

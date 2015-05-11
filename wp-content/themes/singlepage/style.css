@@ -2,12 +2,12 @@
 Theme Name: SinglePage
 Theme URI: http://www.hoothemes.com/themes/single-page.html
 Description: SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company. Each of the homepage sections can have a parallax background image and its own set of colors. You can not only use it to create a singlepage-style front page for your WordPress site, but also create your personal blog or site easily.
-Version: 1.1.7
+Version: 1.1.9
 Author: HooThemes
 Author URI: http://www.hoothemes.com
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: one-column, two-columns, dark,light,gray, responsive-layout, custom-background, custom-header, custom-menu, theme-options, left-sidebar, translation-ready, editor-style, featured-images
+Tags: one-column, two-columns, dark,light,gray, responsive-layout, custom-background, custom-header, custom-menu, theme-options, left-sidebar, translation-ready, editor-style, featured-images, flexible-header, threaded-comments
 Text Domain: singlepage
 
 SinglePage Wordpress Theme has been created by hoothemes.com, Copyright 2014 WordPress.org.
@@ -859,7 +859,8 @@ nav > ul > li.current_page_item > a,
 	position:fixed;
 	left:60px;
 	top:50%;
-	margin-top:-100px
+	margin-top:-100px;
+	z-index:999999;
 }
 .sub_nav a:hover {
 	color:#23dd91
@@ -1509,6 +1510,7 @@ footer{
 .navbar-onex .navbar-toggle {
 	border-color:transparent;
 	margin-top:19px;
+	z-index:999;
 }
 .navbar-onex .navbar-toggle:hover {
 	border:1px solid rgba(99,66,113,0.8);
@@ -2323,6 +2325,7 @@ form.wpcf7-form .wpcf7-submit{
 		}
 	#menu-main{
 		padding-bottom:10px;
+		padding-left: 50px;
 		
 		}
 
@@ -2413,7 +2416,7 @@ form.wpcf7-form .wpcf7-submit{
 	box-shadow:none;
 	background-color: #666;
 	border-radius:5px;
-	margin-top: 65px;
+	margin-top: 89px;
 	float:none;
 	width: 100%;
 	position: absolute;
@@ -2462,10 +2465,13 @@ form.wpcf7-form .wpcf7-submit{
 	}
 		
 .sub_nav {
-	position:fixed;
+	/*position:absolute;*/
 	left:20px;
-	top:50%;
+	top:200px;
 	margin-top:-80px
+}
+#featured-template header.navbar {
+  /* position: static;*/
 }
 }
 
@@ -2478,6 +2484,6 @@ form.wpcf7-form .wpcf7-submit{
 }
 @media screen and (max-width:480px) {
   section.section .section-content{
-			margin-left:20%;
+		
 			}	
 }

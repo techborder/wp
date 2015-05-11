@@ -242,7 +242,25 @@ function inkthemes_options() {
             "desc" => __("Enter your Stumble Upon URL if you have one", 'colorway'),
             "id" => "colorway_digg",
             "std" => "",
-            "type" => "text")
+            "type" => "text"),
+		array("name" => __("Premium Features", 'colorway'),
+            "type" => "heading"),
+		array("name" => "More Slides",			
+			"msg" => "Add Unlimited slides for your sideshow",
+            "type" => "pro"),	
+		array("name" => "Color Schemes",			
+			"msg" => "Get Eight Different Color Schemes",
+            "type" => "pro"),
+		array("name" => "Seo Options",			
+			"msg" => "SEO Inbuilt",
+            "type" => "pro"),
+		array("name" => "Testimonials Option",			
+			"msg" => "Option to add Unlimited testimonials",
+            "type" => "pro"),
+		array("name" => "Rtl Compatiblity",			
+			"msg" => "Only available in pro version",
+            "type" => "pro"),
+		
     );
     return apply_filters('inkthemes_option_defaults', array('of_template' => $options, 'theme_name' => $themename));
 }

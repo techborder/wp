@@ -30,7 +30,7 @@ a:active {
   z-index: 2;
   position: absolute;
   text-align: center;
-  top: 30%;
+  top: 25%;
 }
 .site-header .site-branding #logo {
   max-width: 400px;
@@ -83,7 +83,7 @@ body:not(.blog) .site-branding {
   outline: 0px;
   border-radius: 13px;
   background: rgba(255, 255, 255, 0.5);
-  width: 20%;
+  width: 250px;
 }
 #search-top button[type=submit] {
   position: relative;
@@ -135,13 +135,14 @@ body:not(.blog) #social-icons i {
   body:not(.blog) .site-header .site-branding {
     margin-top: 40px;
     position: relative !important;
+    width: 70%;
   }
   body:not(.blog) .site-header .site-branding h2.site-description {
     margin: 0px;
   }
   body:not(.blog) #social-icons {
     position: relative;
-    width: 80%;
+    width: 100%;
     margin: 30px auto;
   }
   body:not(.blog) #page {
@@ -192,6 +193,50 @@ body:not(.blog) #social-icons i {
 }
 .main-navigation li:hover > ul {
   opacity: 1;
+}
+.slicknav_menu {
+  position: absolute;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 10px;
+}
+.slicknav_menu a {
+  color: white;
+}
+.slicknav_menu a.slicknav_btn {
+  font-size: 16px;
+  display: block;
+  text-align: right;
+}
+.slicknav_menu a .slicknav_menutxt {
+  background: black;
+  color: white;
+  font-weight: 400;
+  padding: 10px 10px;
+}
+.slicknav_menu ul {
+  width: 80%;
+}
+.slicknav_menu li {
+  list-style: none;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  #site-navigation {
+    display: none;
+  }
+  .slicknav-menu {
+    display: block;
+  }
+}
+@media screen and (min-width: 600px) {
+  #site-navigation {
+    display: block;
+  }
+  .slicknav_menu {
+    display: none;
+  }
 }
 /*------Home-------*/
 #content {
@@ -448,7 +493,7 @@ body:not(.blog) .site-branding h2.site-description {
 .single #page .entry-content img,
 .page #page .entry-content img {
   max-width: 80%;
-  display: block;
+  display: inline-block;
   margin: auto;
   margin: 20px;
 }
@@ -957,7 +1002,17 @@ body:not(.home):not(.front-page) .site-info {
 #comments ul .comment-body .reply a {
   color: white;
 }
-#customize-theme-controls .control-section.open .accordion-section-title,
-#customize-theme-controls .control-section:hover > .accordion-section-title {
-  color: #fff !important;
+#comments #respond .comment-form-comment label {
+  text-transform: uppercase;
+}
+#comments #respond .comment-form-comment textarea {
+  border-radius: 0px !important;
+}
+#comments #respond .form-submit input {
+  box-shadow: none !important;
+  border-radius: 0px;
+  text-shadow: none !important;
+  padding: 13px 20px;
+  text-transform: uppercase;
+  font-weight: 400;
 }

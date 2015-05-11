@@ -12,6 +12,22 @@ To fix this issue, please go to Appearance - Widgets, and remove the default wid
 * Go to Appearance - Theme Options to customize the look of the site by choosing which options you want
 
 
+== Change log ==
+
+= 1.51 =
+- Fix to title bug
+- update extras.php
+
+= 1.5 =
+- General fixes to responsiveness
+- Bug fix for responsive slider
+- added additional widget placeholder ( homepage half-width widget )
+- General fixes to theme performance
+- added footer CTA
+- fixes to sidebars
+- General CSS fixes
+- Added Instagram and Youtube to headerbar
+
 == Support ==
 
 For support requests, please go to http://smartcatdesign.net/contact-us
@@ -69,5 +85,10 @@ Ares uses various open source libraries, fonts icons as listed blow:
 
 10. Animate
     - URL                   https://github.com/daneden/animate.css#license
+    - License               MIT
+    - License URL           http://www.opensource.org/licenses/mit-license.php
+
+11. Wow
+    - URL                   https://github.com/matthieua/WOW/blob/master/LICENSE-MIT
     - License               MIT
     - License URL           http://www.opensource.org/licenses/mit-license.php

@@ -83,6 +83,12 @@ For any help you can mail me at support[at]hoosoft.com
 
 ===== Change Log =====
 
+ Version 1.1.9
+ * Responsive optimization
+ 
+ Version 1.1.8
+ * Fixed header image issue
+ 
  Version 1.1.7
  * Fixed customize Display Header Text issue
  * Fixed duplicate title tag issue

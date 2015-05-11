@@ -256,12 +256,12 @@ function optionsframework_options() {
 		 
 	 
 	 	$options[] = array('name' => __('Content Container Width', 'singlepage'),'class'=>'mini','id' => 'content_container_width_768','type' => 'text','std'=>'70%','desc'=> __('Extra small devices Phones (<768px)', 'singlepage'));
-	$options[] = array('name' => __('Content Container Margin Left', 'singlepage'),'class'=>'mini','id' => 'content_container_left_768','type' => 'text','std'=>'9%','desc'=> __('Extra small devices Phones (<768px)', 'singlepage'));
+	$options[] = array('name' => __('Content Container Margin Left', 'singlepage'),'class'=>'mini','id' => 'content_container_left_768','type' => 'text','std'=>'21%','desc'=> __('Extra small devices Phones (<768px)', 'singlepage'));
 	$options[] = array('name' => __('Content Container Margin Top', 'singlepage'),'class'=>'mini','id' => 'content_container_top_768','type' => 'text','std'=>'15%','desc'=> __('Extra small devices Phones (<768px)', 'singlepage'));
 	$options[] = array('name' => __('Content Container Padding', 'singlepage'),'class'=>'mini','id' => 'content_container_padding_768','type' => 'text','std'=>'10px','desc'=> __('Extra small devices Phones (<768px)', 'singlepage'));
 	
 	$options[] = array('name' => __('Content Container Width', 'singlepage'),'class'=>'mini','id' => 'content_container_width_992','type' => 'text','std'=>'60%','desc'=> __('Small devices Tablets (<992px)', 'singlepage'));
-	$options[] = array('name' => __('Content Container Margin Left', 'singlepage'),'class'=>'mini','id' => 'content_container_left_992','type' => 'text','std'=>'18%','desc'=> __('Extra small devices Phones ( <992px)', 'singlepage'));
+	$options[] = array('name' => __('Content Container Margin Left', 'singlepage'),'class'=>'mini','id' => 'content_container_left_992','type' => 'text','std'=>'21%','desc'=> __('Extra small devices Phones ( <992px)', 'singlepage'));
 	$options[] = array('name' => __('Content Container Margin Top', 'singlepage'),'class'=>'mini','id' => 'content_container_top_992','type' => 'text','std'=>'15%','desc'=> __('Extra small devices Phones ( <992px)', 'singlepage'));
 	$options[] = array('name' => __('Content Container Padding', 'singlepage'),'class'=>'mini','id' => 'content_container_padding_992','type' => 'text','std'=>'20px','desc'=> __('Extra small devices Phones (<992px)', 'singlepage'));
 	

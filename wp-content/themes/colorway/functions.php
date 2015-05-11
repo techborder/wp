@@ -1,37 +1,32 @@
 <?php
-
 ob_start();
 include_once get_template_directory() . '/functions/inkthemes-functions.php';
 include_once get_template_directory() . '/functions/admin-functions.php';
 include_once get_template_directory() . '/functions/admin-interface.php';
 include_once get_template_directory() . '/functions/theme-options.php';
-
+include_once get_template_directory() . '/functions/themes-page.php';
 //get the theme option from options array
 function inkthemes_get_option($name) {
     $options = get_option('inkthemes_options');
     if (isset($options[$name]))
         return $options[$name];
 }
-
 // Save all option in single array
 function inkthemes_save_option($option) {
     return update_option('inkthemes_options', $option);
 }
-
 //update theme option
 function inkthemes_update_option($name, $value) {
     $options = get_option('inkthemes_options');
     $options[$name] = $value;
     return update_option('inkthemes_options', $options);
 }
-
 //delete theme option
 function inkthemes_delete_option($name) {
     $options = get_option('inkthemes_options');
     unset($options[$name]);
     return update_option('inkthemes_options', $options);
 }
-
 $inkthemes_backup_data = get_option('inkthemes_backup_data');
 if (!$inkthemes_backup_data) {
     $colorway_options = get_option('colorway');
@@ -53,13 +48,9 @@ if (!$inkthemes_backup_data) {
         update_option('inkthemes_backup_data', '1');
     }
 }
-
-
-
 /* ----------------------------------------------------------------------------------- */
 /* Styles Enqueue */
 /* ----------------------------------------------------------------------------------- */
-
 function inkthemes_add_stylesheet() {
     if (!is_admin()) {
 		wp_enqueue_style('inkthemes_reset_stylesheet', get_template_directory_uri() . "/css/reset.css", '', '', 'all');
@@ -69,12 +60,10 @@ function inkthemes_add_stylesheet() {
         wp_enqueue_style('inkthemes-media', get_template_directory_uri() . "/css/media.css", '', '', 'all');
     }
 }
-
 add_action('init', 'inkthemes_add_stylesheet');
 /* ----------------------------------------------------------------------------------- */
 /* jQuery Enqueue */
-/* ----------------------------------------------------------------------------------- */
-
+/* ---------------------------------------------------------------------------------- */
 function inkthemes_wp_enqueue_scripts() {
     if (!is_admin()) {
         wp_enqueue_script('jquery');
@@ -87,9 +76,7 @@ function inkthemes_wp_enqueue_scripts() {
         
     }
 }
-
 add_action('wp_enqueue_scripts', 'inkthemes_wp_enqueue_scripts');
-
 /**
  * Enqueues the javascript for comment replys 
  * 
@@ -99,10 +86,7 @@ function inkthemes_enqueue_scripts() {
         wp_print_scripts('comment-reply');
     }
 }
-
 add_action('wp_enqueue_scripts', 'inkthemes_enqueue_scripts');
-
-
 //Front Page Rename
 $get_status = inkthemes_get_option('re_nm');
 $get_file_ac = get_template_directory() . '/front-page.php';

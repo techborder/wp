@@ -98,6 +98,8 @@ function skt_full_width_scripts() {
 	//wp_enqueue_script( 'skt_full_width-superfish', get_template_directory_uri() . '/js/superfish.js', array('jquery') );
 
 	wp_enqueue_script( 'skt_full_width-supersized-shutter', get_template_directory_uri() . '/js/supersized.shutter.js', array('jquery') );
+	
+	wp_enqueue_script( 'skt_full_width-custom_js', get_template_directory_uri() . '/js/custom.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -125,7 +127,7 @@ function skt_full_width_custom_head_codes() {
 			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a{background-image:url(".of_get_option('navigation_icon',true).")}";
 		}
 		if( of_get_option('navigation_color', true) != '' ){
-			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a, div.slide-title a:hover{color:".of_get_option('navigation_color',true).";}mark, ins, a, .header .logo h1.site-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, .single-post h1.entry-title:first-letter, .entry-meta a, .search h1.entry-title:first-letter,.archive h1.entry-title:first-letter, .read-more a:hover, .recent-post .post-box .post-text a, aside ul li a:hover, .widget ul li a:hover, h3.company-title:first-letter, .footer-menu ul li a:hover, .social a:hover, .footer-bottom a{color:".of_get_option('navigation_color',true).";}button, html input[type=\"button\"], input[type=\"reset\"],input[type=\"submit\"]{background-color:".of_get_option('navigation_color',true).";}";
+			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a, div.slide-title a:hover{color:".of_get_option('navigation_color',true).";}mark, ins, a, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, .single-post h1.entry-title:first-letter, .entry-meta a, .search h1.entry-title:first-letter,.archive h1.entry-title:first-letter, .read-more a:hover, .recent-post .post-box .post-text a, aside ul li a:hover, .widget ul li a:hover, h3.company-title:first-letter, .footer-menu ul li a:hover, .social a:hover, .footer-bottom a{color:".of_get_option('navigation_color',true).";}button, html input[type=\"button\"], input[type=\"reset\"],input[type=\"submit\"]{background-color:".of_get_option('navigation_color',true).";}";
 		}
 		if( (of_get_option('pagin_grad_top_color',true) != '') && (of_get_option('pagin_grad_bottom_color',true) != '') ){
 			echo ".pagination ul  > li  > a, .pagination ul  > li  > span{background:linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-moz-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-webkit-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-o-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important;}.pagination ul  > li:hover > a, .pagination ul  > li > span.current{background:linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-moz-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-webkit-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-o-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important;}";
@@ -204,7 +206,8 @@ function skt_full_width_custom_head_codes() {
 		}
 	});
 	
-	</script><?php
+	</script>
+	<?php
 
 }	
 add_action('wp_head', 'skt_full_width_custom_head_codes');

@@ -1,9 +1,9 @@
 === Social Media Feather - lightweight social media sharing and follow buttons ===
 Contributors: Synved
 Donate link: http://synved.com/wordpress-social-media-feather/
-Tags: shortcode, shortcodes, link, links, url, permalink, permalinks, time, icons, button, buttons, free, content, plugin, Share, sharing, social share, social sharing, page, pages, widget, CSS, list, media, profile, shortlinks, social, social media, Like, twitter, google, Facebook, Reddit, youtube, vimeo, tumblr, instagram, flickr, foursquare, bookmark, bookmarks, bookmarking, pinterest, linkedin, image, edit, manage, mail, Post, posts, Style, seo, title, filter, follow, following, social follow, social following, high resolution, retina, ipad
+Tags: shortcode, shortcodes, link, links, url, permalink, permalinks, time, icons, button, buttons, free, content, plugin, Share, sharing, social share, social sharing, page, pages, widget, CSS, list, media, profile, shortlinks, social, social media, Like, twitter, google, Facebook, Reddit, youtube, vimeo, tumblr, instagram, flickr, foursquare, social media buttons, bookmark, bookmarks, bookmarking, pinterest, linkedin, social links, image, edit, manage, mail, Post, posts, Style, seo, title, filter, follow, following, social follow, social following, Social Media Icons, Social Media Widget, high resolution, retina, ipad
 Requires at least: 3.1
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,17 +22,17 @@ https://www.youtube.com/watch?v=iJAq2nJi6BM
 
 Now the only social sharing and bookmarking plugin with full support for the **Retina and high resolution displays** as used in iPad 5 and other devices!
 
-The primary goal behind the plugin is to provide very lightweight WordPress social sharing and following that doesn’t add any unnecessary burden to your site and especially on your users.
+The primary goal behind the plugin is to provide very lightweight WordPress social sharing and following that doesn’t add any unnecessary burden to your site and especially on your users, so you can easily add share buttons and social profiles links to your posts and pages automatically and speedily.
 
-What sets WordPress Social Media Feather aside from the plethora of other social sharing and following WordPress plugins is its focus on simplicity, performance and unobtrusive impact.
+What sets WordPress Social Media Feather aside from the plethora of other social sharing and following WordPress plugins is its focus on simplicity, performance and unobtrusive impact. Social share buttons and links to your social pages are fast to setup with automatic display or social widgets.
 
-In order to achieve this the plugin makes no use of JavaScript and as a consequence it’s **really fast** while still providing all the social media functionality you might need.
+In order to achieve higher performance the plugin makes no use of JavaScript and as a consequence it’s **really fast** while still providing all the social media functionality you might need, like very professional social share buttons with high quality icons.
 
 By keeping load times at a minimum, you ensure that all the social sharing aspects of your site don’t interfere with those visitors who just want to access the content but are not interested in sharing on social media platforms.
 
-On the other hand, given the widespread focus on WordPress social media integration, your site will still provide social bookmarks to improve visibility of your posts and content and improve your overall global reach.
+On the other hand, given the widespread focus on WordPress social media integration, your site will still provide social bookmarks and share buttons to improve visibility of your posts and content and improve your overall global reach on social platforms.
 
-The **WordPress social media sharing** offered by the plugin includes all major social sharing providers like Facebook, Twitter, Google+, reddit, Pinterest, tumblr, Linkedin and even e-mail.
+The **WordPress social media sharing** offered by the plugin includes all major social sharing buttons providers like Facebook, Twitter, Google+, reddit, Pinterest, tumblr, Linkedin and even e-mail.
 
 It will show social buttons that your users can click to share to facebook or tweet your posts and pages on your site or submit it to reddit and google plus and all other social sharing networks.
 
@@ -76,6 +76,9 @@ This shortcode will create a list of social sharing buttons to share content on 
 This shortcode will create a list of social media sharing buttons to share content on your site using the default icon skin with a size of 64 pixels:
 `[feather_share size="64"]`
 
+You can add a custom CSS class to your share buttons using the "class" attribute:
+`[feather_share class="myclass"]`
+
 You can combine all the parameters above to customize the look, for instance using the "Wheel" icon skin at a size of 64 pixels and only showing Google+, Twitter and Facebook, in that specific order:
 `[feather_share skin="wheel" size="64" show="google_plus, twitter, facebook" hide="reddit, pinterest, linkedin, tumblr, mail"]`
 
@@ -84,6 +87,9 @@ The next shortcode will create a list of social following buttons that allow vis
 
 The next shortcode will create a list of social following buttons that allow visitors to follow you, using the "Balloon" icons skin:
 `[feather_follow skin="balloon"]`
+
+You can add a custom CSS class to your social profiles buttons using the "class" attribute:
+`[feather_follow class="myclass"]`
 
 The next shortcode will create a list of social media following buttons that allow visitors to follow you, using the "Balloon" icons skin with a size of 64 pixels:
 `[feather_follow skin="balloon" size="64"]`
@@ -101,7 +107,7 @@ For following buttons you can use:
 
 = Related Links: =
 
-* [WordPress Social Media Plugin Official Page](http://synved.com/wordpress-social-media-feather/ "WordPress Social Media Feather – lightweight social sharing and following")
+* [WordPress Social Media Plugin Official Page](http://synved.com/wordpress-social-media-feather/ "WordPress Social Media Feather – lightweight WordPress social sharing and following")
 * [Extra Social Icons Skins](http://synved.com/product/feather-extra-social-icons/ "Add 8 extra social icon skins to the Social Media Feather plugin!")
 * [Grey Fade addon that can grey out and fade out any social icons set](http://synved.com/product/feather-grey-fade/ "Customize any of the available social icon skins with 2 cool effects!")
 * [Light Prompt that adds counts for social shares](http://synved.com/product/feather-light-prompt/ "Add counters for social shares using Light Prompt")
@@ -141,6 +147,12 @@ You can achieve this by using *Custom Fields*. Simply set a custom field of `syn
 7. This shows the available social sharing and following widgets and their settings 
 
 == Changelog ==
+
+= 1.7.8 =
+* Disable credit link by default
+ 
+= 1.7.7 =
+* Fixed addon installer's path calculation for rare cases
 
 = 1.7.6 =
 * Minor adjustments

@@ -597,6 +597,7 @@ function tmm_sc($atts) {
     ), $atts));
     
     global $post;
+    $output = '';
     $args = array('post_type' => 'tmm', 'name' => $name);
     $custom_posts = get_posts($args);
     foreach($custom_posts as $post) : setup_postdata($post);
@@ -607,7 +608,6 @@ function tmm_sc($atts) {
     $tmm_columns = get_post_meta( $post->ID, '_tmm_columns', true );
     $tmm_color = get_post_meta( $post->ID, '_tmm_color', true );
 
-    $output = '';
     $output .= '<div class="tmm tmm_'.$name.'">';
     $output .= '<div class="tmm_'.$tmm_columns.'_columns">';
     $output .= '

@@ -91,14 +91,14 @@ add_action( 'admin_init', 'tmm_free_pro_check' );
 /* Enqueue styles & scripts */
 add_action( 'wp_enqueue_scripts', 'add_tmm_scripts' );
 function add_tmm_scripts() {
-	wp_enqueue_style( 'tmm', plugins_url('css/tmm_custom_style.min.css', __FILE__));
+    wp_enqueue_style( 'tmm', plugins_url('css/tmm_custom_style.min.css', __FILE__));
 }
 
 /* Enqueue admin styles */
 add_action( 'admin_enqueue_scripts', 'add_admin_tmm_style' );
 
 function add_admin_tmm_style() {
-	wp_enqueue_style( 'tmm', plugins_url('css/admin_de_style.min.css', __FILE__));
+    wp_enqueue_style( 'tmm', plugins_url('css/admin_de_style.min.css', __FILE__));
 }
 
 /* Create the Team post type */
@@ -214,8 +214,8 @@ function tmm_register_group_metabox() {
     
             $main_group->add_group_field( $tmm_group, array(
                 'name' => '<span class="dashicons dashicons-edit"></span> Description/bio',
-				'id' => $prefix . 'desc',
-				'type' => 'textarea',
+                'id' => $prefix . 'desc',
+                'type' => 'textarea',
                 'attributes'  => array(
                     'rows' => 6,
                 ),
@@ -241,8 +241,8 @@ function tmm_register_group_metabox() {
     
             $main_group->add_group_field( $tmm_group, array(
                 'name' => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Complementary info text</span>',
-				'id' => $prefix . 'comp_text',
-				'type' => 'textarea',
+                'id' => $prefix . 'comp_text',
+                'type' => 'textarea',
                 'attributes'  => array(
                     'rows' => 1,
                 ),
@@ -266,11 +266,11 @@ function tmm_register_group_metabox() {
     
             $main_group->add_group_field( $tmm_group, array(
                 'name'    => '<span class="dashicons dashicons-admin-generic"></span> Link type (icon)',
-			 'id'      => $prefix . 'sc_type1',
-			 'type'    => 'select',
+             'id'      => $prefix . 'sc_type1',
+             'type'    => 'select',
             'default' => 'nada',
-			 'options' => array(
-			 	'nada' => '-',
+             'options' => array(
+                'nada' => '-',
                     'twitter' => 'Twitter',
                     'linkedin' => 'LinkedIn',
                     'googleplus' => 'Google+',
@@ -281,8 +281,8 @@ function tmm_register_group_metabox() {
                     'email' => 'Email',
                     'website' => 'Website',
                     'customlink' => 'Other links',
-			 ),
-			 
+             ),
+             
              'row_classes' => 'de_first de_twentyfive de_select de_text de_input',
             ));
     
@@ -302,11 +302,11 @@ function tmm_register_group_metabox() {
     
             $main_group->add_group_field( $tmm_group, array(
                 'name'    => '',
-			 'id'      => $prefix . 'sc_type2',
-			 'type'    => 'select',
+             'id'      => $prefix . 'sc_type2',
+             'type'    => 'select',
             'default' => 'nada',
-			 'options' => array(
-			 	'nada' => '-',
+             'options' => array(
+                'nada' => '-',
                     'twitter' => 'Twitter',
                     'linkedin' => 'LinkedIn',
                     'googleplus' => 'Google+',
@@ -317,7 +317,7 @@ function tmm_register_group_metabox() {
                     'email' => 'Email',
                     'website' => 'Website',
                     'customlink' => 'Other links',
-			 ),
+             ),
                 'row_classes' => 'de_first de_twentyfive de_select de_text de_input de_nomtop',
             ));
     
@@ -337,11 +337,11 @@ function tmm_register_group_metabox() {
     
             $main_group->add_group_field( $tmm_group, array(
                 'name'    => '',
-			 'id'      => $prefix . 'sc_type3',
-			 'type'    => 'select',
+             'id'      => $prefix . 'sc_type3',
+             'type'    => 'select',
             'default' => 'nada',
-			 'options' => array(
-			 	'nada' => '-',
+             'options' => array(
+                'nada' => '-',
                     'twitter' => 'Twitter',
                     'linkedin' => 'LinkedIn',
                     'googleplus' => 'Google+',
@@ -352,7 +352,7 @@ function tmm_register_group_metabox() {
                     'email' => 'Email',
                     'website' => 'Website',
                     'customlink' => 'Other links',
-			 ),
+             ),
                 'row_classes' => 'de_first de_twentyfive de_select de_text de_input de_nomtop',
             ));
     
@@ -385,8 +385,8 @@ function tmm_register_group_metabox() {
                     'placeholder' => 'Recommended size: 250x250px',
                 ),
                 'options' => array(
-		            'add_upload_file_text' => __( 'Upload', 'jt_cmb2' ),
-	            ),
+                    'add_upload_file_text' => __( 'Upload', 'jt_cmb2' ),
+                ),
                 'row_classes' => 'de_first de_fifty de_upload de_input',
             ));
     
@@ -399,8 +399,8 @@ function tmm_register_group_metabox() {
                     'placeholder' => 'Recommended size: 250x250px',
                 ),
                 'options' => array(
-		            'add_upload_file_text' => __( 'Upload', 'jt_cmb2' ),
-	            ),
+                    'add_upload_file_text' => __( 'Upload', 'jt_cmb2' ),
+                ),
                 'row_classes' => 'de_fifty de_upload de_input',
             ));
     
@@ -442,66 +442,66 @@ function tmm_register_group_metabox() {
     
         $side_group->add_field( array(
             'name'    => '<span class="dashicons dashicons-arrow-down"></span> Members to show per line',
-			'id'      => $prefix . 'columns',
-			'type'    => 'select',
-			'options' => array(
-			    '2'   => 'Two members per line',
-			    '3'   => 'Three members per line',
-			    '4'   => 'Four members per line',
-			),
-			'default' => '3',
+            'id'      => $prefix . 'columns',
+            'type'    => 'select',
+            'options' => array(
+                '2'   => 'Two members per line',
+                '3'   => 'Three members per line',
+                '4'   => 'Four members per line',
+            ),
+            'default' => '3',
             'row_classes' => 'de_hundred_side de_text_side',
         ));
     
         $side_group->add_field( array(
             'name'    => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Pictures\' shape</span>',
-			'id'      => $prefix . 'picture_shape',
-			'type'    => 'select',
-			'options' => array(
-				'-'   => 'Rounded or Squared',
-			),
-			'default' => '-',
+            'id'      => $prefix . 'picture_shape',
+            'type'    => 'select',
+            'options' => array(
+                '-'   => 'Rounded or Squared',
+            ),
+            'default' => '-',
             'row_classes' => 'de_hundred_side de_text_side',
         ));
     
         $side_group->add_field( array(
             'name'    => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Pictures\' borders</span>',
-			'id'      => $prefix . 'picture_border',
-			'type'    => 'select',
-			'options' => array(
-				'-'   => 'Yes or No',
-			),
-			'default' => '-',
+            'id'      => $prefix . 'picture_border',
+            'type'    => 'select',
+            'options' => array(
+                '-'   => 'Yes or No',
+            ),
+            'default' => '-',
             'row_classes' => 'de_hundred_side de_text_side',
         ));
     
         $side_group->add_field( array(
             'name'    => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Pictures\' position</span>',
-			'id'      => $prefix . 'picture_position',
-			'type'    => 'select',
-			'options' => array(
-				'-'   => 'Floating or Inside the box',
-			),
-			'default' => '-',
+            'id'      => $prefix . 'picture_position',
+            'type'    => 'select',
+            'options' => array(
+                '-'   => 'Floating or Inside the box',
+            ),
+            'default' => '-',
             'row_classes' => 'de_hundred_side de_text_side',
         ));
     
         $side_group->add_field( array(
             'name'    => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Pictures\' filter</span>',
-			'id'      => $prefix . 'picture_filter',
-			'type'    => 'select',
-			'options' => array(
-				'-'   => 'Choose among 4 filters',
-			),
-			'default' => '-',
+            'id'      => $prefix . 'picture_filter',
+            'type'    => 'select',
+            'options' => array(
+                '-'   => 'Choose among 4 filters',
+            ),
+            'default' => '-',
             'row_classes' => 'de_hundred_side de_text_side',
         ));
     
         $side_group->add_field( array(
             'name' => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Top border\'s size</span>',
             'desc' => 'In pixels, without the "px".',
-		    'id'   => $prefix . 'tp_border_size',
-		    'type' => 'text',
+            'id'   => $prefix . 'tp_border_size',
+            'type' => 'text',
             'row_classes' => 'de_hundred_side de_text_side de_input',
         ));
     
@@ -571,15 +571,15 @@ add_action( 'manage_tmm_posts_custom_column' , 'dktmm_custom_columns', 10, 2 );
 
 function dktmm_custom_columns( $column, $post_id ) {
     switch ( $column ) {
-	case 'shortcode' :
-		global $post;
-		$slug = '' ;
-		$slug = $post->post_name;
+    case 'shortcode' :
+        global $post;
+        $slug = '' ;
+        $slug = $post->post_name;
    
     
-    	    $shortcode = '<span style="border: solid 3px lightgray; background:white; padding:7px; font-size:17px; line-height:40px;">[tmm name="'.$slug.'"]</strong>';
-	    echo $shortcode; 
-	    break;
+            $shortcode = '<span style="border: solid 3px lightgray; background:white; padding:7px; font-size:17px; line-height:40px;">[tmm name="'.$slug.'"]</strong>';
+        echo $shortcode; 
+        break;
     }
 }
 
@@ -592,21 +592,22 @@ add_filter('manage_tmm_posts_columns' , 'add_tmm_columns');
 
 //Tmm shortcode
 function tmm_sc($atts) {
-	extract(shortcode_atts(array(
-		"name" => ''
-	), $atts));
-	
+    extract(shortcode_atts(array(
+        "name" => ''
+    ), $atts));
+    
     global $post;
     $args = array('post_type' => 'tmm', 'name' => $name);
     $custom_posts = get_posts($args);
     foreach($custom_posts as $post) : setup_postdata($post);
     
-	$members = get_post_meta( get_the_id(), '_tmm_head', true );
+    $members = get_post_meta( get_the_id(), '_tmm_head', true );
     $options = get_post_meta( get_the_id(), '_tmm_settings_head', true );
     
     $tmm_columns = get_post_meta( $post->ID, '_tmm_columns', true );
     $tmm_color = get_post_meta( $post->ID, '_tmm_color', true );
 
+    $output = '';
     $output .= '<div class="tmm tmm_'.$name.'">';
     $output .= '<div class="tmm_'.$tmm_columns.'_columns">';
     $output .= '
@@ -702,7 +703,7 @@ function tmm_sc($atts) {
    
 
 endforeach; wp_reset_query(); 
-	
+    
   return $output;
 
 }

@@ -41,6 +41,18 @@ add_action( 'after_setup_theme', 'singlepage_setup' );
 	wp_enqueue_script( 'singlepage-modernizr', get_template_directory_uri().'/js/modernizr.custom.js', array( 'jquery' ), '2.8.2', false );
 	wp_enqueue_script( 'singlepage-easing', get_template_directory_uri().'/js/jquery.easing.1.3.js', array( 'jquery' ), '1.3', false );
 	wp_enqueue_script( 'singlepage-nav', get_template_directory_uri().'/js/jquery.nav.js', array( 'jquery' ), '3.0.0', false );
+	
+	$video_background_section  = of_get_option( 'video_background_section',0);
+	if( $video_background_section > 0 && is_home() ){
+	wp_enqueue_script( 'singlepage-jquery-ui', get_template_directory_uri().'/js/jquery-ui.min.js', array( 'jquery' ), '1.10.3', false );
+	wp_enqueue_script( 'singlepage-video', get_template_directory_uri().'/js/video.js', array( 'jquery' ), '4.3.0', false );
+	wp_enqueue_script( 'singlepage-bigvideo', get_template_directory_uri().'/js/bigvideo.js', array( 'jquery' ), '', false );
+	}
+	
+	$google_map_section  = of_get_option( 'google_map_section',0);
+	if( $google_map_section>0 && is_home() )
+	wp_enqueue_script( 'singlepage-googlemap',esc_url('//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true'), array( 'jquery' ), '', false );
+	
 	wp_enqueue_script( 'singlepage-main', get_template_directory_uri().'/js/common.js', array( 'jquery' ),  $theme_info->get( 'Version' ), true );
 	
 	if( $is_IE ) {
@@ -125,7 +137,7 @@ add_action( 'after_setup_theme', 'singlepage_setup' );
 	
 	$homepage_side_nav_menu_typography       = of_get_option("homepage_side_nav_menu_typography",'');
 	if( $homepage_side_nav_menu_typography )
-	$singlepage_custom_css     .=singlepage_options_typography_font_styles($homepage_side_nav_menu_typography ,'#featured-template .sub_nav li');
+	$singlepage_custom_css     .=singlepage_options_typography_font_styles($homepage_side_nav_menu_typography ,'#featured-template .sub_nav li,#featured-template .sub_nav li a');
 	
 	$home_side_nav_menu_active_color       = of_get_option("home_side_nav_menu_active_color",'#23dd91');
 	if( $blog_menu_hover_color  )

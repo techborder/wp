@@ -5,7 +5,7 @@ Theme URI: https://wordpress.com/themes/goran/
 Author: Automattic
 Author URI: https://wordpress.com/themes/
 Description: Goran is a functional and responsive multi-purpose theme that is the perfect solution for your business’s online presence.
-Version: 1.1.2
+Version: 1.2
 License: GNU General Public License
 License URI: license.txt
 Text Domain: goran
@@ -15,7 +15,7 @@ Tags: gray, red, white, light, two-columns, left-sidebar, right-sidebar, respons
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-(C) 2012-2014 Automattic, Inc.
+(C) 2012-2015 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -55,6 +55,7 @@ and Blueprint http://www.blueprintcss.org/
 	14.4 - Sharedaddy
 	14.5 - Responsive Videos
 	14.6 - Widgets
+	14.7 - Testimonials
 15.0 - Eventbrite
 16.0 - Responsive
 	16.1 - x >= 600px
@@ -1184,6 +1185,8 @@ body {
 .featured-page,
 .footer-navigation,
 .footer-widget,
+.front-page-testimonials-wrapper,
+.front-page-testimonials-wrapper .hentry.jetpack-testimonial,
 .front-page-widget,
 .grid,
 .hero .hentry,
@@ -1196,6 +1199,7 @@ body {
 .content-area,
 .featured-page-area,
 .footer-widget-area,
+.front-page-testimonials-wrapper,
 .front-page-widget-area,
 .grid-area,
 .site-branding,
@@ -1207,6 +1211,7 @@ body {
 .content-area,
 .featured-page-area,
 .footer-widget-area,
+.front-page-testimonials-wrapper,
 .front-page-widget-area,
 .grid-wrapper,
 .widget-area {
@@ -1510,7 +1515,7 @@ body {
 .no-results {
 	margin: 0;
 }
-.archive .hentry,
+.archive:not(.post-type-archive-jetpack-testimonial) .hentry,
 .blog .hentry,
 .search .hentry {
 	padding-top: 24px;
@@ -1718,18 +1723,19 @@ body[class*="front-page"] .hero .page-title {
 .featured-page .entry-footer,
 .featured-page .entry-summary,
 .grid .entry-footer,
-.grid .entry-summary {
+.grid .entry-summary,
+.grid .type-jetpack-testimonial {
 	text-align: left;
 }
 .featured-page .post-thumbnail img,
-.grid .post-thumbnail img {
+.grid a.post-thumbnail img {
 	border: 2px solid transparent;
 	-moz-transition: all 0.15s ease-in-out;
 	-webkit-transition: all 0.15s ease-in-out;
 	transition: all 0.15s ease-in-out;
 }
-.featured-page .post-thumbnail:hover img,
-.grid .post-thumbnail:hover img {
+.featured-page a.post-thumbnail:hover img,
+.grid a.post-thumbnail:hover img {
 	border-color: #e74f4e;
 }
 .featured-page .entry-title,
@@ -2252,6 +2258,90 @@ div#jp-relatedposts {
 }
 
 /*--------------------------------------------------------------
+14.7 Testimonials
+--------------------------------------------------------------*/
+.featured-page-area + .front-page-testimonials-area,
+.front-page-widget-area + .front-page-testimonials-area {
+	border-top: 2px solid #d2cfcf;
+}
+.hentry.jetpack-testimonial {
+	padding-bottom: 12px;
+}
+.hentry.jetpack-testimonial .entry-meta {
+	border-bottom: 0;
+	margin-bottom: 0;
+}
+.jetpack-testimonial-shortcode .testimonial-featured-image,
+.hentry.jetpack-testimonial .post-thumbnail {
+	display: block;
+	position: relative;
+	margin: 0 auto 12px;
+	border: 0 !important;
+}
+.jetpack-testimonial-shortcode .testimonial-featured-image img,
+.hentry.jetpack-testimonial .post-thumbnail img {
+	width: 48px;
+	height: 48px;
+}
+.jetpack-testimonial-shortcode .testimonial-entry-content,
+.hentry.jetpack-testimonial .entry-content {
+	margin: 0 auto 12px;
+}
+.hentry.jetpack-testimonial .entry-content * {
+	margin-bottom: 0;
+}
+.hentry.jetpack-testimonial br,
+.hentry.jetpack-testimonial #jp-post-flair,
+.hentry.jetpack-testimonial .pd-rating {
+	display: none !important;
+}
+.hentry.jetpack-testimonial .entry-meta {
+	padding-bottom: 12px;
+}
+.post-type-archive-jetpack-testimonial .paging-navigation {
+	padding: 24px;
+	margin: 0;
+	overflow: hidden;
+	border-top: 2px solid #d2cfcf;
+}
+.front-page-testimonials-area .entry-title,
+.jetpack-testimonial-shortcode .testimonial-entry-title,
+.single-jetpack-testimonial .entry-title,
+.type-jetpack-testimonial .entry-title {
+	margin: 0 auto 12px;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.5em;
+}
+.front-page-testimonials-area .entry-title:before,
+.post-type-archive-jetpack-testimonial .entry-title:before,
+.single-jetpack-testimonial .entry-title:before {
+	content: '\2015';
+	margin-right: 0.25em;
+}
+.jetpack-testimonial-shortcode .testimonial-entry {
+	margin-bottom: 12px;
+}
+.testimonial-entry-title a {
+	color: inherit;
+	border-bottom: 0 !important;
+}
+.testimonial-entry-title a:hover,
+.testimonial-entry-title a:focus,
+.testimonial-entry-title a:active {
+  color: #e74f4e;
+}
+.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
+	padding-top: 24px;
+	border-top: 2px solid #f1f0f0;
+}
+.front-page-testimonials-wrapper .hentry.jetpack-testimonial:first-of-type {
+	padding-top: 0;
+	border-top: 0;
+}
+
+/*--------------------------------------------------------------
 15.0 Eventbrite
 --------------------------------------------------------------*/
 .eventbrite-event .entry-header span {
@@ -2293,17 +2383,17 @@ div#jp-relatedposts {
 	}
 
 	/* Content */
-	.archive:not(.no-sidebar) .post-thumbnail,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 600px;
 		margin-left: -24px;
 	}
-	.archive:not(.no-sidebar) .post-thumbnail img,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img,
 	.blog:not(.no-sidebar) .post-thumbnail img,
 	.search:not(.no-sidebar) .post-thumbnail img,
-	.single:not(.no-sidebar) .post-thumbnail img {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img {
 		-moz-border-radius: 0;
 		-webkit-border-radius: 0;
 		border-radius: 0;
@@ -2345,13 +2435,14 @@ div#jp-relatedposts {
 	.no-sidebar-full .content-area {
 		width: 672px;
 	}
-	.archive .hentry,
+	.archive:not(.post-type-archive-jetpack-testimonial) .hentry,
 	.blog .hentry,
 	.search .hentry,
 	.content-area,
 	.featured-page,
 	.featured-page-area,
 	.footer-widget-area,
+	.front-page-testimonials-wrapper,
 	.front-page-widget-area,
 	.grid,
 	.grid-wrapper,
@@ -2363,6 +2454,7 @@ div#jp-relatedposts {
 	.content-area,
 	.featured-page-area,
 	.footer-widget-area,
+	.front-page-testimonials-wrapper,
 	.front-page-widget-area,
 	.grid-area,
 	.site-branding,
@@ -2385,10 +2477,10 @@ div#jp-relatedposts {
 	.hentry {
 		margin-bottom: 24px;
 	}
-	.archive:not(.no-sidebar) .post-thumbnail,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 768px;
 		margin-left: -48px;
 	}
@@ -2441,6 +2533,13 @@ div#jp-relatedposts {
 	#infinite-handle,
 	.infinite-loader {
 		margin: 0 0 48px;
+	}
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
+		padding-top: 48px;
+	}
+	.post-type-archive-jetpack-testimonial .paging-navigation {
+		padding-right: 48px;
+		padding-left: 48px;
 	}
 }
 
@@ -2646,6 +2745,7 @@ div#jp-relatedposts {
 	.breadcrumbs-wrapper,
 	.featured-page-area,
 	.footer-widget-wrapper,
+	.front-page-testimonials-wrapper,
 	.front-page-widget-wrapper,
 	.grid-area,
 	.site-top-content {
@@ -2661,16 +2761,22 @@ div#jp-relatedposts {
 		margin-right: 72px;
 		width: 244px;
 	}
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
+		margin-right: 72px;
+		width: 402px
+	}
 	.featured-page,
 	.footer-widget,
 	.front-page-widget,
-	.grid {
+	.grid,
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
 		float: left;
 	}
 	.featured-page:nth-of-type(3n+3),
 	.footer-widget:nth-of-type(3n+3),
 	.front-page-widget:nth-of-type(3n+3),
-	.grid:nth-of-type(3n+3) {
+	.grid:nth-of-type(3n+3),
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial:nth-of-type(2) {
 		margin-right: 0;
 	}
 	.featured-page:nth-of-type(3n+1),
@@ -2679,13 +2785,14 @@ div#jp-relatedposts {
 	.grid:nth-of-type(3n+1) {
 		clear: left;
 	}
-	.archive .hentry,
+	.archive:not(.post-type-archive-jetpack-testimonial) .hentry,
 	.blog .hentry,
 	.search .hentry,
 	.content-area,
 	.featured-page,
 	.featured-page-area,
 	.footer-widget-area,
+	.front-page-testimonials-wrapper,
 	.front-page-widget-area,
 	.grid,
 	.grid-wrapper,
@@ -2758,17 +2865,17 @@ div#jp-relatedposts {
 	.hentry {
 		margin-bottom: 48px;
 	}
-	.archive:not(.no-sidebar) .post-thumbnail,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 632px;
 		margin-left: -72px;
 	}
-	.archive:not(.no-sidebar) .post-thumbnail img,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img,
 	.blog:not(.no-sidebar) .post-thumbnail img,
 	.search:not(.no-sidebar) .post-thumbnail img,
-	.single:not(.no-sidebar) .post-thumbnail img {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img {
 		-moz-border-radius: 0 4px 4px 0;
 		-webkit-border-radius: 0 4px 4px 0;
 		border-radius: 0 4px 4px 0;
@@ -2832,6 +2939,14 @@ div#jp-relatedposts {
 	.infinite-loader {
 		margin: 0 0 72px;
 	}
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
+		padding-top: 0;
+		border-top: 0;
+	}
+	.post-type-archive-jetpack-testimonial .paging-navigation {
+		padding-right: 72px;
+		padding-left: 72px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -2865,15 +2980,18 @@ div#jp-relatedposts {
 	.widget-area {
 		width: 314px;
 	}
+	.front-page-testimonials-wrapper .hentry.jetpack-testimonial {
+		width: 507px;
+	}
 	.site-logo {
 		max-height: 192px;
 	}
 
 	/* Content */
-	.archive:not(.no-sidebar) .post-thumbnail,
+	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 772px;
 	}
 	body.hero-image .hero.with-featured-image,

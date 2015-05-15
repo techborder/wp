@@ -194,4 +194,75 @@ $('.sub_nav ul li a').click(function(e){
 							e.preventDefault();		 
 						});
 
+/* ------------------------------------------------------------------------ */
+/* home page video background														*/
+/* ------------------------------------------------------------------------ */
+ if( $('section.singlepage-video-section').length && typeof singlepage_video !== 'undefined' ){
+		  var video_loop = true ;
+		  if( singlepage_video.video_loop === 'false'){
+			  video_loop = false;
+			  }
+		  
+	    var BV;
+            var BV = new jQuery.BigVideo({
+				useFlashForFirefox:false,
+				forceAutoplay:true,
+				controls:false,
+				doLoop:video_loop,
+				container: $(".singlepage-video-section")
+			});
+			BV.init();
+			if (Modernizr.touch) {
+				BV.show(singlepage_video.poster_url);
+			} else {
+				BV.show(
+				[
+        { type: "video/mp4",  src: singlepage_video.mp4_video_url },
+        { type: "video/webm", src: singlepage_video.webm_video_url },
+        { type: "video/ogg",  src: singlepage_video.ogv_video_url }
+    ],{ambient: video_loop});
+	BV.getPlayer().volume( singlepage_video.video_volume );
+	BV.getPlayer().on("durationchange",function(){jQuery("#big-video-wrap").fadeIn();});
+	
+			}
+	}
+		
+
+/* ------------------------------------------------------------------------ */
+/* home page full screen google map													*/
+/* ------------------------------------------------------------------------ */
+ if( $('section.singlepage-google-map-section').length && typeof singlepage_google_map !== 'undefined'){
+var geocoder;
+var map;
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: Number(singlepage_google_map.google_map_zoom),
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById(singlepage_google_map.google_map_wrap), mapOptions);
+  codeAddress();
+}
+
+function codeAddress() {
+  var address = singlepage_google_map.google_map_address;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+  
+    }
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+ }
+
  });

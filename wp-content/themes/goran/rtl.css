@@ -166,7 +166,8 @@ li > ol {
 .featured-page .entry-footer,
 .featured-page .entry-summary,
 .grid .entry-footer,
-.grid .entry-summary {
+.grid .entry-summary,
+.grid .type-jetpack-testimonial {
 	text-align: right;
 }
 

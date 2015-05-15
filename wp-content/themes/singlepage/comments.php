@@ -58,9 +58,9 @@ $commenter = wp_get_current_commenter();
 $req = get_option( 'require_name_email' );
 $aria_req = ( $req ? " aria-required='true'" : '' );
 global $required_text;
-$commenter['comment_author']        = ($commenter['comment_author'] == "")?"Name *":$commenter['comment_author'];
-$commenter['comment_author_email']  = ($commenter['comment_author_email'] == "")?"Email *":$commenter['comment_author_email'];
-$commenter['comment_author_url']    = ($commenter['comment_author_url'] == "")?"Website":$commenter['comment_author_url'];
+$commenter['comment_author']        = ($commenter['comment_author'] == "")?__('Name', 'singlepage')." *":$commenter['comment_author'];
+$commenter['comment_author_email']  = ($commenter['comment_author_email'] == "")?__('Email', 'singlepage')." *":$commenter['comment_author_email'];
+$commenter['comment_author_url']    = ($commenter['comment_author_url'] == "")?__('Website', 'singlepage'):$commenter['comment_author_url'];
 $comments_args = array(
 'class_submit'         => 'submitss',
          'comment_notes_before' => '<p class="comment-notes">' .
@@ -72,19 +72,19 @@ $comments_args = array(
         'comment_notes_after' => '',
         // redefine your own textarea (the comment body)
         'comment_field' => '<div class="clear"></div>
-<section class="comment-form-comment"><div id="comment-textarea"><textarea id="comment" name="comment" onFocus="if(this.value==\'Message *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\'Message *\'}"  cols="45" rows="8"  class="textarea-comment" aria-required="true">Message *</textarea></div></section>',
+<section class="comment-form-comment"><div id="comment-textarea"><textarea id="comment" name="comment" onFocus="if(this.value==\''.__('Message', 'singlepage').' *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\''.__('Message', 'singlepage').' *\'}"  cols="45" rows="8"  class="textarea-comment" aria-required="true">'.__('Message', 'singlepage').' *</textarea></div></section>',
 		'fields' => apply_filters( 'comment_form_default_fields', array(
 
     'author' =>
-      '<section class="comment-form-author"><input id="author" class="input-name" name="author" onFocus="if(this.value==\'Name *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\'Name *\'}" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+      '<section class="comment-form-author"><input id="author" class="input-name" name="author" onFocus="if(this.value==\''.__('Name', 'singlepage').' *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\''.__('Name', 'singlepage').' *\'}" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
       '" size="30"' . $aria_req . ' /></section>',
 
     'email' =>
-      '<section class="comment-form-email"><input id="email" class="input-name" name="email" onFocus="if(this.value==\'Email *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\'Email *\'}" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+      '<section class="comment-form-email"><input id="email" class="input-name" name="email" onFocus="if(this.value==\''.__('Email', 'singlepage').' *\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\''.__('Email', 'singlepage').' *\'}" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
       '" size="30"' . $aria_req . ' /></section>',
 
     'url' =>
-      '<section class="comment-form-url"><input id="url" class="input-name" name="url" onFocus="if(this.value==\'Website\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\'Website\'}" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+      '<section class="comment-form-url"><input id="url" class="input-name" name="url" onFocus="if(this.value==\''.__('Website', 'singlepage').'\'){this.value=\'\'}" onBlur="if(this.value==\'\'){this.value=\''.__('Website', 'singlepage').'\'}" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
       '" size="30" /></section>'
     ))
 );

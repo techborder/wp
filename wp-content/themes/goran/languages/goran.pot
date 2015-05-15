@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Goran 1.1.2\n"
+"Project-Id-Version: Goran 1.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/goran\n"
 "POT-Creation-Date: 2015-02-25 04:19:50+00:00\n"
 "MIME-Version: 1.0\n"

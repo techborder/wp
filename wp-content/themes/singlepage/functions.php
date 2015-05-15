@@ -16,6 +16,13 @@ function singlepage_prefix_options_menu_filter( $menu ) {
 add_filter( 'optionsframework_menu', 'singlepage_prefix_options_menu_filter' );
 
 /**
+ * Mobile Detect Library
+ **/
+ if(!class_exists("Mobile_Detect"))
+load_template( trailingslashit( get_template_directory() ) . 'includes/Mobile_Detect.php' );
+
+ 
+/**
  * Theme setup
  **/
  

@@ -1,5 +1,5 @@
 == SinglePage ==
-SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company. Each of the homepage sections can have a parallax background image and its own set of colors. You can not only use it to create a singlepage-style front page for your WordPress site, but also create your personal blog or site easily.
+SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company. Each of the homepage sections can have a parallax background image and its own set of colors. Dozens of theme options are available to design your sites, such as typography, Social Icons, upload logo, Custom CSS, HTML5 Video Background, Full Screen Google Map and so on. You can not only use it to create a singlepage-style front page for your business website, but also create your personal blog or site easily.
 
 View demo here: http://demo.hoosoft.com/singlepage/
 
@@ -62,6 +62,18 @@ JS files
  * Copyright (c) 2010 Trevor Davis (http://trevordavis.net)
  * Dual licensed under the MIT and GPL licenses.
 
+== jquery-ui.min.js
+ * Copyright 2013 jQuery Foundation and other contributors;
+ * Licensed MIT
+
+== video.js
+ * Copyright 2013 Brightcove, Inc.
+ * https://github.com/videojs/video.js/blob/master/LICENSE.
+
+== bigvideo.js
+ * by John Polacek (@johnpolacek)
+ * Dual licensed under MIT and GPL.
+
 PHP scripts
  == breadcrumb-trail.php
  == breadcrumbs.php
@@ -81,44 +93,3 @@ Framework
 
 For any help you can mail me at support[at]hoosoft.com
 
-===== Change Log =====
-
- Version 1.1.9
- * Responsive optimization
- 
- Version 1.1.8
- * Fixed header image issue
- 
- Version 1.1.7
- * Fixed customize Display Header Text issue
- * Fixed duplicate title tag issue
- * Fixed home page menu hover color issue
-  
- Version 1.1.6
- * Added Section Height Mode option
- 
- Version 1.1.5
- * Added link color options
- * Added typography options
-   
- Version 1.1.3
- * Added Side Nav Circle Color selector
- * Added homepage scrolling delay option
- * Optimized section content container width
-  
- Version 1.1.2
- * Added page metabox options
- 
- Version 1.1.1
- * Optimized menu style
- * Modified page template file
-
- Version 1.1.0
- * Fix for WordPress stripping iFrames and Script Tags from Editor
- * Added theme support  "title-tag"
- * Fixed favicon icon issue
- * Added custom css option
- * Added homepage menu color options
- 
- Version 1.0.9
- * Fixed Home Page background image issue.

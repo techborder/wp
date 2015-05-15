@@ -59,8 +59,9 @@ function optionsframework_options() {
 
 	
 
-	$options = array();
-
+	$options     = array();
+    $section_num = of_get_option( 'section_num', 4 );
+	
 	$options[] = array(
 		'name' => __('Basic Settings', 'singlepage'),
 		'type' => 'heading');
@@ -103,7 +104,7 @@ function optionsframework_options() {
 	 
 	 $options[] = array(
 		'name' => __('Enable Featured Homepage', 'singlepage'),
-		'desc' => __('Active featured homepage Layout.  The standardized way of creating Static Front Pages: <a href="'.esc_url('http://codex.wordpress.org/Creating_a_Static_Front_Page').'" target="_blank">Creating a Static Front Page</a>', 'singlepage'),
+		'desc' => sprintf(__('Active featured homepage Layout.  The standardized way of creating Static Front Pages: <a href="%s" target="_blank">Creating a Static Front Page</a>', 'singlepage'),esc_url('http://codex.wordpress.org/Creating_a_Static_Front_Page')),
 		'id' => 'enable_home_page',
 		'std' => '1',
 		'type' => 'checkbox');
@@ -119,6 +120,14 @@ function optionsframework_options() {
 						2=> __( 'Section Height Extensible', 'singlepage' ),
 						   )
 		);
+	 
+	  $options[] = array(
+		'name' => __('Hide Side Navigation', 'singlepage'),
+		'desc' => __('Hide home page scroll bar.', 'singlepage'),
+		'id' => 'hide_scroll_bar',
+		'std' => '0',
+		'type' => 'checkbox');
+	  
 	
 	 $options[] = array(
 		'name' => __('Number of Sections', 'singlepage'),
@@ -128,9 +137,51 @@ function optionsframework_options() {
 		'class' => 'mini',
 		'std' => '4',
 		'options' => array_combine(range(1,4), range(1,4)) );
+	 
+	 
+	  //// HTML5 Video Background Options 
+	 
+	 $background_sections = array("0"=>__('Disable', 'singlepage'));
+		if( is_numeric( $section_num ) ){
+		for($i=1; $i <= $section_num; $i++){
+			$background_sections[$i] = sprintf(__('Secion %d', 'singlepage'),$i);
+			}
+		}
+	     
+		  $options[] = array(	'desc' =>'<div class="options-section"><h3 class="groupTitle">'.__('HTML5 Video Background Options', 'singlepage').'</h3>',	'class' => 'toggle_option_group group_close','type' => 'info');
+		 
+	    $options[] = array('name' => __('mp4 video url', 'singlepage'),'id' => 'mp4_video_url','type' => 'text','std'=>'' ,"desc"=>__('For Android devices, Internet Explorer 9, Safari','singlepage'));
+		$options[] = array('name' => __('ogv video url', 'singlepage'),'id' => 'ogv_video_url','type' => 'text','std'=>'',"desc"=>__('For Google Chrome, Mozilla Firefox, Opera ','singlepage'));
+		$options[] = array('name' => __('webm video url', 'singlepage'),'id' => 'webm_video_url','type' => 'text','std'=>'',"desc"=>__('For Google Chrome, Mozilla Firefox, Opera ','singlepage'));
+		$options[] = array('name' => __('poster', 'singlepage'),'id' => 'poster_url','type' => 'upload','std'=>'',"desc"=>__('Displaying the image for browsers that don\'t support the HTML5 Video element.','singlepage'));
+		$options[] = array(	'name' => __('Video Loop', 'singlepage'),	'id' => 'video_loop','std' => '1','class' => 'mini','options' => array('1'=>'yes','0'=>'no'),	'type' => 'select');
+		$options[] = array(	'name' => __('Video Volume', 'singlepage'),	'id' => 'video_volume','std' => '0.8','class' => 'mini','options' => array('0.001'=>'0','0.1'=>'0.1','0.2'=>'0.2','0.3'=>'0.3','0.4'=>'0.4','0.5'=>'0.5','0.6'=>'0.6','0.7'=>'0.7','0.8'=>'0.8','0.9'=>'0.9','1.0'=>'1.0'),	'type' => 'select');
+		
+		
+		$options[]  = array('name' => __('Video Background Section', 'singlepage'),'std' => '0','class' => 'mini','id' => 'video_background_section',
+		'type'  => 'select','options'=>$background_sections);
+		
+		$options[] = array('desc' => __('</div>', 'singlepage'),	'class' => 'toggle_title','type' => 'info');
+		//// End HTML5 Video Background Options 
+		
+		 //// full screen google map 
+	 
+		  $options[] = array(	'desc' =>'<div class="options-section"><h3 class="groupTitle">'.__('Full Screen Google Map Options', 'singlepage').'</h3>',	'class' => 'toggle_option_group group_close','type' => 'info');
+		 
+	   
+		$options[] = array(	'name' => __('Address', 'singlepage'),	'id' => 'google_map_address','std' => 'Sydney, NSW','class' => 'mini','type' => 'text');
+		$options[] = array(	'name' => __('Zoom', 'singlepage'),	'id' => 'google_map_zoom','std' => '10','class' => 'mini','std'=>'10','type' => 'text');
+		
+		$options[]  = array('name' => __('Google Map Section', 'singlepage'),'std' => '0','class' => 'mini','id' => 'google_map_section',
+		'type'  => 'select','options'=>$background_sections);
+		
+		$options[] = array('desc' => __('</div>', 'singlepage'),	'class' => 'toggle_title','type' => 'info');
+		//// End full screen google map Options
+		
+		
 	 $options[] = array('name' => __('Scrolling Delay', 'singlepage'),'class'=>'mini','id' => 'scrolldelay','type' => 'text','std'=>'700','desc'=> '');
 		
-	 $section_num = of_get_option( 'section_num', 4 );
+	 
 	 $section_menu_title              = array("SECTION ONE","SECTION TWO","SECTION THREE","SECTION FOUR");
 	 $section_content_color      = array("#ffffff","#ffffff","#ffffff","#ffffff");
 	 $section_css_class          = array("","","","");
@@ -142,25 +193,25 @@ function optionsframework_options() {
 		'image' => $imagepath.'bg_01.jpg',
 		'repeat' => 'repeat',
 		'position' => 'top left',
-		'attachment'=>'fixed' ),
+		'attachment'=>'scroll' ),
 		 array(
 		'color' => '',
 		'image' => $imagepath.'bg_02.jpg',
 		'repeat' => 'repeat',
 		'position' => 'top left',
-		'attachment'=>'fixed' ),
+		'attachment'=>'scroll' ),
 		 array(
 		'color' => '',
 		'image' => $imagepath.'bg_03.jpg',
 		'repeat' => 'repeat',
 		'position' => 'top left',
-		'attachment'=>'fixed' ),
+		'attachment'=>'scroll' ),
 		 array(
 		'color' => '',
 		'image' => $imagepath.'bg_04.jpg',
 		'repeat' => 'repeat',
 		'position' => 'top left',
-		'attachment'=>'fixed' )
+		'attachment'=>'scroll' )
 		 );
 	 $section_image     = array(
 								$imagepath.'1.png',
@@ -360,6 +411,7 @@ function optionsframework_options() {
 			'nav_cur8' => $imagepath . 'nav_cur8.png',
 			'nav_cur9' => $imagepath . 'nav_cur9.png',
 			'nav_cur10' => $imagepath . 'nav_cur10.png',
+			'nav_cur11' => $imagepath . 'nav_cur11.png',
 		)
 	);
 		 

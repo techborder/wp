@@ -19,7 +19,7 @@ Goran is a functional and responsive multi-purpose theme that is the perfect sol
 * Full Width Page Template
 * Grid Page Template
 * Alternate Sidebar Page Template
-* Jetpack.me compatibility for Infinite Scroll, Responsive Videos, Site Logo.
+* Jetpack.me compatibility for Infinite Scroll, Testimonial Custom Post Type, Responsive Videos, Site Logo.
 * The GPL v2.0 or later license. :) Use it to make something cool.
 
 == Installation ==
@@ -29,6 +29,14 @@ Goran is a functional and responsive multi-purpose theme that is the perfect sol
 3. Click Activate to use your new theme right away.
 
 == Frequently Asked Questions ==
+
+= I don't see the Testimonial menu in my admin, where can I find it? =
+
+To make the Testimonial menu appear in your admin, you need to install the [Jetpack plugin](http://jetpack.me) because it has the required code needed to make [custom post types](http://codex.wordpress.org/Post_Types#Custom_Post_Types) work for the Goran theme.
+
+Once Jetpack is active, the Testimonial menu will appear in your admin, in addition to standard blog posts. No special Jetpack module is needed and a WordPress.com connection is not required for the Testimonial feature to function. Testimonial will work on a localhost installation of WordPress if you add this line to `wp-config.php`:
+
+`define( 'JETPACK_DEV_DEBUG', TRUE );`
 
 = How to setup the front page like the demo site? =
 
@@ -126,8 +134,8 @@ For example:
 
 == Changelog ==
 
-= 1.1.2 - Apr 08 2015 =
-* Fixed language filenames
+= 1.2 - May 5 2015 =
+* Add support for Jetpack Testimonial CPT
 
 = 1.1.1 - Jan 22 2015 =
 * Remove javascript dependency from the parent theme (Edin)

@@ -24,3 +24,9 @@ and Blueprint http://www.blueprintcss.org/
 */
 
 @import url("../goran/style.css");
+
+/* Do not show author, date and link on Posts */
+.entry-author-link { display: none; }
+.entry-permalink { display: none; }
+.entry-date { display: none; }
+.entry-meta { display: none; }

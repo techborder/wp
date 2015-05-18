@@ -30,3 +30,8 @@ and Blueprint http://www.blueprintcss.org/
 .entry-permalink { display: none; }
 .entry-date { display: none; }
 .entry-meta { display: none; }
+
+
+.hero-image .hero {
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}

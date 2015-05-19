@@ -36,6 +36,21 @@ and Blueprint http://www.blueprintcss.org/
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
+/*--------------------------------------------------------------
+16.3 x >= 1020px
+--------------------------------------------------------------*/
+@media screen and (min-width: 1020px) {
+	.content-area,
+	.main-navigation {
+		width: 70%;
+	}
+	
+	.site-branding {
+		width: 20%;
+		margin-left: 5%;
+	}
+}
+
 /* Custom Management Team plugin */
 /* Moved to config in plugin settings */
 /*

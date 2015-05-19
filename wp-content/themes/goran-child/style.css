@@ -37,6 +37,8 @@ and Blueprint http://www.blueprintcss.org/
 }
 
 /* Custom Management Team plugin */
+/* Moved to config in plugin settings */
+/*
 .cmt-members .col-one-fourth a img {
 	max-width: 70%;
 	height: auto;
@@ -45,3 +47,4 @@ and Blueprint http://www.blueprintcss.org/
 .cmt-management-team a img {
 	max-width: 50%;
 }
+*/

@@ -35,3 +35,13 @@ and Blueprint http://www.blueprintcss.org/
 .hero-image .hero {
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
+
+/* Custom Management Team plugin */
+.cmt-members .col-one-fourth a img {
+	max-width: 70%;
+	height: auto;
+}
+
+.cmt-management-team a img {
+	max-width: 50%;
+}

@@ -497,7 +497,7 @@ return array(
 	'browsercache.other.etag' => true,
 	'browsercache.other.w3tc' => true,
 	'browsercache.other.replace' => true,
-	'browsercache.timestamp' => '1428437699',
+	'browsercache.timestamp' => '1429036887',
 	'browsercache.replace.exceptions' => array(
 		0 => '',
 	),
@@ -709,7 +709,7 @@ return array(
 	'notes.root_rules' => true,
 	'notes.rules' => true,
 	'notes.pgcache_rules_wpsc' => true,
-	'notes.support_us' => true,
+	'notes.support_us' => false,
 	'notes.no_curl' => true,
 	'notes.no_zlib' => true,
 	'notes.zlib_output_compression' => true,

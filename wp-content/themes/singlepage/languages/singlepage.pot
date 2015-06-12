@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Singlepage 1.2.0\n"
+"Project-Id-Version: Singlepage 1.2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-05 17:46+0800\n"
-"PO-Revision-Date: 2015-05-05 17:46+0800\n"
-"Last-Translator: Jason <support@hoosoft.com>\n"
+"POT-Creation-Date: 2015-06-02 22:45+0800\n"
+"PO-Revision-Date: 2015-06-02 22:45+0800\n"
+"Last-Translator: HooThemes <support@hoosoft.com>\n"
 "Language-Team: HooThemes <support@hoosoft.com>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: singlepage"
+"X-Poedit-SearchPath-0: \\singlepage\n"
 
 #: 404.php:28
 msgid "Please, return to homepage!"
@@ -478,268 +478,325 @@ msgid "Section Height Extensible"
 msgstr ""
 
 #: options.php:125
-msgid "Number of Sections"
+msgid "Hide Side Navigation"
 msgstr ""
 
 #: options.php:126
+msgid "Hide home page scroll bar."
+msgstr ""
+
+#: options.php:133
+msgid "Number of Sections"
+msgstr ""
+
+#: options.php:134
 msgid "Select number of sections"
 msgstr ""
 
-#: options.php:136
+#: options.php:144
 msgid "Disable"
 msgstr ""
 
-#: options.php:139
+#: options.php:147
 #, php-format
 msgid "Secion %d"
 msgstr ""
 
-#: options.php:143
+#: options.php:151
 msgid "HTML5 Video Background Options"
 msgstr ""
 
-#: options.php:145
+#: options.php:153
 msgid "mp4 video url"
 msgstr ""
 
-#: options.php:145
+#: options.php:153
 msgid "For Android devices, Internet Explorer 9, Safari"
 msgstr ""
 
-#: options.php:146
+#: options.php:154
 msgid "ogv video url"
 msgstr ""
 
-#: options.php:146
-#: options.php:147
+#: options.php:154
+#: options.php:155
 msgid "For Google Chrome, Mozilla Firefox, Opera "
 msgstr ""
 
-#: options.php:147
+#: options.php:155
 msgid "webm video url"
 msgstr ""
 
-#: options.php:148
+#: options.php:156
 msgid "poster"
 msgstr ""
 
-#: options.php:148
+#: options.php:156
 msgid ""
 "Displaying the image for browsers that don't support the HTML5 Video element."
 msgstr ""
 
-#: options.php:149
+#: options.php:157
 msgid "Video Loop"
 msgstr ""
 
-#: options.php:150
+#: options.php:158
 msgid "Video Volume"
 msgstr ""
 
-#: options.php:153
+#: options.php:161
 msgid "Video Background Section"
 msgstr ""
 
-#: options.php:156
-#: options.php:170
+#: options.php:164
+#: options.php:178
+#: options.php:197
 msgid "</div>"
 msgstr ""
 
-#: options.php:161
-msgid "Full Screen Google Map"
+#: options.php:169
+msgid "Full Screen Google Map Options"
 msgstr ""
 
-#: options.php:164
+#: options.php:172
 msgid "Address"
 msgstr ""
 
-#: options.php:165
+#: options.php:173
 msgid "Zoom"
 msgstr ""
 
-#: options.php:167
+#: options.php:175
 msgid "Google Map Section"
 msgstr ""
 
-#: options.php:174
+#: options.php:182
+msgid "Home Page Sidebar Menu options ( Pro Only )"
+msgstr ""
+
+#: options.php:183
+msgid "Menu Style ( Desktop )"
+msgstr ""
+
+#: options.php:185
+msgid "Menu Style Status ( Desktop )"
+msgstr ""
+
+#: options.php:188
+msgid "Menu Style ( Tablet )"
+msgstr ""
+
+#: options.php:190
+msgid "Menu Style Status ( Tablet )"
+msgstr ""
+
+#: options.php:192
+msgid "Menu Style ( Mobile )"
+msgstr ""
+
+#: options.php:194
+msgid "Menu Style Status ( Mobile )"
+msgstr ""
+
+#: options.php:202
 msgid "Scrolling Delay"
 msgstr ""
 
-#: options.php:257
-msgid "Section Menu Title"
-msgstr ""
-
-#: options.php:259
-msgid "Section Content Typography"
-msgstr ""
-
-#: options.php:271
-msgid "Section Background"
-msgstr ""
-
-#: options.php:272
-msgid "100% Width Background Image"
-msgstr ""
-
-#: options.php:273
-msgid "Section Css Class"
-msgstr ""
-
-#: options.php:274
-msgid "Content Image"
-msgstr ""
-
-#: options.php:275
-msgid "Content Image Link"
-msgstr ""
-
-#: options.php:277
-msgid "Content Image Link Target"
-msgstr ""
-
-#: options.php:280
-msgid "Section Content"
+#: options.php:287
+msgid "Section Full Width"
 msgstr ""
 
 #: options.php:287
-msgid "Featured Homepage Sidebar"
+msgid "Section container no padding"
 msgstr ""
 
-#: options.php:301
-#: options.php:306
-#: options.php:312
-#: options.php:317
-msgid "Content Container Width"
+#: options.php:289
+msgid "Section Menu Title"
 msgstr ""
 
-#: options.php:301
-#: options.php:302
-#: options.php:303
-#: options.php:304
-msgid "Extra small devices Phones (<768px)"
+#: options.php:290
+msgid "Section Menu Slug"
 msgstr ""
 
-#: options.php:302
-#: options.php:307
-#: options.php:313
-#: options.php:318
-msgid "Content Container Margin Left"
+#: options.php:292
+msgid "Section Content Typography"
 msgstr ""
 
-#: options.php:303
-#: options.php:308
-#: options.php:314
-#: options.php:319
-msgid "Content Container Margin Top"
-msgstr ""
-
-#: options.php:304
-#: options.php:309
-#: options.php:315
-#: options.php:320
-msgid "Content Container Padding"
+#: options.php:305
+msgid "Section Background ( Desktop )"
 msgstr ""
 
 #: options.php:306
-msgid "Small devices Tablets (<992px)"
+msgid "Section Background ( Tablet )"
 msgstr ""
 
-#: options.php:307
-#: options.php:308
-msgid "Extra small devices Phones ( <992px)"
-msgstr ""
-
-#: options.php:309
-msgid "Extra small devices Phones (<992px)"
-msgstr ""
-
-#: options.php:312
 #: options.php:313
-#: options.php:314
-#: options.php:315
-msgid "Medium devices Desktops (<1200px)"
+msgid "Section Background ( Mobile )"
 msgstr ""
 
-#: options.php:317
-#: options.php:318
-#: options.php:319
-#: options.php:320
-msgid "Large devices Desktops (&#8805;1200px)"
+#: options.php:321
+msgid "100% Width Background Image"
 msgstr ""
 
 #: options.php:322
+msgid "Section Css Class"
+msgstr ""
+
+#: options.php:323
+msgid "Content Image"
+msgstr ""
+
+#: options.php:324
+msgid "Content Image Link"
+msgstr ""
+
+#: options.php:326
+msgid "Content Image Link Target"
+msgstr ""
+
+#: options.php:329
+msgid "Section Content"
+msgstr ""
+
+#: options.php:336
+msgid "Featured Homepage Sidebar"
+msgstr ""
+
+#: options.php:350
+#: options.php:355
+#: options.php:361
+#: options.php:366
+msgid "Content Container Width"
+msgstr ""
+
+#: options.php:350
+#: options.php:351
+#: options.php:352
+#: options.php:353
+msgid "Extra small devices Phones (<768px)"
+msgstr ""
+
+#: options.php:351
+#: options.php:356
+#: options.php:362
+#: options.php:367
+msgid "Content Container Margin Left"
+msgstr ""
+
+#: options.php:352
+#: options.php:357
+#: options.php:363
+#: options.php:368
+msgid "Content Container Margin Top"
+msgstr ""
+
+#: options.php:353
+#: options.php:358
+#: options.php:364
+#: options.php:369
+msgid "Content Container Padding"
+msgstr ""
+
+#: options.php:355
+msgid "Small devices Tablets (<992px)"
+msgstr ""
+
+#: options.php:356
+#: options.php:357
+msgid "Extra small devices Phones ( <992px)"
+msgstr ""
+
+#: options.php:358
+msgid "Extra small devices Phones (<992px)"
+msgstr ""
+
+#: options.php:361
+#: options.php:362
+#: options.php:363
+#: options.php:364
+msgid "Medium devices Desktops (<1200px)"
+msgstr ""
+
+#: options.php:366
+#: options.php:367
+#: options.php:368
+#: options.php:369
+msgid "Large devices Desktops (&#8805;1200px)"
+msgstr ""
+
+#: options.php:371
 msgid "Homepage Footer Background"
 msgstr ""
 
-#: options.php:325
+#: options.php:374
 msgid "Footer"
 msgstr ""
 
-#: options.php:340
+#: options.php:389
 #, php-format
 msgid "Social Icon #%s"
 msgstr ""
 
-#: options.php:341
+#: options.php:390
 #, php-format
 msgid "Social Title #%s"
 msgstr ""
 
-#: options.php:342
+#: options.php:391
 #, php-format
 msgid "Social Link #%s"
 msgstr ""
 
-#: options.php:347
+#: options.php:396
 msgid "Typography"
 msgstr ""
 
-#: options.php:349
+#: options.php:398
 #, fuzzy
 msgid "Content Link Color"
 msgstr "全局颜色"
 
-#: options.php:350
+#: options.php:399
 msgid "Content Link Mouseover Color"
 msgstr ""
 
-#: options.php:352
+#: options.php:401
 msgid "Page Menu Typography"
 msgstr ""
 
-#: options.php:354
+#: options.php:403
 msgid "Homepage and Pages Menu Typography."
 msgstr ""
 
-#: options.php:362
+#: options.php:411
 msgid "Page Menu Active Color"
 msgstr ""
 
-#: options.php:364
+#: options.php:413
 msgid "Blog Menu Typography"
 msgstr ""
 
-#: options.php:366
+#: options.php:415
 msgid "Blog Menu Typography."
 msgstr ""
 
-#: options.php:375
+#: options.php:424
 msgid "Blog Menu Active Color"
 msgstr ""
 
-#: options.php:377
+#: options.php:426
 msgid "Homepage Side Nav Menu Typography"
 msgstr ""
 
-#: options.php:386
+#: options.php:435
 msgid "Side Nav Menu Active Color"
 msgstr ""
 
-#: options.php:389
+#: options.php:438
 msgid "Side Nav Circle Color"
 msgstr ""
 
-#: options.php:411
+#: options.php:460
 msgid "Pages & Posts Content Typography"
 msgstr ""
 

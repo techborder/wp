@@ -178,11 +178,32 @@ function optionsframework_options() {
 		$options[] = array('desc' => __('</div>', 'singlepage'),	'class' => 'toggle_title','type' => 'info');
 		//// End full screen google map Options
 		
+		// home page sidebar menu options
+		$options[] = array(	'desc' =>'<div class="options-section"><h3 class="groupTitle">'.__('Home Page Sidebar Menu options ( Pro Only )', 'singlepage').'</h3>',	'class' => 'toggle_option_group group_close','type' => 'info');
+		$options[] = array(	'name' => __('Menu Style ( Desktop )', 'singlepage'),'id' => 'menu_style_desktop','std' => '1','class' => 'mini','options' => array('1'=>'Style 1','2'=>'Style 2'),'type' => 'select');
+		
+		$options[] = array(	'name' => __('Menu Style Status ( Desktop )', 'singlepage'),'id' => 'menu_status_desktop','std' => 'open','class' => 'mini','options' => array('open'=>'open','close'=>'close'),'type' => 'select');
+		
+		
+		$options[] = array(	'name' => __('Menu Style ( Tablet )', 'singlepage'),'id' => 'menu_style_tablet','std' => '1','class' => 'mini','options' => array('1'=>'Style 1','2'=>'Style 2'),'type' => 'select');
+		
+		$options[] = array(	'name' => __('Menu Style Status ( Tablet )', 'singlepage'),'id' => 'menu_status_tablet','std' => 'open','class' => 'mini','options' => array('open'=>'open','close'=>'close'),'type' => 'select');
+		
+		$options[] = array(	'name' => __('Menu Style ( Mobile )', 'singlepage'),'id' => 'menu_style_mobile','std' => '2','class' => 'mini','options' => array('1'=>'Style 1','2'=>'Style 2'),'type' => 'select');
+		
+		$options[] = array(	'name' => __('Menu Style Status ( Mobile )', 'singlepage'),'id' => 'menu_status_mobile','std' => 'close','class' => 'mini','options' => array('open'=>'open','close'=>'close'),'type' => 'select');
+		
+		
+		$options[] = array('desc' => __('</div>', 'singlepage'),	'class' => 'toggle_title','type' => 'info');
+		
+		// end page sidebar menu options
+		
 		
 	 $options[] = array('name' => __('Scrolling Delay', 'singlepage'),'class'=>'mini','id' => 'scrolldelay','type' => 'text','std'=>'700','desc'=> '');
 		
 	 
 	 $section_menu_title              = array("SECTION ONE","SECTION TWO","SECTION THREE","SECTION FOUR");
+	 $section_menu_slug               = array("section-one","section-two","section-three","section-four");
 	 $section_content_color      = array("#ffffff","#ffffff","#ffffff","#ffffff");
 	 $section_css_class          = array("","","","");
 	 $section_background_size    = array("yes","no","no","yes");
@@ -262,7 +283,11 @@ function optionsframework_options() {
 		if(!isset($section_title_border_color[$i])){$section_title_border_color[$i] = "";}
 		
 		$options[] = array(	'desc' => '<div class="options-section"><h3 class="groupTitle">Section '.($i+1).'</h3>', 'class' => 'toggle_option_group group_close','type' => 'info');
+		
+		$options[] = array('name' => __('Section Full Width', 'singlepage'),'id' => 'section_full_width_'.$i.'','type' => 'checkbox','std'=>'','desc'=>__('Section container no padding', 'singlepage'));
+		
 		$options[] = array('name' => __('Section Menu Title', 'singlepage'),'id' => 'section_menu_title_'.$i.'','type' => 'text','std'=>$section_menu_title[$i]);
+		$options[] = array('name' => __('Section Menu Slug', 'singlepage'),'id' => 'section_menu_slug_'.$i.'','type' => 'text','std'=>$section_menu_slug[$i]);
 		
 		$options[] = array( 'name' => __('Section Content Typography', 'singlepage'),
 
@@ -273,11 +298,27 @@ function optionsframework_options() {
 			'faces' =>  singlepage_options_typography_get_os_fonts(),
 			'styles' => false )
 			  );
+
 		
 		//$options[] = array('name' => __('Content Color', 'singlepage'),'id' => 'section_content_color_'.$i.'','type' => 'color','std'=>$section_content_color[$i]);
 		
-		$options[] = array('name' =>  __('Section Background', 'singlepage'),'id' => 'section_background_'.$i.'','std' => $section_background[$i],'type' => 'background' );
-		$options[] = array('name' => __('100% Width Background Image', 'singlepage'),'std' => $section_background_size[$i],'id' => 'background_size_'.$i.'','type' => 'select','class'=>'mini','options'=>array("no"=>"no","yes"=>"yes"));
+	    $options[] = array('name' =>  __('Section Background ( Desktop )', 'singlepage'),'id' => 'section_background_'.$i.'','std' => $section_background[$i],'type' => 'background' );
+		$options[] = array('name' =>  __('Section Background ( Tablet )', 'singlepage'),'id' => 'section_background_tablet_'.$i.'','std' => array(
+		'color' => '',
+		'image' => '',
+		'repeat' => 'repeat',
+		'position' => 'top left',
+		'attachment'=>'scroll' )
+		 ,'type' => 'background' );
+		$options[] = array('name' =>  __('Section Background ( Mobile )', 'singlepage'),'id' => 'section_background_mobile_'.$i.'','std' => array(
+		'color' => '',
+		'image' => '',
+		'repeat' => 'repeat',
+		'position' => 'top left',
+		'attachment'=>'scroll' )
+		 ,'type' => 'background' );
+		
+	   $options[] = array('name' => __('100% Width Background Image', 'singlepage'),'std' => $section_background_size[$i],'id' => 'background_size_'.$i.'','type' => 'select','class'=>'mini','options'=>array("no"=>"no","yes"=>"yes"));
 	   $options[] = array('name' => __('Section Css Class', 'singlepage'),'id' => 'section_css_class_'.$i.'','type' => 'text','std'=>$section_css_class[$i]);
 	   $options[] = array('name' => __('Content Image', 'singlepage'),'id' => 'section_image_'.$i,	'std' =>  $section_image[$i],'type' => 'upload');
 	   $options[] = array('name' => __('Content Image Link', 'singlepage'),'id' => 'section_image_link_'.$i.'','type' => 'text','std'=>'');

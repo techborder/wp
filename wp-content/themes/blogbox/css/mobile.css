@@ -233,6 +233,12 @@
 	#slogan2 p.slogan2line1 {font-size: 14px;}
 	
 	#slogan2 p.slogan2line2 {font-size: 12px;}
+	
+	/* ------- Post Formats ------ */
+	.aside-entry .post-icon, .status-entry .post-icon {
+		font-size: 16px; /* Post icons are now Font Awsome */
+		margin: -3% 1% 0 -12%;
+	}
 
 }
 

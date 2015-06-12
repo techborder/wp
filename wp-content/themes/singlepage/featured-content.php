@@ -16,11 +16,12 @@
 	  'marginheight' => true,
 	  
 	  );
-	  
+	 $detect                     = new Mobile_Detect;
      $sectionNum                 = of_get_option('section_num', 4);
 	 $hide_scroll_bar            = of_get_option('hide_scroll_bar', 0);
 	 $section_height_mode        = of_get_option('section_height_mode', 1);
      $section_menu_title         = array("SECTION ONE","SECTION TWO","SECTION THREE","SECTION FOUR");
+	 $section_menu_slug          = array("section-one","section-two","section-three","section-four");
 	 $section_content_color      = array("#ffffff","#ffffff","#ffffff","#ffffff");
 	 $section_css_class          = array("","","","");
 	 $section_background_size    = array("yes","no","no","yes");
@@ -105,11 +106,10 @@
 		if(  $sectionNum > 0 ) { 
 		    for( $i=0; $i<$sectionNum; $i++ ){ 
 			
-		
-	$menu_title     =  of_get_option('section_menu_title_'.$i, $section_menu_title[$i] );
-	if( $menu_title )
-	$menu_slug         =  sanitize_title( $menu_title );
-	else
+	$section_full_width =  of_get_option('section_full_width_'.$i, 0 );
+	$menu_title        =  of_get_option('section_menu_title_'.$i, $section_menu_title[$i] );
+	$menu_slug         =  of_get_option('section_menu_slug_'.$i, $section_menu_slug[$i] );
+	if( !$menu_slug )
 	$menu_slug         =  'section-'.$i;
 	
 	$class             =  of_get_option('section_css_class_'.$i, $section_css_class[$i]) ;
@@ -121,6 +121,21 @@
 	$content_color     =  of_get_option('section_content_color_'.$i, $section_content_color[$i]) ;
 	$section_background_       = of_get_option( 'section_background_'.$i,$section_background[$i]);
     $background                = singlepage_get_background( $section_background_ );
+	
+	// background for mobile 
+		
+	$background_tablet         = singlepage_get_background( of_get_option( 'section_background_tablet_'.$i,'') );
+	$background_mobile         = singlepage_get_background( of_get_option( 'section_background_mobile_'.$i,'') );
+	
+
+	if( $detect->isTablet() && $background_tablet ){
+       $background             = $background_tablet;
+     }
+	if( $detect->isMobile() && !$detect->isTablet() && $background_mobile ){
+       $background             = $background_mobile;
+    }
+	
+	
     $section_background_size_  = of_get_option( 'background_size_'.$i, $section_background_size[$i] );
 	
 	$content_style             = '';
@@ -138,7 +153,7 @@
 				}
 			//if( $content_color  != "" ) $content_color = 'color:'.esc_attr($content_color).';';
       $video_enable = 0;
-	  $detect = new Mobile_Detect;
+	  
 	  if(  $video_background_section == ($i+1) && !$detect->isMobile() && !$detect->isTablet() ){
 		$video_enable = 1;  
 		$class       .= " singlepage-video-section";
@@ -153,6 +168,24 @@
 		  
 		  }
 	 
+	   if( $section_full_width == 1){
+		   
+		    $output .= '<section class="section '.esc_attr($class).'" style="'.$background.'"  id="'.$menu_slug.'">
+	 
+			<div class="section-full-content" style="'.$content_style.'">'.do_shortcode( wp_kses( $content , $allowedposttags ) ).'</div>';
+		
+		if( $image!='' ){
+			if( $image_link !='' ){
+				$output .= '<a href="'.esc_url($image_link).'"  style=" display:black;" target="'.esc_attr($image_link_target).'"><div class="section-image" style="background-image:url('.esc_url($image).')"></div></a>';
+				}else{
+	 	        $output .= '<div class="section-image" style="background-image:url('.esc_url($image).')"></div>';
+			}
+		}
+		
+		$output .= '<div class="clear"></div></section>';
+		   
+		   
+		   }else{
        $output .= '<section class="section '.esc_attr($class).'" style="'.$background.'"  id="'.$menu_slug.'">
 	   <div class="container">
 		<div class="section-inner">
@@ -171,6 +204,8 @@
 		  <div class="clear"></div>
 		</div>
         </section>';
+		
+	   }
 	
 	
 	  if( $video_enable == 1 ){

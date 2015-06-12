@@ -6,20 +6,14 @@
  * 
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
-?>
+global $blogBox_options;
+get_header(); 
 
-<?php 	
-	global $blogBox_option;
-	$blogBox_option = blogBox_get_options();
-?>
-
-<?php get_header(); ?>
-
-<?php if( $blogBox_option['bB_use_fullwidth_single_post'] == 1 ) {
+if( $blogBox_options['bB_use_fullwidth_single_post'] == 1 ) {
 	echo '<div id="fullwidth">';
 		echo '<div id="fullwidth_blog">';
 		echo '<br/>';
@@ -45,15 +39,15 @@
 	<?php else : ?>
 		<!-- Couldn't find the post -->
 		<div class="nosearch">
-			<h2><?php _e('Sorry about that - we couldn\'t find the post. Da link is not Da link!','blogBox'); ?></h2>
-			<p><?php _e('Don\'t know why, but contact us and we\'ll look into it.','blogBox'); ?></p>
-			<h2><?php _e('Something to read?','blogBox'); ?></h2>
-			<p><?php _e('Want to read something else? These are the latest posts:','blogBox'); ?><br/><br/></p>
+			<h2><?php esc_html_e('Sorry about that - we couldn\'t find the post. Da link is not Da link!','blogBox'); ?></h2>
+			<p><?php esc_html_e('Don\'t know why, but contact us and we\'ll look into it.','blogBox'); ?></p>
+			<h2><?php esc_html_e('Something to read?','blogBox'); ?></h2>
+			<p><?php esc_html_e('Want to read something else? These are the latest posts:','blogBox'); ?><br/><br/></p>
 			<ul><?php wp_get_archives('type=postbypost&limit=20&format=html'); ?></ul>
 		</div>
 	<?php endif; ?>
 	<br/>
-<?php if( $blogBox_option['bB_use_fullwidth_single_post'] == 1 ) {
+<?php if( $blogBox_options['bB_use_fullwidth_single_post'] == 1 ) {
 		echo '</div>';
 	echo '</div>';
 } else {

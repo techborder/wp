@@ -51,6 +51,17 @@
     font-style:normal;
     padding: 0;
 }
+h2.theme_title_colorway {
+  font-style: normal;
+  padding: 0;
+  display: inline-block;
+  font-size: 26px;
+  margin-left: 16px;
+  margin-top: 29px;
+}
+.wp-core-ui .notice.is-dismissible{
+	display:block;
+}
 #of_container #header .icon-option {
     float: right;
     height: 50px;

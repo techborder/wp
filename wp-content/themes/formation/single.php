@@ -2,15 +2,13 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package Formation
- * @since Formation 1.0
+ * @package formation
+ * @since formation 1.0
  */
 
 get_header(); ?>
 	<header class="entry-header">
-    <div class="title-container">
-		<h1 class="page-title"><?php the_title(); ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
-        </div>
+		<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
 		</header><!-- .entry-header -->
 		<div id="primary_wrap">
 		<div id="primary" class="content-area">
@@ -20,7 +18,7 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', 'single' ); ?>
 
-				<?php Formation_content_nav( 'nav-below' ); ?>
+				<?php formation_content_nav( 'nav-below' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

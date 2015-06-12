@@ -2,7 +2,7 @@
 Theme Name: SinglePage
 Theme URI: http://www.hoothemes.com/themes/single-page.html
 Description: SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company. Each of the homepage sections can have a parallax background image and its own set of colors. Dozens of theme options are available to design your sites, such as typography, social icons, upload logo, custom css, HTML5 video background, full screen google map and so on. You can not only use it to create a singlepage-style front page for your business website, but also create your personal blog or site easily. You can check the demo at http://demo.hoosoft.com/singlepage/
-Version: 1.2.0
+Version: 1.2.2
 Author: HooThemes
 Author URI: http://www.hoothemes.com
 License: GNU General Public License
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: one-column, two-columns, dark,light,gray, responsive-layout, custom-background, custom-header, custom-menu, theme-options, left-sidebar, translation-ready, editor-style, featured-images, flexible-header, threaded-comments
 Text Domain: singlepage
 
-SinglePage Wordpress Theme has been created by hoothemes.com, Copyright 2014 WordPress.org.
+SinglePage Wordpress Theme has been created by HooThemes, Copyright 2015 hoothemes.com.
 SinglePage Wordpress theme is released under the terms of GNU GPL.
 */
 
@@ -679,6 +679,10 @@ section.section  .section-content {
 	position:relative;
 
 }
+section.section  .section-full-content{
+	z-index:9;
+	position:relative;
+	}
 section.section  .section-title{
 	font-size:42px;
 	/*color:#fff;*/
@@ -782,6 +786,7 @@ header.navbar {
 	width: 100%;
 	min-height:90px;
 	border-radius: 0;
+	margin-bottom:0;
 }
 #featured-template header.navbar{
 	position:fixed;

@@ -6,15 +6,15 @@
  * 
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
 
 /* Get the user choices for the theme options */
-global $blogBox_option;
-$blogBox_option = blogBox_get_options();
-$layout_option = $blogBox_option['bB_blog_layout_option'];
+global $blogBox_options;
+
+$layout_option = $blogBox_options['bB_blog_layout_option'];
 
 if( $layout_option == 'fullwidth-no slider or home sections') {
 	get_template_part( '/template-parts/blog', 'fullwidth' );

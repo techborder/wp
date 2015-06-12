@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: security, captcha, recaptcha, no captcha, login, signup, contact form 7, ninja forms, woocommerce
 Requires at least: 3.8
 Tested up to: 4.2
-Stable tag: 1.1.4
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,7 +62,7 @@ running under his/her own domain name.
 
 - In **WooCommerce** the reset password form can not be protected by a captcha. Woocommerce does 
   not fire any action in the lost password form, so there is no way for the plugin to hook in.
-  This will propably be fixed with WooCommerce 2.3.8.
+  Take a look at [this thread](https://wordpress.org/support/topic/captcha-not-showing-on-lost-password-page?replies=7) for a workaround.
 
 - Due to a lack of filters there is no (and as far as one can see, there will never be) 
   support for the **MailPoet** subscription form.
@@ -135,6 +135,11 @@ You will either need one of the following:
 **If none of these works for you**
 
 That's too bad...
+
+
+= I can't get it to work with my custom comments form. Will you fix for me? =
+
+No. Have a look at the project wiki
 
 
 = Privacy: Will the captcha send the visitors IP address to google? =
@@ -235,12 +240,22 @@ I will migrate all the translation stuff there.
 
 == Screenshots ==
 
-1. Plugin Settings
+1. Plugin Settings (v 1.1.4)
 2. Ninja Form Integration
 3. Contact Form 7 Integration
 
 
 == Changelog ==
+
+= 1.1.6 =
+- Fix: Skip Ninja Forms required check
+
+= 1.1.5 =
+- Feature: Noscript fallback option for noCaptcha
+- Feature: Option for WP 4.2 compatible hook on comment form.
+- Fix: Remove automatic key testing in Backend.
+- L10n: Improved de_DE ([thx @quassy](https://github.com/quassy))
+- L10n: Updated pt_BR ([thx again man](http://www.viniciusferraz.com))
 
 = 1.1.4 =
 - Comments: get back to `comment_form_defaults` filter (was introduced in 1.1.3)

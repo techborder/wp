@@ -1,5 +1,12 @@
 ===== Change Log =====
 
+ Version 1.2.2
+ * Added Section Full Width option
+ * Added Section Menu Slug option
+ 
+ Version 1.2.1
+ * Added section background options for mobile devices 
+ 
  Version 1.2.0
  * Added HTML5 video background
  * Added homepage full screen google map

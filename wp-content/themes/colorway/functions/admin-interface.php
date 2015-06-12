@@ -80,7 +80,7 @@ function inkthemes_optionsframework_options_page() {
 		</div>
     <div class="clear"></div>
     <div class="theme-option">
-        <div class="wrap" id="of_container">
+        <div class="wrap1" id="of_container">
             <div id="of-popup-save" class="of-save-popup">
                 <div class="of-save-save"><?php _e('Options Updated', 'colorway'); ?></div>
             </div>
@@ -89,13 +89,11 @@ function inkthemes_optionsframework_options_page() {
             </div>
             <form action="" enctype="multipart/form-data" id="ofform">
                 <?php wp_nonce_field('colorwaytheme-update-option', 'colorway_option_nonce'); ?>
-                <div id="header">
-                    <div class="logo">
-                        <h2><?php
-                            echo $themename;
-                            _e(' Options', 'colorway');
-                            ?></h2>
-                    </div>
+                <div id="header">                    
+					<h2 class="theme_title_colorway"><?php
+					echo $themename;
+                    _e(' Options', 'colorway');
+                   ?></h2>
                     <a href="<?php esc_url($site_url); ?>" target="new">
                         <div class="icon-option"> </div>
                     </a>

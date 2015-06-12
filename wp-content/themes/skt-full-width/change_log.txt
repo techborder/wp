@@ -74,3 +74,6 @@ Version 1.6.3
 
 Version 1.6.4
 	i) Resolved toggle menu issue in responsive.
+
+Version 1.6.5
+	i) Resolved responsive layout issue.

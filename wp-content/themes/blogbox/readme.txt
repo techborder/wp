@@ -3,13 +3,14 @@ Theme Name: blogBox
 Author: Kevin Archibald
 Author URI: http://kevinsspace.ca/
 Theme URI: http://demo1.kevinsspace.ca/
-Version: 4.0.3
+Version: 4.1.0
 License: GNU General Public License V3
 License URI:http://www.gnu.org/licenses/quick-guide-gplv3.html
 Tags: blue,brown,gray,white,light,dark,one-column,two-columns,left-sidebar,right-sidebar,
       custom-background,custom-colors,custom-header,custom-menu,editor-style,flexible-header,
       featured-images,front-page-post-form,full-width-template,post-formats,responsive-style,
       sticky-post,theme-options,threaded-comments,translation-ready
+      
 blogBox is a full featured responsive theme that provides the user with numerous options for background
 colors, text colors, font styles, static pages, sidebars, captcha for comments and contact page.
 
@@ -64,7 +65,6 @@ colors, text colors, font styles, static pages, sidebars, captcha for comments a
 	7) Templates
 	    - full width
 	    - full width blog
-	    - Contact template with custom captcha and widgetized sidebar
 	    - Siteplan template
 	    - two left sidebar templates - with separate widgetized sidebar
 	    - two right sidebar template - with separate widgetized sidebar
@@ -76,8 +76,6 @@ colors, text colors, font styles, static pages, sidebars, captcha for comments a
 	8) Other Features
 	    - Fully Responsive, user can optionally disable this feature
 		- Colorbox - Display galleries and photos using Colorbox.
-		- Comment Captcha
-		- Color Captcha or black and white
 		- Font Awesome - great vector font icon package now part of blogBox
 		- PageNavi ready - download the PageNavi plugin for great page 
 		  navigation features.
@@ -89,7 +87,7 @@ License: GNU General Public License V3
 License URI: see the license.txt file for license details.
 
 	blogBox is a full featured WordPress Theme
-    Copyright (C) 2012 Kevin Archibald
+    Copyright (C) 2015 Kevin Archibald
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -115,25 +113,10 @@ Social Media Icons :
     Pinterest, Facebook, and Twitter using icons available from the originating site. These icons 
     are included as part of the theme license.
   
-List Icons :
---------------
-
-WOOCONS1 : http://www.woothemes.com/2010/08/woocons1/ - GNU General Public License
-	cog.png
-Crystal Project Icons, AUTHOR: Everaldo Coelho, SITE:http://www.everaldo.com, 
-  CONTACT: everaldo@everaldo.com, Copyright (c)  2006-2007  Everaldo Coelho.
-    arrow.png
-    
 Font Awesome
 ---------------
-Font Awesome by Dave Gandy - http://fontawesome.io
-Font License SIL OFL 1.1 - http://scripts.sil.org/OFL
-Code License  MIT License - >http://opensource.org/licenses/mit-license.html
-  
-Visual Toolbar Icons
----------------------
- - quote.png,audio.png, and video.png
- - Woocons1 GNU General Public License : http://www.woothemes.com/2010/08/woocons1/  
+Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
 
 Nivo Slider
 ---------------
@@ -157,10 +140,6 @@ Image Viewer (Colorbox)
 ------------------------
  - http://jacklmoore.com/colorbox/) 
  - Released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
- 
-Captcha Font
---------------
-Vera by Bitstream : http://www-old.gnome.org/fonts/
 
 == Installation ==
 

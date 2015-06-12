@@ -1,20 +1,20 @@
 <?php
 /**
- * Formation functions and definitions
+ * formation functions and definitions
  *
- * @package Formation
- * @since Formation 1.0
+ * @package formation
+ * @since formation 1.0
  */
 
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
 if ( ! isset( $content_width ) )
 	$content_width = 654; /* pixels */
 
-if ( ! function_exists( 'Formation_setup' ) ):
+if ( ! function_exists( 'formation_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -22,9 +22,9 @@ if ( ! function_exists( 'Formation_setup' ) ):
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
-function Formation_setup() {
+function formation_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -39,10 +39,10 @@ function Formation_setup() {
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on Formation, use a find and replace
-	 * to change 'Formation' to the name of your theme in all the template files
+	 * If you're building a theme based on formation, use a find and replace
+	 * to change 'formation' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'Formation', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'formation', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -53,7 +53,7 @@ function Formation_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'Formation' ),
+		'primary' => __( 'Primary Menu', 'formation' ),
 	) );
 	
 	/**
@@ -68,47 +68,36 @@ function Formation_setup() {
 	 * Add support for the Aside Post Formats
 	 */
 	add_theme_support( 'post-formats', array( 'aside', ) );
-}
-endif; // Formation_setup
-add_action( 'after_setup_theme', 'Formation_setup' );
 
-/**
- * Setup the WordPress core custom background feature.
- *
- * Use add_theme_support to register support for WordPress 3.4+
- * as well as provide backward compatibility for previous versions.
- * Use feature detection of wp_get_theme() which was introduced
- * in WordPress 3.4.
- *
- * Hooks into the after_setup_theme action.
- *
- * @since Formation 1.0
- */
-function Formation_register_custom_background() {
+	// Display Title in theme
+	add_theme_support( 'title-tag' );
+
+	// Add Custom Header Image support
+	add_theme_support( 'custom-header' );
+
+	// Add background support
 	$args = array(
-		'default-color' => 'EEE',
+		'default-color' => 'ffffff',
 	);
+	add_theme_support( 'custom-background', $args );
 
-	$args = apply_filters( 'Formation_custom_background_args', $args );
+	// link a custom stylesheet file to the TinyMCE visual editor
+    $font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Open+Sans' );
+	add_editor_style( array('style.css', 'css/editor-style.css', $font_url) );
 
-	if ( function_exists( 'wp_get_theme' ) ) {
-		add_theme_support( 'custom-background', $args );
-	} else {
-		define( 'BACKGROUND_COLOR', $args['default-color'] );
-		define( 'BACKGROUND_IMAGE', $args['default-image'] );
-		add_theme_support( 'custom-background', $args );
-	}
 }
-add_action( 'after_setup_theme', 'Formation_register_custom_background' );
+endif; // formation_setup
+add_action( 'after_setup_theme', 'formation_setup' );
+
 
 /**
  * Register widgetized area and update sidebar with default widgets
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
-function Formation_widgets_init() {
+function formation_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Primary Sidebar', 'Formation' ),
+		'name' => __( 'Primary Sidebar', 'formation' ),
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -117,7 +106,7 @@ function Formation_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name' => __( 'Secondary Sidebar', 'Formation' ),
+		'name' => __( 'Secondary Sidebar', 'formation' ),
 		'id' => 'sidebar-2',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -126,7 +115,7 @@ function Formation_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name' => __( 'Left Sidebar', 'Formation' ),
+		'name' => __( 'Left Sidebar', 'formation' ),
 		'id' => 'sidebar-3',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -135,27 +124,27 @@ function Formation_widgets_init() {
 	) );
 	
 	register_sidebar(array(
-			'name' => __( 'Left Footer Column', 'Formation' ),
+			'name' => 'Left Footer Column',
 			'id'   => 'left_column',
-			'description'   => __( 'Widget area for footer left column', 'Formation' ),
+			'description'   => 'Widget area for footer left column',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4>',
 			'after_title'   => '</h4>'
 		));
 		register_sidebar(array(
-			'name' => __( 'Center Footer Column', 'Formation' ),
+			'name' => 'Center  Footer Column',
 			'id'   => 'center_column',
-			'description'   => __( 'Widget area for footer center column', 'Formation' ),
+			'description'   => 'Widget area for footer center column',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4>',
 			'after_title'   => '</h4>'
 		));
 		register_sidebar(array(
-			'name' => __( 'Right Footer Column', 'Formation' ),
+			'name' => 'Right Footer Column',
 			'id'   => 'right_column',
-			'description'   => __( 'Widget area for footer right column', 'Formation' ),
+			'description'   => 'Widget area for footer right column',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4>',
@@ -163,469 +152,115 @@ function Formation_widgets_init() {
 		));
 
 }
-add_action( 'widgets_init', 'Formation_widgets_init' );
-
-
-/**
-	 * Customizer additions
-	 */
-	require( get_template_directory() . '/inc/customizer.php' );
-
-
+add_action( 'widgets_init', 'formation_widgets_init' );
 
 /**
  * Enqueue scripts and styles
  */
-function Formation_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	
-	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
+function formation_scripts() {
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '2.0' );
 
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
-	
-		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', '', '2.0');
 
-		wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
+	wp_enqueue_style( 'animate', get_template_directory_uri().'/css/animate.min.css', '', '2.0');
+
+    wp_enqueue_style( 'flexslider', get_template_directory_uri().'/js/flexslider.css', '', '2.0');
+
+
+	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '2.0', true );
 	
-	wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.min.css');
+	wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '2.0' );
 	
+	wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
+
 	wp_enqueue_script( 'inview', get_template_directory_uri() . '/js/Inview.js', array('jquery'));
 	
 	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/animate.js', array('jquery', 'inview'));
-}
-add_action( 'wp_enqueue_scripts', 'Formation_scripts' );
+	    
+	wp_enqueue_script( 'flexslider', get_template_directory_uri().'/js/jquery.flexslider-min.js', array('jquery'));
+    
+    wp_enqueue_script( 'flexslider-init', get_template_directory_uri().'/js/flexslider-init.js', array('jquery', 'flexslider'));
+	
 
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
-/**
- * Implement home slider
- */
+		wp_enqueue_script( 'comment-reply' );
 
-function Formation_add_scripts() {
-    wp_enqueue_script('flexslider', get_template_directory_uri().'/js/jquery.flexslider-min.js', array('jquery'));
-    wp_enqueue_script('flexslider-init', get_template_directory_uri().'/js/flexslider-init.js', array('jquery', 'flexslider'));
-}
-add_action('wp_enqueue_scripts', 'Formation_add_scripts');
+	}
 
-function Formation_add_styles() {
-    wp_enqueue_style('flexslider', get_template_directory_uri().'/js/flexslider.css');
-}
-add_action('wp_enqueue_scripts', 'Formation_add_styles');
+	if ( is_singular() && wp_attachment_is_image() ) {
 
-/**
- * Implement the Custom Logo feature
- */
-function Formation_theme_customizer( $wp_customize ) {
-   
-   $wp_customize->add_section( 'Formation_logo_section' , array(
-    'title'       => __( 'Logo', 'Formation' ),
-    'description' => __( 'Upload a logo to replace the default site name and description in the header', 'Formation' ),
-	'priority'    => 30,
-) );
-   
-   $wp_customize->add_setting( 
-   		'Formation_logo',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
-
-   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'Formation_logo', array(
-    'label'    => __( 'Logo', 'Formation' ),
-    'section'  => 'Formation_logo_section',
-    'settings' => 'Formation_logo',
-) ) );
+		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
+	
+	}
 
 }
-add_action('customize_register', 'Formation_theme_customizer');
-
-/**
- * Adds the individual section for contact details
- */
-function telnumber_customizer( $wp_customize ) {
-	
-    $wp_customize->add_section( 'telnumber_section_one', array(
-     'title'       => __( 'Contact Details', 'Formation' ),
-     'description' => __( 'This is a settings section to change the contact details in the header.', 'Formation' ),
-     'priority'    => 130,
-        )
-    );
-	
-	$wp_customize->add_setting(
-    'telnumber_textbox_header_one', array(
-    'default' => __( 'Default Contact Details', 'Formation' ),
-    'sanitize_callback' => 'Formation_sanitize_text',
-    )
-	);
-	
-	$wp_customize->add_control(
-	'telnumber_textbox_header_one', array(
-	'label'    => __( 'Contact Details Text', 'Formation' ),
-	'section' => 'telnumber_section_one',
-	'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'telnumber_customizer' );
-
-/**
- * Adds the individual section for featured text box top
- */
-function Formation_customizer( $wp_customize ) {
-	
-    $wp_customize->add_section( 'featured_section_top', array(
-    'title'       => __( 'Featured Text Area', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage featured text area.', 'Formation' ),
-    'priority' => 165,
-        )
-    );
-	
-	$wp_customize->add_setting(
-    'featured_textbox', array(
-    'default' => __( 'Default Featured Text', 'Formation' ),
-    'sanitize_callback' => 'Formation_sanitize_text',
-    )
-);
-
-$wp_customize->add_control(
-    'featured_textbox', array(
-    'label'    => __( 'Featured Text Header', 'Formation' ),
-    'section' => 'featured_section_top',
-    'type' => 'text',
-    )
-);
-
-$wp_customize->add_setting( 
-   		'featured_button_url',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
-	
-	$wp_customize->add_control(
-		'featured_button_url',
-		array(
-			'label'    => __( 'Featured Button url', 'Formation' ),
-			'section' => 'featured_section_top',
-			'type' => 'text',
-		)
-);
-}
-add_action( 'customize_register', 'Formation_customizer' );
-
-
-/**
- * Adds the individual section for featured text box 1
- */
-function featured_text_one_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-    'featured_section_one', array(
-    'title' => __( 'Featured Text Box 1', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage featured text area.', 'Formation' ),
-    'priority' => 150,
-        )
-    );
-	
-	$wp_customize->add_setting( 
-   		'header-one-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'header-one-file-upload',
-        array(
-            'label' => __( 'Header Image One File Upload', 'Formation' ),
-            'section' => 'featured_section_one',
-            'settings' => 'header-one-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'header_one_url',
-    array(
-        'default' => __( 'Header One Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'header_one_url',
-		array(
-			'label'    => __( 'Header Image url', 'Formation' ),
-			'section' => 'featured_section_one',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-    'featured_textbox_header_one',
-    array(
-        'default' => __( 'Default featured text Header', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_text',
-    )
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_header_one',
-		array(
-			'label' => __( 'Featured Header Text', 'Formation' ),
-			'section' => 'featured_section_one',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-		'featured_textbox_text_one',
-		array(
-			'default' => __( 'Default featured text', 'Formation' ),
-			'sanitize_callback' => 'Formation_sanitize_text',
-		)
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_text_one',
-		array(
-			'label' => __( 'Featured text', 'Formation' ),
-			'section' => 'featured_section_one',
-			'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'featured_text_one_customizer' );
-
-/**
- * Adds the individual section for featured text box 2
- */
-function featured_text_two_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-        'featured_section_two',
-        array(
-            'title' => __( 'Featured Text Box 2', 'Formation' ),
-            'description' => __( 'This is a settings section to change the homepage featured text area.', 'Formation' ),
-            'priority' => 155,
-        )
-    );
-	
-	$wp_customize->add_setting( 
-   		'header-two-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'header-two-file-upload',
-        array(
-            'label' => __( 'Header Image Two File Upload', 'Formation' ),
-            'section' => 'featured_section_two',
-            'settings' => 'header-two-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'header_two_url',
-    array(
-        'default' => __( 'Header Two Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'header_two_url',
-		array(
-			'label'    => __( 'Header Image url', 'Formation' ),
-			'section' => 'featured_section_two',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-    'featured_textbox_header_two',
-    array(
-        'default' => __( 'Default featured text Header', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_text',
-    )
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_header_two',
-		array(
-			'label' => __( 'Featured Header text', 'Formation' ),
-			'section' => 'featured_section_two',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-		'featured_textbox_text_two',
-		array(
-			'default' => __( 'Default featured text', 'Formation' ),
-			'sanitize_callback' => 'Formation_sanitize_text',
-		)
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_text_two',
-		array(
-			'label' => __( 'Featured text', 'Formation' ),
-			'section' => 'featured_section_two',
-			'type' => 'text',
-		)
-	);
-}
-add_action( 'customize_register', 'featured_text_two_customizer' );
-
-/**
- * Adds the individual section for featured text box 3
- */
-function featured_text_three_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-        'featured_section_three',
-        array(
-            'title' => __( 'Featured Text Box 3', 'Formation' ),
-            'description' => __( 'This is a settings section to change the homepage featured text area.', 'Formation' ),
-            'priority' => 160,
-        )
-    );
-	
-	$wp_customize->add_setting( 
-   		'header-three-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'header-three-file-upload',
-        array(
-            'label' => __( 'Header Image Three File Upload', 'Formation' ),
-            'section' => 'featured_section_three',
-            'settings' => 'header-three-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'header_three_url',
-    array(
-        'default' => __( 'Header Three Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'header_three_url',
-		array(
-			'label'    => __( 'Header Image url', 'Formation' ),
-			'section' => 'featured_section_three',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-    'featured_textbox_header_three',
-    array(
-        'default' => __( 'Default featured text Header', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_text',
-    )
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_header_three',
-		array(
-			'label' => __( 'Featured Header text', 'Formation' ),
-			'section' => 'featured_section_three',
-			'type' => 'text',
-		)
-	);
-	
-	$wp_customize->add_setting(
-		'featured_textbox_text_three',
-		array(
-			'default' => __( 'Default featured text', 'Formation' ),
-			'sanitize_callback' => 'Formation_sanitize_text',
-		)
-	);
-	
-	$wp_customize->add_control(
-		'featured_textbox_text_three',
-		array(
-			'label' => __( 'Featured text', 'Formation' ),
-			'section' => 'featured_section_three',
-			'type' => 'text',
-		)
-	);
-}
-add_action( 'customize_register', 'featured_text_three_customizer' );
+add_action( 'wp_enqueue_scripts', 'formation_scripts' );
 
 
 /**
  * Implement excerpt for homepage slider
  */
-function Formation_get_slider_excerpt(){
-$excerpt = get_the_content();
-$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
-$excerpt = strip_shortcodes($excerpt);
-$excerpt = strip_tags($excerpt);
-$excerpt = substr($excerpt, 0, 150);
-$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-return $excerpt;
+function get_slider_excerpt(){
+	$excerpt = get_the_content();
+	$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+	$excerpt = strip_shortcodes($excerpt);
+	$excerpt = strip_tags($excerpt);
+	$excerpt = substr($excerpt, 0, 150);
+	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+	$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+	return $excerpt;
 }
 
 /**
  * Implement excerpt for homepage recent posts
  */
-function Formation_get_recentposts_excerpt(){
-$excerpt = get_the_content();
-$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
-$excerpt = strip_shortcodes($excerpt);
-$excerpt = strip_tags($excerpt);
-$excerpt = substr($excerpt, 0, 250);
-$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-return $excerpt;
+function formation_get_recentposts_excerpt(){
+	$excerpt = get_the_content();
+	$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+	$excerpt = strip_shortcodes($excerpt);
+	$excerpt = strip_tags($excerpt);
+	$excerpt = substr($excerpt, 0, 250);
+	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+	$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+	return $excerpt;
 }
 
-/**
- * sanitize customizer text input
- */
- function Formation_sanitize_text( $input ) {
-    return wp_kses_post( force_balance_tags( $input ) );
-}
 
-function Formation_sanitize_upload($input){
-	return esc_url_raw($input);	
-}
+// Theme Options
+include('functions/customizer_controller.php');
+include('functions/customizer_settings.php');
+include('functions/customizer_styles.php');
 
-add_filter( 'wp_title', 'Formation_wp_title' );
+
+add_filter( 'wp_title', 'formation_wp_title' );
 
 
 /**
  * Implement excerpt for homepage thumbnails
  */
-function Formation_content($limit) {
+function content($limit) {
+
   $content = explode(' ', get_the_content(), $limit);
+
   if (count($content)>=$limit) {
+
     array_pop($content);
+
     $content = implode(" ",$content).'...';
+
   } else {
+
     $content = implode(" ",$content);
   }	
+
   $content = preg_replace('/\[.+\]/','', $content);
   $content = apply_filters('the_content', $content); 
   $content = str_replace(']]>', ']]&gt;', $content);
+  
   return $content;
+
 }
 
 /**
@@ -637,7 +272,8 @@ function Formation_content($limit) {
  * @uses	is_home()
  * @uses	is_front_page()
  */
-function Formation_wp_title( $title ) {
+function formation_wp_title( $title ) {
+
 	global $page, $paged;
 
 	if ( is_feed() )
@@ -647,9 +283,10 @@ function Formation_wp_title( $title ) {
 
 	$filtered_title = $title . get_bloginfo( 'name' );
 	$filtered_title .= ( ! empty( $site_description ) && ( is_home() || is_front_page() ) ) ? ' | ' . $site_description: '';
-	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s', 'Formation' ), max( $paged, $page ) ) : '';
+	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s', 'formation' ), max( $paged, $page ) ) : '';
 
 	return $filtered_title;
+
 }
 
 /**
@@ -660,12 +297,12 @@ function Formation_wp_title( $title ) {
 function formation_breadcrumbs() {
  
 	/* === OPTIONS === */
-	$text['home']     = __('Home','Formation'); // text for the 'Home' link
-	$text['category'] = __('Archive by Category "%s"','Formation'); // text for a category page
+	$text['home']     = __('Home','formation'); // text for the 'Home' link
+	$text['category'] = __('Archive by Category "%s"','formation'); // text for a category page
 	$text['search']   = __('Search Results for "%s" Query','Formation'); // text for a search results page
-	$text['tag']      = __('Posts Tagged "%s"','Formation'); // text for a tag page
-	$text['author']   = __('Articles Posted by %s','Formation'); // text for an author page
-	$text['404']      = __('Error 404','Formation'); // text for the 404 page
+	$text['tag']      = __('Posts Tagged "%s"','formation'); // text for a tag page
+	$text['author']   = __('Articles Posted by %s','formation'); // text for an author page
+	$text['404']      = __('Error 404','formation'); // text for the 404 page
  
 	$show_current   = 1; // 1 - show current post/page/category title in breadcrumbs, 0 - don't show
 	$show_on_home   = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
@@ -794,7 +431,7 @@ function formation_breadcrumbs() {
  
 		if ( get_query_var('paged') ) {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-			echo __('Page', 'Formation') . ' ' . get_query_var('paged');
+			echo __('Page', 'formation') . ' ' . get_query_var('paged');
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
  
@@ -809,14 +446,15 @@ function formation_breadcrumbs() {
  */
 function author_social_media( $socialmedialinks ) {
 
-    $socialmedialinks['google_profile'] = 'Google+ URL';
-    $socialmedialinks['twitter_profile'] = 'Twitter URL';
-    $socialmedialinks['facebook_profile'] = 'Facebook URL';
-    $socialmedialinks['linkedin_profile'] = 'Linkedin URL';
+	$socialmedialinks['alternate_image']	= __('Alternate Profile Image Url', 'formation');
+    $socialmedialinks['google_profile'] 	= 'Google+ URL';
+    $socialmedialinks['twitter_profile'] 	= 'Twitter URL';
+    $socialmedialinks['facebook_profile'] 	= 'Facebook URL';
+    $socialmedialinks['linkedin_profile'] 	= 'Linkedin URL';
 
- return $socialmedialinks;
- }
- 
+ 	return $socialmedialinks;
+
+}
 add_filter( 'user_contactmethods', 'author_social_media', 10, 1);
 
 /**
@@ -828,240 +466,41 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
-/**
- * Adds the individual section for client logo 1
- */
-function client_logo_one_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-    'logo_section_one', array(
-    'title' => __( 'Client logo 1', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage logo area one.', 'Formation' ),
-    'priority' => 850,
-        )
-    );
 
-	$wp_customize->add_setting( 
-   		'logo-one-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'logo-one-file-upload',
-        array(
-            'label' => __( 'Client logo One File Upload', 'Formation' ),
-            'section' => 'logo_section_one',
-            'settings' => 'logo-one-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'logo_one_url',
-    array(
-        'default' => __( 'logo One Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'logo_one_url',
-		array(
-			'label'    => __( 'Client logo one url', 'Formation' ),
-			'section' => 'logo_section_one',
-			'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'client_logo_one_customizer' );
-
-
-/**
- * Adds the individual section for client logo 2
- */
-function client_logo_two_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-    'logo_section_two', array(
-    'title' => __( 'Client logo 2', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage logo area two.', 'Formation' ),
-    'priority' => 900,
-        )
-    );
-
-	$wp_customize->add_setting( 
-   		'logo-two-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'logo-two-file-upload',
-        array(
-            'label' => __( 'Client logo two File Upload', 'Formation' ),
-            'section' => 'logo_section_two',
-            'settings' => 'logo-two-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'logo_two_url',
-    array(
-        'default' => __( 'logo two Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'logo_two_url',
-		array(
-			'label'    => __( 'Client logo two url', 'Formation' ),
-			'section' => 'logo_section_two',
-			'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'client_logo_two_customizer' );
-
-
-/**
- * Adds the individual section for client logo 3
- */
-function client_logo_three_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-    'logo_section_three', array(
-    'title' => __( 'Client logo 3', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage logo area three.', 'Formation' ),
-    'priority' => 950,
-        )
-    );
-
-	$wp_customize->add_setting( 
-   		'logo-three-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'logo-three-file-upload',
-        array(
-            'label' => __( 'Client logo three File Upload', 'Formation' ),
-            'section' => 'logo_section_three',
-            'settings' => 'logo-three-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'logo_three_url',
-    array(
-        'default' => __( 'logo three Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'logo_three_url',
-		array(
-			'label'    => __( 'Client logo three url', 'Formation' ),
-			'section' => 'logo_section_three',
-			'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'client_logo_three_customizer' );
-
-
-/**
- * Adds the individual section for client logo 4
- */
-function client_logo_four_customizer( $wp_customize ) {
-    $wp_customize->add_section(
-    'logo_section_four', array(
-    'title' => __( 'Client logo 4', 'Formation' ),
-    'description' => __( 'This is a settings section to change the homepage logo area four.', 'Formation' ),
-    'priority' => 1000,
-        )
-    );
-
-	$wp_customize->add_setting( 
-   		'logo-four-file-upload',
-		array(
-			'sanitize_callback' => 'Formation_sanitize_upload',
-		)
-	);
- 
-	$wp_customize->add_control(
-    new WP_Customize_Upload_Control(
-        $wp_customize,
-        'logo-four-file-upload',
-        array(
-            'label' => __( 'Client logo four File Upload', 'Formation' ),
-            'section' => 'logo_section_four',
-            'settings' => 'logo-four-file-upload'
-        )
-    )
-	);
-	
-	$wp_customize->add_setting( 'logo_four_url',
-    array(
-        'default' => __( 'logo four Link', 'Formation' ),
-		'sanitize_callback' => 'Formation_sanitize_upload',
-    ) );
-	
-	$wp_customize->add_control(
-		'logo_four_url',
-		array(
-			'label'    => __( 'Client logo four url', 'Formation' ),
-			'section' => 'logo_section_four',
-			'type' => 'text',
-		)
-	);
-
-}
-add_action( 'customize_register', 'client_logo_four_customizer' );
 
 /**
  * Implement the Custom Header feature
  */
-add_theme_support( 'custom-header' );
-
-function Formation_custom_header_setup() {
+function formation_custom_header_setup() {
 	$args = array(
 		'default-image'          => '',
 		'default-text-color'     => '222',
 		'width'                  => 2000,
 		'height'                 => 500,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'Formation_header_style',
-		'admin-head-callback'    => 'Formation_admin_header_style',
-		'admin-preview-callback' => 'Formation_admin_header_image',
+		'wp-head-callback'       => 'formation_header_style',
+		'admin-head-callback'    => 'formation_admin_header_style',
+		'admin-preview-callback' => 'formation_admin_header_image',
 	);
 
-	$args = apply_filters( 'Formation_custom_header_args', $args );
+	$args = apply_filters( 'formation_custom_header_args', $args );
 
 	if ( function_exists( 'wp_get_theme' ) ) {
 		add_theme_support( 'custom-header', $args );
-	} 
+	}
 }
-add_action( 'after_setup_theme', 'Formation_custom_header_setup' );
 
+add_action( 'after_setup_theme', 'formation_custom_header_setup' );
 
-if ( ! function_exists( 'Formation_header_style' ) ) :
+if ( ! function_exists( 'formation_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see Formation_custom_header_setup().
+ * @see formation_custom_header_setup().
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
-function Formation_header_style() {
+function formation_header_style() {
 
 	// If no custom options for text are set, let's bail
 	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
@@ -1076,6 +515,7 @@ function Formation_header_style() {
 	?>
 		.site-header img {
 			display: block;
+			margin: 0.5em auto 0;
 		}
 	<?php endif;
 
@@ -1104,17 +544,17 @@ function Formation_header_style() {
 	</style>
 	<?php
 }
-endif; // Formation_header_style
+endif; // formation_header_style
 
-if ( ! function_exists( 'Formation_admin_header_style' ) ) :
+if ( ! function_exists( 'formation_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see Formation_custom_header_setup().
+ * @see formation_custom_header_setup().
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
-function Formation_admin_header_style() {
+function formation_admin_header_style() {
 ?>
 	<style type="text/css">
 	.appearance_page_custom-header #headimg {
@@ -1141,17 +581,17 @@ function Formation_admin_header_style() {
 	</style>
 <?php
 }
-endif; // Formation_admin_header_style
+endif; // formation_admin_header_style
 
-if ( ! function_exists( 'Formation_admin_header_image' ) ) :
+if ( ! function_exists( 'formation_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see Formation_custom_header_setup().
+ * @see formation_custom_header_setup().
  *
- * @since Formation 1.0
+ * @since formation 1.0
  */
-function Formation_admin_header_image() { ?>
+function formation_admin_header_image() { ?>
 	<div id="headimg">
 		<?php
 		if ( 'blank' == get_header_textcolor() || '' == get_header_textcolor() )
@@ -1167,4 +607,4 @@ function Formation_admin_header_image() { ?>
 		<?php endif; ?>
 	</div>
 <?php }
-endif; // Formation_admin_header_image
+endif; // formation_admin_header_image

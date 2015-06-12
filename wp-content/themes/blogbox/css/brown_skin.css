@@ -3,14 +3,13 @@
  *
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
 body {
 	background-color: #bda895;
-	background-image: url(../images/bg2.png);
-	background-repeat: repeat-x;
+	background-image: linear-gradient(to bottom, rgba(255,255,255,0.3) , rgba(255,255,255,0.1) 50% , rgba(255,255,255,0));
 }
 
 /* --------- header changes ----------------- */
@@ -25,7 +24,6 @@ body {
 /* -------- Navigation --------------- */
 nav {
 	background-color: #382622;
-	border-bottom: 2px solid #1F1817;
 }
 
 .sf-menu li a {		
@@ -78,7 +76,7 @@ a.button1 {
 }
 
 a.button1:hover {
-	background-image: url('../images/shade.png');
+	background-color: rgba(72, 72, 72, 0.2);
 	font-weight: normal;
 	text-decoration: none;
 	box-shadow: 1px 2px 2px 0 rgba(72,72,72,0.5);
@@ -107,10 +105,7 @@ table#wp-calendar th {color: #1f1817;}
 .aside-entry {
 	/* CSS3 Gradient */
 	background-color: #B7997B;
-	background-image: -webkit-linear-gradient(top, #B7997B, #7F6851);
-	background-image: -moz-linear-gradient(top, #B7997B, #7F6851);
-	background-image: -ms-linear-gradient(top, #B7997B, #7F6851);
-	background-image: linear-gradient(top, #B7997B, #7F6851);
+	background-image: linear-gradient(to bottom, #B7997B, #7F6851);
 	color: #F9F9F9;
 }
 

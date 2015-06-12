@@ -6,11 +6,11 @@
  * 
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
-global $blogBox_option;
+global $blogBox_options;
 ?>
 <?php get_header(); ?>
 
@@ -39,8 +39,8 @@ global $blogBox_option;
 				echo '</div>';
 			} else { ?>
 			<div class="postpagenav">
-				<div class="left"><?php next_posts_link(__('&lt;&lt; older entries','blogBox') ); ?></div>
-				<div class="right"><?php previous_posts_link(__(' newer entries &gt;&gt;','blogBox') ); ?></div>
+				<div class="left"><?php next_posts_link(esc_html__('&lt;&lt; older entries','blogBox') ); ?></div>
+				<div class="right"><?php previous_posts_link(esc_html__(' newer entries &gt;&gt;','blogBox') ); ?></div>
 				<br/>
 			</div>
 			<?php } ?>

@@ -6,7 +6,7 @@
  * a Date Link link is clicked
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
@@ -14,9 +14,8 @@
 <?php get_header(); ?>
 <div id="widecolumn">
 	<h1 class="listhead">
-		<?php //_e('Archives for : ','blogBox'); ?><?php //single_month_title(); ?>
 		<?php 
-			_e('Archives for : ','blogBox'); 
+			esc_html_e('Archives for : ','blogBox'); 
 			if( is_day() ) {
 				the_time('F j, Y');
 			} elseif ( is_month() ) {
@@ -45,10 +44,10 @@
 	<?php else : ?>
 		<!-- search found nothing -->
 		<div class="nosearch">
-			<h2><?php _e('Sorry about that but we didn\'t find anything posted in that month!','blogBox'); ?></h2>
-			<p><?php _e('You may want to try another author.','blogBox'); ?></p>
-			<h2><?php _e('Something to read?','blogBox'); ?></h2>
-			<p><?php _e('Want to read something else? These are the latest posts:','blogBox'); ?><br/><br/></p>
+			<h2><?php esc_html_e('Sorry about that but we didn\'t find anything posted in that month!','blogBox'); ?></h2>
+			<p><?php esc_html_e('You may want to try another author.','blogBox'); ?></p>
+			<h2><?php esc_html_e('Something to read?','blogBox'); ?></h2>
+			<p><?php esc_html_e('Want to read something else? These are the latest posts:','blogBox'); ?><br/><br/></p>
 			<ul><?php wp_get_archives('type=postbypost&limit=20&format=html'); ?></ul>
 		</div>
 	<?php endif; ?>

@@ -193,15 +193,6 @@ if( !function_exists( 'blogBox_chat_row_id' ) ) {
 }
 
 /**
- * filter audio shortcodes to add width="100%"
- * @link http://www.jasonbobich.com/wordpress/making-self-hosted-html5-video-and-audio-players-in-wordpress-3-6-responsive/
- */
-//function blogBox_audio_shortcode( $html ){
-//	return str_replace('<audio', '<audio width="100%"', $html);
-//}
-//add_filter('wp_audio_shortcode', 'blogBox_audio_shortcode');
-
-/**
  * This function was taken from http://codex.wordpress.org/Using_Gravatars
  * It checks the gravatar site for a valid gravatar for the email supplied and 
  * returns a boolean true or false
@@ -228,10 +219,9 @@ if (!function_exists ('blogBox_validate_gravatar')){
 if (!function_exists ('blogBox_post_metatop')){
 	function blogBox_post_metatop() {
 		
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
-		$exclude_timestamp = $blogBox_option['bB_exclude_timestamp'];
-		$exclude_author = $blogBox_option['bB_exclude_author'];
+		global $blogBox_options;
+		$exclude_timestamp = $blogBox_options['bB_exclude_timestamp'];
+		$exclude_author = $blogBox_options['bB_exclude_author'];
 
 		//return if no meta
 		if( true == $exclude_timestamp && true == $exclude_author ) {
@@ -258,15 +248,14 @@ if (!function_exists ('blogBox_post_metatop')){
  */
 if (!function_exists ('blogBox_post_metabottom')){
 	function blogBox_post_metabottom($bB_post_format) {
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
-		$exclude_category = $blogBox_option['bB_exclude_category'];
-		$exclude_tags = $blogBox_option['bB_exclude_tags'];
+		global $blogBox_options;
+		$exclude_category = $blogBox_options['bB_exclude_category'];
+		$exclude_tags = $blogBox_options['bB_exclude_tags'];
 		
 		echo '<div class="postmetabottom">';
 		
 		if( $bB_post_format == 'status' || $bB_post_format == 'aside' ) {
-			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
+			edit_post_link(esc_html__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
 		} else { ?>
 			
 			<span class="pagelist"><?php $page_text = '<i class="fa fa-copy" title="Pages"></i>&nbsp;'; wp_link_pages('before='.$page_text.':&after='); ?></span>
@@ -279,9 +268,9 @@ if (!function_exists ('blogBox_post_metabottom')){
 				if( has_tag() == true ) { ?><span class="taglist"><i class="fa fa-tags" title="Tags"></i>&nbsp;<?php the_tags('') ?></span><?php }
 			}
 			
-			if( get_the_title() == "" ) echo '<span class="no-title"><a href="'.get_permalink().'" rel="bookmark" title="Untitled Link" ><i class="fa fa-warning-sign"></i>'.__("Single Page Link","blogBox").'</a></span>';
+			if( get_the_title() == "" ) echo '<span class="no-title"><a href="'.get_permalink().'" rel="bookmark" title="Untitled Link" ><i class="fa fa-warning-sign"></i>'.esc_html__("Single Page Link","blogBox").'</a></span>';
 			
-			edit_post_link(__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
+			edit_post_link(esc_html__('Edit','blogBox'),'<span class="edit"><i class="fa fa-edit" title="Edit"></i>&nbsp;','</span>');
 		}
 		echo '</div>';
 		

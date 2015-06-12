@@ -54,7 +54,7 @@ label {font-size: 12px;}
 code {
 	font-size:12px;
 	line-height:1.5em;
-	background: url(images/shade.png);
+	background-color: rgba(72, 72, 72, 0.2);
 }
 
 /*
@@ -184,8 +184,8 @@ thead {font-weight: bold;}
 
 th {
 	border: 1px solid black;
-	padding:10px; background: 
-	url(images/shade.png);
+	padding: 10px;
+	background-color: rgba(72, 72, 72, 0.2);
 }
 
 tr {
@@ -307,7 +307,7 @@ td {
 	padding-top: 35px;
 }
 
-.postmetabottom .edit {background: url(images/shade.png);}
+.postmetabottom .edit { background-color: rgba(72, 72, 72, 0.2);}
 
 .postmetabottom .taglist {}
 
@@ -322,7 +322,7 @@ td {
 }
 
 .sticky {
-	background: url(images/shade.png);
+	background-color: rgba(72, 72, 72, 0.2);
 	margin-top: 20px;
 }
 
@@ -567,14 +567,8 @@ a.bB_button_userB:hover {background-position: right -44px;}
 /* ---------------------------- CSS3 Gradient Button ----------------------------------- */
 
 .bB_3d_button {
-   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-   /* CSS3 rounded corners */
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   	/* CSS3 shadow */
-	-webkit-box-shadow: 2px 5px 5px 0 rgba(72,72,72,0.8);
-	-moz-box-shadow: 2px 5px 5px 0 rgba(72,72,72,0.8);
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	border-radius: 8px;
 	box-shadow: 2px 5px 5px 0 rgba(72,72,72,0.8);
 }
    
@@ -594,14 +588,7 @@ a.bB_button_userB:hover {background-position: right -44px;}
 }
    
 a.bB_3d_button:hover {
-	/*background-color: white;*/
-   background-image: url(images/shade.png) !important;
-   /*font-weight:bold;
-   color: white !important;
-   border: 2px solid black;*/
-  	/*lighten the shadow */
-	-webkit-box-shadow: 1px 2px 2px 0 rgba(72,72,72,0.5);
-	-moz-box-shadow: 1px 2px 2px 0 rgba(72,72,72,0.5);
+    background-color: rgba(72, 72, 72, 0.2)!important;
 	box-shadow: 1px 2px 2px 0 rgba(72,72,72,0.5);
    } 
 /*

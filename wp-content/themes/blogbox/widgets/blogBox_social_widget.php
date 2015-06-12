@@ -16,7 +16,7 @@ License: GPLv3
  * blogBox Options => General Tab
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
@@ -36,9 +36,9 @@ class blogBox_social_links_widget extends WP_Widget {
     function blogBox_social_links_widget() {
         $widget_ops = array( 
 			'classname' => 'blogBox_social_links_widget_class', 
-			'description' => __('Display social links','blogBox') 
+			'description' => esc_html__('Display social links','blogBox') 
 			); 
-        $this->WP_Widget( 'blogBox_social_links_widget', __('blogBox Social Links Widget','blogBox'), $widget_ops );
+        $this->WP_Widget( 'blogBox_social_links_widget', esc_html__('blogBox Social Links Widget','blogBox'), $widget_ops );
     }
  	
  	// Form for widget setup
@@ -112,8 +112,7 @@ class blogBox_social_links_widget extends WP_Widget {
 	
 	//display the widget
     function widget($args, $instance) {
-    	global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
+    	global $blogBox_options;
      	extract ( $args);
 		echo $before_widget;
 		$title = apply_filters( 'widget_title', $instance['bB_social_title'] );
@@ -121,27 +120,27 @@ class blogBox_social_links_widget extends WP_Widget {
 		$html = '';
 		$html .= '<div class="bB-social-widget">';
 		if ( $instance['bB_social_icon_size'] == 'small' ){
-			If(esc_url($blogBox_option['bB_header_rss']) !=="" && $instance['bB_social_rss'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_rss']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/rss_s.png" alt="RSS FEED" title="RSS FEED" /></a>';
-			If(esc_url($blogBox_option['bB_header_linkedin']) !=="" && $instance['bB_social_linkedin'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_linkedin']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/linkedin_s.png" alt="Linkedin" title="Linkedin" /></a>';
-			If(esc_url($blogBox_option['bB_header_twitter']) !=="" && $instance['bB_social_twitter'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_twitter']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/twitter_s.png" alt="Twitter" title="Twitter" /></a>';
-			If(esc_url($blogBox_option['bB_header_facebook']) !=="" && $instance['bB_social_facebook'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_facebook']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/facebook_s.png" alt="Facebook" title="Facebook" /></a>';
-			If(esc_url($blogBox_option['bB_header_delicious']) !=="" && $instance['bB_social_delicious'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_delicious']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/delicious_s.png" alt="Delicious" title="Delicious" /></a>';
-			If(esc_url($blogBox_option['bB_header_google_plus']) !=="" && $instance['bB_social_google'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_google_plus']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/google_plus_s.png" alt="Google+" title="Google+" /></a>';
-			If(esc_url($blogBox_option['bB_header_digg']) != "" && $instance['bB_social_digg'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_digg']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/digg_s.png" alt="Digg" title="Digg" /></a>';
-			If(esc_url($blogBox_option['bB_header_pinterest']) !=="" && $instance['bB_social_pinterest'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_pinterest']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/pinterest_s.png" alt="Pinterest" title="Pinterest" /></a>';
-			If(esc_url($blogBox_option['bB_header_myspace']) !=="" && $instance['bB_social_myspace'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_myspace']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/myspace_s.png" alt="MySpace" title="MySpace" /></a>';
-			If(esc_url($blogBox_option['bB_header_tumblr']) !=="" && $instance['bB_social_tumblr'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_tumblr']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/tumblr_s.png" alt="Tumblr" title="Tumblr" /></a>';
+			If(esc_url($blogBox_options['bB_header_rss']) !=="" && $instance['bB_social_rss'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_rss']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/rss_s.png" alt="RSS FEED" title="RSS FEED" /></a>';
+			If(esc_url($blogBox_options['bB_header_linkedin']) !=="" && $instance['bB_social_linkedin'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_linkedin']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/linkedin_s.png" alt="Linkedin" title="Linkedin" /></a>';
+			If(esc_url($blogBox_options['bB_header_twitter']) !=="" && $instance['bB_social_twitter'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_twitter']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/twitter_s.png" alt="Twitter" title="Twitter" /></a>';
+			If(esc_url($blogBox_options['bB_header_facebook']) !=="" && $instance['bB_social_facebook'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_facebook']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/facebook_s.png" alt="Facebook" title="Facebook" /></a>';
+			If(esc_url($blogBox_options['bB_header_delicious']) !=="" && $instance['bB_social_delicious'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_delicious']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/delicious_s.png" alt="Delicious" title="Delicious" /></a>';
+			If(esc_url($blogBox_options['bB_header_google_plus']) !=="" && $instance['bB_social_google'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_google_plus']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/google_plus_s.png" alt="Google+" title="Google+" /></a>';
+			If(esc_url($blogBox_options['bB_header_digg']) != "" && $instance['bB_social_digg'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_digg']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/digg_s.png" alt="Digg" title="Digg" /></a>';
+			If(esc_url($blogBox_options['bB_header_pinterest']) !=="" && $instance['bB_social_pinterest'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_pinterest']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/pinterest_s.png" alt="Pinterest" title="Pinterest" /></a>';
+			If(esc_url($blogBox_options['bB_header_myspace']) !=="" && $instance['bB_social_myspace'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_myspace']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/myspace_s.png" alt="MySpace" title="MySpace" /></a>';
+			If(esc_url($blogBox_options['bB_header_tumblr']) !=="" && $instance['bB_social_tumblr'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_tumblr']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/tumblr_s.png" alt="Tumblr" title="Tumblr" /></a>';
 		} else {
-			If(esc_url($blogBox_option['bB_header_rss']) !=="" && $instance['bB_social_rss'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_rss']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/rss_l.png" alt="RSS FEED" title="RSS FEED" /></a>';
-			If(esc_url($blogBox_option['bB_header_linkedin']) !=="" && $instance['bB_social_linkedin'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_linkedin']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/linkedin_l.png" alt="Linkedin" title="Linkedin" /></a>';
-			If(esc_url($blogBox_option['bB_header_twitter']) !=="" && $instance['bB_social_twitter'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_twitter']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/twitter_l.png" alt="Twitter" title="Twitter" /></a>';
-			If(esc_url($blogBox_option['bB_header_facebook']) !=="" && $instance['bB_social_facebook'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_facebook']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/facebook_l.png" alt="Facebook" title="Facebook" /></a>';
-			If(esc_url($blogBox_option['bB_header_delicious']) !=="" && $instance['bB_social_delicious'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_delicious']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/delicious_l.png" alt="Delicious" title="Delicious" /></a>';
-			If(esc_url($blogBox_option['bB_header_google_plus']) !=="" && $instance['bB_social_google'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_google_plus']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/google_plus_l.png" alt="Google+" title="Google+" /></a>';
-			If(esc_url($blogBox_option['bB_header_digg']) !=="" && $instance['bB_social_digg'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_digg']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/digg_l.png" alt="Digg" title="Digg" /></a>';
-			If(esc_url($blogBox_option['bB_header_pinterest']) !=="" && $instance['bB_social_pinterest'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_pinterest']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/pinterest_l.png" alt="Pinterest" title="Pinterest" /></a>';
-			If(esc_url($blogBox_option['bB_header_myspace']) !=="" && $instance['bB_social_myspace'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_myspace']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/myspace_l.png" alt="MySpace" title="MySpace" /></a>';
-			If(esc_url($blogBox_option['bB_header_tumblr']) !=="" && $instance['bB_social_tumblr'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_option['bB_header_tumblr']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/tumblr_l.png" alt="Tumblr" title="Tumblr" /></a>';
+			If(esc_url($blogBox_options['bB_header_rss']) !=="" && $instance['bB_social_rss'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_rss']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/rss_l.png" alt="RSS FEED" title="RSS FEED" /></a>';
+			If(esc_url($blogBox_options['bB_header_linkedin']) !=="" && $instance['bB_social_linkedin'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_linkedin']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/linkedin_l.png" alt="Linkedin" title="Linkedin" /></a>';
+			If(esc_url($blogBox_options['bB_header_twitter']) !=="" && $instance['bB_social_twitter'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_twitter']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/twitter_l.png" alt="Twitter" title="Twitter" /></a>';
+			If(esc_url($blogBox_options['bB_header_facebook']) !=="" && $instance['bB_social_facebook'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_facebook']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/facebook_l.png" alt="Facebook" title="Facebook" /></a>';
+			If(esc_url($blogBox_options['bB_header_delicious']) !=="" && $instance['bB_social_delicious'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_delicious']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/delicious_l.png" alt="Delicious" title="Delicious" /></a>';
+			If(esc_url($blogBox_options['bB_header_google_plus']) !=="" && $instance['bB_social_google'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_google_plus']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/google_plus_l.png" alt="Google+" title="Google+" /></a>';
+			If(esc_url($blogBox_options['bB_header_digg']) !=="" && $instance['bB_social_digg'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_digg']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/digg_l.png" alt="Digg" title="Digg" /></a>';
+			If(esc_url($blogBox_options['bB_header_pinterest']) !=="" && $instance['bB_social_pinterest'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_pinterest']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/pinterest_l.png" alt="Pinterest" title="Pinterest" /></a>';
+			If(esc_url($blogBox_options['bB_header_myspace']) !=="" && $instance['bB_social_myspace'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_myspace']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/myspace_l.png" alt="MySpace" title="MySpace" /></a>';
+			If(esc_url($blogBox_options['bB_header_tumblr']) !=="" && $instance['bB_social_tumblr'] == 'on' ) $html .= '<a href="' . esc_url($blogBox_options['bB_header_tumblr']) . '" target="_blank" ><img src="'. get_template_directory_uri() . '/images/social/tumblr_l.png" alt="Tumblr" title="Tumblr" /></a>';
 		}
 		$html .= '</div>';
 		

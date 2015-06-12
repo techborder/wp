@@ -1,8 +1,30 @@
 == Changelog ==
 
+Version 4.1.0 - Released 
+----------------------------------------------------------------
+- Problem with max-width in table with css changes in img.servicebox
+- Changed option system to customizer
+- Added Live Preview to Customizer
+- Add_theme_support('titles'), removed custom titles
+- Removed option for mobile design
+- changed style enqueue's to single line
+- add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+- Removed contact form, captcha because it is no longer permitted in WordPress.org themes
+- Added slogan 1 and slogan 2 custom text color options
+- Removed bold font on hover
+- Improved output sanitization in all code
+- Changed custom font loading to enqueue
+- Added Live Preview to Customizer
+- Added Contact Me label, background color and text color as options
+- Changed static home page wrapper to fullwidth-home
+- Modified styling on feature slider
+- Removed .list-dot, .list-arrow, and .list-cog
+- Removed images not being used anymore
+- Modified skins to conform with changes
+
 Version 4.0.3 - Released 1-Oct-14
 ----------------------------------------------------------------
-- modufied header widget to remove kist styles
+- modified header widget to remove list styles
 - Fixed homesection2 column height by changing to table
 - Added home.php to comply with new WordPress.org requirements
 - Removed audio.js

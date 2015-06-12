@@ -6,7 +6,7 @@
  *
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
@@ -16,17 +16,17 @@
 <div id="widecolumn">
 
 	<div class="archivespage">
-		<h2><?php _e('Archives by Month:','blogBox'); ?></h2>
+		<h2><?php esc_html_e('Archives by Month:','blogBox'); ?></h2>
 		<ul class="list-cog">
 				<?php wp_get_archives('type=monthly'); ?>
 		</ul>
 
-		<h2><?php _e('Archives by Category:','blogBox'); ?></h2>
+		<h2><?php esc_html_e('Archives by Category:','blogBox'); ?></h2>
 		<ul class="list-dot">
 			 <?php wp_list_categories("title_li="); ?>
 		</ul>
 		
-		<h2><?php _e('Archives by Author:','blogBox'); ?></h2>
+		<h2><?php esc_html_e('Archives by Author:','blogBox'); ?></h2>
 		<ul class="list-arrow">
 			 <?php wp_list_authors(); ?>
 		</ul>

@@ -48,10 +48,40 @@ class WC_Cache_Helper {
 		$transient_value = get_transient( $transient_name );
 
 		if ( false === $transient_value || true === $refresh ) {
-			$transient_value = time();
-			set_transient( $transient_name, $transient_value );
+			self::delete_version_transients( $transient_value );
+			set_transient( $transient_name, $transient_value = time() );
 		}
 		return $transient_value;
+	}
+
+	/**
+	 * When the transient version increases, this is used to remove all past transients to avoid filling the DB.
+	 *
+	 * Note; this only works on transients appended with the transient version, and when object caching is not being used.
+	 *
+	 * @since  2.3.10
+	 */
+	private static function delete_version_transients( $version ) {
+		if ( ! wp_using_ext_object_cache() && ! empty( $version ) ) {
+			global $wpdb;
+			$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s;", "\_transient\_%" . $version ) );
+		}
+	}
+
+	/**
+	 * Get the page name/id for a WC page
+	 * @param  string $wc_page
+	 * @return array
+	 */
+	private static function get_page_uris( $wc_page ) {
+		$wc_page_uris = array();
+
+		if ( ( $page_id = wc_get_page_id( $wc_page ) ) && $page_id > 0 && ( $page = get_post( $page_id ) ) ) {
+			$wc_page_uris[] = 'p=' . $page_id;
+			$wc_page_uris[] = '/' . $page->post_name;
+		}
+
+		return $wc_page_uris;
 	}
 
 	/**
@@ -62,34 +92,7 @@ class WC_Cache_Helper {
 	 */
 	public static function prevent_caching() {
 		if ( false === ( $wc_page_uris = get_transient( 'woocommerce_cache_excluded_uris' ) ) ) {
-			$wc_page_uris   = array();
-
-			// Exclude querystring when using page ID and permalinks
-			if ( ( $cart_page_id = wc_get_page_id( 'cart' ) ) && $cart_page_id > 0 ) {
-				$wc_page_uris[] = 'p=' . $cart_page_id;
-				$page           = get_post( $cart_page_id );
-
-				if ( ! is_null( $page ) ) {
-					$wc_page_uris[] = '/' . $page->post_name;
-				}
-			}
-			if ( ( $checkout_page_id = wc_get_page_id( 'checkout' ) ) && $checkout_page_id > 0 ) {
-				$wc_page_uris[] = 'p=' . $checkout_page_id;
-				$page           = get_post( $checkout_page_id );
-
-				if ( ! is_null( $page ) ) {
-					$wc_page_uris[] = '/' . $page->post_name;
-				}
-			}
-			if ( ( $myaccount_page_id = wc_get_page_id( 'myaccount' ) ) && $myaccount_page_id > 0 ) {
-				$wc_page_uris[] = 'p=' . $myaccount_page_id;
-				$page           = get_post( $myaccount_page_id );
-
-				if ( ! is_null( $page ) ) {
-					$wc_page_uris[] = '/' . $page->post_name;
-				}
-			}
-
+			$wc_page_uris   = array_filter( array_merge( self::get_page_uris( 'cart' ), self::get_page_uris( 'checkout' ), self::get_page_uris( 'myaccount' ) ) );
 	    	set_transient( 'woocommerce_cache_excluded_uris', $wc_page_uris );
 		}
 

@@ -63,7 +63,7 @@ class WC_Settings_Emails extends WC_Settings_Page {
 	 * @return array
 	 */
 	public function get_settings() {
-		$settings = apply_filters('woocommerce_email_settings', array(
+		$settings = apply_filters( 'woocommerce_email_settings', array(
 
 			array( 'type' => 'sectionend', 'id' => 'email_recipient_options' ),
 
@@ -75,7 +75,7 @@ class WC_Settings_Emails extends WC_Settings_Page {
 				'id'       => 'woocommerce_email_from_name',
 				'type'     => 'text',
 				'css'      => 'min-width:300px;',
-				'default'  => esc_attr(get_bloginfo('title')),
+				'default'  => esc_attr( get_bloginfo( 'name', 'display' ) ),
 				'autoload' => false
 			),
 
@@ -88,17 +88,17 @@ class WC_Settings_Emails extends WC_Settings_Page {
 					'multiple' => 'multiple'
 				),
 				'css'               => 'min-width:300px;',
-				'default'           => get_option('admin_email'),
+				'default'           => get_option( 'admin_email' ),
 				'autoload'          => false
 			),
 
 			array( 'type' => 'sectionend', 'id' => 'email_options' ),
 
-			array( 'title' => __( 'Email Template', 'woocommerce' ), 'type' => 'title', 'desc' => sprintf(__( 'This section lets you customise the WooCommerce emails. <a href="%s" target="_blank">Click here to preview your email template</a>. For more advanced control copy <code>woocommerce/templates/emails/</code> to <code>yourtheme/woocommerce/emails/</code>.', 'woocommerce' ), wp_nonce_url(admin_url('?preview_woocommerce_mail=true'), 'preview-mail')), 'id' => 'email_template_options' ),
+			array( 'title' => __( 'Email Template', 'woocommerce' ), 'type' => 'title', 'desc' => sprintf(__( 'This section lets you customise the WooCommerce emails. <a href="%s" target="_blank">Click here to preview your email template</a>. For more advanced control copy <code>woocommerce/templates/emails/</code> to <code>yourtheme/woocommerce/emails/</code>.', 'woocommerce' ), wp_nonce_url( admin_url( '?preview_woocommerce_mail=true' ), 'preview-mail' ) ), 'id' => 'email_template_options' ),
 
 			array(
 				'title'    => __( 'Header Image', 'woocommerce' ),
-				'desc'     => sprintf(__( 'Enter a URL to an image you want to show in the email\'s header. Upload your image using the <a href="%s">media uploader</a>.', 'woocommerce' ), admin_url('media-new.php')),
+				'desc'     => sprintf( __( 'Enter a URL to an image you want to show in the email\'s header. Upload your image using the <a href="%s">media uploader</a>.', 'woocommerce' ), admin_url( 'media-new.php' ) ),
 				'id'       => 'woocommerce_email_header_image',
 				'type'     => 'text',
 				'css'      => 'min-width:300px;',
@@ -112,7 +112,7 @@ class WC_Settings_Emails extends WC_Settings_Page {
 				'id'       => 'woocommerce_email_footer_text',
 				'css'      => 'width:100%; height: 75px;',
 				'type'     => 'textarea',
-				'default'  => get_bloginfo('title') . ' - ' . __( 'Powered by WooCommerce', 'woocommerce' ),
+				'default'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by WooCommerce', 'woocommerce' ),
 				'autoload' => false
 			),
 
@@ -196,20 +196,17 @@ class WC_Settings_Emails extends WC_Settings_Page {
 		global $current_section;
 
 		if ( ! $current_section ) {
-
-			$settings = $this->get_settings();
-			WC_Admin_Settings::save_fields( $settings );
+			WC_Admin_Settings::save_fields( $this->get_settings() );
 
 		} else {
+			$wc_emails = WC_Emails::instance();
 
-			// Load mailer
-			$mailer = WC()->mailer();
-
-			if ( class_exists( $current_section ) ) {
-
-				$current_section_class = new $current_section();
-				do_action( 'woocommerce_update_options_' . $this->id . '_' . $current_section_class->id );
-				WC()->mailer()->init();
+			if ( in_array( $current_section, array_map( 'sanitize_title', array_keys( $wc_emails->get_emails() ) ) ) ) {
+				foreach ( $wc_emails->get_emails() as $email ) {
+					if ( $current_section === sanitize_title( get_class( $email ) ) ) {
+						do_action( 'woocommerce_update_options_' . $this->id . '_' . $email->id );
+					}
+				}
 			} else {
 				do_action( 'woocommerce_update_options_' . $this->id . '_' . $current_section );
 			}

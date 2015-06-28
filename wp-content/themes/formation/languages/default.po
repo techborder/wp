@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Formation\n"
-"POT-Creation-Date: 2015-05-11 11:18-0000\n"
-"PO-Revision-Date: 2015-05-11 11:18-0000\n"
+"POT-Creation-Date: 2015-06-25 10:11-0000\n"
+"PO-Revision-Date: 2015-06-25 10:11-0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _;__;_e;__e\n"
@@ -184,11 +184,11 @@ msgstr ""
 msgid "Read More"
 msgstr ""
 
-#: ../footer.php:69
+#: ../footer.php:68
 msgid "Formation WordPress Theme"
 msgstr ""
 
-#: ../footer.php:70
+#: ../footer.php:69
 msgid "Powered By WordPress "
 msgstr ""
 
@@ -208,44 +208,39 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:286
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: ../functions.php:300
+#: ../functions.php:271
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:301
+#: ../functions.php:272
 #, php-format
 msgid "Archive by Category \"%s\""
 msgstr ""
 
-#: ../functions.php:302
+#: ../functions.php:273
 #, php-format
 msgid "Search Results for \"%s\" Query"
 msgstr ""
 
-#: ../functions.php:303
+#: ../functions.php:274
 #, php-format
 msgid "Posts Tagged \"%s\""
 msgstr ""
 
-#: ../functions.php:304
+#: ../functions.php:275
 #, php-format
 msgid "Articles Posted by %s"
 msgstr ""
 
-#: ../functions.php:305
+#: ../functions.php:276
 msgid "Error 404"
 msgstr ""
 
-#: ../functions.php:434
+#: ../functions.php:405
 msgid "Page"
 msgstr ""
 
-#: ../functions.php:449
+#: ../functions.php:420
 msgid "Alternate Profile Image Url"
 msgstr ""
 
@@ -253,393 +248,365 @@ msgstr ""
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: ../functions/customizer_settings.php:32
+#: ../functions/customizer_settings.php:46
+msgid "Check out Pro Version"
+msgstr ""
+
+#: ../functions/customizer_settings.php:67
 msgid "Twitter url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:33
+#: ../functions/customizer_settings.php:68
 msgid "Facebook url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:34
+#: ../functions/customizer_settings.php:69
 msgid "Google + url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:35
+#: ../functions/customizer_settings.php:70
 msgid "LinkedIn url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:36
+#: ../functions/customizer_settings.php:71
 msgid "Flickr url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:37
+#: ../functions/customizer_settings.php:72
 msgid "Pinterest url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:38
+#: ../functions/customizer_settings.php:73
 msgid "YouTube url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:39
+#: ../functions/customizer_settings.php:74
 msgid "Vimeo url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:40
-msgid "Tumblr url"
-msgstr ""
-
-#: ../functions/customizer_settings.php:41
-msgid "Dribbble url"
-msgstr ""
-
-#: ../functions/customizer_settings.php:42
-msgid "Github url"
-msgstr ""
-
-#: ../functions/customizer_settings.php:43
-msgid "Instagram url"
-msgstr ""
-
-#: ../functions/customizer_settings.php:44
-msgid "Xing url"
-msgstr ""
-
-#: ../functions/customizer_settings.php:48 ../header.php:52
-#: ../inc/header-contact-details.php:8
+#: ../functions/customizer_settings.php:78 ../header.php:52
 msgid "Telephone Number"
 msgstr ""
 
-#: ../functions/customizer_settings.php:49 ../header.php:53
-#: ../inc/header-contact-details.php:9
+#: ../functions/customizer_settings.php:79 ../header.php:53
 msgid "Mobile Number"
 msgstr ""
 
-#: ../functions/customizer_settings.php:50 ../header.php:54
-#: ../inc/header-contact-details.php:10
+#: ../functions/customizer_settings.php:80 ../header.php:54
 msgid "Email Address"
 msgstr ""
 
-#: ../functions/customizer_settings.php:51 ../header.php:55
-#: ../inc/header-contact-details.php:11
+#: ../functions/customizer_settings.php:81 ../header.php:55
 msgid "Address"
 msgstr ""
 
-#: ../functions/customizer_settings.php:55
-#: ../functions/customizer_settings.php:61
+#: ../functions/customizer_settings.php:85
+#: ../functions/customizer_settings.php:91
 msgid "One"
 msgstr ""
 
-#: ../functions/customizer_settings.php:55
+#: ../functions/customizer_settings.php:85
 msgid "Service Box One"
 msgstr ""
 
-#: ../functions/customizer_settings.php:56
-#: ../functions/customizer_settings.php:62
+#: ../functions/customizer_settings.php:86
+#: ../functions/customizer_settings.php:92
 msgid "Two"
 msgstr ""
 
-#: ../functions/customizer_settings.php:56
+#: ../functions/customizer_settings.php:86
 msgid "Service Box Two"
 msgstr ""
 
-#: ../functions/customizer_settings.php:57
-#: ../functions/customizer_settings.php:63
+#: ../functions/customizer_settings.php:87
+#: ../functions/customizer_settings.php:93
 msgid "Three"
 msgstr ""
 
-#: ../functions/customizer_settings.php:57
+#: ../functions/customizer_settings.php:87
 msgid "Service Box Three"
 msgstr ""
 
-#: ../functions/customizer_settings.php:61
+#: ../functions/customizer_settings.php:91
 msgid "Partners logo 1"
 msgstr ""
 
-#: ../functions/customizer_settings.php:62
+#: ../functions/customizer_settings.php:92
 msgid "Partners logo 2"
 msgstr ""
 
-#: ../functions/customizer_settings.php:63
+#: ../functions/customizer_settings.php:93
 msgid "Partners logo 3"
 msgstr ""
 
-#: ../functions/customizer_settings.php:64
+#: ../functions/customizer_settings.php:94
 msgid "Four"
 msgstr ""
 
-#: ../functions/customizer_settings.php:64
+#: ../functions/customizer_settings.php:94
 msgid "Partners logo 4"
 msgstr ""
 
-#: ../functions/customizer_settings.php:78
+#: ../functions/customizer_settings.php:108
 msgid "Site Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:83
+#: ../functions/customizer_settings.php:113
 msgid "Homepage Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:97
+#: ../functions/customizer_settings.php:127
 msgid "Site Logo"
 msgstr ""
 
-#: ../functions/customizer_settings.php:98
+#: ../functions/customizer_settings.php:128
 msgid ""
 "Upload a logo to replace the default site name and description in the header"
 msgstr ""
 
-#: ../functions/customizer_settings.php:104
+#: ../functions/customizer_settings.php:134
 msgid "Favicon & App Icons"
 msgstr ""
 
-#: ../functions/customizer_settings.php:110
+#: ../functions/customizer_settings.php:140
 msgid "Header Contact Details"
 msgstr ""
 
-#: ../functions/customizer_settings.php:111
+#: ../functions/customizer_settings.php:141
 msgid "Add contact details that will appear in the header of your site."
 msgstr ""
 
-#: ../functions/customizer_settings.php:117
+#: ../functions/customizer_settings.php:147
 msgid "Social Media Accounts"
 msgstr ""
 
-#: ../functions/customizer_settings.php:118
+#: ../functions/customizer_settings.php:148
 msgid "Setup your social media accounts here."
 msgstr ""
 
-#: ../functions/customizer_settings.php:124
+#: ../functions/customizer_settings.php:154
 msgid "Footer Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:125
+#: ../functions/customizer_settings.php:155
 msgid "Change/hide content in the footer."
 msgstr ""
 
-#: ../functions/customizer_settings.php:131
+#: ../functions/customizer_settings.php:161
 msgid "Color Scheme"
 msgstr ""
 
-#: ../functions/customizer_settings.php:132
+#: ../functions/customizer_settings.php:162
 msgid "Click on a color for a preview of a color scheme"
 msgstr ""
 
-#: ../functions/customizer_settings.php:138
+#: ../functions/customizer_settings.php:168
 msgid "Homepage Slider"
 msgstr ""
 
-#: ../functions/customizer_settings.php:139
+#: ../functions/customizer_settings.php:169
 msgid "Control the homepage slider"
 msgstr ""
 
-#: ../functions/customizer_settings.php:145
+#: ../functions/customizer_settings.php:175
 msgid "Service Section Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:146
-#: ../functions/customizer_settings.php:171
-#: ../functions/customizer_settings.php:178
+#: ../functions/customizer_settings.php:176
+#: ../functions/customizer_settings.php:201
+#: ../functions/customizer_settings.php:208
 msgid "Change the title and control the display."
 msgstr ""
 
-#: ../functions/customizer_settings.php:155
+#: ../functions/customizer_settings.php:185
 msgid "This is a settings section to change the custom homepage services box."
 msgstr ""
 
-#: ../functions/customizer_settings.php:163
+#: ../functions/customizer_settings.php:193
 msgid "Featured Promo Bar"
 msgstr ""
 
-#: ../functions/customizer_settings.php:164
+#: ../functions/customizer_settings.php:194
 msgid "Create a eye catching \"call to action\""
 msgstr ""
 
-#: ../functions/customizer_settings.php:170
+#: ../functions/customizer_settings.php:200
 msgid "Recent Posts Section Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:177
+#: ../functions/customizer_settings.php:207
 msgid "Partners Section Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:187
+#: ../functions/customizer_settings.php:217
 msgid ""
 "This is a settings section to change the Custom Homepage Partners logo 1."
 msgstr ""
 
-#: ../functions/customizer_settings.php:195
+#: ../functions/customizer_settings.php:225
 msgid "Authors Template Settings"
 msgstr ""
 
-#: ../functions/customizer_settings.php:196
+#: ../functions/customizer_settings.php:226
 msgid "Paste user Id's seperated by commas to display user profiles."
 msgstr ""
 
-#: ../functions/customizer_settings.php:272
+#: ../functions/customizer_settings.php:302
 msgid "Default Featured Text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:304
+#: ../functions/customizer_settings.php:334
 msgid "Default featured text Header"
 msgstr ""
 
-#: ../functions/customizer_settings.php:311
+#: ../functions/customizer_settings.php:341
 msgid "Header Link"
 msgstr ""
 
-#: ../functions/customizer_settings.php:317
+#: ../functions/customizer_settings.php:347
 msgid "Default featured text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:331
+#: ../functions/customizer_settings.php:361
 #: ../page-templates/custom_home.php:140
 msgid "Recent Posts"
 msgstr ""
 
-#: ../functions/customizer_settings.php:343
+#: ../functions/customizer_settings.php:373
 #: ../page-templates/custom_home.php:187
 msgid "Partners"
 msgstr ""
 
-#: ../functions/customizer_settings.php:357
+#: ../functions/customizer_settings.php:387
 msgid "Link"
 msgstr ""
 
-#: ../functions/customizer_settings.php:404
+#: ../functions/customizer_settings.php:433
 msgid "Upload Favicon"
 msgstr ""
 
-#: ../functions/customizer_settings.php:417
+#: ../functions/customizer_settings.php:446
 msgid "Upload Apple App Icon"
 msgstr ""
 
-#: ../functions/customizer_settings.php:447
+#: ../functions/customizer_settings.php:476
 msgid "Logo"
 msgstr ""
 
-#: ../functions/customizer_settings.php:456
+#: ../functions/customizer_settings.php:485
 msgid "Retina Logo"
 msgstr ""
 
-#: ../functions/customizer_settings.php:464
+#: ../functions/customizer_settings.php:493
 msgid "Choose a color scheme"
 msgstr ""
 
-#: ../functions/customizer_settings.php:468
+#: ../functions/customizer_settings.php:497
+msgid "Default"
+msgstr ""
+
+#: ../functions/customizer_settings.php:498
 msgid "Black"
 msgstr ""
 
-#: ../functions/customizer_settings.php:469
+#: ../functions/customizer_settings.php:499
 msgid "Red"
 msgstr ""
 
-#: ../functions/customizer_settings.php:470
+#: ../functions/customizer_settings.php:500
 msgid "Blue"
 msgstr ""
 
-#: ../functions/customizer_settings.php:471
-msgid "Green"
-msgstr ""
-
-#: ../functions/customizer_settings.php:472
-msgid "Orange"
-msgstr ""
-
-#: ../functions/customizer_settings.php:473
-msgid "Pink"
-msgstr ""
-
-#: ../functions/customizer_settings.php:482
+#: ../functions/customizer_settings.php:509
 msgid "Hide Homepage Slider"
 msgstr ""
 
-#: ../functions/customizer_settings.php:496
+#: ../functions/customizer_settings.php:523
 msgid "Select Featured Category"
 msgstr ""
 
-#: ../functions/customizer_settings.php:509
+#: ../functions/customizer_settings.php:536
 msgid "Amount of slides to display"
 msgstr ""
 
-#: ../functions/customizer_settings.php:525
+#: ../functions/customizer_settings.php:552
 msgid "Hide Promotional Bar"
 msgstr ""
 
-#: ../functions/customizer_settings.php:535
+#: ../functions/customizer_settings.php:562
 msgid "Featured Text Header"
 msgstr ""
 
-#: ../functions/customizer_settings.php:543
+#: ../functions/customizer_settings.php:570
 msgid "Change Button Text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:551
+#: ../functions/customizer_settings.php:578
 msgid "Featured Button url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:562
+#: ../functions/customizer_settings.php:589
 msgid "Hide Services Section"
 msgstr ""
 
-#: ../functions/customizer_settings.php:579
+#: ../functions/customizer_settings.php:606
 msgid "Header Image File Upload"
 msgstr ""
 
-#: ../functions/customizer_settings.php:587
+#: ../functions/customizer_settings.php:614
 msgid "Featured Header Text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:594
+#: ../functions/customizer_settings.php:621
 msgid "Header url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:601
+#: ../functions/customizer_settings.php:628
 msgid "Featured text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:614
+#: ../functions/customizer_settings.php:641
 msgid "Hide Recent Posts Section"
 msgstr ""
 
-#: ../functions/customizer_settings.php:624
-#: ../functions/customizer_settings.php:646
+#: ../functions/customizer_settings.php:651
+#: ../functions/customizer_settings.php:673
 msgid "Change Title"
 msgstr ""
 
-#: ../functions/customizer_settings.php:636
+#: ../functions/customizer_settings.php:663
 msgid "Hide Partners Section"
 msgstr ""
 
-#: ../functions/customizer_settings.php:662
+#: ../functions/customizer_settings.php:689
 msgid "Client logo File Upload"
 msgstr ""
 
-#: ../functions/customizer_settings.php:671
+#: ../functions/customizer_settings.php:698
 msgid "Client logo url"
 msgstr ""
 
-#: ../functions/customizer_settings.php:679
+#: ../functions/customizer_settings.php:706
 msgid "Change Copyright Text"
 msgstr ""
 
-#: ../functions/customizer_settings.php:691
+#: ../functions/customizer_settings.php:718
 msgid "Hide Copyright Bar"
 msgstr ""
 
-#: ../functions/customizer_settings.php:705
+#: ../functions/customizer_settings.php:732
 msgid "Hide Footer Widgets"
 msgstr ""
 
-#: ../functions/customizer_settings.php:715
+#: ../functions/customizer_settings.php:742
 msgid "Add User Id's"
 msgstr ""
 
-#: ../functions/customizer_settings.php:727
+#: ../functions/customizer_settings.php:754
 msgid "Hide Page Content"
 msgstr ""
 
-#: ../functions/customizer_settings.php:741
+#: ../functions/customizer_settings.php:768
 msgid "Display Content below User Profiles"
 msgstr ""
 

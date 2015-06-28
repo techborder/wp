@@ -644,6 +644,15 @@ body:not(.blog) .site-branding h2.site-description {
   border-top: solid 1px #ddd;
   font-weight: 400;
 }
+.home .footer-text,
+.front-page .footer-text {
+  display: inline-block;
+}
+.home .powered-by,
+.front-page .powered-by {
+  display: inline-block;
+  float: right;
+}
 body:not(.home):not(.front-page) .site-info {
   padding: 20px 10px;
   font-weight: 400;

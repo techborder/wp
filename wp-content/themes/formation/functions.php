@@ -159,18 +159,18 @@ add_action( 'widgets_init', 'formation_widgets_init' );
  */
 function formation_scripts() {
 
-	wp_enqueue_style( 'style', get_stylesheet_uri(), '', '2.0' );
+	wp_enqueue_style( 'formation-style', get_stylesheet_uri(), '', '2.2' );
 
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', '', '2.0');
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', '', '2.2');
 
-	wp_enqueue_style( 'animate', get_template_directory_uri().'/css/animate.min.css', '', '2.0');
+	wp_enqueue_style( 'animate', get_template_directory_uri().'/css/animate.min.css', '', '2.2');
 
-    wp_enqueue_style( 'flexslider', get_template_directory_uri().'/js/flexslider.css', '', '2.0');
+    wp_enqueue_style( 'flexslider', get_template_directory_uri().'/js/flexslider.css', '', '2.2');
 
 
-	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '2.0', true );
+	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '2.2', true );
 	
-	wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '2.0' );
+	wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '2.2' );
 	
 	wp_enqueue_script( 'smoothup', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '',  true );
 
@@ -234,9 +234,6 @@ include('functions/customizer_settings.php');
 include('functions/customizer_styles.php');
 
 
-add_filter( 'wp_title', 'formation_wp_title' );
-
-
 /**
  * Implement excerpt for homepage thumbnails
  */
@@ -260,32 +257,6 @@ function content($limit) {
   $content = str_replace(']]>', ']]&gt;', $content);
   
   return $content;
-
-}
-
-/**
- * Filters the page title appropriately depending on the current page
- *
- * This function is attached to the 'wp_title' fiilter hook.
- *
- * @uses	home_url()
- * @uses	is_home()
- * @uses	is_front_page()
- */
-function formation_wp_title( $title ) {
-
-	global $page, $paged;
-
-	if ( is_feed() )
-		return $title;
-
-	$site_description = get_bloginfo( 'description' );
-
-	$filtered_title = $title . get_bloginfo( 'name' );
-	$filtered_title .= ( ! empty( $site_description ) && ( is_home() || is_front_page() ) ) ? ' | ' . $site_description: '';
-	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s', 'formation' ), max( $paged, $page ) ) : '';
-
-	return $filtered_title;
 
 }
 

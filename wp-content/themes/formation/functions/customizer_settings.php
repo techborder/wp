@@ -269,7 +269,7 @@ function formation_register_theme_customizer( $wp_customize ) {
 	));
 
 	$wp_customize->add_setting( 'formation_color_scheme', array(
-			'default'        	=> 'blue',
+			'default'        	=> 'Default',
 			'sanitize_callback' => 'formation_sanitize_text',
 		) 
 	);
@@ -391,7 +391,6 @@ function formation_register_theme_customizer( $wp_customize ) {
 	}
 
 	$wp_customize->add_setting( 'copyright_text', array(
-			'default'			=> __( '', 'formation' ),
 			'transport'			=> 'postMessage',
 			'sanitize_callback' => 'formation_sanitize_text',
 		)
@@ -495,6 +494,7 @@ function formation_register_theme_customizer( $wp_customize ) {
 		'section' 		=> 'formation_color_scheme_settings',
 		'type'       	=> 'radio',
 		'choices'    	=> array(
+			__( 'Default', 'formation' )	=> 'none',
 			__( 'Black', 'formation' ) 		=> 'black',
 			__( 'Red', 'formation' ) 		=> 'red',
 			__( 'Blue', 'formation' ) 		=> 'blue',

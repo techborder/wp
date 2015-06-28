@@ -22,3 +22,8 @@
 
 		v1.5.2	- 1. Fixed the Menu not appearing on mobiles bug.
 			  2. Updated Bootstrap.
+
+		v1.6	- 1. Added menu support for mobile devices
+
+		v1.7	- 1. Organised the code a bit
+			  2. Added option to add footer text

@@ -45,7 +45,6 @@
         <?php if(! get_theme_mod('hide_copyright')): ?>
 
 	        <div class="site-info">
-				<p>
 		        	<?php if(get_theme_mod('copyright_text')): 
 		        		
 		        		$allowedTags = array(
@@ -70,7 +69,7 @@
 			            <?php echo __( 'Powered By WordPress ', 'Formation' ); ?>
 			            
 			        <?php endif; ?>
-				</p>
+
 			</div><!-- .site-info -->
 
 		<?php endif; ?>

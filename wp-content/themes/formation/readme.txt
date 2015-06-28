@@ -13,6 +13,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Changelog
 --------------------------------------------
+Version: 2.2
+* Fixed issue with child themes
+* Fixed text domain issue
 
 Version: 2.0
 

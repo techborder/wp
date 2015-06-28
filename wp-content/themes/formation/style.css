@@ -4,7 +4,7 @@ Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Template Express
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout  and color templates that look great on devices of all sizes.
-Version: 2.0
+Version: 2.2
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -668,7 +668,7 @@ a.more-link:hover {
 	width: 100%;
 	min-height: 34px;
 	clear: both;
-	background: #222 url(images/triangles.png);
+	background: #222;
 }
 .topbar {
 	margin: 0 auto;
@@ -1048,13 +1048,13 @@ a.more-link:hover {
 }
 
 .entry-header {
-	background: #EFEFEF url(images/diagonal-noise.png);
+	background: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
 }
 .page-header {
-	background: #EFEFEF url(images/diagonal-noise.png);
+	background: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
@@ -1081,7 +1081,7 @@ a.more-link:hover {
     font-size: 1.4rem;
 	text-decoration: none;
 	color: #222;
-	background: #EFEFEF url(images/diagonal-noise.png);
+	background: #EFEFEF;
 	padding: 6px 4px;
 	margin-top: -8px;
 }
@@ -1745,7 +1745,7 @@ p.nocomments {
 .featuretext_middle {
 	padding: 20px;
 	margin: 0;
-	background: #222 url(images/triangles.png);
+	background: #222;
 	border-top: 1px solid #10b9b9;
 }
 
@@ -1848,10 +1848,9 @@ p.nocomments {
    display: inline-block;
    text-decoration: none;
    padding:0;
-   padding-top: 30%;
    text-indent:-9999px;
    width:32px;
-   height:32px;
+   height:100%;
 }
 
 .third-effect .mask {

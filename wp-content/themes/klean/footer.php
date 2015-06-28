@@ -35,9 +35,14 @@
 		?>	 		
 	</div>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'klean' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'klean' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'klean' ), 'klean', '<a href="http://www.divjot.co" rel="designer">Divjot Singh</a>' ); ?>
+			<div class="footer-text">
+				<?php echo ( get_theme_mod('klean-footer-text') == '' ) ? ('&copy; '.date('Y').' '.get_bloginfo('name').'. All Rights Reserved. ') : get_theme_mod('klean-footer-text'); ?>
+			</div>
+			<div class="powered-by">
+				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'klean' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'klean' ), 'WordPress' ); ?></a>
+				<span class="sep"> | </span>
+				<?php printf( __( 'Theme: %1$s by %2$s.', 'klean' ), 'klean', '<a href="http://www.divjot.co" rel="designer">Divjot Singh</a>' ); ?>
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

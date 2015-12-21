@@ -9,6 +9,7 @@
  */
 function duplicator_package_scan() {
 	
+	header('Content-Type: application/json;');
 	DUP_Util::CheckPermissions('export');
 	
 	@set_time_limit(0);
@@ -18,6 +19,7 @@ function duplicator_package_scan() {
 	
 	$Package = DUP_Package::GetActive();
 	$report = $Package->Scan();
+	
 	$Package->SaveActiveItem('ScanFile', $Package->ScanFile);
 	$json_response = json_encode($report);
 	
@@ -34,6 +36,7 @@ function duplicator_package_scan() {
  */
 function duplicator_package_build() {
 	
+	header('Content-Type: application/json');
 	DUP_Util::CheckPermissions('export');
 	
 	@set_time_limit(0);
@@ -63,19 +66,6 @@ function duplicator_package_build() {
     die($json_response);
 }
 
-
-function duplicator_package_report() {
-	
-	DUP_Util::CheckPermissions('export');
-	
-	$scanReport = $_GET['scanfile'];
-	header('Content-Type: application/json');
-	header("Location: " . DUPLICATOR_SSDIR_URL . "/tmp/" . $scanReport);
-	echo DUPLICATOR_SSDIR_URL . "/tmp/" . $scanReport;
-	
-    die();
-}
-
 /**
  *  DUPLICATOR_PACKAGE_DELETE
  *  Deletes the files and database record entries
@@ -85,8 +75,9 @@ function duplicator_package_report() {
  */
 function duplicator_package_delete() {
 	
-	DUP_Util::CheckPermissions('export');
-	
+    DUP_Util::CheckPermissions('export');    
+    check_ajax_referer( 'package_list', 'nonce' );
+    
     try {
 		global $wpdb;
 		$json		= array();

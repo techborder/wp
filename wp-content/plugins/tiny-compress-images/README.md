@@ -1,4 +1,4 @@
-[<img src="https://travis-ci.org/TinyPNG/wordpress-plugin.svg?branch=master"  alt="Build Status">](https://travis-ci.org/TinyPNG/wordpress-plugin)
+[<img src="https://travis-ci.org/tinify/wordpress-plugin.svg?branch=master" alt="Build Status">](https://travis-ci.org/tinify/wordpress-plugin)
 
 # TinyPNG image compression for WordPress
 Make your website faster by compressing your JPEG and PNG images.
@@ -15,7 +15,6 @@ Got questions or feedback? Let us know! Contact us at support@tinypng.com.
 ### Prerequisites
 * A working docker installation (https://docs.docker.com/installation/).
 * Composer (https://getcomposer.org/download/).
-* PHPUnit (https://phpunit.de/getting-started.html).
 * Selenium Server (http://www.seleniumhq.org/download/).
 * Mysql client and admin tools.
 * Java runtime.
@@ -25,13 +24,13 @@ Got questions or feedback? Let us know! Contact us at support@tinypng.com.
 2. Use `docker ps` to check which port to use to connect to WordPress.
 
 ### Running the unit tests
-1. Run `phpunit --process-isolation test/unit`.
+1. Run `bin/unit-tests`.
 
 ### Running the integration tests
 1. Start Selenium server: `java -jar selenium-server-standalone-2.44.0.jar`.
-2. Run `bin/test-wordpress <version>`. E.g. `bin/test-wordpress 41`.
-
-Note that when testing a different WordPress version, `bin/run-wordpress <version>` has to be run first.
+2. Run `bin/integration-tests $version [$to_version]` (When $to_version is
+added, all versions between $version and $to_version are tested). E.g.
+`bin/integration-tests 41` or `bin/integration-tests 40 42`.
 
 ## License
 Copyright (C) 2015 Voormedia B.V.
@@ -45,3 +44,5 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
+
+[View the complete license](LICENSE).

@@ -1,8 +1,68 @@
 == Changelog ==
 
+Version 4.2.4 - Released 22-Aug-15
+----------------------------------------------------------------
+- Changed a wrong text domain in kha-customizer.php
+- Fixed a few typos in kha-customizer.php
+- Updated screenshot to the correct size
+
+Version 4.2.3 - Released 20-Aug-15
+----------------------------------------------------------------
+- Fixed bug in Customize that replaced the blogBog General options panel 
+  with the theme links panel. In previous versions of WordPress the theme 
+  links panel was prepended to the first panel, now in version 4.3 the first 
+  panel is replaced. Resolved by adding a dummy panel.
+
+
+Version 4.2.2 - Released 18-Aug-15
+----------------------------------------------------------------
+- Fixed social widget construct
+- Changed prefix, text-domain, file names from blogBox to blogbox
+- Added screen-reader-styles
+- Removed favicon option, left to new core option
+- Chaged header.php site_url() to home_url('/')
+- Update to Font Awesome 4.4
+
+
+Version 4.2.1 - Released 4-Aug-15
+----------------------------------------------------------------
+- Fixed custom-styles.php to show maim area link and hover colors on static home page
+- Removed hover states in customizer js, changed to refresh, save and reload
+
+Version 4.2.0 - Released 22-Jul-15
+----------------------------------------------------------------
+- fixed bug in customizer that caused checkbox defaults of '1' to be ignored
+- changed data validations for checkboxes to wp_validate_boolean
+- changed != null to !== null in blogbox_setup_options()
+
+Version 4.1.12 - Released 30-Jun-15
+----------------------------------------------------------------
+- fixed bug in customizer that caused undefined index Notices in new installs
+
+Version 4.1.0 - Released 30-May-15
+----------------------------------------------------------------
+- Problem with max-width in table with css changes in img.servicebox
+- Changed option system to customizer
+- Added Live Preview to Customizer
+- Add_theme_support('titles'), removed custom titles
+- Removed option for mobile design
+- changed style enqueue's to single line
+- add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+- Removed contact form, captcha because it is no longer permitted in WordPress.org themes
+- Added slogan 1 and slogan 2 custom text color options
+- Removed bold font on hover
+- Improved output sanitization in all code
+- Changed custom font loading to enqueue
+- Added Contact Me label, background color and text color as options
+- Changed static home page wrapper to fullwidth-home
+- Modified styling on feature slider
+- Removed .list-dot, .list-arrow, and .list-cog
+- Removed images not being used anymore
+- Modified skins to conform with changes
+
 Version 4.0.3 - Released 1-Oct-14
 ----------------------------------------------------------------
-- modufied header widget to remove kist styles
+- modified header widget to remove list styles
 - Fixed homesection2 column height by changing to table
 - Added home.php to comply with new WordPress.org requirements
 - Removed audio.js
@@ -166,11 +226,11 @@ Version 1.76.3 - Released 1-Oct-12
 ----------------------------------------------------------------
  Related to WordPress.org theme review # 2
  - Fixed spelling of wordpress to WordPress in style.css header description
- - Downloaded html5.js to blogBox/js and function to enqueue as per script recommendation
+ - Downloaded html5.js to blogbox/js and function to enqueue as per script recommendation
  - Removed <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
    from header and enqueued as per WordPress.org theme review requirements
  - Enqueued user css options instead of including them in the header
- - Reviewed theme and added blogBox prefixes where they were missing
+ - Reviewed theme and added blogbox prefixes where they were missing
  - Fixed fresh install debug errors on service box links
  - Added link for posts with no title as
  - Re-coded comments section to incorporate display of trackbacks
@@ -180,7 +240,7 @@ Version 1.76.3 - Released 1-Oct-12
  - Added background color functionality to theme
  - Added custom-header functionality
  - Re-coded Portfolio pages to better fit possible content
- - Fixed. Removed old code and added wp_title() to header and blogBox_title_filter() to functions.php
+ - Fixed. Removed old code and added wp_title() to header and blogbox_title_filter() to functions.php
  - Replaced all TEMPLATE path references with get_template_directory()
  - Changed over jQuery and Hoverintent scripts to core scripts
  - Re - coded all data validation; added nonce to forms and sanitized data input
@@ -207,7 +267,7 @@ Version 1.46.2 - Released 20-Aug-12
   - modified html5 ie 9 js shiv to be enqueued
   - removed function_exists() from core funtions
   - removed translation from searchform.php
-  - added blogBox prefix to functions, and Classes
+  - added blogbox prefix to functions, and Classes
   - changed custom-styles.php for skins to load through enqueue
   - removed all default content except search form from sidebars
   - fixed sanitization problems in Feature text on page-home-blog.php

@@ -1,0 +1,48 @@
+	
+
+	— — — ——  Change Log for Klean Wordpress Theme  — — — —
+
+		v1.0.7	- Initial Release
+
+		v1.1	- 1. Added Linked In icon to social icons
+			  2. Added the feature to upload Logo
+
+		v1.2	- Added Custom CSS option
+
+		v1.3	- 1. Fixed the Static Front Page issue.
+			  2. Fixed the home Sidebar issue where left sidebar did not show without right one.
+
+		v1.4	- 1. Fixed a bug with the Header Image in mobile view
+			  2. Stylised the comment form a bit
+
+		v1.5	- 1. Made the navigation Menu mobile-friendly
+			  2. A few changes in CSS code of some elements
+
+		v1.5.1	- Edited the license.txt file
+
+		v1.5.2	- 1. Fixed the Menu not appearing on mobiles bug.
+			  2. Updated Bootstrap.
+
+		v1.6	- 1. Added menu support for mobile devices
+
+		v1.7	- 1. Organised the code a bit
+			  2. Added option to add footer text
+
+		v1.8	- 1. Added Social Icon Color Functionality
+			  2. Added option to remove sidebar from the posts/pages
+			  3. Added Support for Gallery Post Format
+
+		v1.9	- Changed the Social Icons layout to make it more mobile friendly
+			  2. Minor Bug Fixes
+
+		v1.10	- 1. Reverted to the old Social icons format
+			  2. Improved the 404 page
+			  3. Fixed other small bugs
+
+		v1.11	- 1. Centre aligned the navigation menu
+			  2. Updated Bootstrap
+			  3. Minor CSS changes and bug fixes
+
+		v1.12	- 1. Updated the screenshot
+			  2. Added a scroll down button
+			  3. Minor Bug Fixes

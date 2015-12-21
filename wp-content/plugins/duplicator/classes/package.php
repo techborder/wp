@@ -82,26 +82,41 @@ class DUP_Package {
 
 		//SERVER
 		$srv = DUP_Server::GetChecks();
-		
-		$report['SRV']['PHPServer']		= $srv['CHK-SRV-100'];
-		$report['SRV']['WPSettings']	= $srv['CHK-SRV-101'];
-		$report['SRV']['WebServer']		= $srv['CHK-SRV-102'];
+		$report['SRV']['WEB']['ALL']	  = $srv['SRV']['WEB']['ALL'];
+		$report['SRV']['WEB']['model']	  = $srv['SRV']['WEB']['model'];
+
+		$report['SRV']['PHP']['ALL']	  = $srv['SRV']['PHP']['ALL'];
+		$report['SRV']['PHP']['openbase'] = $srv['SRV']['PHP']['openbase'];
+		$report['SRV']['PHP']['maxtime']  = $srv['SRV']['PHP']['maxtime'];
+		$report['SRV']['PHP']['mysqli']   = $srv['SRV']['PHP']['mysqli'];
+
+		$report['SRV']['WP']['ALL']		  = $srv['SRV']['WP']['ALL'];
+		$report['SRV']['WP']['version']	  = $srv['SRV']['WP']['version'];
+		$report['SRV']['WP']['core']	  = $srv['SRV']['WP']['core'];
+		$report['SRV']['WP']['cache']	  = $srv['SRV']['WP']['cache'];
 		
 		//FILES
 		$this->Archive->Stats();
-		$report['ARC']['Size']				= DUP_Util::ByteSize($this->Archive->Size)  or "unknown";
-		$report['ARC']['DirCount']			= number_format(count($this->Archive->Dirs));
-		$report['ARC']['FileCount']			= number_format(count($this->Archive->Files));
-		$report['ARC']['LinkCount']			= number_format(count($this->Archive->Links));
-		$report['ARC']['WarnFileName']		= is_array($this->Archive->WarnFileName) ? $this->Archive->WarnFileName : "unknown";
-		$report['ARC']['WarnFileSize']		= is_array($this->Archive->WarnFileSize)  ? $this->Archive->WarnFileSize  : "unknown";
-		$report['ARC']['Status']['Size']	= ($this->Archive->Size > DUPLICATOR_SCAN_SITE) ? 'Warn' : 'Good';
-		$report['ARC']['Status']['Names']	= count($this->Archive->WarnFileName) ? 'Warn' : 'Good';
-		$report['ARC']['Status']['Big']		= count($this->Archive->WarnFileSize)  ? 'Warn' : 'Good';
+		$dirCount = count($this->Archive->Dirs); 
+		$fileCount = count($this->Archive->Files);
+		$fullCount = $dirCount + $fileCount;
+		
+		$report['ARC']['Size']		 = DUP_Util::ByteSize($this->Archive->Size)  or "unknown";
+		$report['ARC']['DirCount']	 = number_format($dirCount);
+		$report['ARC']['FileCount']	 = number_format($fileCount);
+		$report['ARC']['FullCount']	 = number_format($fullCount);
+		
+		$report['ARC']['FilterInfo']['Dirs'] = $this->Archive->FilterInfo->Dirs;
+		$report['ARC']['FilterInfo']['Files'] = $this->Archive->FilterInfo->Files;
+		$report['ARC']['FilterInfo']['Exts'] = $this->Archive->FilterInfo->Exts;
+				
+		$report['ARC']['Status']['Size'] = ($this->Archive->Size > DUPLICATOR_SCAN_SITE) ? 'Warn' : 'Good';
+		$report['ARC']['Status']['Names'] = (count($this->Archive->FilterInfo->Files->Warning) + count($this->Archive->FilterInfo->Dirs->Warning))  ? 'Warn' : 'Good';
+		$report['ARC']['Status']['Big'] = count($this->Archive->FilterInfo->Files->Size) ? 'Warn' : 'Good';
+		
 		$report['ARC']['Dirs']				= $this->Archive->Dirs;
 		$report['ARC']['Files']				= $this->Archive->Files;
-		$report['ARC']['OmitFiles']			= $this->Archive->OmitFiles;
-		$report['ARC']['OmitDirs']			= $this->Archive->OmitDirs;
+
 		
 		//DATABASE
 		$db = $this->Database->Stats();
@@ -111,6 +126,16 @@ class DUP_Package {
 		$report['DB']['TableCount']	= $db['TableCount']					or "unknown";
 		$report['DB']['TableList']	= $db['TableList']					or "unknown";
 		
+		$warnings = array($report['SRV']['WEB']['ALL'],  
+						  $report['SRV']['PHP']['ALL'], 
+						  $report['SRV']['WP']['ALL'], 
+						  $report['ARC']['Status']['Size'], 
+						  $report['ARC']['Status']['Names'], 
+						  $report['ARC']['Status']['Big'], 
+						  $db['Status']);
+		
+		$warn_counts = array_count_values($warnings);						  
+		$report['RPT']['Warnings'] = $warn_counts['Warn'];
 		$report['RPT']['ScanTime'] = DUP_Util::ElapsedTime(DUP_Util::GetMicrotime(), $timerStart);
 		$fp = fopen(DUPLICATOR_SSDIR_PATH_TMP . "/{$this->ScanFile}", 'w');
 		fwrite($fp, json_encode($report));
@@ -269,6 +294,7 @@ class DUP_Package {
 			$this->Archive->FilterExts		= str_replace(array('.' ,' '), "", esc_html($filter_exts));
 			//INSTALLER
 			$this->Installer->OptsDBHost		= esc_html($post['dbhost']);
+			$this->Installer->OptsDBPort		= esc_html($post['dbport']);
 			$this->Installer->OptsDBName		= esc_html($post['dbname']);
 			$this->Installer->OptsDBUser		= esc_html($post['dbuser']);
 			$this->Installer->OptsSSLAdmin		= isset($post['ssl-admin'])		? 1 : 0;

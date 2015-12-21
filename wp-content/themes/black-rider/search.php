@@ -46,9 +46,9 @@
                         <?php endif; ?>
                         <div class="clear"></div>
                         <nav id="nav-single"> <span class="nav-previous">
-                                <?php next_posts_link(__(NEWER_POSTS, 'blcr')); ?>
+                                <?php next_posts_link(__('Newer posts &rarr;', 'black-rider')); ?>
                             </span> <span class="nav-next">
-                                <?php previous_posts_link(__(OLDER_POSTS, 'blcr')); ?>
+                                <?php previous_posts_link(__('Older posts &rarr;', 'black-rider')); ?>
                             </span> </nav>
                     </div>
                 </div>

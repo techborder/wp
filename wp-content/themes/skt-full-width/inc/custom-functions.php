@@ -51,6 +51,6 @@ function hook_custom_javascript(){?>
 	}
 }
 
-define('SKT_THEME_URL_DIRECT','http://www.sktthemes.net/themes/skt_full_width_pro/');
+define('SKT_THEME_URL_DIRECT','http://www.sktthemes.net/shop/skt_full_width_pro/');
 
 ?>

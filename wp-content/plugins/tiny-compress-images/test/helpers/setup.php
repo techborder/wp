@@ -66,6 +66,23 @@ function set_siteurl($site_url) {
     $statement->execute();
 }
 
+function clear_settings() {
+    $db = new mysqli(getenv('HOST_IP'), 'root', getenv('MYSQL_ROOT_PASSWORD'), getenv('WORDPRESS_DATABASE'));
+    $statement = $db->prepare("DELETE FROM wp_options WHERE option_name LIKE 'tinypng_%'");
+    $statement->execute();
+    $statement = $db->prepare("DELETE FROM wp_usermeta WHERE meta_key LIKE 'tinypng_%'");
+    $statement->execute();
+}
+
+function clear_uploads() {
+    $db = new mysqli(getenv('HOST_IP'), 'root', getenv('MYSQL_ROOT_PASSWORD'), getenv('WORDPRESS_DATABASE'));
+    $statement = $db->prepare("DELETE wp_postmeta FROM wp_postmeta JOIN wp_posts ON wp_posts.ID = wp_postmeta.post_id WHERE wp_posts.post_type = 'attachment'");
+    $statement->execute();
+    $statement = $db->prepare("DELETE FROM wp_posts WHERE wp_posts.post_type = 'attachment'");
+    $statement->execute();
+    shell_exec('docker exec -it wordpress' . getenv('WORDPRESS_VERSION') . ' rm -rf wp-content/uploads');
+}
+
 function is_wordpress_setup() {
     $db = new mysqli(getenv('HOST_IP'), 'root', getenv('MYSQL_ROOT_PASSWORD'));
     if ($result = $db->query("SELECT * FROM information_schema.tables WHERE table_schema = '" . getenv('WORDPRESS_DATABASE') . "'")) {
@@ -86,8 +103,12 @@ function setup_wordpress_site($driver) {
     }
     $driver->findElement(WebDriverBy::name('weblog_title'))->sendKeys('Wordpress test');
     $driver->findElement(WebDriverBy::name('user_name'))->clear()->sendKeys('admin');
-    $driver->findElement(WebDriverBy::name('admin_password'))->sendKeys('admin');
-    $driver->findElement(WebDriverBy::name('admin_password2'))->sendKeys('admin');
+    if (wordpress_version() > 42) {
+        $driver->findElement(WebDriverBy::id('pass1-text'))->clear()->sendKeys('a')->sendKeys('dmin');
+    } else {
+        $driver->findElement(WebDriverBy::name('admin_password'))->sendKeys('admin');
+        $driver->findElement(WebDriverBy::name('admin_password2'))->sendKeys('admin');
+    }
     $driver->findElement(WebDriverBy::name('admin_email'))->sendKeys('developers@voormedia.com');
     $driver->findElement(WebDriverBy::tagName('form'))->submit();
     $h1s = $driver->findElements(WebDriverBy::tagName('h1'));
@@ -100,28 +121,17 @@ function setup_wordpress_site($driver) {
     }
 }
 
-function clear_uploads($driver) {
-    media_bulk_action($driver, 'delete');
-}
-
-function media_bulk_action($driver, $action) {
-    $driver->get(wordpress('/wp-admin/upload.php?mode=list'));
-    $checkboxes = $driver->findElements(WebDriverBy::cssSelector('th input[type="checkbox"]'));
-    if (count($checkboxes) > 0) {
-        $checkboxes[0]->click();
-        $driver->findElement(WebDriverBy::cssSelector('select[name="action"] option[value="' . $action . '"]'))->click();
-        $driver->findElement(WebDriverBy::cssSelector('div.actions input[value="Apply"]'))->click();
-    }
-}
-
 function login($driver) {
+    print "Logging in to Wordpress... ";
     $driver->get(wordpress('/wp-login.php'));
     $driver->findElement(WebDriverBy::tagName('body'))->click();
     $driver->findElement(WebDriverBy::name('log'))->clear()->click()->sendKeys('admin');
     $driver->findElement(WebDriverBy::name('pwd'))->clear()->click()->sendKeys('admin');
     $driver->findElement(WebDriverBy::tagName('form'))->submit();
-    if ($driver->findElement(WebDriverBy::tagName('h2'))->getText() == 'Dashboard') {
-        print "Successfully logged into WordPress.\n";
+
+    $dashboardHeading = $driver->findElement(WebDriverBy::xpath("//html/body//div[@class='wrap']/*[self::h1 or self::h2]"));
+    if ($dashboardHeading->getText() == 'Dashboard') {
+        print "success!\n";
     } else {
         var_dump($driver->getPageSource());
         throw new UnexpectedValueException('Login failed.');
@@ -140,11 +150,29 @@ function activate_plugin($driver) {
         var_dump($driver->getPageSource());
         throw new UnexpectedValueException('Activating plugin failed.');
     }
+    $driver->get(wordpress('/wp-admin/upload.php?mode=list'));
 }
 
+function close_webdriver() {
+    if (isset($GLOBALS['global_session_id']) && isset($GLOBALS['global_webdriver_host'])) {
+        RemoteWebDriver::createBySessionId($GLOBALS['global_session_id'], $GLOBALS['global_webdriver_host'])->close();
+    }
+}
+
+function reset_webservice() {
+    $request = curl_init();
+    curl_setopt_array($request, array(
+        CURLOPT_URL => 'http://' . getenv('HOST_IP') .':8080/reset',
+    ));
+    $response = curl_exec($request);
+    curl_close($request);
+}
+
+$global_webdriver_host = 'http://127.0.0.1:4444/wd/hub';
+$global_driver = RemoteWebDriver::create($global_webdriver_host, DesiredCapabilities::firefox());
+$global_session_id = $global_driver->getSessionID();
+
+register_shutdown_function('close_webdriver');
 register_shutdown_function('restore_wordpress');
 
-$global_phantom_host = 'http://127.0.0.1:4444/wd/hub';
-$global_driver = RemoteWebDriver::create($global_phantom_host, DesiredCapabilities::firefox());
-$global_session_id = $global_driver->getSessionID();
 configure_wordpress_for_testing($global_driver);

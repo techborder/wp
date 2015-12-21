@@ -10,9 +10,6 @@
 <html <?php language_attributes(); ?>>
     <head>
         <meta charset="<?php bloginfo('charset'); ?>" />
-        <title>
-            <?php wp_title('&#124;', true, 'right'); ?>
-        </title>    		
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="profile" href="http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -27,12 +24,16 @@
                         <div class="grid_16 alpha">
                             <div class="logo">
                                 <?php if (blcr_get_option('inkthemes_logo') != '') { ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php if (blcr_get_option('inkthemes_logo') != '') {  echo blcr_get_option('inkthemes_logo'); } ?>" alt="<?php bloginfo('name'); ?>" /></a>
-                                <?php } else { ?>
-                                <hgroup>
-                                    <h1 id="site-title"><span><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></span></h1>
-                                    <h2 id="site-description"><?php bloginfo('description'); ?></h2>
-                                </hgroup>
+                                    <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php
+                                        if (blcr_get_option('inkthemes_logo') != '') {
+                                            echo blcr_get_option('inkthemes_logo');
+                                        }
+                                        ?>" alt="<?php bloginfo('name'); ?>" /></a>
+                                    <?php } else { ?>
+                                    <hgroup>
+                                        <h1 id="site-title"><span><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></span></h1>
+                                        <h2 id="site-description"><?php bloginfo('description'); ?></h2>
+                                    </hgroup>
                                 <?php } ?>
                             </div>
                         </div>
@@ -44,7 +45,7 @@
                                     </a>
                                 <?php } else {
                                     ?>
-                                    <p><?php _e('Call US - 214 - 2547 - 142', 'blcr'); ?></p>
+                                    <p><?php _e('Call US - 214 - 2547 - 142', 'black-rider'); ?></p>
                                     <a class="btn" href="tel:5551234567"></a>
                                 <?php } ?>
                             </div>
@@ -61,7 +62,7 @@
                         <div class="menu-wrapper">
                             <div id="MainNav">                                  
                                 <?php if (blcr_get_option('inkthemes_nav') != '') { ?><a href="#" class="mobile_nav closed"><?php echo stripslashes(blcr_get_option('inkthemes_nav')); ?><span></span></a>
-                                <?php } else { ?> <a href="#" class="mobile_nav closed"><?php _e('Pages Navigation Menu', 'blcr'); ?><span></span></a>
+                                <?php } else { ?> <a href="#" class="mobile_nav closed"><?php _e('Pages Navigation Menu', 'black-rider'); ?><span></span></a>
                                 <?php } ?>
                                 <?php blcr_nav(); ?> 
                             </div>  

@@ -22,28 +22,28 @@
             <div class="fullwidth">
                 <p></p>
                 <p>
-                    <a href="<?php echo get_permalink($post->post_parent); ?>" title="<?php esc_attr(printf(__('Return to %s', 'blcr'), get_the_title($post->post_parent))); ?>" rel="gallery">
+                    <a href="<?php echo get_permalink($post->post_parent); ?>" title="<?php esc_attr(printf(__('Return to %s', 'black-rider'), get_the_title($post->post_parent))); ?>" rel="gallery">
                         <?php
                         /* translators: %s - title of parent post */
-                        printf(__('<span>&larr;</span> %s', 'blcr'), get_the_title($post->post_parent));
+                        printf(__('<span>&larr;</span> %s', 'black-rider'), get_the_title($post->post_parent));
                         ?>
                     </a>
                 </p>
                 <?php
-                printf(__('By %2$s', 'blcr'), 'meta-prep meta-prep-author', sprintf('<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>', get_author_posts_url(get_the_author_meta('ID')), sprintf(esc_attr__('View all posts by %s', 'blcr'), get_the_author()), get_the_author()
+                printf(__('By %2$s', 'black-rider'), 'meta-prep meta-prep-author', sprintf('<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>', get_author_posts_url(get_the_author_meta('ID')), sprintf(esc_attr__('View all posts by %s', 'black-rider'), get_the_author()), get_the_author()
                 ));
                 ?>
                 <span>|</span>
                 <?php
-                printf(__('Published %2$s', 'blcr'), 'meta-prep meta-prep-entry-date', sprintf('<abbr title="%1$s">%2$s</abbr>', esc_attr(get_the_time()), get_the_date()
+                printf(__('Published %2$s', 'black-rider'), 'meta-prep meta-prep-entry-date', sprintf('<abbr title="%1$s">%2$s</abbr>', esc_attr(get_the_time()), get_the_date()
                 ));
                 if (wp_attachment_is_image()) {
                     echo ' | ';
                     $metadata = wp_get_attachment_metadata();
-                    printf(__('Full size is %s pixels', 'blcr'), sprintf('<a href="%1$s" title="%2$s">%3$s &times; %4$s</a>', wp_get_attachment_url(), esc_attr(__('Link to full-size image', 'blcr')), $metadata['width'], $metadata['height']));
+                    printf(__('Full size is %s pixels', 'black-rider'), sprintf('<a href="%1$s" title="%2$s">%3$s &times; %4$s</a>', wp_get_attachment_url(), esc_attr(__('Link to full-size image', 'black-rider')), $metadata['width'], $metadata['height']));
                 }
                 ?>
-                <?php edit_post_link(__('Edit', 'blcr'), '', ''); ?>
+                <?php edit_post_link(__('Edit', 'black-rider'), '', ''); ?>
                 <!-- .entry-meta -->
                 <?php
                 if (wp_attachment_is_image()) {
@@ -68,7 +68,7 @@
                     ?>
                     <p><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr(get_the_title()); ?>" rel="attachment">
                             <?php
-                            $attachment_size = apply_filters('blcr_attachment_size', 900);
+                            $attachment_size = apply_filters('black-rider_attachment_size', 900);
                             echo wp_get_attachment_image($post->ID, array($attachment_size, 9999)); // filterable image width with, essentially, no limit for image height.
                             ?>
                         </a></p>
@@ -87,10 +87,10 @@
                     the_excerpt();
                 }
                 ?>
-                <?php the_content(__('Continue reading &rarr;', 'blcr')); ?>
-                <?php wp_link_pages(array('before' => '' . __('Pages:', 'blcr'), 'after' => '')); ?>
-                <?php blcr_posted_in(); ?>
-<?php edit_post_link(__('Edit', 'blcr'), ' ', ''); ?>
+                <?php the_content(__('Continue reading &rarr;', 'black-rider')); ?>
+                <?php wp_link_pages(array('before' => '' . __('Pages:', 'black-rider'), 'after' => '')); ?>
+                <?php black-rider_posted_in(); ?>
+<?php edit_post_link(__('Edit', 'black-rider'), ' ', ''); ?>
 <?php comments_template(); ?>
             </div> 
         </div>

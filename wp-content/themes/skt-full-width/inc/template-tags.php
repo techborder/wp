@@ -81,7 +81,7 @@ function skt_full_width_comment( $comment, $args, $depth ) {
 				</div><!-- .comment-author -->
 
 				<div class="comment-metadata">
-					<?php printf( __( sprintf( '<cite class="fn">%s</cite> on', get_comment_author_link() ) ) ); ?>
+					<?php printf('<cite class="fn">%s</cite> on', get_comment_author_link() ); ?>
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php printf( _x( '%1$s', '1: date', 'skt-full-width' ), get_comment_date(), get_comment_time() ); ?>
@@ -110,7 +110,7 @@ function skt_full_width_comment( $comment, $args, $depth ) {
 			?>
 		</article><!-- .comment-body -->
 
-	<?php
+	<?php 
 	endif;
 }
 endif; // ends check for skt_full_width_comment()

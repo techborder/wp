@@ -60,7 +60,7 @@ function picolight_theme_options_page() {
 
 	<div class="wrap">
 
-	<?php screen_icon(); echo '<h2>'.wp_get_theme().' '.__( 'Options', 'picolight' ).'</h2>';
+	<?php echo '<h2>'.wp_get_theme().' '.__( 'Options', 'picolight' ).'</h2>';
 	// This shows the page's name and an icon if one has been provided ?>
 
 	<?php if ( false !== $_REQUEST['updated'] ) : ?>

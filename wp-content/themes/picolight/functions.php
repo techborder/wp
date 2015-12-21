@@ -35,6 +35,9 @@ function picolight_setup() {
 	// This theme allows users to set a custom background
 	add_theme_support( 'custom-background');
 
+	// Custom title tag
+	add_theme_support('title-tag');
+	
 	// Thumbnails
 	set_post_thumbnail_size( '150', '150', true );
 

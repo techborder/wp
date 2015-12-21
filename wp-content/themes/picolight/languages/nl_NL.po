@@ -1,0 +1,257 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: picolight\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-06 12:01+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: mh <koekol@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../single.php:10
+#: ../index.php:10
+#: ../search.php:15
+msgid "Write a comment"
+msgstr "Schrijf een reactie"
+
+#: ../single.php:10
+#: ../index.php:10
+#: ../search.php:15
+msgid "1 comment"
+msgstr "1 reactie"
+
+#: ../single.php:10
+#: ../index.php:10
+#: ../search.php:15
+#, php-format
+msgid "% comments"
+msgstr "% reacties"
+
+#: ../single.php:15
+#: ../index.php:15
+#: ../page.php:11
+#: ../functions.php:171
+#: ../functions.php:198
+msgid "(Edit)"
+msgstr "(Bewerken)"
+
+#: ../single.php:17
+#: ../index.php:26
+#: ../index.php:30
+#: ../search.php:30
+#: ../search.php:34
+msgid "More &raquo;"
+msgstr "Meer &raquo;"
+
+#: ../single.php:31
+msgid "About the author"
+msgstr "Over de maker"
+
+#: ../single.php:41
+msgid "Sorry, no article found"
+msgstr "Sorry, niets gevonden"
+
+#: ../404.php:5
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "Dit is genant vind je niet?"
+
+#: ../404.php:7
+#: ../index.php:58
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help."
+msgstr "Het lijkt erop dat we niet kunnen vinden wat je zoekt. Misschien dat de linken hieronder kunnen helpen."
+
+#: ../comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Deze post is met een wachtwoord beveiligd. Login om reacties te kunnen lezen."
+
+#: ../comments.php:39
+msgid "Comments closed"
+msgstr "Reacties gesloten"
+
+#: ../comments.php:48
+msgid "You must be"
+msgstr "Je moet"
+
+#: ../comments.php:48
+msgid "logged in"
+msgstr "ingelogd"
+
+#: ../comments.php:48
+msgid "to leave a reply"
+msgstr "om een reactie achter te laten"
+
+#: ../index.php:46
+msgid "&laquo;  Older articles"
+msgstr "&laquo;  Oudere artikelen"
+
+#: ../index.php:47
+msgid "Newer articles &raquo;"
+msgstr "Nieuwe artikelen &raquo;"
+
+#: ../index.php:56
+#: ../search.php:57
+msgid "Sorry, nothing found."
+msgstr "Sorry, niets gevonden"
+
+#: ../search.php:7
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Zoek resultaten voor: %s"
+
+#: ../page.php:15
+msgid "More..."
+msgstr "Meer..."
+
+#: ../searchform.php:2
+#: ../searchform.php:5
+msgid "Search"
+msgstr "Zoek"
+
+#: ../header.php:19
+#, php-format
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: ../footer.php:4
+msgid "All rights reserved"
+msgstr "Alle rechten voorbehouden"
+
+#: ../footer.php:5
+msgid "Design by"
+msgstr "Ontwikkeld door"
+
+#: ../footer.php:5
+msgid "Powered by "
+msgstr "Mede mogelijk gemaakt door"
+
+#: ../functions.php:32
+msgid "Primary Navigation"
+msgstr "Primaire Navigatie"
+
+#: ../functions.php:44
+msgid "Sidebar"
+msgstr "Zijbalk"
+
+#: ../functions.php:76
+msgid "Chessboard"
+msgstr "Schaakbord"
+
+#: ../functions.php:82
+msgid "Hanoi"
+msgstr "Hanoi"
+
+#: ../functions.php:88
+msgid "Lanterns"
+msgstr "Lantaarns"
+
+#: ../functions.php:94
+msgid "Pine-cone"
+msgstr "Pine-cone"
+
+#: ../functions.php:100
+msgid "Shore"
+msgstr "Oever"
+
+#: ../functions.php:106
+msgid "Trolley"
+msgstr "Trolley"
+
+#: ../functions.php:112
+msgid "Wheel"
+msgstr "Wiel"
+
+#: ../functions.php:118
+msgid "Willow"
+msgstr "Wilg"
+
+#: ../functions.php:171
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: ../functions.php:187
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+#: ../functions.php:193
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s op %2$s"
+
+#: ../functions.php:203
+msgid "Your comment is awaiting moderation."
+msgstr "Je reactie wacht op moderatie"
+
+#: ../functions.php:209
+msgid "Reply"
+msgstr "Antwoorden"
+
+#: ../functions.php:240
+msgid "Categories: "
+msgstr "Categorien:"
+
+#: ../functions.php:252
+msgid "Tags: "
+msgstr "Labels"
+
+#: ../includes/theme-options.php:23
+msgid "Use This Image"
+msgstr "Gebruik deze afbeelding"
+
+#: ../includes/theme-options.php:49
+#: ../includes/theme-options.php:63
+msgid "Options"
+msgstr "Opties"
+
+#: ../includes/theme-options.php:67
+msgid "Options saved"
+msgstr "Opties opgeslagen"
+
+#: ../includes/theme-options.php:81
+msgid "Custom Link Color"
+msgstr "Aangepaste link kleur"
+
+#: ../includes/theme-options.php:85
+msgid "Select a Color"
+msgstr "Selecteer een kleur"
+
+#: ../includes/theme-options.php:88
+msgid "Default link color: #364D96"
+msgstr "Standaard link kleur: #364D96"
+
+#: ../includes/theme-options.php:92
+msgid "Custom favicon"
+msgstr "Aangepaste favicon"
+
+#: ../includes/theme-options.php:95
+msgid "Upload Image"
+msgstr "Upload afbeelding"
+
+#: ../includes/theme-options.php:100
+msgid "Custom header height"
+msgstr "Aangepaste header hoogte"
+
+#: ../includes/theme-options.php:104
+msgid "Default header height: 288 px. After you changed this value you can"
+msgstr "Standaard header hoogte: 288px. Nadat de waarde veranderd is kan je"
+
+#: ../includes/theme-options.php:104
+msgid "upload a new header image"
+msgstr "Upload een nieuwe header afbeelding"
+
+#: ../includes/theme-options.php:108
+msgid "Show an \"About the Author\"-Box"
+msgstr "Toon een \"Over de Auteur\"-Box"
+
+#: ../includes/theme-options.php:116
+msgid "Save Options"
+msgstr "Opties Opslaan"
+

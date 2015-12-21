@@ -1,6 +1,6 @@
 <?php
 /**
- * blogBox Post Format Gallery
+ * blogbox Post Format Gallery
  *
  * The Gallery Post Format is really set up for a single gallery. It alllows the user 
  * to post a gallery and not have all the pictures presented. The number of pictures are counted
@@ -9,15 +9,15 @@
  *
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
 
 /* Get the user choices for the theme options */
-global $blogBox_option;
-$blogBox_option = blogBox_get_options();
-$display_post_icon = $blogBox_option['bB_use_post_format_icons'];
+global $blogbox_options;
+
+$display_post_icon = $blogbox_options['bB_use_post_format_icons'];
 ?>
 
 <h2 class="post-title">
@@ -35,7 +35,7 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 
 <div class="clearfix"></div>
 
-<?php blogBox_post_metatop(); ?>
+<?php blogbox_post_metatop(); ?>
 	
 <div class="clearfix"></div>
 <?php  if (has_post_thumbnail()) {
@@ -54,19 +54,19 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 				<figure class="gallery-thumb">
 					<a href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
 					<div class="clearfix"></div>
-					<em><?php echo $total_images; _e(' images','blogBox'); ?></em>
+					<em><?php echo $total_images; esc_html_e(' images','blogbox'); ?></em>
 				</figure><!-- .gallery-thumb -->
 				<div class="gallery-excerpt">
 					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; 								
 		} else {
-			the_content(__('Read more','blogBox')); 
+			the_content(esc_html__('Read more','blogbox')); 
 		} ?>
 </div>
 
 <div class="clearfix"></div>
 
-<?php blogBox_post_metabottom('gallery') ?>
+<?php blogbox_post_metabottom('gallery') ?>
 
 <div class="clearfix"></div>

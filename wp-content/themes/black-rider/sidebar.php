@@ -1,6 +1,6 @@
 <div class="sidebar">
     <?php if (!dynamic_sidebar('primary-widget-area')) : ?>
-        <h3><?php _e('Search:','blcr'); ?></h3>
+        <h3><?php _e('Search:','black-rider'); ?></h3>
         <?php get_search_form(); ?>
         <h3>
             <?php echo CATEGORIES; ?>

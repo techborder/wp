@@ -6,7 +6,7 @@
  * for set up and operation of the theme
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
@@ -16,16 +16,20 @@
  * ======================================================================================================== */
  
 /* ---- load files ---------------*/ 
-require(get_template_directory() . '/library/blogBox_options.php');
-require(get_template_directory() . '/library/blogBox_post_functions.php');
-require(get_template_directory() . '/widgets/blogBox_social_widget.php');
+require(get_template_directory() . '/library/blogbox_post_functions.php');
+require(get_template_directory() . '/widgets/blogbox_social_widget.php');
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/library/kha-customizer.php';
 
 /* ---- Set content width --------*/
 if(!isset( $content_width )) $content_width = 600;
 
-function blogBox_theme_supports(){
+function blogbox_theme_supports(){
 	//enable translation
-    load_theme_textdomain('blogBox', get_template_directory() . '/language');
+    load_theme_textdomain('blogbox', get_template_directory() . '/language');
 	/* ------------editor-style -------------------- */
  	add_editor_style();
 	// ADD POST FORMATS
@@ -48,16 +52,18 @@ function blogBox_theme_supports(){
 	//thumbnails
 	add_theme_support('post-thumbnails');
 	add_image_size('wide_thumbnail',180,120);
+	add_theme_support('title-tag');
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 }
-add_action('after_setup_theme', 'blogBox_theme_supports');
+add_action('after_setup_theme', 'blogbox_theme_supports');
   
 /*
 ********* Set up Menu in Dashboard under Appearance **************
 */
-function blogBox_register_menu() {
+function blogbox_register_menu() {
 	register_nav_menu('primary-nav','Primary Menu');
 }
-add_action( 'init', 'blogBox_register_menu' );
+add_action( 'init', 'blogbox_register_menu' );
 
 /**
  * Register Side bars
@@ -65,13 +71,13 @@ add_action( 'init', 'blogBox_register_menu' );
  * @link http://justintadlock.com/archives/2010/11/08/sidebars-in-wordpress
  */
 
-if (!function_exists ( 'blogBox_register_sidebars' )) {
-	function blogBox_register_sidebars() {
+if (!function_exists ( 'blogbox_register_sidebars' )) {
+	function blogbox_register_sidebars() {
 	// Sidebars and footer areas
     register_sidebar(array(
     					'id' => 'blogbox_default_sidebar',
     					'name'=>'Default-Sidebar',
-    					'description' => __( 'Default sidebar', 'blogBox' ),
+    					'description' => esc_html__( 'Default sidebar', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -81,7 +87,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_header_sidebar',
 						'name'=>'Header-Sidebar',
-						'description' => __( 'Placed in upper right hand corner of header', 'blogBox' ),
+						'description' => esc_html__( 'Placed in upper right hand corner of header', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -91,7 +97,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_feature',
 						'name'=>'Feature Area',
-						'description' => __( 'Feature widgetized area', 'blogBox' ),
+						'description' => esc_html__( 'Feature widgetized area', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -101,7 +107,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_left_sidebar',
 						'name'=>'Left-Sidebar',
-						'description' => __( 'Sidebar for left side of page', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for left side of page', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -111,7 +117,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_left_sidebar_2',
 						'name'=>'Left-Sidebar 2',
-						'description' => __( 'Sidebar for left side page 2', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for left side page 2', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -121,7 +127,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_right_sidebar',
 						'name'=>'Right-Sidebar',
-						'description' => __( 'Sidebar for right side of page', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for right side of page', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -131,7 +137,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_right_sidebar_2',
 						'name'=>'Right-Sidebar 2',
-						'description' => __( 'Sidebar for right side page 2', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for right side page 2', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -141,7 +147,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_contact_sidebar',
 						'name'=>'Contact-Sidebar',
-						'description' => __( 'Sidebar for contact page', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for contact page', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -151,7 +157,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_404_sidebar',
 						'name'=>'Sidebar-404',
-						'description' => __( 'Sidebar for 404 page', 'blogBox' ),
+						'description' => esc_html__( 'Sidebar for 404 page', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -161,7 +167,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_footer_a',
 						'name'=>'Footer A',
-						'description' => __( 'Use this for the first footer column', 'blogBox' ),
+						'description' => esc_html__( 'Use this for the first footer column', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -171,7 +177,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_footer_b',
 						'name'=>'Footer B',
-						'description' => __( 'Use this for the second footer column', 'blogBox' ),
+						'description' => esc_html__( 'Use this for the second footer column', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -181,7 +187,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_footer_c',
 						'name'=>'Footer C',
-						'description' => __( 'Use this for the third footer column', 'blogBox' ),
+						'description' => esc_html__( 'Use this for the third footer column', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -191,7 +197,7 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 	register_sidebar(array(
 						'id' => 'blogbox_footer_d',
 						'name'=>'Footer D',
-						'description' => __( 'Use this for the fourth footer column', 'blogBox' ),
+						'description' => esc_html__( 'Use this for the fourth footer column', 'blogbox' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div>',
 						'before_title' => '<h3 class="widget-title">',
@@ -200,92 +206,62 @@ if (!function_exists ( 'blogBox_register_sidebars' )) {
 					);
 	}
 
-	add_action( 'widgets_init', 'blogBox_register_sidebars' );
+	add_action( 'widgets_init', 'blogbox_register_sidebars' );
 }
 
 /* ========================================================================================================
  *                 Scripts and Styles
  * ======================================================================================================== */
-
-define('BLOGBOX_JS', get_template_directory_uri() . '/js' );
-
-if ( !function_exists ('blogBox_load_js')){
-	function blogBox_load_js() {
+if ( !function_exists ('blogbox_load_js')){
+	function blogbox_load_js() {
 		if(!is_admin()){
-			global $blogBox_option,$wp_version;
-			$blogBox_option = blogBox_get_options(); 
-			wp_enqueue_script('jquery');
+			global $blogbox_options;
 
-			wp_enqueue_script( 'superfish', BLOGBOX_JS . '/superfish/superfish.min.js', array( 'jquery' ), '' );
-			wp_enqueue_script( 'easing', BLOGBOX_JS . '/jquery.easing.1.3.js', array( 'jquery' ), '' );
-			wp_enqueue_script( 'slides', BLOGBOX_JS . '/nivo-slider/jquery.nivo.slider.pack.js', array( 'jquery' ), '' );
-			wp_enqueue_script( 'blogBox_custom', BLOGBOX_JS . '/doc_ready_scripts.js', array( 'jquery' ), '' );
+			wp_enqueue_script( 'superfish', get_template_directory_uri() . '/js/superfish/superfish.min.js', array( 'jquery' ), '' );
+			wp_enqueue_script( 'easing', get_template_directory_uri() . '/js/jquery.easing.1.3.js', array( 'jquery' ), '' );
+			wp_enqueue_script( 'slides', get_template_directory_uri() . '/js/nivo-slider/jquery.nivo.slider.pack.js', array( 'jquery' ), '' );
+			wp_enqueue_script( 'blogbox_custom', get_template_directory_uri() . '/js/doc_ready_scripts.js', array( 'jquery' ), '' );
 			
-			if ( $blogBox_option['bB_disable_fitvids'] != 1 ) {
-				wp_enqueue_script( 'blogBox_fitvids', BLOGBOX_JS . '/jquery.fitvids.js', array( 'jquery' ), '' );
-				wp_enqueue_script( 'blogBox_fitvids_doc_ready', BLOGBOX_JS . '/fitvids-doc-ready.js', array( 'jquery' ), '' );
+			if ( $blogbox_options['bB_disable_fitvids'] != 1 ) {
+				wp_enqueue_script( 'blogbox_fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '' );
+				wp_enqueue_script( 'blogbox_fitvids_doc_ready', get_template_directory_uri() . '/js/fitvids-doc-ready.js', array( 'jquery' ), '' );
 			}
 			
-			if ( $blogBox_option['bB_include_mobile_design'] == 1 ) {
-				wp_enqueue_script( 'mobile_doc_ready', get_template_directory_uri() . '/js/mobile-doc-ready.js', array( 'jquery' ), '' );
-			}
+			wp_enqueue_script( 'mobile_doc_ready', get_template_directory_uri() . '/js/mobile-doc-ready.js', array( 'jquery' ), '' );
 
-			if ( $blogBox_option['bB_disable_colorbox'] != 1 ) {
+			if ( $blogbox_options['bB_disable_colorbox'] != 1 ) {
 				wp_enqueue_script( 'colorbox', get_template_directory_uri() . '/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '' );
 				wp_enqueue_script( 'colorbox_doc_ready', get_template_directory_uri() . '/js/colorbox/colorbox_doc_ready.js', array( 'jquery' ), '' );
 			}
 		}
 	}
-	add_action('init', 'blogBox_load_js');
+	add_action('init', 'blogbox_load_js');
 }
 
-if ( !function_exists ('blogBox_styles')) {
-	function blogBox_styles() {
-		global $blogBox_option,$wp_version;
-		$blogBox_option = blogBox_get_options(); 
-		wp_register_style( 'main_style',get_stylesheet_directory_uri() . '/style.css',array() );
-		wp_enqueue_style( 'main_style' ); 
-		wp_register_style( 'nivo_style',get_template_directory_uri() . '/js/nivo-slider/nivo-slider.css',array() );
-		wp_enqueue_style( 'nivo_style' );
-		wp_register_style( 'nivo_style_theme',get_template_directory_uri() . '/js/nivo-slider/themes/default/default.css',array() );
-		wp_enqueue_style( 'nivo_style_theme' );
-		wp_register_style( 'superfish_style',get_template_directory_uri() . '/js/superfish/superfish.css',array() );
-		wp_enqueue_style( 'superfish_style' );
-		wp_register_style( 'font_awesome_style',get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css',array() );
-		wp_enqueue_style( 'font_awesome_style' );
+if ( !function_exists ('blogbox_styles')) {
+	function blogbox_styles() {
+		global $blogbox_options;
+
+		wp_enqueue_style( 'blogbox_main_style' , get_stylesheet_uri() ); 
+		wp_enqueue_style( 'nivo_style',get_template_directory_uri() . '/js/nivo-slider/nivo-slider.css',array()  );
+		wp_enqueue_style( 'nivo_style_theme',get_template_directory_uri() . '/js/nivo-slider/themes/default/default.css',array()  );
+		wp_enqueue_style( 'superfish_style',get_template_directory_uri() . '/js/superfish/superfish.css',array()  );
+		wp_enqueue_style( 'font_awesome_style',get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css',array()  );
 		
-		if ( $blogBox_option['bB_disable_colorbox'] != 1 ) {
+		if ( $blogbox_options['bB_disable_colorbox'] != 1 ) {
 			wp_register_style( 'colorbox_style',get_template_directory_uri() . '/js/colorbox/colorbox.css',array() );
 			wp_enqueue_style( 'colorbox_style' );
 		}
-		
-		if ( $blogBox_option['bB_include_mobile_design'] == 1 ) {
-			wp_register_style( 'mobile_style',get_template_directory_uri() . '/css/mobile.css',array() );
-			wp_enqueue_style( 'mobile_style' );
-		}
 	}
-	add_action('wp_enqueue_scripts', 'blogBox_styles');
+	add_action('wp_enqueue_scripts', 'blogbox_styles');
 }
 
-if ( !function_exists ('blogBox_setup')){// load custom styles and fonts
+if ( !function_exists ('blogbox_setup')){// load custom styles and fonts
 	function blogbox_setup(){ 
-	         include( get_template_directory() . '/library/custom-fonts.php' );
-	         include( get_template_directory() . '/library/custom-styles.php' );
+         include( get_template_directory() . '/library/custom-fonts.php' );
+         include( get_template_directory() . '/library/custom-styles.php' );
 	 }
 	add_action( 'wp_print_styles', 'blogbox_setup' );
-}
-
-if ( !function_exists ('blogBox_title_filter')){
-	function blogBox_title_filter($title) {
-		if(is_front_page()) {
-			$return = 'home | '.get_bloginfo( 'name' );
-		} else {
-			$return = $title.' | '.get_bloginfo( 'name' );
-		}
-		
-	    return $return;
-	}
-	add_filter( 'wp_title', 'blogBox_title_filter', 10, 3 );
 }
 
 /* ========================================================================================================
@@ -294,17 +270,17 @@ if ( !function_exists ('blogBox_title_filter')){
 /**
  * Javascript setup for threaded comments
  */
-if ( !function_exists ('blogBox_enqueue_comment_reply_script')){//enque of enque reply script as per http://make.wordpress.org/themes/tag/guidelines/
-	function blogBox_enqueue_comment_reply_script() {
+if ( !function_exists ('blogbox_enqueue_comment_reply_script')){//enque of enque reply script as per http://make.wordpress.org/themes/tag/guidelines/
+	function blogbox_enqueue_comment_reply_script() {
 		if (is_singular() && comments_open() && (get_option('thread_comments') == 1)) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-	add_action( 'wp_enqueue_scripts', 'blogBox_enqueue_comment_reply_script' );
+	add_action( 'wp_enqueue_scripts', 'blogbox_enqueue_comment_reply_script' );
 }
 
-if ( !function_exists ('blogBox_cleanPings')){// clean pingbacks and trackbacks
-	function blogBox_cleanPings($comment, $args, $depth) {
+if ( !function_exists ('blogbox_cleanPings')){// clean pingbacks and trackbacks
+	function blogbox_cleanPings($comment, $args, $depth) {
 		$GLOBALS['comment'] = $comment;
 		echo '<li>';
 		echo comment_author_link().'&nbsp;&nbsp;';
@@ -313,169 +289,13 @@ if ( !function_exists ('blogBox_cleanPings')){// clean pingbacks and trackbacks
 	}
 }
 
-/**
- * Custom Comments Display
- * @link http://codex.wordpress.org/Function_Reference/wp_list_comments
- * 
- * 
- */
-if (!function_exists ('blogBox_comment')){
-	function blogBox_comment($comment, $args, $depth) {
-		
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
-		$exclude_mystery_gravatar = $blogBox_option['bB_exclude_mystery_gravatar'];
-		
-		$GLOBALS['comment'] = $comment;
-		extract($args, EXTR_SKIP);
-	
-		if ( 'div' == $args['style'] ) {
-			$tag = 'div';
-			$add_below = 'comment';
-		} else {
-			$tag = 'li';
-			$add_below = 'div-comment';
-		}
-		?>
-		
-		<<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
-		<?php if ( 'div' != $args['style'] ) : ?>
-			<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-		<?php endif; ?>
-			
-		<div class="comment-author vcard">
-			<?php
-				if( $exclude_mystery_gravatar == 1 ) {
-					$has_valid_avatar = blogBox_validate_gravatar(get_comment_author_email($comment->comment_ID));
-					If ( $has_valid_avatar == 1 ) {
-				 		if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] ); 
-					}
-				} else {
-					if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] );
-				}	
-			 ?>
-			<?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author()) ?>
-		</div>
-		
-		<?php if ($comment->comment_approved == '0') : ?>
-			<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.','blogBox') ?></em>
-			<br />
-		<?php endif; ?>
-
-		<?php comment_text() ?>
-			
-		<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-			<?php
-				/* translators: 1: date, 2: time */
-				printf( __('%1$s at %2$s','blogBox'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('Edit','blogBox'),'  ','' );
-			?>
-		</div>
-		
-		<br/>
-		
-		<div class="reply">
-			<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-		</div>
-		
-		<?php if ( 'div' != $args['style'] ) : ?>
-		</div>
-		<?php endif; ?>
-		
-		<?php
-	}
-}
-
-/**
- * This function was taken from http://codex.wordpress.org/Using_Gravatars
- * It checks the gravatar site for a valid gravatar for the email supplied and 
- * returns a boolean true or false
- */
-if (!function_exists ('blogBox_validate_gravatar')){
-	function blogBox_validate_gravatar($email) {
-		// Craft a potential url and test its headers
-		$hash = md5(strtolower(trim($email)));
-		$uri = 'http://www.gravatar.com/avatar/' . $hash . '?d=404';
-		$headers = @get_headers($uri);
-		if (!preg_match("|200|", $headers[0])) {
-			$has_valid_avatar = FALSE;
-		} else {
-			$has_valid_avatar = TRUE;
-		}
-		return $has_valid_avatar;
-	}
-}
-
-/* ========================================================================================================
- *              Captcha
- * ======================================================================================================== */
-/*
- * ------------------- Comment Captcha ------------------------- 
- * 
- * Modified code from Chip Bennet's post 
- *  at http://www.chipbennett.net/2010/07/29/using-really-simple-captcha-plugin-for-comments/
- * Captcha from Book "Headfirst PHP & MYSQL"
- * 
- * -------------Add Captcha to comment form -------------------*/
-if ( !function_exists ('blogBox_comment_captcha')){//add comment captcha 
-	function blogBox_comment_captcha () { 
-		$blogBox_option = blogBox_get_options();
-		if (!is_user_logged_in() && $blogBox_option['bB_show_comment_captcha'] == 1) { ?>
-	 		
-	 		<label>Verification * </label>
-			<input type="text" id="comment_captcha_response" name="comment_captcha_response" value="<?php _e('Enter Captcha','blogBox'); ?>" onclick="this.select();" />
-			
-			<?php if ( $blogBox_option['bB_use_color_captcha'] == 1 ) { ?>
-				<img src="<?php echo get_template_directory_uri(); ?>/captcha/kabb_captcha_color.php" alt="Verification Captcha" />
-			<?php } else { ?>
-				<img src="<?php echo get_template_directory_uri(); ?>/captcha/kabb_captcha_bw.php" alt="Verification Captcha" />
-			<?php } ?>
-			
-			<br/><br/>
-		<?php }
-	}
-	add_action( 'comment_form_after_fields' , 'blogBox_comment_captcha' );
-}
-
-if ( !function_exists ('blogBox_check_comment_captcha')){//Validate Captcha Entry
-	function blogBox_check_comment_captcha( $comment_data  ) { 
-		$blogBox_option = blogBox_get_options();
-		if ( ( ! is_user_logged_in() ) && ($comment_data['comment_type'] == '') && $blogBox_option['bB_show_comment_captcha'] == 1) {
-			 if(!isset($_SESSION)) session_start();
-			// This variable will hold the result of the CAPTCHA validation. Set to 'false' until CAPTCHA validation passes	
-			$blogBox_comment_captcha_correct = false; 		
-			// Validate the CAPTCHA response
-			if ($_SESSION['kabb_pass_phrase'] == SHA1($_POST['comment_captcha_response'])){
-				$blogBox_comment_captcha_correct = true; 
-			}	
-			// If CAPTCHA validation fails (incorrect value entered in CAPTCHA field) don't process the comment.
-			if ( $blogBox_comment_captcha_correct == false ) { ?>
-				
-				<?php if ( $blogBox_option['bB_use_color_captcha'] == 1 ) { ?>
-					<img style="visibility:hidden;" src="<?php echo get_template_directory_uri(); ?>/captcha/kabb_captcha_color.php" alt="Verification Captcha" />
-					<?php } else { ?>
-						<img style="visibility:hidden;" src="<?php echo get_template_directory_uri(); ?>/captcha/kabb_captcha_bw.php" alt="Verification Captcha" />
-					<?php } ?>
-					
-				<?php wp_die(_e('You have entered an incorrect CAPTCHA value. Click the BACK button on your browser, and try again.','blogBox'));
-				break;
-			} 
-			// if CAPTCHA validation passes (correct value entered in CAPTCHA field), process the comment as per normal
-			session_destroy();
-			return $comment_data;
-			} else {
-				return $comment_data;
-			}
-	}
-	add_filter('preprocess_comment', 'blogBox_check_comment_captcha');
-}
-
 /* ========================================================================================================
  *              Filters
  * ======================================================================================================== */
 
  /* THE_EXCERT modified from http://wordpress.org/support/topic/dynamic-the_excerpt?replies=22 */
-if ( !function_exists ('blogBox_the_excerpt_dynamic')){// Outputs an excerpt of variable length (in characters)
-	function blogBox_the_excerpt_dynamic($length) { 
+if ( !function_exists ('blogbox_the_excerpt_dynamic')){// Outputs an excerpt of variable length (in characters)
+	function blogbox_the_excerpt_dynamic($length) { 
 		
 		global $post;
 		$text = $post->post_excerpt;
@@ -506,8 +326,8 @@ if ( !function_exists ('blogBox_the_excerpt_dynamic')){// Outputs an excerpt of 
 	}
 }
 
-if ( !function_exists ('blogBox_portfolio_titles')){//function to limit characters in portfolio titles
-	function blogBox_portfolio_titles($content,$limit){
+if ( !function_exists ('blogbox_portfolio_titles')){//function to limit characters in portfolio titles
+	function blogbox_portfolio_titles($content,$limit){
 		$content = strip_tags($content);
 		if(strlen($content) > $limit){
 	    	$visible = substr($content, 0, $limit);
@@ -520,8 +340,8 @@ if ( !function_exists ('blogBox_portfolio_titles')){//function to limit characte
 	}
 }
 
-if ( !function_exists ('blogBox_portfolio_feature_description')){//function to limit characters in portfolio titles
-	function blogBox_portfolio_feature_description($content,$limit){
+if ( !function_exists ('blogbox_portfolio_feature_description')){//function to limit characters in portfolio titles
+	function blogbox_portfolio_feature_description($content,$limit){
 		$content = do_shortcode($content);
 		$content = strip_tags($content,'<p></p><i></i><ol></ol><ul></ul><br/><li></li>');
 		if(strlen($content) > $limit){
@@ -537,120 +357,12 @@ if ( !function_exists ('blogBox_portfolio_feature_description')){//function to l
 	}
 }
 
-/*
- * --------------------HTML Validation Filters ------------------------ 
-  * the rel tag does not validate it says it does not like the term category
-  * Discussion at wordpess.org suggests it is an HTML/W#C issue.Browsers do 
-  * not use this attribute in any way. However, search engines can use this 
-  * attribute to get more information about a link.
-  */
-if ( !function_exists ('blogBox_html5_fix_the_category')){//rel tag validation fix
-	function blogBox_html5_fix_the_category($content) { 
-	
-	        $pattern = '/rel="category tag"/';
-	        $replacement = 'rel="tag"';
-	        $content = preg_replace($pattern, $replacement, $content);
-	        return $content;
-	}
-	add_filter('the_category','blogBox_html5_fix_the_category');
-}
-
-/*
- * Plugin Name: Shortcode Empty Paragraph Fix
- * Plugin URI: http://www.johannheyne.de/wordpress/shortcode-empty-paragraph-fix/
- * Description: Fix issues when shortcodes are embedded in a block of content that is filtered by wpautop.
- * Author URI: http://www.johannheyne.de
- * Version: 0.1
- * Put this in /wp-content/plugins/ of your Wordpress installation
- */   
-
-if ( !function_exists ('blogBox_shortcode_paragraph_insertion_fix')){//Empty Paragraph Fix
-	function blogBox_shortcode_paragraph_insertion_fix($content) { 
-	    $array = array (
-	        '<p>[' => '[', 
-	        ']</p>' => ']', 
-	        ']<br />' => ']',
-	        ']<br/>' => ']'
-	    );
-	    $content = strtr($content, $array);
-	    return $content;
-	}
-	add_filter('the_content', 'blogBox_shortcode_paragraph_insertion_fix'); 
-}
-
-add_filter('widget_text', 'do_shortcode');// Allows shortcodes to be displayed in sidebar widgets
-
 /* ========================================================================================================
  *              Miscelaneous
  * ======================================================================================================== */
 
-if ( !function_exists ('blogBox_validEmail')){    
-	function blogBox_validEmail($email)
-	{
-		$isValid = true;
-		$atIndex = strrpos($email, "@");
-		if (is_bool($atIndex) && !$atIndex)
-		{
-			$isValid = false;
-		}
-		else
-		{
-			$domain = substr($email, $atIndex+1);
-			$local = substr($email, 0, $atIndex);
-			$localLen = strlen($local);
-			$domainLen = strlen($domain);
-			if ($localLen < 1 || $localLen > 64)
-			{
-				// local part length exceeded
-				$isValid = false;
-			}
-			else if ($domainLen < 1 || $domainLen > 255)
-			{
-				// domain part length exceeded
-				$isValid = false;
-			}
-			else if ($local[0] == '.' || $local[$localLen-1] == '.')
-			{
-				// local part starts or ends with '.'
-				$isValid = false;
-			}
-			else if (preg_match('/\\.\\./', $local))
-			{
-				// local part has two consecutive dots
-				$isValid = false;
-			}
-			else if (!preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain))
-			{
-				// character not valid in domain part
-				$isValid = false;
-			}
-			else if (preg_match('/\\.\\./', $domain))
-			{
-				// domain part has two consecutive dots
-				$isValid = false;
-			}
-			else if(!preg_match('/^(\\\\.|[A-Za-z0-9!#%&`_=\\/$\'*+?^{}|~.-])+$/', str_replace("\\\\","",$local)))
-			{
-				// character not valid in local part unless 
-				// local part is quoted
-				if (!preg_match('/^"(\\\\"|[^"])+"$/', str_replace("\\\\","",$local)))
-				{
-					$isValid = false;
-				}
-			}
-			if ($isValid && !(checkdnsrr($domain,"MX") || checkdnsrr($domain,"A")))
-			{
-				// domain not found in DNS
-				$isValid = false;
-			}
-		}
-		return $isValid;
-	}
-}
-
-
 /**
- * blogBox exclude categories
+ * blogbox exclude categories
  *
  * This helper function is used in page-home-blog.php and index.php.
  * It returns an exclusion string for $wp-query, and is based on user settings to
@@ -658,45 +370,45 @@ if ( !function_exists ('blogBox_validEmail')){
  * 
  * @return $exclude_categories
  */
-if ( !function_exists ('blogBox_exclude_categories')){//Exclude categories helper
-	function blogBox_exclude_categories () { 
-	 	$blogBox_option = blogBox_get_options();
+if ( !function_exists ('blogbox_exclude_categories')){//Exclude categories helper
+	function blogbox_exclude_categories () { 
+	 	global $blogbox_options;
 		$exclude_categories = "'";
 		$feature_cat_ID = get_cat_ID('Feature');
-		$portfolioA_cat_ID = get_cat_ID(sanitize_text_field($blogBox_option['bB_portfolioA_category']));
-		$portfolioB_cat_ID = get_cat_ID(sanitize_text_field($blogBox_option['bB_portfolioB_category']));
-		$portfolioC_cat_ID = get_cat_ID(sanitize_text_field($blogBox_option['bB_portfolioC_category']));
-		$portfolioD_cat_ID = get_cat_ID(sanitize_text_field($blogBox_option['bB_portfolioD_category']));
-		$portfolioE_cat_ID = get_cat_ID(sanitize_text_field($blogBox_option['bB_portfolioE_category']));
-		if ($feature_cat_ID !== 0 && $blogBox_option['bB_showfeaturepost'] == 0) $exclude_categories = $exclude_categories . "-" . $feature_cat_ID;
-		if ($portfolioA_cat_ID !== 0 && $blogBox_option['bB_showfeatureApost'] == 0 && $exclude_categories !== "'") {
+		$portfolioA_cat_ID = get_cat_ID(sanitize_text_field($blogbox_options['bB_portfolioA_category']));
+		$portfolioB_cat_ID = get_cat_ID(sanitize_text_field($blogbox_options['bB_portfolioB_category']));
+		$portfolioC_cat_ID = get_cat_ID(sanitize_text_field($blogbox_options['bB_portfolioC_category']));
+		$portfolioD_cat_ID = get_cat_ID(sanitize_text_field($blogbox_options['bB_portfolioD_category']));
+		$portfolioE_cat_ID = get_cat_ID(sanitize_text_field($blogbox_options['bB_portfolioE_category']));
+		if ($feature_cat_ID !== 0 && $blogbox_options['bB_showfeaturepost'] == 0) $exclude_categories = $exclude_categories . "-" . $feature_cat_ID;
+		if ($portfolioA_cat_ID !== 0 && $blogbox_options['bB_showfeatureApost'] == 0 && $exclude_categories !== "'") {
 			 $exclude_categories = $exclude_categories . ",-" . $portfolioA_cat_ID;
 		}
-		elseif ($portfolioA_cat_ID !== 0 && $blogBox_option['bB_showfeatureApost'] == 0 && $exclude_categories == "'") {
+		elseif ($portfolioA_cat_ID !== 0 && $blogbox_options['bB_showfeatureApost'] == 0 && $exclude_categories == "'") {
 			 $exclude_categories = $exclude_categories . "-" . $portfolioA_cat_ID;
 		}
-		if ($portfolioB_cat_ID !== 0 && $blogBox_option['bB_showfeatureBpost'] == 0 && $exclude_categories !== "'") {
+		if ($portfolioB_cat_ID !== 0 && $blogbox_options['bB_showfeatureBpost'] == 0 && $exclude_categories !== "'") {
 			 $exclude_categories = $exclude_categories . ",-" . $portfolioB_cat_ID;
 		}
-		elseif ($portfolioB_cat_ID !== 0 && $blogBox_option['bB_showfeatureBpost'] == 0 && $exclude_categories == "'") {
+		elseif ($portfolioB_cat_ID !== 0 && $blogbox_options['bB_showfeatureBpost'] == 0 && $exclude_categories == "'") {
 			 $exclude_categories = $exclude_categories . "-" . $portfolioB_cat_ID;
 		}
-		if ($portfolioC_cat_ID !== 0 && $blogBox_option['bB_showfeatureCpost'] == 0 && $exclude_categories !== "'") {
+		if ($portfolioC_cat_ID !== 0 && $blogbox_options['bB_showfeatureCpost'] == 0 && $exclude_categories !== "'") {
 			 $exclude_categories = $exclude_categories . ",-" . $portfolioC_cat_ID;
 		}
-		elseif ($portfolioC_cat_ID !== 0 && $blogBox_option['bB_showfeatureCpost'] == 0 && $exclude_categories == "'") {
+		elseif ($portfolioC_cat_ID !== 0 && $blogbox_options['bB_showfeatureCpost'] == 0 && $exclude_categories == "'") {
 			 $exclude_categories = $exclude_categories . "-" . $portfolioC_cat_ID;
 		}
-		if ($portfolioD_cat_ID !== 0 && $blogBox_option['bB_showfeatureDpost'] == 0 && $exclude_categories !== "'") {
+		if ($portfolioD_cat_ID !== 0 && $blogbox_options['bB_showfeatureDpost'] == 0 && $exclude_categories !== "'") {
 			 $exclude_categories = $exclude_categories . ",-" . $portfolioD_cat_ID;
 		}
-		elseif ($portfolioD_cat_ID !== 0 && $blogBox_option['bB_showfeatureDpost'] == 0 && $exclude_categories == "'") {
+		elseif ($portfolioD_cat_ID !== 0 && $blogbox_options['bB_showfeatureDpost'] == 0 && $exclude_categories == "'") {
 			 $exclude_categories = $exclude_categories . "-" . $portfolioD_cat_ID;
 		}
-		if ($portfolioE_cat_ID !==0 && $blogBox_option['bB_showfeatureEpost'] == 0 && $exclude_categories !== "'") {
+		if ($portfolioE_cat_ID !==0 && $blogbox_options['bB_showfeatureEpost'] == 0 && $exclude_categories !== "'") {
 			 $exclude_categories = $exclude_categories . ",-" . $portfolioE_cat_ID;
 		}
-		elseif ($portfolioE_cat_ID !== 0 && $blogBox_option['bB_showfeatureEpost'] == 0 && $exclude_categories == "'") {
+		elseif ($portfolioE_cat_ID !== 0 && $blogbox_options['bB_showfeatureEpost'] == 0 && $exclude_categories == "'") {
 			 $exclude_categories = $exclude_categories . "-" . $portfolioE_cat_ID;
 		}
 		$exclude_categories = $exclude_categories . "'"	;
@@ -705,12 +417,11 @@ if ( !function_exists ('blogBox_exclude_categories')){//Exclude categories helpe
 	}
 }
 
-if ( !function_exists ('blogBox_feature_slider')){    
-	function blogBox_feature_slider() {
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
-		$feature_option = sanitize_text_field($blogBox_option['bB_home1feature_options']);
-		$use_feature_widget_area = $blogBox_option['bB_use_feature_widget'];
+if ( !function_exists ('blogbox_feature_slider')){    
+	function blogbox_feature_slider() {
+		global $blogbox_options;
+		$feature_option = sanitize_text_field($blogbox_options['bB_home1feature_options']);
+		$use_feature_widget_area = $blogbox_options['bB_use_feature_widget'];
 		echo '<div id="feature-area">';
 		if( $feature_option == "Full feature slides" ) {
 			echo '<div class="slider-wrapper theme-default">';
@@ -755,7 +466,7 @@ if ( !function_exists ('blogBox_feature_slider')){
 						echo '</a>';
 					} else {
 						echo '<div class="error">';
-						echo '<h3>'.__('Error: There were no feature images found?','blogBox').'</h3>';
+						echo '<h3>'.esc_html__('Error: There were no feature images found?','blogbox').'</h3>';
 						echo '</div>';
 						return;
 					}
@@ -782,7 +493,7 @@ if ( !function_exists ('blogBox_feature_slider')){
 						echo '</a>';
 					} else {
 						echo '<div class="error">';
-						echo '<h3>'.__('Error: There were no feature images found?','blogBox').'</h3>';
+						echo '<h3>'.esc_html__('Error: There were no feature images found?','blogbox').'</h3>';
 						echo '</div>';
 						return;
 					}
@@ -835,8 +546,8 @@ if ( !function_exists ('blogBox_feature_slider')){
 		if( $feature_option == "Small slides and feature text box" || $feature_option == "Small slides and feature text box-thumbnails" || $feature_option == "Small single image and feature text box" || $feature_option == "Small slides and feature text box-nonav" ) {
 			echo '<div id="leftfeature">';
 				if( $use_feature_widget_area != 1 ) {
-					echo "<h1>".stripslashes($blogBox_option['bB_left_feature_title'])."</h1>";
-					echo wp_kses_post(stripcslashes($blogBox_option['bB_left_feature_text']));
+					echo "<h1>".esc_html( stripslashes($blogbox_options['bB_left_feature_title'] ) )."</h1>";
+					echo "<span>".wp_kses_post(stripcslashes($blogbox_options['bB_left_feature_text']))."</span>";
 				} else {
 					if ( !dynamic_sidebar('Feature Area') ) :
 					endif;
@@ -847,43 +558,42 @@ if ( !function_exists ('blogBox_feature_slider')){
 	}
 }
 			
-if ( !function_exists ('blogBox_home_sections')){    
-	function blogBox_home_sections() {
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
-		if ($blogBox_option['bB_home1section1_onoroff'] == 1) { ?>
+if ( !function_exists ('blogbox_home_sections')){    
+	function blogbox_home_sections() {
+		global $blogbox_options;
+		if ($blogbox_options['bB_home1section1_onoroff'] == 1) { ?>
 			<div id="home1section1">
 				<div id="slogan1">
-					<h1><?php echo stripslashes($blogBox_option['bB_home1section1_slogan']); ?></h1>
+					<h2><?php echo esc_html( stripslashes( $blogbox_options['bB_home1section1_slogan'] ) ); ?></h2>
 				</div>
 				<div id="homebuttonbox">
-					<a class="button1" href="<?php if(esc_url($blogBox_option['bB_contact_link']) ==""){echo'#';}else{echo esc_url($blogBox_option['bB_contact_link']);}?>"><?php _e('Contact Me','blogBox'); ?></a>
+					<a class="button1" href="<?php if( $blogbox_options['bB_contact_link'] == "" ){ echo'#'; }else{ echo esc_url( $blogbox_options['bB_contact_link'] );}?>"><?php echo esc_html(stripslashes($blogbox_options['bB_contact_label'])); ?></a>
 				</div>
 			</div>
 		<?php }
-		if ($blogBox_option['bB_home1section2_onoroff'] == 1) { ?>
+		if ($blogbox_options['bB_home1section2_onoroff'] == 1) { ?>
 			<div id="homesection2">
-				<div id="servicebox1" class="bB_column_1" onclick="window.location='<?php echo esc_url($blogBox_option['bB_home1service1_link']); ?>'">
-					<?php if(esc_url($blogBox_option['bB_home1service1_image'] !== "")) echo '<img class="servicebox" src="'.esc_url($blogBox_option['bB_home1service1_image']).'" alt="Service 1 Image" />'; ?>
-					<?php if(stripslashes($blogBox_option['bB_home1service1_title'] !== "")) echo '<h4>'.stripslashes($blogBox_option['bB_home1service1_title']).'</h4>'; ?>
-					<?php if(wp_kses_post(stripslashes($blogBox_option['bB_home1service1_text'] !== ""))) echo '<p>'.wp_kses_post(stripslashes($blogBox_option['bB_home1service1_text'])).'</p>'; ?>
+				<div id="servicebox1" class="bB_column_1" onclick="window.location='<?php echo esc_url( $blogbox_options['bB_home1service1_link'] ); ?>'">
+					<?php if( $blogbox_options['bB_home1service1_image'] !== "") echo '<span class="service1image"><img class="servicebox" src="'.esc_url($blogbox_options['bB_home1service1_image']).'" alt="Service 1 Image" /></span>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service1_title'] ) !== "" ) echo '<h4>'.esc_html( stripslashes( $blogbox_options['bB_home1service1_title'] ) ).'</h4>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service1_text'] ) !== "" ) echo '<p>'.wp_kses_post( stripslashes( $blogbox_options['bB_home1service1_text'] ) ).'</p>'; ?>
 				</div>
-				<div id="servicebox2" class="bB_column_1" onclick="window.location='<?php echo esc_url($blogBox_option['bB_home1service2_link']); ?>'">
-					<?php if(esc_url($blogBox_option['bB_home1service2_image'] !== "")) echo '<img class="servicebox" src="'.esc_url($blogBox_option['bB_home1service2_image']).'" alt="Service 2 Image" />'; ?>
-					<?php if(stripslashes($blogBox_option['bB_home1service2_title'] !== "")) echo '<h4>'.stripslashes($blogBox_option['bB_home1service2_title']).'</h4>'; ?>
-					<?php if(wp_kses_post(stripslashes($blogBox_option['bB_home1service2_text'] !== ""))) echo '<p>'.wp_kses_post(stripslashes($blogBox_option['bB_home1service2_text'])).'</p>'; ?>
+				<div id="servicebox2" class="bB_column_1" onclick="window.location='<?php echo esc_url( $blogbox_options['bB_home1service2_link'] ); ?>'">
+					<?php if( $blogbox_options['bB_home1service2_image'] !== "" ) echo '<span class="service2image"><img class="servicebox" src="'.esc_url( $blogbox_options['bB_home1service2_image'] ).'" alt="Service 2 Image" /></span>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service2_title'] ) !== "" ) echo '<h4>'.esc_html( stripslashes( $blogbox_options['bB_home1service2_title'] ) ).'</h4>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service2_text'] ) !== "" ) echo '<p>'.wp_kses_post( stripslashes( $blogbox_options['bB_home1service2_text'] ) ).'</p>'; ?>
 				</div>
-				<div id="servicebox3" class="bB_column_1" onclick="window.location='<?php echo esc_url($blogBox_option['bB_home1service3_link']); ?>'">
-					<?php if(esc_url($blogBox_option['bB_home1service3_image'] !== "")) echo '<img class="servicebox" src="'.esc_url($blogBox_option['bB_home1service3_image']).'" alt="Service 3 Image" />'; ?>
-					<?php if(stripslashes($blogBox_option['bB_home1service3_title'] !== "")) echo '<h4>'.stripslashes($blogBox_option['bB_home1service3_title']).'</h4>'; ?>
-					<?php if(wp_kses_post(stripslashes($blogBox_option['bB_home1service3_text'] !== ""))) echo '<p>'.wp_kses_post(stripslashes($blogBox_option['bB_home1service3_text'])).'</p>'; ?>
+				<div id="servicebox3" class="bB_column_1" onclick="window.location='<?php echo esc_url($blogbox_options['bB_home1service3_link']); ?>'">
+					<?php if( $blogbox_options['bB_home1service3_image'] !== "") echo '<span class="service3image"><img class="servicebox" src="'.esc_url( $blogbox_options['bB_home1service3_image'] ).'" alt="Service 3 Image" /></span>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service3_title'] ) !== "" ) echo '<h4>'.esc_textarea( stripslashes( $blogbox_options['bB_home1service3_title'] ) ).'</h4>'; ?>
+					<?php if( stripslashes( $blogbox_options['bB_home1service3_text'] ) !== "" ) echo '<p>'.wp_kses_post( stripslashes( $blogbox_options['bB_home1service3_text'] ) ).'</p>'; ?>
 				</div>
 			</div>
 		<?php }
-		if ($blogBox_option['bB_home1section3_onoroff'] == 1) { ?>
+		if ($blogbox_options['bB_home1section3_onoroff'] == 1) { ?>
 			<div id="slogan2">
-				<p class="slogan2line1"><?php echo stripslashes($blogBox_option['bB_home1section3_slogan']); ?></p>
-				<p class="slogan2line2"><?php echo stripslashes($blogBox_option['bB_home1section3_subslogan']); ?></p>
+				<p class="slogan2line1"><?php echo esc_textarea( stripslashes( $blogbox_options['bB_home1section3_slogan'] ) ); ?></p>
+				<p class="slogan2line2"><?php echo esc_textarea( stripslashes( $blogbox_options['bB_home1section3_subslogan'] ) ); ?></p>
 			</div>
 		<?php }
 	}
@@ -899,13 +609,12 @@ if ( !function_exists ('blogBox_home_sections')){
  * @uses has_nav_menu() @uses wp_nav_menu()
  */
  
-if( !function_exists( 'blogBox_header_menu' ) ) {
-	function blogBox_header_menu() {
+if( !function_exists( 'blogbox_header_menu' ) ) {
+	function blogbox_header_menu() {
 		
-		global $blogBox_option;
-		$blogBox_option = blogBox_get_options();
+		global $blogbox_options;
 		
-		if ( $blogBox_option['bB_menu_loc'] == 'right' ) {
+		if ( $blogbox_options['bB_menu_loc'] == 'right' ) {
 			if(has_nav_menu('primary-nav')){
 				wp_nav_menu(
 					array(
@@ -918,7 +627,7 @@ if( !function_exists( 'blogBox_header_menu' ) ) {
 					)
 				);
 			}
-		} else if ( $blogBox_option['bB_menu_loc'] == 'left' ) {
+		} else if ( $blogbox_options['bB_menu_loc'] == 'left' ) {
 			if(has_nav_menu('primary-nav')){
 				wp_nav_menu(
 					array(
@@ -932,7 +641,7 @@ if( !function_exists( 'blogBox_header_menu' ) ) {
 				);
 			}			
 		} else {
-			If ( $blogBox_option['bB_menu_border'] == 'menu only' ) {
+			If ( $blogbox_options['bB_menu_border'] == 'menu only' ) {
 				if(has_nav_menu('primary-nav')){
 					wp_nav_menu(
 						array(
@@ -964,5 +673,10 @@ if( !function_exists( 'blogBox_header_menu' ) ) {
 					
 	}
 }
-		
-?>
+
+//Add title attribute back to gallery images
+function blogbox_image_titles($atts,$img) {
+	$atts['title'] = trim(strip_tags( $img->post_excerpt ));
+	return $atts;
+}
+add_filter('wp_get_attachment_image_attributes','blogbox_image_titles',10,2);

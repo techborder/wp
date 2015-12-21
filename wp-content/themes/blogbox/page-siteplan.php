@@ -6,7 +6,7 @@
  *
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
@@ -16,7 +16,7 @@
 <div id="widecolumn">
 
 	<div class="siteplan">
-		<h1><?php _e('List of Pages for Website','blogBox'); ?></h1>
+		<h1><?php esc_html_e('List of Pages for Website','blogbox'); ?></h1>
 		<br/>
 		<?php 
 			$pages = get_pages();

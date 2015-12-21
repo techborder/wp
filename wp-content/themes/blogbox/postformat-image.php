@@ -1,6 +1,6 @@
 <?php
 /**
- * blogBox Post Format Image
+ * blogbox Post Format Image
  *
  *The Image Post Format is basically the same as the Standard Post Format. The only 
  * difference is that there is a drop shadow on the images. Thus not ideal for embedding 
@@ -9,15 +9,15 @@
  *
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */
 
 /* Get the user choices for the theme options */
-global $blogBox_option;
-$blogBox_option = blogBox_get_options();
-$display_post_icon = $blogBox_option['bB_use_post_format_icons'];
+global $blogbox_options;
+
+$display_post_icon = $blogbox_options['bB_use_post_format_icons'];
 ?>	
 <h2 class="post-title">
 	 <?php 	
@@ -34,7 +34,7 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 
 <div class="clearfix"></div>
 
-<?php blogBox_post_metatop(); ?>
+<?php blogbox_post_metatop(); ?>
 
 <div class="clearfix"></div>
 
@@ -45,11 +45,11 @@ $display_post_icon = $blogBox_option['bB_use_post_format_icons'];
 } ?>
 	
 <div class="image-entry">
-	<?php the_content(__('Read more','blogBox')); ?>
+	<?php the_content(esc_html__('Read more','blogbox')); ?>
 </div>
 
 <div class="clearfix"></div>
 
-<?php blogBox_post_metabottom('image') ?>
+<?php blogbox_post_metabottom('image') ?>
 
 <div class="clearfix"></div>

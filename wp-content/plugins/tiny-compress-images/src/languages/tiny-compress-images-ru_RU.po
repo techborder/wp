@@ -16,9 +16,6 @@ msgstr ""
 msgid "PNG and JPEG compression"
 msgstr "Сжатие PNG и JPEG"
 
-msgid "Multisite PNG and JPEG compression"
-msgstr "PNG и JPEG сжатие для Multisite"
-
 msgid "Visit %s to get an API key"
 msgstr "Посетите %s, чтобы получить API ключ"
 
@@ -30,9 +27,6 @@ msgstr "раздел TinyPNG для разработчиков"
 
 msgid "TinyPNG API key"
 msgstr "TinyPNG API ключ"
-
-msgid "Multisite API key"
-msgstr "Multisite API ключ"
 
 msgid "File compression"
 msgstr "Сжатие файлов"
@@ -52,8 +46,8 @@ msgstr "Сжатие"
 msgid "Compress"
 msgstr "Сжать"
 
-msgid "Compress all uncompressed sizes"
-msgstr "Сжать все несжатые файлы"
+msgid "Compress all"
+msgstr "Сжать все"
 
 msgid "Compressed %d out of %d sizes"
 msgstr "Сжато %d из %d типоразмера(-ов)"
@@ -66,6 +60,12 @@ msgstr "Стало"
 
 msgid "Latest error"
 msgstr "Последняя ошибка"
+
+msgid "Error"
+msgstr "Oшибка"
+
+msgid "Internal error"
+msgstr "Oшибка"
 
 msgid "Credentials are invalid"
 msgstr "Параметры доступа некорректны"
@@ -97,11 +97,8 @@ msgstr "Не могу найти url результата"
 msgid "Could not download output"
 msgstr "Не могу загрузить результат"
 
-msgid "File does not exists"
+msgid "File does not exist"
 msgstr "Файл не существует или не найден плагином"
-
-msgid "Could not decode JSON"
-msgstr "Не могу раскодировать JSON"
 
 msgid "Could not compress, enable cURL for detailed error"
 msgstr "Не могу сжать. Подключите cURL для деталей"

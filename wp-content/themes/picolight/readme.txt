@@ -41,3 +41,4 @@
 	1.1.14/1.1.15: Italian translation added (Thank you Simone Ramacci)
 	1.1.16: Footer now displays correct year | Updated theme link | Optional "about the author" box
 	1.1.17: Footer link removed
+	1.1.18: Dutch translation added (Thank you Michel Huijbers)

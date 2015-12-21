@@ -41,10 +41,10 @@
                                     <?php the_content(); ?>                                              
                                     <?php if (has_tag()) { ?>
                                         <div class="tag">
-                                            <?php the_tags(__('Post Tagged with', 'blcr'), ','); ?>
+                                            <?php the_tags(__('Post Tagged with', 'black-rider'), ','); ?>
                                         </div>
                                     <?php } ?>
-                                    <?php wp_link_pages(array('before' => '<div class="page-link"><span>' . __('Pages:', 'blcr') . '</span>', 'after' => '</div>')); ?>
+                                    <?php wp_link_pages(array('before' => '<div class="page-link"><span>' . __('Pages:', 'black-rider') . '</span>', 'after' => '</div>')); ?>
                                 </div>
                                 <?php
                             endwhile;
@@ -52,7 +52,7 @@
                             ?>
                             <div class="post">
                                 <p>
-                                    <?php _e('Sorry, no posts matched your criteria.', 'blcr'); ?>
+                                    <?php _e('Sorry, no posts matched your criteria.', 'black-rider'); ?>
                                 </p>
                             </div>
                         <?php endif; ?>

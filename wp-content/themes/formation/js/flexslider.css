@@ -62,7 +62,7 @@ html[xmlns] .slides {display: block;}
 .flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
 .caption_wrap { margin: 0 auto; width: 1160px;}
 .flex-caption { position: absolute; bottom: 60px; color:#FFF; font-size: 14px; padding: 4px; border-radius: 0.4em;}
-.flex-caption p { font-family: 'source_sans_proregular', sans-serif; width: 350px; padding: 4px; margin: 0; border-radius: 0 0.4em 0.4em 0.4em; text-shadow: 1px 1px 1px #000;}
+.flex-caption p { width: 350px; padding: 4px; margin: 0; border-radius: 0 0.4em 0.4em 0.4em; text-shadow: 1px 1px 1px #000;}
 .flex-caption p {
   background-color: transparent;
   background-color: rgba(0, 0, 0, 0.7);  /* FF3+, Saf3+, Opera 10.10+, Chrome, IE9 */
@@ -71,8 +71,8 @@ html[xmlns] .slides {display: block;}
 }
 .flex-caption a {color: #FFF;}
 .flex-caption a:hover {color: #CCC;}
-.flex-caption-title { font-family: 'source_sans_probold', sans-serif; text-transform: uppercase; text-transform: uppercase; font-size: 14px; margin-bottom: 0; padding: 4px 6px; border-radius: 0.2em 0.2em 0 0; width: 250px;}
-.flex-caption-title a{ color: #FFF;}
+.flex-caption-title {text-transform: uppercase; text-transform: uppercase; font-size: 14px; margin-bottom: 0; padding: 4px 6px; border-radius: 0.2em 0.2em 0 0; width: 250px;}
+.flex-caption-title a{ color: #FFF; font-weight: 700;}
 
 @media screen and (max-width: 860px) {
    .flex-direction-nav .flex-prev {display: none;}

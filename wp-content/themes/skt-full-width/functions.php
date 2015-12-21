@@ -30,6 +30,7 @@ function skt_full_width_setup() {
 	load_theme_textdomain( 'skt-full-width', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
 	add_theme_support( 'woocommerce' );
 	add_image_size('homepage-thumb',240,145,true);
 	register_nav_menus( array(
@@ -169,13 +170,33 @@ function skt_full_width_custom_head_codes() {
 			thumbnail_navigation    :   0,			// Thumbnail navigation
 			slides 					:  	[			// Slideshow Images
 											<?php
+											$slide_img = array(
+												'1'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'2'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+												'3'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'4'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+												'5'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'6'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+											);
 											if( is_front_page() || is_home() ){
 												for ($i=1;$i<6;$i++) {
 													if ( of_get_option('slide'.$i, true) != "" ) {
-														$imgUrl = esc_url( of_get_option('slide'.$i, true) );
-														$imgTitle = esc_html( of_get_option('slidetitle'.$i, true) );
-														$imgDesc = esc_html( of_get_option('slidedesc'.$i, true) );
-														$imgHref = esc_html( of_get_option('slideurl'.$i, true) );
+														$imgUrl = esc_url( of_get_option('slide'.$i, $slide_img[$i]['slide_image']) );
+														$imgTitle = esc_html( of_get_option('slidetitle'.$i, 'Slide Title'.$i) );
+														$imgDesc = esc_html( of_get_option('slidedesc'.$i, 'Slide Description'.$i) );
+														$imgHref = esc_html( of_get_option('slideurl'.$i, '#link'.$i) );
 														if( $imgUrl != '' ){
 															echo '{image : \''.$imgUrl.'\', title : \'<div class="slide-title"><span>'.( ($imgHref!='' && $imgTitle!='') ? '<a href="'.$imgHref.'">' : '').$imgTitle.( ($imgHref!='' && $imgTitle!='') ? '</a>' : '').'</span></div><div class="slide-description"><span>'.$imgDesc.'</span></div>'.( ($imgHref != '') ? '<div class="slide-description"><span><a href="'.$imgHref.'">Read More &rsaquo;</a></span></div>' : '').'\', thumb : \''.$imgUrl.'\', url : \'\'},'."\n";
 														}
@@ -207,7 +228,7 @@ function skt_full_width_custom_head_codes() {
 	});
 	
 	</script>
-	<?php
+	<?php 
 
 }	
 add_action('wp_head', 'skt_full_width_custom_head_codes');

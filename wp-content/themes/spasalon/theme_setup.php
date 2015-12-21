@@ -5,17 +5,7 @@
   		// setup admin pannel defual data for index page
   		$spa_theme_options=spa_the_theme_setup(); 
   		
-  		// upgrade to current package to new feature package and Current option array and new option array are merge 
-  		$current_theme_options = get_option('spa_theme_options'); // get existing option data 		
-  		if($current_theme_options)
-  		{ 	$spa_theme_options = array_merge($spa_theme_options, $current_theme_options);
-  			update_option('spa_theme_options',$spa_theme_options);	// Save existing and new option data			
-  		}
-  		else
-  		{ 		
-  			add_option('spa_theme_options',$spa_theme_options);  // set New option data 
-  		}
-  		
+  		// upgrade to current package to new feature package and Current option array and new option array are merge
   		//add_option('spa_theme_options',$spa_theme_options);
   		
   		//Add THEME SUPPORT
@@ -142,6 +132,11 @@
   														
   								'product_title'=>__('Spasalon Our product rang','sis_spa'),
   								'product_contents'=>__('A SpaSalon Produc Heading Title In commodo pulvinar metus, id tristique massa ultrices at. Nulla auctor turpis ut mi pulvinar eu accumsan risus sagittis. Mauris nunc ligula, ullamcorper vitae accumsan eu, congue in nulla. Cras hendrerit mi quis nisi semper in sodales nisl faucibus. Sed quis quam eu ante ornare hendrerit. ','sis_spa'), 
+								'enable_news' => 'no',
+								'news_title'=>__('Our Latest News & Events','sis_spa'),
+  								'news_contents'=>__('A SpaSalon Produc Heading Title In commodo pulvinar metus, id tristique massa ultrices at. Nulla auctor turpis ut mi pulvinar eu accumsan risus sagittis. Mauris nunc ligula, ullamcorper vitae accumsan eu, congue in nulla. Cras hendrerit mi quis nisi semper in sodales nisl faucibus. Sed quis quam eu ante ornare hendrerit. ','sis_spa'),
+								
+								
   								'spa_home_Title'=>array('home_title_px' => '42',
   														'home_font_family' => 'MarketingScript',
   														'home_font_style' => 'Normal' ),

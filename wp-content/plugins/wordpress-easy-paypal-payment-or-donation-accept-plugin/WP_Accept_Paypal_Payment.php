@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: WP Easy Paypal Payment Accept
-  Version: v4.7
+  Version: v4.8
   Plugin URI: https://www.tipsandtricks-hq.com/wordpress-easy-paypal-payment-or-donation-accept-plugin-120
   Author: Tips and Tricks HQ
   Author URI: https://www.tipsandtricks-hq.com/
@@ -9,7 +9,7 @@
   License: GPL2
  */
 
-define('WP_PAYPAL_PAYMENT_ACCEPT_PLUGIN_VERSION', '4.7');
+define('WP_PAYPAL_PAYMENT_ACCEPT_PLUGIN_VERSION', '4.8');
 define('WP_PAYPAL_PAYMENT_ACCEPT_PLUGIN_URL', plugins_url('', __FILE__));
 
 include_once('shortcode_view.php');

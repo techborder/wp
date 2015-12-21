@@ -1050,11 +1050,15 @@ body:not(.home):not(.front-page) .site-info {
 #comments ul .comment-body .reply a {
   color: white;
 }
+#comments #respond {
+  text-align: center;
+}
 #comments #respond .comment-form-comment label {
   text-transform: uppercase;
 }
 #comments #respond .comment-form-comment textarea {
   border-radius: 0px !important;
+  outline: none;
 }
 #comments #respond .form-submit input {
   box-shadow: none !important;

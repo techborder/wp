@@ -58,7 +58,7 @@ function paypal_payment_options_page() {
             <input type="hidden" name="info_update" id="info_update" value="true" />
 
             <div class="postbox">
-            <h3><label for="title">Plugin Usage</label></h3>
+            <h3 class="hndle"><label for="title">Plugin Usage</label></h3>
             <div class="inside">      
                 <p>There are a few ways you can use this plugin:</p>
                 <ol>
@@ -71,7 +71,7 @@ function paypal_payment_options_page() {
             </div></div>
 
             <div class="postbox">
-            <h3><label for="title">WP Paypal Payment or Donation Accept Plugin Options</label></h3>
+            <h3 class="hndle"><label for="title">WP Paypal Payment or Donation Accept Plugin Options</label></h3>
             <div class="inside">
 
                 <table class="form-table">

@@ -4,11 +4,11 @@ Theme URI: http://www.templateexpress.com/formation-theme/
 Author: Template Express
 Author URI: http://www.templateexpress.com/
 Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout  and color templates that look great on devices of all sizes.
-Version: 2.3
+Version: 2.4
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
-
+Text Domain: formation
 This theme, like WordPress, is licensed under the GPL.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
@@ -24,7 +24,7 @@ _s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
 */
 
 /*
-Formation WordPress Theme, Copyright 2014 Ossie Heffell
+Formation WordPress Theme, Copyright 2014-2015 Ossie Heffell
 Formation is distributed under the terms of the GNU GPL
 */
 
@@ -1533,7 +1533,7 @@ li.pingback {
 	font-size: 1.3rem;
 	margin: 1em 0 0 4.5em;
 }
-.reply { 
+.comment .reply { 
 	float:right;
 	margin:0 10px 10px 0;
 	text-align:center;
@@ -1542,7 +1542,7 @@ li.pingback {
 	padding:3px;
 	width:50px;
 }
-.reply:hover { 
+.comment .reply:hover { 
 	background-color:  #222;
 }
 .comment article {

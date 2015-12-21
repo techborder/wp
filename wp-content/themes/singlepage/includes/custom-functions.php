@@ -202,30 +202,6 @@ function singlepage_allow_post_tags( $allowedposttags ){
 add_filter('wp_kses_allowed_html','singlepage_allow_post_tags', 1);
 
 
- /**
- * singlepage favicon
- */
-
-	function singlepage_favicon()
-	{
-	    $url =  of_get_option('favicon');
-	
-		$icon_link = "";
-		if($url)
-		{
-			$type = "image/x-icon";
-			if(strpos($url,'.png' )) $type = "image/png";
-			if(strpos($url,'.gif' )) $type = "image/gif";
-		
-			$icon_link = '<link rel="icon" href="'.esc_url($url).'" type="'.$type.'">';
-		}
-		
-		echo $icon_link;
-	}
-	
-	 add_action( 'wp_head', 'singlepage_favicon' );
-
-
 //** fonts **//
 
 /**

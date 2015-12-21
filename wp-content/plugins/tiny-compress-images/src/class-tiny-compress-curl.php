@@ -67,18 +67,33 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         return array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER => true,
             CURLOPT_CAINFO => self::get_ca_file(),
             CURLOPT_SSL_VERIFYPEER => true
         );
     }
 
-    protected function output($url) {
+    protected function resize_options($resize) {
+        if (!$resize) {
+            return array();
+        }
+        return array(
+            CURLOPT_USERPWD => 'api:' . $this->api_key,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+            CURLOPT_POSTFIELDS => json_encode(array('resize' => $resize))
+        );
+    }
+
+    protected function output($url, $resize) {
         $request = curl_init();
-        curl_setopt_array($request, $this->output_options($url));
+        $options = array_replace_recursive($this->output_options($url), $this->resize_options($resize));
+        curl_setopt_array($request, $options);
 
         $response = curl_exec($request);
+        $header_size = curl_getinfo($request, CURLINFO_HEADER_SIZE);
+        $headers = self::parse_headers(substr($response, 0, $header_size));
         curl_close($request);
 
-        return $response;
+        return array(substr($response, $header_size), $headers);
     }
 }

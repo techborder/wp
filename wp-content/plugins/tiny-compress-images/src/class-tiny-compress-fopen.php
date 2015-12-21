@@ -78,17 +78,35 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
         );
     }
 
-    protected function output($url) {
-        $context = stream_context_create($this->output_options());
+    protected function resize_options($resize) {
+        if (!$resize) {
+            return array();
+        }
+        return array(
+            'http' => array(
+                'header' => array(
+                    'Authorization: Basic ' . base64_encode('api:' . $this->api_key),
+                    'Content-Type: application/json'
+                 ),
+                'content' => json_encode(array('resize' => $resize))
+            )
+        );
+    }
+
+    protected function output($url, $resize) {
+        $options = array_replace_recursive($this->output_options(), $this->resize_options($resize));
+        $context = stream_context_create($options);
         $request = @fopen($url, 'rb', false, $context);
 
         if ($request) {
             $response = stream_get_contents($request);
+            $meta_data = stream_get_meta_data($request);
+            $headers = self::parse_headers($meta_data['wrapper_data']);
             fclose($request);
         } else {
             $response = '';
+            $headers = array();
         }
-
-        return $response;
+        return array($response, $headers);
     }
 }

@@ -5,6 +5,7 @@ function wppp_render_paypal_button_with_other_amt($args) {
         'email' => '',
         'description' => '',
         'default_amount' => '',
+        'other_amount_label' => 'Amount:',
         'currency' => 'USD',
         'reference' => '',
         'return' => site_url(),
@@ -44,7 +45,7 @@ function wppp_render_paypal_button_with_other_amt($args) {
     $output .= '<div class="wp_paypal_button_widget_any_amt">';
     $output .= '<form name="_xclick" class="wp_accept_pp_button_form_any_amount" action="https://www.paypal.com/cgi-bin/webscr" method="post" ' . $window_target . '>';
 
-    $output .= '<div class="wp_pp_button_amount_section">Amount: <input type="number" min="1" step="any" name="amount" value="' . $default_amount . '" style="max-width:60px;"> ' . $currency . '</div>';
+    $output .= '<div class="wp_pp_button_amount_section">'.$other_amount_label.' <input type="number" min="1" step="any" name="amount" value="' . $default_amount . '" style="max-width:60px;"> ' . $currency . '</div>';
 
     if (!empty($reference)) {
         $output .= '<div class="wp_pp_button_reference_section">';
@@ -83,7 +84,7 @@ function wppp_render_paypal_button_with_other_amt($args) {
         $button_class = apply_filters('wppp_text_button_class', '');
         $output .= '<input type="submit" name="submit" class="' . $button_class . '" value="' . $button_text . '" />';
     } else {//Use image button
-        $output .= '<input type="image" id="buy_now_button" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
+        $output .= '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
     }
     $output .= '</div>';
     $output .= '</form>';
@@ -100,6 +101,7 @@ function wppp_render_paypal_button_form($args) {
         'cbt' => '',
         'reference' => 'Your Email Address',
         'other_amount' => '',
+        'other_amount_label' => 'Other Amount:',
         'country_code' => '',
         'payment_subject' => '',
         'button_image' => '',
@@ -147,7 +149,7 @@ function wppp_render_paypal_button_form($args) {
                     <?php
                     if (!empty($other_amount)) {
                         echo '<div class="wp_pp_button_other_amt_section">';
-                        echo 'Other Amount: <input type="number" min="1" step="any" name="other_amount" value="" style="max-width:60px;"> ' . $currency;
+                        echo $other_amount_label.' <input type="number" min="1" step="any" name="other_amount" value="" style="max-width:60px;"> ' . $currency;
                         echo '</div>';
                     }
 
@@ -198,7 +200,7 @@ function wppp_render_paypal_button_form($args) {
         $button_class = apply_filters('wppp_text_button_class', '');
         echo '<input type="submit" name="submit" class="' . $button_class . '" value="' . $button_text . '" />';
     } else {//Use image button
-        echo '<input type="image" id="buy_now_button" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
+        echo '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
     }
     echo '</div>';
     ?>

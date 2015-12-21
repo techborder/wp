@@ -7,9 +7,20 @@ function optionsframework_option_name() {
 	$themename = get_option( 'stylesheet' );
 	$themename = preg_replace("/\W/", "_", strtolower($themename) );
 	if( is_child_theme() ){	
-		$themename = str_replace("_child","",$themename ) ;
+		$themename = str_replace("_child","",$themename );
 		}
-	return $themename;
+	$themename_lan = $themename;
+	
+	if( defined('ICL_LANGUAGE_CODE') && ICL_LANGUAGE_CODE != 'en' )
+	$themename = $themename.'_'.ICL_LANGUAGE_CODE;
+	
+	if(function_exists('pll_current_language')){
+	$default_lan = pll_default_language('slug');
+	$current_lan = pll_current_language('slug');
+	if($current_lan !='' && $default_lan != $current_lan)
+	$themename_lan = $themename.'_'.$current_lan;
+	}
+	return $themename_lan;
 }
 
 
@@ -72,11 +83,6 @@ function optionsframework_options() {
 		'std' => '',
 		'type' => 'upload');
 		
-	$options[] = array(
-		'name' => __('Favicon', 'singlepage'),
-		'desc' => sprintf(__('An icon associated with a URL that is variously displayed, as in a browser\'s address bar or next to the site name in a bookmark list. Learn more about <a href="%s" target="_blank">Favicon</a>', 'singlepage'),esc_url("http://en.wikipedia.org/wiki/Favicon")),
-		'id' => 'favicon',
-		'type' => 'upload');
 	
 	$options[] = array('name' =>  __('Blog Page Background', 'singlepage'),'id' => 'blog_background','std' => $blog_background,'type' => 'background' );
 	
@@ -110,7 +116,7 @@ function optionsframework_options() {
 		'type' => 'checkbox');*/
 	 
      $options[] = array(
-		'name' => __( 'Section Height Mode', 'singlepage' ),
+		'name' => __( 'Section Height Mode ( Desktop & Tablet )', 'singlepage' ),
 		'desc' => '',
 		'id' => 'section_height_mode',
 		'std' => '1',
@@ -120,6 +126,19 @@ function optionsframework_options() {
 						2=> __( 'Section Height Extensible', 'singlepage' ),
 						   )
 		);
+	 
+	  $options[] = array(
+		'name' => __( 'Section Height Mode on Mobile', 'singlepage' ),
+		'desc' => '',
+		'id' => 'section_height_mode_mobile',
+		'std' => '2',
+		'type' => 'radio',
+		'options' => array(
+						1=> __( 'One Section per Screen', 'singlepage' ),
+						2=> __( 'Section Height Extensible', 'singlepage' ),
+						   )
+		);
+	  
 	 
 	  $options[] = array(
 		'name' => __('Hide Side Navigation', 'singlepage'),
@@ -149,6 +168,8 @@ function optionsframework_options() {
 		$options[] = array(	'name' => __('Video Loop', 'singlepage'),	'id' => 'youtube_video_loop','std' => 'true','class' => 'mini','options' => array('true'=>__('yes', 'singlepage'),'false'=>__('no', 'singlepage')),	'type' => 'select');
 		
 		$options[] = array(	'name' => __('Mute', 'singlepage'),	'id' => 'youtube_video_mute','std' => 'true','class' => 'mini','options' => array('true'=>__('yes', 'singlepage'),'false'=> __('no', 'singlepage')),	'type' => 'select');
+		
+		$options[] = array(	'name' => __('Show Controls', 'singlepage'),	'id' => 'youtube_show_controls','std' => 'false','class' => 'mini','options' => array('true'=>__('yes', 'singlepage'),'false'=> __('no', 'singlepage')),	'type' => 'select');
 		
 		$options[] = array('name' => __('Starts At', 'singlepage'),'id' => 'youtube_start_at','type' => 'text','std'=>'10' ,"desc"=>'');
 		
@@ -237,20 +258,20 @@ function optionsframework_options() {
 		'position' => 'top left',
 		'attachment'=>'scroll' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_02.jpg',
+		'color' => '#152431',
+		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'scroll' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_03.jpg',
+		'color' => '#D73E4D',
+		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'scroll' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_04.jpg',
+		'color' => '#375099',
+		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'scroll' )
@@ -267,7 +288,10 @@ function optionsframework_options() {
 	<li>Elegans Lorem Ratio amoena</li>
 	<li>fons et oculorum captans iconibus</li>
 	<li> haec omnia faciant ad melioris propositi vestri website</li>
-</ul>
+</ul><br/>
+<a href="#" class="btn btn-white btn-outline btn-lg"> Buy Now </a>
+
+<a href="#" class="btn btn-warning btn-lg" >Download </a>
 </p>',
 		'<p><h1 class="section-title">Responsive Layout</h1><br>
 </p>',
@@ -465,7 +489,7 @@ function optionsframework_options() {
 		$options[] = array( 'name' => __('Homepage Side Nav Menu Typography', 'singlepage'),
 
 			'id' => 'homepage_side_nav_menu_typography',
-			'std' => array( 'size' => '14px', 'face' => 'Open Sans, sans-serif', 'color' => '#dcecff'),
+			'std' => array( 'size' => '14px', 'face' => 'Open Sans, sans-serif', 'color' => '#ffffff'),
 			'type' => 'typography',
 			'options' => array(
 			'faces' => singlepage_options_typography_get_os_fonts(),

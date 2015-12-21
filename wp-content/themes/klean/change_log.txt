@@ -46,3 +46,5 @@
 		v1.12	- 1. Updated the screenshot
 			  2. Added a scroll down button
 			  3. Minor Bug Fixes
+
+		v1.13	- 1. Updated Font Awesome

@@ -13,6 +13,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Changelog
 --------------------------------------------
+Version: 2.4
+* Flexslider rtl issue resolved
+* BBPress styles compatibilty improved
+
 Version: 2.3
 * Added bigger screenshot for retina screens
 * Fixed text domain issue

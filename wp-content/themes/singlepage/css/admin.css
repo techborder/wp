@@ -46,6 +46,10 @@ padding: 10px 10px 0;
 #optionsframework-sidebar .postbox{
 	min-width:100px;
 	}
+#optionsframework h3{
+	padding:10px 5px;
+	margin-bottom: 0;
+	}
 
 .delete-section{
   background-color: #e14d43;

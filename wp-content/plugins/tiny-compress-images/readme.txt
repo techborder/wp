@@ -1,10 +1,10 @@
 === Compress JPEG & PNG images ===
 Contributors: TinyPNG
 Donate link: https://tinypng.com/
-Tags: compress, optimize, shrink, improve, images, tinypng, tinyjpg, jpeg, jpg, png, lossy, jpegmini, crunch, minify, smush, save, bandwidth, website, speed, faster, performance, panda
+Tags: compress, optimize, shrink, resize, fit, scale, improve, images, tinypng, tinyjpg, jpeg, jpg, png, lossy, jpegmini, crunch, minify, smush, save, bandwidth, website, speed, faster, performance, panda, wordpress app
 Requires at least: 3.0.6
-Tested up to: 4.3
-Stable tag: 1.4.0
+Tested up to: 4.4
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,6 +17,7 @@ Make your website faster by compressing your JPEG and PNG images. This plugin au
 = Features =
 
 * Automatically compress new images.
+* Optionally resize original image to fit a lower resolution.
 * Easy bulk compression of your existing media library.
 * Compress individual images already in your media library.
 * Multisite support with a single API key.
@@ -25,6 +26,7 @@ Make your website faster by compressing your JPEG and PNG images. This plugin au
 * Select which thumbnail sizes of an image may be compressed.
 * Converts from CMYK to RGB to save more space and maximize compatibility.
 * Automatic detection of images that can be recompressed.
+* Compress and resize uploads from the Wordpress mobile app.
 * No file size limit.
 
 = How does it work? =
@@ -97,6 +99,10 @@ A: Everything will keep on working, but newly uploaded images will not be compre
 A: Yes! After installing the plugin, go to Tools > Compress JPEG & PNG images, and click on "Compress all images" to compress all uncompressed images in your media library.
 
 == Changelog ==
+
+= 1.5.0 =
+* Resize original images automatically when compressing, using the TinyPNG API. Set a maximum width and/or height and the original image will be scaled to fit your maximum resolution.
+* Added support for compressing and resizing uploads from the mobile Wordpress app (thanks to contributor Pale Purple!).
 
 = 1.4.0 =
 * Added indication of number of images you can compress for free each month.

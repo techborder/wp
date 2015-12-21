@@ -2,7 +2,7 @@
 /**
  * Template Name: Home Page
  *
- * @since SinglePage 1.2.5
+ * @since SinglePage 1.3.7
  */
       get_header("featured");
      global $allowedposttags;
@@ -31,7 +31,7 @@
 	 $section_content_color      = array("#ffffff","#ffffff","#ffffff","#ffffff");
 	 $section_css_class          = array("","","","");
 	 $section_background_size    = array("yes","no","no","yes");
-	 $imagepath =  get_template_directory_uri() . '/images/';
+	 $imagepath                  =  get_template_directory_uri() . '/images/';
 	 
 	  $video_background_section  = of_get_option( 'video_background_section',0);
 	  $mp4_video_url       = esc_url( of_get_option( 'mp4_video_url' ) );
@@ -75,20 +75,20 @@
 		'position' => 'top left',
 		'attachment'=>'fixed' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_02.jpg',
+		'color' => '#152431',
+		'image' =>'',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'fixed' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_03.jpg',
+		'color' => '#D73E4D',
+		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'fixed' ),
 		 array(
-		'color' => '',
-		'image' => $imagepath.'bg_04.jpg',
+		'color' => '#375099',
+		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top left',
 		'attachment'=>'fixed' )
@@ -106,6 +106,11 @@
 	<li>fons et oculorum captans iconibus</li>
 	<li> haec omnia faciant ad melioris propositi vestri website</li>
 </ul>
+<br/>
+<a href="#" class="btn btn-white btn-outline btn-lg"> Buy Now </a>
+
+<a href="#" class="btn btn-warning btn-lg" >Download </a>
+
 </p>',
 		'<p><h1 class="section-title">Responsive Layout</h1><br>
 </p>',
@@ -198,6 +203,7 @@
 		$video_enable = 1;  
 		$class       .= " singlepage-video-section";
 		$background   = "";
+		
 	  }
 	  if( $google_map_section == ($i+1) ){
 		  
@@ -300,16 +306,17 @@
   <div class="clear"></div>
 	</div>
    <?php 
-    $youtube_video_background_section = of_get_option( 'youtube_video_background_section' ,'0' );
-	$youtube_video                    = of_get_option( 'youtube_video' ,'' );
-	$youtube_video_loop               = of_get_option( 'youtube_video_loop' ,'true' );
-	$youtube_video_mute               = of_get_option( 'youtube_video_mute' ,'true' );
+    $youtube_video_background_section = absint(of_get_option( 'youtube_video_background_section' ,'0' ));
+	$youtube_video                    = esc_attr(of_get_option( 'youtube_video' ,'' ));
+	$youtube_video_loop               = esc_attr(of_get_option( 'youtube_video_loop' ,'true' ));
+	$youtube_video_mute               =esc_attr( of_get_option( 'youtube_video_mute' ,'true' ));
+	$youtube_show_controls            = esc_attr(of_get_option( 'youtube_show_controls' ,'true' ));
 	$youtube_start_at                 = absint(of_get_option( 'youtube_start_at' ,'0' ));
-	
+	$youtube_show_controls            = $youtube_show_controls ==''?'true':$youtube_show_controls ;
 	
 	if( $youtube_video_background_section > 0 && $youtube_video != '' ):
     ?>
-    <div id="home_youtube_video" class="player" data-property="{videoURL:'<?php echo $youtube_video;?>',containment:'.home_section_<?php echo $youtube_video_background_section;?>', showControls:false, autoPlay:true, loop:<?php echo $youtube_video_loop;?>, mute:<?php echo $youtube_video_mute;?>, startAt:<?php echo $youtube_start_at;?>, opacity:1, addRaster:true, quality:'default'}">&nbsp;</div> 
+    <div id="home_youtube_video" class="player" data-property="{videoURL:'<?php echo $youtube_video;?>',containment:'.home_section_<?php echo $youtube_video_background_section;?>', showControls:<?php echo $youtube_show_controls;?>, autoPlay:true, loop:<?php echo $youtube_video_loop;?>, mute:<?php echo $youtube_video_mute;?>, startAt:<?php echo $youtube_start_at;?>, opacity:1, addRaster:true, quality:'default'}">&nbsp;</div> 
     <?php endif;?>
     
 <?php

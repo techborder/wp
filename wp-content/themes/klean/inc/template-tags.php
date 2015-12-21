@@ -19,7 +19,9 @@ function klean_pagination() {
 	    'format' => '?paged=%#%',
 	    'current' => max( 1, get_query_var('paged') ),
 	    'total' => $wp_query->max_num_pages,
-	    'type'  => 'array'
+	    'type'  => 'array',
+	    'prev_text'	=> 'Prev',
+	    'next_text'	=> 'Next'
 	) );
 	if( is_array($page_format) ) {
 	            $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');

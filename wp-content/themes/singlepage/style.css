@@ -2,7 +2,7 @@
 Theme Name: SinglePage
 Theme URI: http://www.hoothemes.com/themes/single-page.html
 Description: SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company, you can sort the section order by simply drag & drop with the fantastic control panel. Each of the homepage sections can have a parallax background image and its own set of colors. Dozens of theme options are available to design your sites, such as typography, social icons, upload logo, custom css, HTML5 video background, full screen google map and so on. You can not only use it to create a singlepage-style front page for your business website, but also create your personal blog or site easily. You can check the demo at http://demo.hoosoft.com/singlepage/
-Version: 1.3.4
+Version: 1.3.7
 Author: HooThemes
 Author URI: http://www.hoothemes.com
 License: GNU General Public License
@@ -916,6 +916,8 @@ nav > ul > li.current_page_item > a,
 	margin-bottom:42px;
 	cursor: pointer;
 }
+
+
 .sub_nav .cur {
 	background:url(images/nav_cur.png) 0 50% no-repeat
 }
@@ -2338,6 +2340,67 @@ footer{
 }
 
 /*
+*  Button
+*/
+
+@media (min-width: 34em)
+.bd-masthead .btn {
+    width: auto;
+}
+
+.btn{
+	margin-right:15px;
+	}
+.btn-white{
+	border-color:#fff;
+	background-color:#fff;
+	}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-white.btn-outline {
+    color: #ffffff;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+.btn-white.btn-outline:hover{
+	color:#666;
+	background-color:#fff;
+	}
+.btn i{
+	padding-right:10px;
+	}
+/*
 *  Contact Form 7
 */
 
@@ -2411,8 +2474,13 @@ form.wpcf7-form .wpcf7-submit{
 
 @media screen and (max-width:919px) {
 	
+	#navigation .responsive-logo{
+		display:block;
+		}
 	.site-nav-toggle {
 		display: block;
+		padding-right:15px;
+		font-size: 25px;
 	}
 	.site-nav {
 		display: none;
@@ -2431,12 +2499,15 @@ form.wpcf7-form .wpcf7-submit{
 		line-height:inherit;
 		
 		}
+	#navigation ul li ul li{
+		background:none;
+		}
 	.main-menu{
 		float:none;
 		
 		}
 	#menu-main{
-		padding-bottom:10px;
+		/*padding-bottom:10px;*/
 		padding-left: 50px;
 		
 		}
@@ -2497,7 +2568,7 @@ form.wpcf7-form .wpcf7-submit{
 .site-tagline{
 		display:none;
 		}
-	#main #navigation{
+#main #navigation{
 		height:65px;
 		}
 		
@@ -2505,10 +2576,13 @@ form.wpcf7-form .wpcf7-submit{
 	display:block;
 	margin-bottom:0;
 	}
-	#navigation ul{
+#navigation ul{
 		float:none;
-		margin-top: 80px;
+		margin-top: 0;
 		}
+#navigation ul li{
+	width:100%;
+	}
 #navigation ul li ul{
 	position:static;
 	display: block;
@@ -2556,7 +2630,7 @@ form.wpcf7-form .wpcf7-submit{
 	position:fixed;
 	left:20px;
 	top:50%;
-	margin-top:-80px
+
 }
 	}
 @media screen and (max-width:768px) {
@@ -2587,7 +2661,7 @@ header.navbar{
 	/*position:absolute;*/
 	left:20px;
 	top:200px;
-	margin-top:-80px
+
 }
 #featured-template header.navbar {
   /* position: static;*/
@@ -2631,3 +2705,6 @@ header.navbar{
 .transparent{-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity:0;opacity:0;}
 .vjs-big-play-button,.vjs-control-bar{display:none !important;}
 #big-video-wrap {  display: none;}
+.mb_YTPBar .buttonBar{
+	top:-50px;
+	}

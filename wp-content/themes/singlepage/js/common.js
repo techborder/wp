@@ -3,7 +3,13 @@
 /* ------------------------------------------------------------------------ */
 
 (function($) {
-		if( $("body#featured-template").length && singlepage_params.section_height_mode == '1' ){
+		if( $("body#featured-template").length && 
+			  (
+			   (singlepage_params.section_height_mode == '1' && singlepage_params.is_mobile == '0') ||
+				(singlepage_params.section_height_mode_mobile == '1' && singlepage_params.is_mobile == '1' )
+				) 
+			  
+			  ){
     var e = function() {
 	
         var e = 0,
@@ -123,23 +129,83 @@ function singlepageClick(o){
 jQuery(document).ready(function($) {
 
 // onepage nav
-$('#featured-template #sub_nav_2 li').each(function(){
+/*$('#featured-template #sub_nav_2 li span').each(function(){
      $(this).click(function(){
-				singlepageClick($(this).find("a").attr("id"));
+				singlepageClick($(this).parent('li').find("a").attr("id"));
 			});
 	 
-	});
+	});*/
 
+/*
 $('#featured-template #sub_nav_2').onePageNav({
 		changeHash: false,
 		filter: "ul li a[href^='#']",
 		currentClass:"cur",
 		scrollThreshold:0.15,
 		scrollSpeed:Number(singlepage_params.scrolldelay)
+	});*/
+
+
+$(function() {
+	$('#featured-template #sub_nav_2 li a[href^="#"],.site-nav ul li a[href^="#"]').parent('li').bind('click', function(event) {
+		var $anchor = $(this).find('a');
+		if( $($anchor.attr('href')).length ){
+		$('html, body').stop().animate({
+			scrollTop: $($anchor.attr('href')).offset().top
+		}, Number(singlepage_params.scrolldelay), 'easeInOutExpo',function () {
+            //window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        }
+		);
+		event.preventDefault();
+		}
 	});
 
+});
+$(document).on("scroll", onScroll);
+
+function onScroll(event){
+    var scrollPos = $(document).scrollTop()+1;
+    $('#featured-template #sub_nav_2 li a[href^="#"]').each(function () {
+																	  
+        var currLink = $(this);
+		var currLi   = currLink.parent('li');
+		
+        var refElement = $(currLink.attr("href"));
+		
+        if ( refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#featured-template #sub_nav_2 li').removeClass("cur");
+            currLi.addClass("cur");
+			
+        }
+        else{
+            currLi.removeClass("cur");
+        }
+    });
+	
+	 $('.site-nav ul li a[href^="#"]').each(function () {
+        var currLink = $(this);
+		var currLi   = currLink.parent('li');
+		
+        var refElement = $(currLink.attr("href"));
+        if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('.site-nav ul li').removeClass("cur");
+            currLi.addClass("cur");
+        }
+        else{
+            currLi.removeClass("cur");
+        }
+    });
+	 
+}
+
+
+
 // section full screen
-if(singlepage_params.section_height_mode == '2'){
+if(
+			   (singlepage_params.section_height_mode == '2' && singlepage_params.is_mobile == '0') ||
+				(singlepage_params.section_height_mode_mobile == '2' && singlepage_params.is_mobile == '1' )
+				){
 $("#featured-template section").each(function(){
 											  
   $(this).css({'min-height':$(window).height()});						  
@@ -317,7 +383,7 @@ $("#panel-cog").click(function(){
 /* ------------------------------------------------------------------------ */
 /*  smooth scrolling  btn       	  								  	    */
 /* ------------------------------------------------------------------------ */
-
+/*
    jQuery("header a[href^='#']").on('click', function(e){
 				var selectorHeight = jQuery('header').height();   
 				var scrollTop = jQuery(window).scrollTop(); 
@@ -333,14 +399,14 @@ $("#panel-cog").click(function(){
 				}
 
  });	
-  
+  */
 /* ------------------------------------------------------------------------ */
 /* home page youtube video 	  								  	    */
 /* ------------------------------------------------------------------------ */ 
   if( $('#home_youtube_video').length){
-	  jQuery.mbYTPlayer.apiKey = "AIzaSyB_z8WrsKw2kIplh5kBc6xTawEDu91V5dQ";
+	  $.mbYTPlayer.apiKey = "AIzaSyB_z8WrsKw2kIplh5kBc6xTawEDu91V5dQ";
 	var myPlayer;
-	 myPlayer  = jQuery('#home_youtube_video').YTPlayer();
+	 myPlayer  = $('#home_youtube_video').YTPlayer();
 	}
   
 

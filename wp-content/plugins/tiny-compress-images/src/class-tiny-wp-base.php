@@ -20,14 +20,46 @@
 
 abstract class Tiny_WP_Base {
     const NAME = 'tiny-compress-images';
+    const PREFIX = 'tinypng_';
+
+    private static $wp_version;
+    private static $plugin_version;
+
+    public static function wp_version() {
+        if (is_null(self::$wp_version)) {
+            // Try to use unmodified version
+            include( ABSPATH . WPINC . '/version.php' );
+            if (isset($wp_version)) {
+                self::$wp_version = $wp_version;
+            } else {
+                self::$wp_version = $GLOBALS['wp_version'];
+            }
+        }
+        return self::$wp_version;
+    }
+
+    public static function check_wp_version($version) {
+        return floatval(self::wp_version()) >= $version;
+    }
+
+    protected function is_xmlrpc_request() {
+        return defined('XMLRPC_REQUEST') && XMLRPC_REQUEST;
+    }
 
     public static function plugin_version() {
-        $plugin_data = get_plugin_data(dirname(__FILE__) . '/../tiny-compress-images.php');
-        return $plugin_data['Version'];
+        if (is_null(self::$plugin_version)) {
+            $plugin_data = get_plugin_data(dirname(__FILE__) . '/../tiny-compress-images.php');
+            self::$plugin_version = $plugin_data['Version'];
+        }
+        return self::$plugin_version;
     }
 
     public static function plugin_identification() {
-        return 'Wordpress/' . $GLOBALS['wp_version'] . ' Tiny/' . self::plugin_version();
+        return 'WordPress/' . self::wp_version() . ' PHP/' . PHP_VERSION . ' Tiny/' . self::plugin_version();
+    }
+
+    protected static function get_prefixed_name($name) {
+        return self::PREFIX . $name;
     }
 
     protected static function translate($phrase) {
@@ -38,9 +70,17 @@ abstract class Tiny_WP_Base {
         return htmlspecialchars(translate($phrase, self::NAME));
     }
 
+    protected static function ntranslate_escape($single, $plural, $amount) {
+        return htmlspecialchars(_n($single, $plural, $amount, self::NAME));
+    }
+
     public function __construct() {
         add_action('init', $this->get_method('init'));
-        add_action('admin_init', $this->get_method('admin_init'));
+        if (self::is_xmlrpc_request()) {
+            add_action('init', $this->get_method('xmlrpc_init'));
+        } elseif (is_admin()) {
+            add_action('admin_init', $this->get_method('admin_init'));
+        }
     }
 
     protected function get_method($name) {
@@ -51,13 +91,20 @@ abstract class Tiny_WP_Base {
         return array(get_class($this), $name);
     }
 
+    protected function get_user_id() {
+        return get_current_user_id();
+    }
+
+    protected function check_ajax_referer() {
+        return check_ajax_referer('tiny-compress', '_nonce', false);
+    }
+
     public function init() {
     }
 
-    public function admin_init() {
+    public function xmlrpc_init() {
     }
 
-    public function add_admin_notice($message) {
-        add_action('admin_notices', create_function('', "echo '<div class=\"error\"><p>Tiny Compress Images: $message</p></div>';"));
+    public function admin_init() {
     }
 }

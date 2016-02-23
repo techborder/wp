@@ -11,6 +11,7 @@ class DUP_Database {
 	public $FilterTables;
 	public $FilterOn;
 	public $Name;
+	public $Compatible;
 	
 	//PROTECTED
 	protected $Package;
@@ -35,24 +36,33 @@ class DUP_Database {
 			
 			$time_start = DUP_Util::GetMicrotime();
 			$this->Package->SetStatus(DUP_PackageStatus::DBSTART);
+			$this->dbStorePath  = "{$this->Package->StorePath}/{$this->File}";
 			
 			$package_mysqldump	= DUP_Settings::Get('package_mysqldump');
 			$package_phpdump_qrylimit = DUP_Settings::Get('package_phpdump_qrylimit');
 			
-			$this->dbStorePath  = "{$this->Package->StorePath}/{$this->File}";
 			$mysqlDumpPath = self::GetMySqlDumpPath();
 			$mode = ($mysqlDumpPath && $package_mysqldump) ? 'MYSQLDUMP' : 'PHP';
-			$mysqlDumpSupport = ($mysqlDumpPath) ? 'Is Supported' : 'Not Supported';
+			$reserved_db_filepath = DUPLICATOR_WPROOTPATH . 'database.sql';
+
 			
 			$log  = "\n********************************************************************************\n";
 			$log .= "DATABASE:\n";
 			$log .= "********************************************************************************\n";
-			$log .= "BUILD MODE:   {$mode} ";
+			$log .= "BUILD MODE:   {$mode}";
 			$log .= ($mode == 'PHP') ? "(query limit - {$package_phpdump_qrylimit})\n" : "\n";
-			$log .= "MYSQLDUMP:    {$mysqlDumpSupport}\n";
-			$log .= "MYSQLTIMEOUT: " . DUPLICATOR_DB_MAX_TIME;
+			$log .= "MYSQLTIMEOUT: " . DUPLICATOR_DB_MAX_TIME . "\n";
+			$log .= "MYSQLDUMP:    ";
+			$log .= ($mysqlDumpPath) ? "Is Supported" : "Not Supported";
 			DUP_Log::Info($log);
 			$log = null;
+			
+			//Reserved file found
+			if (file_exists($reserved_db_filepath)) {
+				DUP_Log::Error("Reserverd SQL file detected", 
+						"The file database.sql was found at [{$reserved_db_filepath}].\n"
+						. "\tPlease remove/rename this file to continue with the package creation.");
+			}
 			
 			switch ($mode) {
 				case 'MYSQLDUMP': $this->mysqlDump($mysqlDumpPath); 	break;
@@ -62,12 +72,14 @@ class DUP_Database {
 			DUP_Log::Info("SQL CREATED: {$this->File}");
 			$time_end = DUP_Util::GetMicrotime();
 			$time_sum = DUP_Util::ElapsedTime($time_end, $time_start);
-
+			
+			//File below 10k will be incomplete
 			$sql_file_size = filesize($this->dbStorePath);
-			if ($sql_file_size <= 0) {
-				DUP_Log::Error("SQL file generated zero bytes.", "No data was written to the sql file.  Check permission on file and parent directory at [{$this->dbStorePath}]");
+			DUP_Log::Info("SQL FILE SIZE: " . DUP_Util::ByteSize($sql_file_size) . " ({$sql_file_size})");
+			if ($sql_file_size < 10000) {
+				DUP_Log::Error("SQL file size too low.", "File does not look complete.  Check permission on file and parent directory at [{$this->dbStorePath}]");
 			}
-			DUP_Log::Info("SQL FILE SIZE: " . DUP_Util::ByteSize($sql_file_size));
+			
 			DUP_Log::Info("SQL FILE TIME: " . date("Y-m-d H:i:s"));
 			DUP_Log::Info("SQL RUNTIME: {$time_sum}");
 			
@@ -195,6 +207,8 @@ class DUP_Database {
 		$host = reset($host);
 		$port = strpos(DB_HOST, ':') ? end(explode( ':', DB_HOST ) ) : '';
 		$name = DB_NAME;
+		$mysqlcompat_on  = isset($this->Compatible) && strlen($this->Compatible);
+		
 		//Build command
 		$cmd = escapeshellarg($exePath);
 		$cmd .= ' --no-create-db';
@@ -202,9 +216,15 @@ class DUP_Database {
 		$cmd .= ' --hex-blob';
 		$cmd .= ' --skip-add-drop-table';
 		
+		//Compatibility mode
+		if ($mysqlcompat_on) {
+			DUP_Log::Info("COMPATIBLE: [{$this->Compatible}]");	
+			$cmd .= " --compatible={$this->Compatible}";	
+		}
+		
 		//Filter tables
-		$tables		= $wpdb->get_col('SHOW TABLES');
-		$filterTables  = isset($this->FilterTables) ? explode(',', $this->FilterTables) : null;
+		$tables			= $wpdb->get_col('SHOW TABLES');
+		$filterTables	= isset($this->FilterTables) ? explode(',', $this->FilterTables) : null;
 		$tblAllCount	= count($tables);
 		$tblFilterOn	= ($this->FilterOn) ? 'ON' : 'OFF';
 
@@ -216,9 +236,7 @@ class DUP_Database {
 				}
 			}
 		}
-		$tblCreateCount = count($tables);
-		$tblFilterCount = $tblAllCount - $tblCreateCount;
-
+		
 		$cmd .= ' -u ' . escapeshellarg(DB_USER);
 		$cmd .= (DB_PASSWORD) ? 
 				' -p'  . escapeshellarg(DB_PASSWORD) : '';
@@ -237,9 +255,12 @@ class DUP_Database {
 		}
 		$output = (strlen($output)) ? $output : "Ran from {$exePath}";
 		
-		DUP_Log::Info("TABLES: total:{$tblAllCount} | filtered:{$tblFilterCount} | create:{$tblCreateCount}");
-		DUP_Log::Info("FILTERED: [{$this->FilterTables}]");		
+		$tblCreateCount = count($tables);
+		$tblFilterCount = $tblAllCount - $tblCreateCount;
+		
+		DUP_Log::Info("FILTERED: [{$this->FilterTables}]");	
 		DUP_Log::Info("RESPONSE: {$output}");
+		DUP_Log::Info("TABLES: total:{$tblAllCount} | filtered:{$tblFilterCount} | create:{$tblCreateCount}");
 	
 		$sql_footer  = "\n\n/* Duplicator WordPress Timestamp: " . date("Y-m-d H:i:s") . "*/\n";
 		$sql_footer .= "/* " . DUPLICATOR_DB_EOF_MARKER . " */\n";

@@ -25,12 +25,22 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-wrap clearfix">
 			<div class="site-branding">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+            <?php if ( is_front_page() || is_home() ) : ?>
+   				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <?php else : ?>
+               <h3 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h3>
+            <?php endif; ?>
+            <?php
+            $description = get_bloginfo( 'description', 'display' );
+            if ( $description || is_customize_preview() ) : ?>
+               <p class="site-description"><?php echo $description; ?></p>
+            <?php endif;?>
 			</div>
 
-			<div class="header-search-icon"></div>
-			<?php get_search_form(); ?>
+			<?php if ( get_theme_mod( 'radiate_header_search_hide', 0 ) == 0 ) { ?>
+				<div class="header-search-icon"></div>
+				<?php get_search_form();
+			} ?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<h4 class="menu-toggle"></h4>

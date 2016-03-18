@@ -41,41 +41,53 @@ abstract class Tiny_Compress {
     }
 
     abstract protected function shrink($input);
-    abstract protected function output($url);
+    abstract protected function output($url, $resize);
 
-    public function get_status() {
-        list($details, $headers) = $this->shrink(null);
+    public function get_status(&$details) {
+        list($details, $headers, $status_code) = $this->shrink(null);
 
         $this->call_after_compress_callback($details, $headers);
-        if ($details["error"] == 'InputMissing' || $details["error"] == 'TooManyRequests') {
-            return Tiny_Compressor_Status::Green;
+        if ($status_code >= 400 && $status_code < 500 && $status_code != 401) {
+            return true;
         } else {
-            return Tiny_Compressor_Status::Red;
+            return false;
         }
     }
 
-    public function compress($input) {
+    public function compress($input, $resize_options) {
         list($details, $headers) = $this->shrink($input);
         $this->call_after_compress_callback($details, $headers);
-        $outputUrl = $headers["Location"];
+        $outputUrl = isset($headers['location']) ? $headers['location'] : null;
         if (isset($details['error']) && $details['error']) {
             throw new Tiny_Exception($details['message'], $details['error']);
         } else if ($outputUrl === null) {
             throw new Tiny_Exception('Could not find output url', 'OutputNotFound');
         }
-        $output = $this->output($outputUrl);
+        list($output, $headers) = $this->output($outputUrl, $resize_options);
+        $this->call_after_compress_callback(null, $headers);
         if (strlen($output) == 0) {
             throw new Tiny_Exception('Could not download output', 'OutputError');
         }
+
         return array($output, $details);
     }
 
-    public function compress_file($file) {
+    public function compress_file($file, $resize_options) {
         if (!file_exists($file)) {
-            throw new Tiny_Exception('File does not exists', 'FileError');
+            throw new Tiny_Exception('File does not exist', 'FileError');
         }
-        list($output, $details) = $this->compress(file_get_contents($file));
+
+        if (!self::needs_resize($file, $resize_options)) {
+            $resize_options = false;
+        }
+
+        list($output, $details) = $this->compress(file_get_contents($file), $resize_options);
         file_put_contents($file, $output);
+
+        if ($resize_options) {
+            $details['output'] = self::update_details($file, $details) + $details['output'];
+        }
+
         return $details;
     }
 
@@ -93,7 +105,7 @@ abstract class Tiny_Compress {
         foreach ($headers as $header) {
             $split = explode(":", $header, 2);
             if (count($split) === 2) {
-                $res[$split[0]] = trim($split[1]);
+                $res[strtolower($split[0])] = trim($split[1]);
             }
         }
         return $res;
@@ -102,9 +114,33 @@ abstract class Tiny_Compress {
     protected static function decode($text) {
         $result = json_decode($text, true);
         if ($result === null) {
-            throw new Tiny_Exception('Could not decode JSON', 'JsonError');
+            throw new Tiny_Exception(sprintf('JSON: %s [%d]',
+                    PHP_VERSION_ID >= 50500 ? json_last_error_msg() : 'Unknown error',
+                    PHP_VERSION_ID >= 50300 ? json_last_error() : 'Error'),
+                'JsonError');
         }
         return $result;
+    }
+
+    protected static function needs_resize($file, $resize_options) {
+        if (!$resize_options) {
+            return false;
+        }
+
+        list($width, $height) = getimagesize($file);
+        return $width > $resize_options['width'] || $height > $resize_options['height'];
+    }
+
+    protected static function update_details($file, $details) {
+        $size = filesize($file);
+        list($width, $height) = getimagesize($file);
+        return array(
+            'size'    => $size,
+            'width'   => $width,
+            'height'  => $height,
+            'ratio'   => round($size / $details['input']['size'], 4),
+            'resized' => true
+        );
     }
 }
 

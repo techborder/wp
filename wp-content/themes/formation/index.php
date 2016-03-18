@@ -8,19 +8,17 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Formation
- * @since Formation 1.0
+ * @package formation
+ * @since formation 1.0
  */
 
 get_header(); ?>
 		<header class="entry-header">
-        	<div class="title-container">
                     <h1 class="page-title"><?php if( is_home() && get_option('page_for_posts') ) { ?>
 					<?php echo apply_filters('the_title',get_page( get_option('page_for_posts') )->post_title); ?>
                     <?php } elseif( is_singular() ) { ?>
                     <?php the_title(); ?>
-                    <?php } ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
-            </div>
+                    <?php } ?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
         </header><!-- .entry-header -->
 		<div id="primary_wrap">
 		<div id="primary" class="content-area">
@@ -41,7 +39,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php Formation_content_nav( 'nav-below' ); ?>
+				<?php formation_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 

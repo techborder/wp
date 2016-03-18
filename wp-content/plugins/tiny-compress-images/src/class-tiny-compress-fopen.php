@@ -28,7 +28,10 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
                     'Authorization: Basic ' . base64_encode('api:' . $this->api_key),
                     'User-Agent: ' . Tiny_WP_Base::plugin_identification() . ' fopen',
                  ),
-                'content' => $input
+                'content' => $input,
+                'follow_location' => 0,
+                'max_redirects' => 1, // Necessary for PHP 5.2
+                'ignore_errors' => true // Apparently, a 201 is a failure
             ),
             'ssl' => array(
                 'cafile' => self::get_ca_file(),
@@ -41,11 +44,21 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
         $context = stream_context_create($this->shrink_options($input));
         $request = @fopen(Tiny_Config::URL, 'r', false, $context);
 
+        $status_code = null;
+        if ($http_response_header && count($http_response_header) > 0) {
+            $http_code_values = explode(' ', $http_response_header[0]);
+            if (count($http_code_values) > 1) {
+                $status_code = intval($http_code_values[1]);
+            }
+        }
+
         if (!$request) {
+            $headers = self::parse_headers($http_response_header);
+
             return array(array(
                 'error' => 'FopenError',
-                'message' => 'Could not compress, enable cURL for detailed error'
-              ), null
+                'message' => 'Could not compress, enable cURL for detailed error',
+              ), $headers, $status_code
             );
         }
 
@@ -54,11 +67,11 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
         $headers = self::parse_headers($meta_data['wrapper_data']);
         fclose($request);
 
-        return array(self::decode($response), $headers);
+        return array(self::decode($response), $headers, $status_code);
     }
 
-    protected function output_options() {
-        return array(
+    protected function output_options($resize) {
+        $options = array(
             'http' => array(
                 'method' => 'GET',
             ),
@@ -67,23 +80,30 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
                 'verify_peer' => true
             )
         );
+        if ($resize) {
+            $options['http']['header'] = array(
+                'Authorization: Basic ' . base64_encode('api:' . $this->api_key),
+                'Content-Type: application/json',
+                'User-Agent: ' . Tiny_WP_Base::plugin_identification() . ' fopen'
+            );
+            $options['http']['content'] = json_encode(array('resize' => $resize));
+        }
+        return $options;
     }
 
-    protected function output($url) {
-        $context = stream_context_create($this->output_options());
+    protected function output($url, $resize) {
+        $context = stream_context_create($this->output_options($resize));
         $request = @fopen($url, 'rb', false, $context);
 
         if ($request) {
             $response = stream_get_contents($request);
+            $meta_data = stream_get_meta_data($request);
+            $headers = self::parse_headers($meta_data['wrapper_data']);
             fclose($request);
         } else {
             $response = '';
+            $headers = array();
         }
-
-        return $response;
-    }
-
-    public function get_status() {
-        return Tiny_Compressor_Status::Yellow;
+        return array($response, $headers);
     }
 }

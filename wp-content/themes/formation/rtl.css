@@ -1,10 +1,10 @@
 /*
 Theme Name: Formation
 Theme URI: http://www.templateexpress.com/formation-theme/
-Author: Ossie Heffell
+Author: Template Express
 Author URI: http://www.templateexpress.com/
-Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout templates that look great on devices of all sizes. This theme is WPML compatible.
-Version: 1.9.8
+Description: Formation is a full-width, fully responsive and highly customizable WordPress Theme. Add your own logo, header, featured areas, social media links and much more. This versatile theme also has several different layout  and color templates that look great on devices of all sizes.
+Version: 2.4.1
 License: GNU General Public License v2.0
 License URI: ​http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white, one-column, two-columns, right-sidebar, fluid-layout, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, threaded-comments, translation-ready, theme-options, full-width-template, black, responsive-layout
@@ -24,8 +24,8 @@ _s ("Underscores") WordPress Theme is distributed under the terms of the GNU GPL
 */
 
 /*
-Formation WordPress Theme, Copyright 2014 Ossie Heffell
-Formation Theme is distributed under the terms of the GNU GPL
+Formation WordPress Theme, Copyright 2014-2016 Ossie Heffell
+Formation is distributed under the terms of the GNU GPL
 */
 
 /* =Reset
@@ -100,6 +100,103 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
 a img {
 	border: 0;
 }
+.fa,
+.main-navigation li > a:after,
+.entry-date:before,
+.comments-link:before,
+.edit-link:before,
+.tag-links:before,
+.cat-links:before,
+.byline:before {
+    font-family:fontawesome; 
+    font-style:normal; 
+    font-weight:400; 
+    speak:none; 
+    display:inline-block; 
+    text-decoration:inherit; 
+    text-align:center; 
+    font-variant:normal; 
+    text-transform:none;
+}
+.hidden {
+	display: none!important;
+}
+
+
+/* Source Sans Pro
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+More info available with a FAQ at: http://scripts.sil.org/OFL
+-------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'source_sans_probold';
+    src: url('fonts/sourcesanspro-bold-webfont.eot');
+    src: url('fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sourcesanspro-bold-webfont.woff') format('woff'),
+         url('fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
+         url('fonts/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('fonts/sourcesanspro-regular-webfont.eot');
+    src: url('fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+         url('fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.entry-content,
+.entry-summary,
+.comment .reply,
+.comment-meta,
+.comment-author {
+	font-family: 'source_sans_proregular', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,
+.more-link,
+.widget h4,
+#sidebar-left h4,
+.topbar_content_left,
+.site-title,
+.site-description,
+.main-navigation,
+.main-navigation ul ul li a,
+.menu-toggle,
+.main-small-navigation .menu li a,
+.recent_title,
+.entry-title,
+.page-title,
+.entry-meta,
+.grid-more-link,
+.authorName,
+.authorLinks a,
+.nav-previous a, 
+.nav-next a,
+.comments-title,
+#reply-title,
+.comment-author,
+.reply,
+.widget-title,
+.site-info,
+.featuretext_top,
+.client h3,
+.section_thumbnails h3,
+.thumbs-more-link,
+.featuretext_top {
+	font-family: 'source_sans_probold', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
 
 
 /* =Global
@@ -111,21 +208,19 @@ input,
 select,
 textarea {
 	color: #747474;	
-	font-family: 'source_sans_proregular', Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
 	line-height: 1.9;
 }
 
 body {
-	background: #333;
+	background: #fff;
 }
 
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
 	clear: both;
 	margin: 0.6em 0;
-	font-family: 'source_sans_probold', sans-serif;
 }
 h1 {
 	font-size: 28px;
@@ -278,7 +373,7 @@ input[type="submit"] {
 	font-size: 1.4rem;
 	line-height: 1;
 	padding: 0.8em;
-	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	text-shadow: 0 -1px 0 rgba(255,255,255,.8);
 }
 button:hover,
 html input[type="button"]:hover,
@@ -383,23 +478,35 @@ a:active {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
 
-.site-title,
-.entry-title,
-.page-title,
-.entry-content,
-.entry-summary,
-.widget-title,
-.comments-title,
-.comment .reply,
-.comment-meta,
-.comment-author,
-#reply-title {
-	font-family: 'source_sans_proregular', Helvetica Neue, Helvetica, Arial, sans-serif;
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	right: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
 }
 
 .more-link {
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 10px;
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -422,7 +529,6 @@ a.more-link:hover {
 	padding: 4px;
 	border-radius:0.2em;
 	border-bottom: 1px solid #333;
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
 	text-transform: uppercase;
@@ -487,9 +593,6 @@ a.more-link:hover {
 #sidebar-left li{
 	border-bottom: 1px solid #EFEFEF;
 }
-#sidebar-left h4{
-	font-family: 'source_sans_probold', sans-serif;
-}
 
 /* =Structure
 ----------------------------------------------- */
@@ -498,7 +601,6 @@ a.more-link:hover {
 	margin: 0 auto;
 	padding: 0;
 	position: relative;
-	background-color: #FFF;
 }
 .header_container {
 	background: #FFF;
@@ -591,33 +693,37 @@ a.more-link:hover {
 #topbar_container {
 	margin: 0 auto;
 	width: 100%;
-	height: 34px;
+	min-height: 34px;
 	clear: both;
-	background-color: #222;
+	background: #222;
 }
 .topbar {
 	margin: 0 auto;
 	max-width: 1160px;
 	padding: 8px 10px;
 }
-.topbar_content_left {
-	width: 46.5%;
-	float: right;
-	font-size: 13px;
-	font-size: 1.3rem;
-	color: #CCC;
-	padding-right: 4px;
-	font-family: 'source_sans_probold', sans-serif;
-	text-transform: uppercase;
+.topbar:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }
-.topbar_content_left:before {
-	content: '\f437';
+.topbar_content_left {
+	font-size: 14px;
+	font-size: 1.4rem;
+	text-transform: uppercase;
+	float: right;
+}
+.topbar_content_left .contact{
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 20px/1 'Genericons';
 	vertical-align: middle;
-	padding-bottom: 3px;
-	color: #FFF;
+	margin-right: 1em;
+	color: #ccc;
+}
+.topbar_content_left a{
+	color: #ccc;
 }
 .topbar_content_right {
 	float: left;
@@ -642,13 +748,11 @@ a.more-link:hover {
 .site-title {
 	font-size: 22px;
 	font-size: 2.2rem;
-	font-family: 'source_sans_probold', sans-serif;
 	padding-right: 6px;
 }
 .site-description {
 	font-size: 13px;
 	font-size: 1.3rem;	
-	font-family: 'source_sans_probold', sans-serif;
 	padding-right: 6px;
 }
 .site-title a,
@@ -675,7 +779,6 @@ a.more-link:hover {
     display: block;
 	float: left;
 	width: 70%;
-	font-family: 'source_sans_probold', sans-serif;
 }
 .main-navigation:after {
 	clear: both;
@@ -703,6 +806,7 @@ a.more-link:hover {
 	text-transform: uppercase;
 	padding: 0 18px;
 	border-top: 4px solid #FFF;
+	font-weight: 700;
 }
 
 .main-navigation li:hover > a,
@@ -783,7 +887,6 @@ a.more-link:hover {
     margin: 0;
 	font-size: 1.1rem;
 	font-size: 11px;
-    font-family: 'source_sans_probold', sans-serif;
 	text-transform: uppercase;
     border-bottom: 1px solid #333;
     background: #222;
@@ -837,7 +940,6 @@ a.more-link:hover {
 	padding: 4px 18px;
 	color: #FFF;
    	cursor: pointer;
-	font-family: 'source_sans_probold', sans-serif;
 	text-transform: uppercase;
     font-size: 1.4rem;
 	font-size: 14px;
@@ -845,6 +947,10 @@ a.more-link:hover {
 	background-color: #222;
 	margin: 0;
 	margin-top: 4px;
+}
+.main-small-navigation .menu-toggle a {
+	z-index: 9999;
+	display: block;
 }
 
 .main-small-navigation .menu {
@@ -864,7 +970,6 @@ a.more-link:hover {
 
 .main-small-navigation .menu li a{
 	color: #FFF;
-	font-family: 'source_sans_probold', sans-serif;
 	text-transform: uppercase;
 	font-size: 1.4rem;
 	padding: 4px 0;
@@ -910,7 +1015,6 @@ a.more-link:hover {
 	color: #333;
 }
 .sticky h2{
-	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	margin-bottom: 0;
@@ -920,7 +1024,7 @@ a.more-link:hover {
 	background-color: #333;
 	color: #FFF;
 	padding: 8px;
-	border-radius:0.2em 0 0 0.2em;
+	border-radius:0.2em 0.2em 0 0;
 	text-transform: uppercase;
 }
 .recent {
@@ -928,13 +1032,11 @@ a.more-link:hover {
 	border-radius:0.4em;
 	background-color: #EFEFEF;
 }
-
 .client_recent {
 	margin: 0 4px 20px 4px;
 	background-color: #FFF;
 }
 .recent_title{
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	background-color: #333;
@@ -943,7 +1045,7 @@ a.more-link:hover {
 	padding: 4px 2px;
 	text-align: center;
 	margin: 0;
-	border-radius: 0.4em 0 0 0.4em;
+	border-radius: 0.4em 0.4em 0 0;
 }
 .recent_title a{
 	color: #FFF;
@@ -973,46 +1075,40 @@ a.more-link:hover {
 }
 
 .entry-header {
-	background-color: #EFEFEF;
+	background: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
-	display: block; 
-	min-height: 70px;
 }
 .page-header {
-	background-color: #EFEFEF;
+	background: #EFEFEF;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #E1E1E1;
 	border-top: 1px solid #E1E1E1;
 }
 .entry-title,
 .page-title {
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 16px;
     font-size: 1.6rem;
 	margin: 0 0 0.2em;
 	padding-top: 2px;
 	text-transform: uppercase;
 	color: #333;
-	text-shadow: 0px 1px 0 #FFF;
-}
-.title-container{
-	margin: 0 auto;
-	max-width: 1140px;
+	text-shadow: 0px -1px 0 #FFF;
 }
 .page-title {
 	font-size: 18px;
     font-size: 1.8rem;
-	padding: 20px 6px;
-	float: right;
+	padding: 24px;
+	margin: 0 auto;
+	max-width: 1140px;
 }
 .entry-title {
 	font-size: 14px;
     font-size: 1.4rem;
 	text-decoration: none;
 	color: #222;
-	background-color: #EFEFEF;
+	background: #EFEFEF;
 	padding: 6px 4px;
 	margin-top: -8px;
 }
@@ -1024,14 +1120,7 @@ a.more-link:hover {
 	float: left;
 	text-transform: none;
 	font-size: 12px;
-	padding: 12px 10px 0 6px;
-	color: #333;
-}
-.breadcrumbs a{
-	color: #666;
-}
-.breadcrumbs a:hover{
-	color: #CCC;
+	padding: 3px 0 0 2px;
 }
 body.search .page-title,
 body.archive .page-title {
@@ -1048,13 +1137,13 @@ body.archive .page-title {
 	max-width: 1160px;
 	border-bottom: 1px solid #EFEFEF;
 	text-transform: uppercase;
-	font-family: 'source_sans_probold', sans-serif;
 }
 footer.entry-meta {
 	border: none;
 }
 .entry-meta a {
 	color: #10b9b9;
+	font-weight: 700;
 }
 .entry-meta a:hover {
 	color: #333;
@@ -1062,72 +1151,47 @@ footer.entry-meta {
 .entry-date {
 	margin-left: 8px;
 }
-.entry-date:before {
-	content: '\f303';
-	display: inline-block;
+
+
+.entry-date:before,
+.comments-link:before,
+.edit-link:before,
+.tag-links:before,
+.cat-links:before,
+.byline:before {
 	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
 	vertical-align: top;
 	padding-left: 2px;
 	color: #999;
 }
-.comments-link {
-	margin-left: 8px;
-}
-.comments-link:before {
-	content: '\f108';
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
-	vertical-align: top;
-	padding-left: 6px;
-	color: #999;
-}
-.edit-link {
-	margin-left: 8px;
-}
-.edit-link:before {
-	content: '\f411';
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
-	vertical-align: top;
-	padding-left: 2px;
-	color: #999;
-}
-.tag-links {
-	margin-left:8px;
-}
-.tag-links:before {
-	content: '\f302';
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
-	vertical-align: top;
-	color: #999;
-}
-.cat-links {
-	margin-left: 8px;
-}
-.cat-links:before {
-	content: '\f443';
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
-	vertical-align: top;
-	color: #999;
-}
+.entry-date,
+.comments-link,
+.edit-link,
+.tag-links,
+.cat-links,
 .byline {
 	margin-left: 8px;
 }
-.byline:before {
-	content: '\f304';
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font: normal 18px/1 'Genericons';
-	vertical-align: top;
-	color: #999;
+.entry-date:before {
+	content: "\f017";
 }
+.comments-link:before {
+	content: "\f075";
+	padding-left: 6px;
+}
+.edit-link:before {
+	content: "\f040";
+}
+.tag-links:before {
+	content: "\f02b";
+}
+.cat-links:before {
+	content: "\f114";
+}
+.byline:before {
+	content: "\f007";
+}
+
 .entry-content,
 .entry-summary {
 	margin: 0.8em 0 0;
@@ -1160,8 +1224,7 @@ footer.entry-meta {
 }
 .entry-content ul li {
 	list-style-type: square;
-	list-style-position: outside;
-	margin-right: 1em;
+	list-style-position: inside;
 }
 .entry-content ol {
 	list-style: decimal;
@@ -1242,7 +1305,6 @@ footer.entry-meta {
 	border-bottom: 1px solid #EFEFEF;
 	color:#333;
 	font-size: 14px;
-	font-family: 'source_sans_probold', sans-serif;
 }
 .authorLinks{
 	padding: 6px 2px;
@@ -1255,7 +1317,6 @@ footer.entry-meta {
 	font-size: 11px;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-family: 'source_sans_probold', sans-serif; 
 }
 .authorLinks a:hover{
 	color: #000;
@@ -1396,7 +1457,6 @@ object {
 .nav-previous a, .nav-next a {
 	padding: 4px 6px;
 	color: #222;
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	text-transform: uppercase;
@@ -1419,8 +1479,6 @@ object {
 #reply-title {
 	font-size: 16px;
 	font-size: 1.6rem;
-	font-family: 'source_sans_probold', sans-serif;
-	
 }
 .commentlist li {
 	list-style: none;
@@ -1465,7 +1523,6 @@ li.pingback {
 	font-size: 16px;
 	font-size: 1.6rem;
 	color: #333;
-	font-family: 'source_sans_probold', sans-serif;
 }
 .comment-meta {
 	font-size: 12px;
@@ -1484,7 +1541,6 @@ li.pingback {
 	border-radius:0.4em;
 	padding:3px;
 	width:50px;
-	font-family: 'source_sans_probold', sans-serif;
 }
 .reply:hover { 
 	background-color:  #222;
@@ -1566,7 +1622,6 @@ p.nocomments {
 	padding: 2px 6px;
 	border-bottom: 4px solid #10b9b9;
 	text-transform: uppercase;
-	font-family: 'source_sans_probold', sans-serif;
 }
 
 /* Search widget */
@@ -1600,7 +1655,6 @@ p.nocomments {
 	color: #808080;
 	background-color: #333;
 	border-top: 1px solid  #444;
-	font-family: 'source_sans_probold', sans-serif;
 }
 .site-info a{
 	color: #AAA;
@@ -1629,101 +1683,9 @@ p.nocomments {
 }
 
 #smoothup:hover {
-	background-color: #10b9b9; 
+	background-color: #49a7a4; 
 }
 
-/* Source Sans Pro
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-More info available with a FAQ at: http://scripts.sil.org/OFL
--------------------------------------------------------------- */
-
-@font-face {
-    font-family: 'source_sans_probold';
-    src: url('font/sourcesanspro-bold-webfont.eot');
-    src: url('font/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/sourcesanspro-bold-webfont.woff') format('woff'),
-         url('font/sourcesanspro-bold-webfont.ttf') format('truetype'),
-         url('font/sourcesanspro-bold-webfont.svg#source_sans_probold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'source_sans_proregular';
-    src: url('font/sourcesanspro-regular-webfont.eot');
-    src: url('font/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('font/sourcesanspro-regular-webfont.ttf') format('truetype'),
-         url('font/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-/* =Genericons
- * Genericons are vector icons embedded in a webfont designed to be clean and simple 
- * keeping with a generic aesthetic.
- * More info at http://genericons.com/
--------------------------------------------------------------- */
-
-/**
- * The font was graciously generated by Font Squirrel (http://www.fontsquirrel.com)
- */
-@font-face {
-    font-family: 'Genericons';
-    src: url('font/genericons-regular-webfont.eot');
-    src: url('font/genericons-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/genericons-regular-webfont.woff') format('woff'),
-         url('font/genericons-regular-webfont.ttf') format('truetype'),
-         url('font/genericons-regular-webfont.svg#genericonsregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-.genericon, .genericon:visited {
-	color: #CCC;
-	display: inline-block;
-	-webkit-font-smoothing: antialiased;
-	font-size: 14px;
-	font-size: 1.4rem;
-	line-height: 1;
-	font-family: 'Genericons';
-	text-decoration: inherit;
-	font-weight: normal;
-	font-style: normal;
-	vertical-align: middle;
-}
-.genericon:hover {
-	color: #10b9b9;
-}
-
-/**
- * IE7 and IE6 hacks
- */
-
-
-.genericon {
-	*overflow: auto;
-	*zoom: 1;
-	*display: inline;
-}
-
-
-/* Social icons */
-.genericon-github:before { content: '\f200'; }
-.genericon-dribbble:before { content: '\f201'; }
-.genericon-twitter:before { content: '\f202'; }
-.genericon-facebook-alt:before { content: '\f204'; }
-.genericon-googleplus:before { content: '\f206'; }
-.genericon-linkedin:before { content: '\f207'; }
-.genericon-pinterest:before { content: '\f209'; }
-.genericon-flickr:before { content: '\f211'; }
-.genericon-vimeo:before { content: '\f212'; }
-.genericon-youtube:before { content: '\f213'; }
-.genericon-tumblr:before { content: '\f214'; }
-.genericon-instagram:before { content: '\f215'; }
-.genericon-link:before { content: '\f107'; }
 
 /* Social Media icons
 ------------------------------------------------------ */
@@ -1739,6 +1701,10 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	display: block;
 	height: 24px;
 	width: 24px;
+	color: #ccc;
+}
+.social-media a:hover{
+	color: #10b9b9;
 }
 
 /* Tag Cloud
@@ -1767,11 +1733,15 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 
 /* Custom Home featured areas
 ------------------------------------------------------ */
+
+/*
+ * Promo Bar
+ */
+
 .featuretext_top {
 	padding: 80px 0;
 	margin: 0 0 20px 0;
 	background-color: #E7E7E7;
-	font-family: 'source_sans_probold', sans-serif;
 	text-align: center;
 }
 
@@ -1782,7 +1752,8 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	text-align:center;
 	font-size:2.4rem;
 	font-size:24px;
-	text-shadow: 0px 3px 0 #CCC;
+	text-shadow: 0px -3px 0 #CCC;
+	font-weight: 700;
 }
 
 .featuretext_top p{
@@ -1793,11 +1764,24 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	font-size:1.6rem;
 	font-size:16px;
 }
+
+/* END PROMO BAR */
+
+
+
 .featuretext_middle {
 	padding: 20px;
 	margin: 0;
-	background-color: #222;
+	background: #222;
 	border-top: 1px solid #10b9b9;
+}
+
+.featuretext_middle:after{
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }
 
 .featuretext {
@@ -1839,6 +1823,7 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	font-size:14px;
 	text-align: center;
 	width: 120px;
+	font-weight: 700;
 }
 .featuretext_button a:hover{
 	background-color:#000;
@@ -1848,11 +1833,14 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
     -moz-transition-duration: 0.8s;
     -o-transition-duration: 0.8s;
     transition-duration: 0.8s;
+     
     -webkit-transition-property: -webkit-transform;
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
     transition-property: transform;
+     
     overflow:hidden;
+ 
     }  
 .featuretext img:hover{
 	-webkit-transform:rotate(360deg);
@@ -1917,16 +1905,14 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 .third-effect:hover a.info {
    opacity:1;
    transition-delay: 0.3s;
-}			
+}
 
 /* Client Ad Styles */
-
 .client {
 	text-align: center;
 }
 	
 .client h3{
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 1.6rem;
 	font-size: 16px;
 	position: relative;
@@ -1943,17 +1929,16 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 }
 
 .client img{
-	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0 0.3333 0.3333 0 0.3333 0.3333 0.3333 0 0.3333 0.3333 0 0.3333 0 0 0 0 0\' 1 0/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 	max-width: 100%;
-	margin: 0 4px 20px 4px;
 }
 .client img:hover{
-	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 0 0 1 0, 0 0 1 0 0, 0 1 0 0 0\'/></filter></svg>#grayscale");
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
     -webkit-filter: grayscale(0%);
 }
-
+			
 /* CUSTOM HOMEPAGE WIDGET LAYOUTS */
 /*  SECTIONS  ============================================================================= */
 
@@ -1972,18 +1957,17 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	margin: 0px;
 }
 .section_thumbnails h3{
-	font-family: 'source_sans_probold', sans-serif;
 	font-size: 1.6rem;
 	font-size: 16px;
 	position: relative;
 	top: 8px;
 	margin: 0 auto;
 	max-width: 150px;
-	background: #FFF;
 	text-align: center;
 	line-height: 16px;
 	text-align: center;
 	text-transform: uppercase;
+	background-color: #fff;
 	color: #333;
 	padding-top: 30px;
 }
@@ -2004,7 +1988,6 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 	margin-bottom: 30px;
 }
 .thumbs-more-link{
-    font-family: 'source_sans_probold', sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	text-transform: uppercase;
@@ -2101,6 +2084,17 @@ More info available with a FAQ at: http://scripts.sil.org/OFL
 #ie8 .widget img,
 #ie8 .wp-caption img {
 	width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+}
+/* GRID OF THREE	============================================================================= */
+	
+.span_3_of_3 {
+	width: 100%; 
+}
+.span_2_of_3 {
+	width: 66.1%; 
+}
+.span_1_of_3 {
+	width: 32.2%; 
 }
 
 /*  GRID OF EIGHT   ============================================================================= */
@@ -2264,11 +2258,8 @@ MEDIA QUERIES
 	}
 	.page-title {
 	text-align: center;
-	padding: 10px;
-	padding-bottom: 0;
+	padding-top: 10px;
 	clear: both;
-	float: none;
-	margin: 0;
 	}
 	.breadcrumbs {
 	text-align: center;
@@ -2454,7 +2445,6 @@ MEDIA QUERIES
 	padding: 40px 0;
 	margin: 0 0 20px 0;
 	background-color: #E7E7E7;
-	font-family: 'source_sans_probold', sans-serif;
 	}
 	.featuretext_top h3{
 	font-size:1.2rem;

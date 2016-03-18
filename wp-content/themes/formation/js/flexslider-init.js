@@ -1,7 +1,7 @@
 (function($) {
     $(window).load(function() {
         $('.flexslider').flexslider({
-	            animation: 'fade'
+	            animation: 'slide'
 	    });
     });
 })(jQuery)

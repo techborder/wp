@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.3
+Version: 2.3.1
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2
@@ -486,7 +486,6 @@ function sgp010f9_html(){
 	$premiumMsgShort = '<div class="socGalPremium">Pro Version Feature. <a href="'.$socialGalleryLite_urls['gopro'].'">Get Social Gallery Pro</a></div>';
 	
 		?>
-		<a href="http://epicplugins.com/pluginhunt"><img src = "https://epicplugins.com/wp-content/uploads/2014/12/plugin-hunt-theme-banner.png" /></a>
         <p id="sgpDesc">Here you can set the configuration options for your Social Gallery Plugin. Before changing anything please read our <a href="<?php echo $socialGalleryLite_urls['docs']; ?>" title="View Documentation" target="_blank">setup guide</a>.</p>
         <form action="?page=<?php echo $socialGalleryLite_slugs['settings']; ?>&save=1" method="post">
         <div id="socialGallerySettings">
@@ -936,20 +935,7 @@ function sgpc1a_html(){
             <div class="postbox">
                 <h3 style="text-align:center"><label><img src="<?php echo plugins_url('/i/thanks-for-using-social-gallery.png',__FILE__); ?>" alt="Thanks For Using Social Gallery" style="margin:8px" /></label></h3>
 <div class="inside" style="text-align:center">
-	<p><h3>Join our Epic VIP Newsletter and find out:</h3>
-		<ul>
-			<li>* Why losing <strong>$33,000</strong> was the best thing to happen to us</li>
-			<li>* The latest on our Plugin and Theme Development</li>
-			<li>* Special <strong>Discounts</strong> and Launch Offers on our Plugins and Themes</li>
-		</ul>
-</p>
-         <form class="snp-subscribeform snp_subscribeform" action="//epicplugins.us6.list-manage.com/subscribe/post?u=1c0fcf180d7cda3d5add7ba76&amp;id=7e0200edcc" method="post">
-         <fieldset>
-			<input type="text" name="EMAIL" id="mce-EMAIL" placeholder="Your Email..." class="snp-field snp-field-email">
-			<input type="text" name="FNAME" id="mce-FNAME" placeholder="First Name..." class="snp-field snp-field-name">
-			<input type="submit" class="button-primary snp-subscribe-button snp-submit" data-loading="Please wait..." data-success="Thank you!" value="Sign me up!">
-        </fieldset>
-        </form>
+<script src="https://app.convertkit.com/landing_pages/1620.js?orient=horz"></script>
 </div>
 <br/><br/>
 <div class='mid' style="width:80%;text-align:center;margin:auto">
@@ -1105,7 +1091,6 @@ function sgp1bf8a8c(){}					function sgpbeaa2(){
 		<a href="<?php echo $socialGalleryLite_urls['home']; ?>" title="Social Gallery Plugin Homepage" target="_blank">Social Gallery Plugin.com</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['faq']; ?>" title="Frequently Asked Questions" target="_blank">FAQ</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['docs']; ?>" title="View Documentation" target="_blank">Documentation</a> | 
-		<a href="<?php echo $socialGalleryLite_urls['subscribe']; ?>" title="Join the Updates Newsletter List" target="_blank">Join Epic VIP</a> | 
 		<a href="<?php echo $socialGalleryLite_urls['gopro']; ?>" title="Become a Pro" target="_blank">Get Full Version</a> | Version <?php echo $socialGalleryLite_version; ?>
     </div>
 
@@ -1551,77 +1536,6 @@ function SGLite_custom_add_facebook_open_graph_tags() {
 }
 add_action('wp_head', 'SGLite_custom_add_facebook_open_graph_tags',1); 
 
-//the new pointers
-add_action( 'admin_enqueue_scripts', 'epic_custom_admin_pointers_header' );
-
-function epic_custom_admin_pointers_header() {
-   if ( custom_admin_pointers_check() ) {
-      add_action( 'admin_print_footer_scripts', 'custom_admin_pointers_footer' );
-
-      wp_enqueue_script( 'wp-pointer' );
-      wp_enqueue_style( 'wp-pointer' );
-   }
-}
-
-function custom_admin_pointers_check() {
-   $admin_pointers = custom_admin_pointers();
-   foreach ( $admin_pointers as $pointer => $array ) {
-      if ( $array['active'] )
-         return true;
-   }
-}
-
-function custom_admin_pointers_footer() {
-   $admin_pointers = custom_admin_pointers();
-   ?>
-<script type="text/javascript">
-/* <![CDATA[ */
-( function($) {
-   <?php
-   foreach ( $admin_pointers as $pointer => $array ) {
-      if ( $array['active'] ) {
-         ?>
-         $( '<?php echo $array['anchor_id']; ?>' ).pointer( {
-            content: '<?php echo $array['content']; ?>',
-            position: {
-            edge: '<?php echo $array['edge']; ?>',
-            align: '<?php echo $array['align']; ?>'
-         },
-            close: function() {
-               $.post( ajaxurl, {
-                  pointer: '<?php echo $pointer; ?>',
-                  action: 'dismiss-wp-pointer'
-               } );
-            }
-         } ).pointer( 'open' );
-         <?php
-      }
-   }
-   ?>
-} )(jQuery);
-/* ]]> */
-</script>
-   <?php
-}
-
-function custom_admin_pointers() {
-   $dismissed = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
-   $version = '1_0'; // replace all periods in 1.0 with an underscore
-   $prefix = 'custom_admin_pointers' . $version . '_';
-
-   $new_pointer_content = '<h3>' . __( 'You are now Epic!' ) . '</h3>';
-   $new_pointer_content .= '<p>' . __( 'As a thank you for installing Social Gallery Lite we wanted to offer you <b>FREE</b> access to our VIP list <b>FOREVER</b> (usually $39.99 per year).<br/><br/> <a href="http://eepurl.com/782FP">Sign up here for FREE</a> <br/><br/><b>LIMITED</b> spaces available for this exclusive offer' ) . '</p>';
-
-   return array(
-      $prefix . 'new_items' => array(
-         'content' => $new_pointer_content,
-         'anchor_id' => '#wp-admin-bar-new-content',
-         'edge' => 'top',
-         'align' => 'left',
-         'active' => ( ! in_array( $prefix . 'new_items', $dismissed ) )
-      ),
-   );
-}
 
 function sgpe24($value)
 {

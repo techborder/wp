@@ -51,7 +51,7 @@ Images used for these pages in front section are the featured images of those re
 /**********************************************************/
 
 == IMPORTANT NOTES ==
-* This theme supports post thumnail but are not used for posts but are used for pages that are
+* This theme supports post thumbnail but are not used for posts but are used for pages that are
   used in the featured section of front page.
 * This theme does not support a place for the theme tagline to be shown in front end.
 
@@ -64,6 +64,30 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == CHANGE LOG ==
+= Version 1.2.1 =
+* SEO Optimization
+
+= Version 1.2.0 =
+* Updated Genericons to the latest version 3.4.1
+* Updated HTML5Shiv script to the latest version 3.7.3
+
+= Version 1.1.9 =
+* Danish language file added. Thanks to Mr. Steffan Christensen for providing the language files.
+
+= Version 1.1.8 =
+* WordPress default gallery alignment issue fixed. Also, responsiveness adjustment done for WordPress default gallery.
+
+= Version 1.1.7 =
+* Added option to hide header search icon.
+* Unwanted gap removed if featured section is not used.
+* Language pot file updated to include new strings.
+* Mobile device menu issue fixed.
+
+= Version 1.1.6 =
+* Added latest version of genericons(3.3.1).
+* Added HTML5 Markup theme support.
+* Added Author Bio Feature for single post.
+
 = Version 1.1.5 =
 * Added latest version of genericons(3.3).
 * Added scroll-to-top button feature as per users request.

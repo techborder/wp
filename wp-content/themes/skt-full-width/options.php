@@ -345,9 +345,9 @@ function optionsframework_options() {
 		'desc' => __('SKT Full Width WordPress theme has been Designed and Created by SKT Themes.', 'skt-full-width'),
 		'type' => 'info');	
 		
-	 $options[] = array(
-		'desc' => __('<a href="'.SKT_THEME_URL.'" target="_blank"><img src="'.get_template_directory_uri().'/images/sktskill.jpg"></a><p><em><a target="_blank" href="http://www.sktthemes.net/themes/skt_full_width_pro/">Buy PRO version for only $30 with more features and access to our support forum.</a></em></p>', 'skt-full-width'),
-		'type' => 'info');	
+	  $options[] = array(
+		'desc' => '<a href="'.esc_url(SKT_THEME_URL).'" target="_blank"><img src="'.get_template_directory_uri().'/images/sktskill.jpg"></a><p><em><a target="_blank" href="'.esc_url(SKT_THEME_URL_DIRECT).'">'.__('Buy PRO version for only $39 with more features.','skt-full-width').'</a></em></p>',
+		'type' => 'info');		
 	
 	
 	return $options;

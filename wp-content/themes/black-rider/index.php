@@ -9,8 +9,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  */
+get_header();
 ?>
-<?php get_header(); ?>
 <div class="slider-wrapper">
     <span class="top-shadow"></span>
     <div class="flexslider">
@@ -31,13 +31,13 @@
                         <?php if (blcr_get_option('inkthemes_page_main_heading') != '') { ?>
                             <h1><?php echo stripslashes(blcr_get_option('inkthemes_page_main_heading')); ?></h1>
                         <?php } else { ?>
-                            <h1><?php _e('Premium WordPress Themes with Single.', 'blcr'); ?></h1>
+                            <h1><?php _e('Premium WordPress Themes with Single.', 'black-rider'); ?></h1>
                         <?php } ?>
                     </div>
                     <?php if (blcr_get_option('inkthemes_page_sub_heading') != '') { ?>
                         <p><?php echo stripslashes(blcr_get_option('inkthemes_page_sub_heading')); ?></p>
                     <?php } else { ?>
-                        <p><?php _e('The best thing about Colorway Theme is the ease with the help of which you can convert your Website in various different Niches. Your Clients Would Love Their Site & You Would smile in the back thinking about the Time That You Spend Building their Sites.', 'blcr'); ?></p>
+                        <p><?php _e('The best thing about Colorway Theme is the ease with the help of which you can convert your Website in various different Niches. Your Clients Would Love Their Site & You Would smile in the back thinking about the Time That You Spend Building their Sites.', 'black-rider'); ?></p>
                     <?php } ?>
 
                 </div>
@@ -57,13 +57,13 @@
                                     }
                                     ?>"><?php echo stripslashes(blcr_get_option('inkthemes_firsthead')); ?></a></h6>
                                 <?php } else { ?>
-                                <h6><?php _e('<a href="#">Premium WordPress Themes with Single Click</a>', 'blcr'); ?></h6>
+                                <h6><?php _e('<a href="#">Premium WordPress Themes with Single Click</a>', 'black-rider'); ?></h6>
                             <?php } ?>
                             <?php if (blcr_get_option('inkthemes_firstdesc') != '') { ?>
                                 <p><?php echo stripslashes(blcr_get_option('inkthemes_firstdesc')); ?></p>
                             <?php } else { ?>
                                 <p><?php _e('The Theme had a simple layout which attracts the Client to the 
-                                    Website. Also, the professional and Clean design.', 'blcr'); ?></p>
+                                    Website. Also, the professional and Clean design.', 'black-rider'); ?></p>
                             <?php } ?>
                         </div>
                         <div class="clear"></div>
@@ -83,13 +83,13 @@
                                     }
                                     ?>"><?php echo stripslashes(blcr_get_option('inkthemes_headline2')); ?></a></h6>
                                 <?php } else { ?>
-                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'blcr'); ?></a></h6>
+                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'black-rider'); ?></a></h6>
                             <?php } ?>
                             <?php if (blcr_get_option('inkthemes_seconddesc') != '') { ?>
                                 <p><?php echo stripslashes(blcr_get_option('inkthemes_seconddesc')); ?></p>
                             <?php } else { ?>
                                 <p><?php _e('The Theme had a simple layout which attracts the Client to the 
-                                    Website. Also, the professional and Clean design .', 'blcr'); ?></p>
+                                    Website. Also, the professional and Clean design .', 'black-rider'); ?></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -108,13 +108,13 @@
                                     }
                                     ?>"><?php echo stripslashes(blcr_get_option('inkthemes_headline3')); ?></a></h6>
                                 <?php } else { ?>
-                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'blcr'); ?></a></h6>
+                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'black-rider'); ?></a></h6>
                             <?php } ?>
                             <?php if (blcr_get_option('inkthemes_thirddesc') != '') { ?>
                                 <p><?php echo stripslashes(blcr_get_option('inkthemes_thirddesc')); ?></p>
                             <?php } else { ?>
                                 <p><?php _e('The Theme had a simple layout which attracts the Client to the 
-                                    Website. Also, the professional and Clean design.', 'blcr'); ?></p>
+                                    Website. Also, the professional and Clean design.', 'black-rider'); ?></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -133,13 +133,13 @@
                                     }
                                     ?>"><?php echo stripslashes(blcr_get_option('inkthemes_headline4')); ?></a></h6>
                                 <?php } else { ?>
-                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'blcr'); ?></a></h6>
+                                <h6><a href="#"><?php _e('Premium WordPress Themes with Single Click', 'black-rider'); ?></a></h6>
                             <?php } ?>
                             <?php if (blcr_get_option('inkthemes_fourthdesc') != '') { ?>
                                 <p><?php echo stripslashes(blcr_get_option('inkthemes_fourthdesc')); ?></p>
                             <?php } else { ?>
                                 <p><?php _e('The Theme had a simple layout which attracts the Client to the 
-                                    Website. Also, the professional and Clean design.', 'blcr'); ?></p>
+                                    Website. Also, the professional and Clean design.', 'black-rider'); ?></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -149,24 +149,24 @@
                 <?php if (blcr_get_option('inkthemes_blog_heading') != '') { ?>
                     <h1 class="blog-heading"><?php echo stripslashes(blcr_get_option('inkthemes_blog_heading')); ?></h1>
                 <?php } else { ?>
-                    <h1 class="blog-heading"><?php _e('Our Latest Blogs', 'blcr'); ?></h1>
+                    <h1 class="blog-heading"><?php _e('Our Latest Blogs', 'black-rider'); ?></h1>
                 <?php } ?>
                 <div class="grid_16 alpha">
                     <div class="blog_feature">
-                        <?php                        
-                        $limit = get_option('posts_per_page');
+                        <?php
+                        if (blcr_get_option('inkthemes_blog_count')) {
+                            $limit = blcr_get_option('inkthemes_blog_count');
+                        } else {
+                            $limit = get_option('posts_per_page');
+                        }
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                         $wp_query = new WP_Query();
                         $wp_query->query('showposts=' . $limit . '&paged=' . $paged);
-                        ?>
-                        <?php
                         $i = 0;
                         if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                                 $i++;
                             endwhile;
                         endif;
-                        ?>	
-                        <?php
                         $count = 0;
                         if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post();
                                 $count++;

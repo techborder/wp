@@ -3,7 +3,7 @@ Contributors: mikemayhem3030
 Donate link: http://www.socialgalleryplugin.com
 Tags: social, gallery, comments, lightbox, social lightbox, +1, admin, bookmark, button, buzz, Facebook, facebook like, google, google plus, google plus one, icon, icons, image, images, like, linkedin, linked in, tumblr, stumble upon, twitter, tweet, pinterest, page, pages, posts, plugin, plus 1, plus one, Post, posts, seo, sexybookmarks, sharing, NextGen, social bookmars, stumbleupon, widget, social gallery, gallery share, share, adsense, disqus, css3 animation, CSS3, theme, DFP, Fullscreen, swipe, ie, chrome, firefox, opera, jquery, light-box, social sharing, compatibility, free, analytics
 Requires at least: 3.1
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 2.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,8 +18,9 @@ It’s not quite as [feature packed](http://www.socialgalleryplugin.com/social-g
 
 Epicplugins has acquired the Social Gallery suite of plugins and is driving forward the development. We have some Epic New Themes available [Check them out](https://epicplugins.com/two-new-epic-themes/)
 
+If you have any issues with the plugin please visit the support website [Social Gallery Pro](http://epicplugins.com/help/)
 
-Version 3 of [Social Gallery Pro](http://www.socialgalleryplugin.com) has been released with a load of new features
+Version 4.1 of [Social Gallery Pro](http://www.socialgalleryplugin.com) has been released with a load of new features
 
 *   Image tagging
 *   Improved functionality
@@ -51,8 +52,8 @@ Along with our usual powerful
 *	**It's Free**!
 
 = 40,000+ Blogs running Social Gallery! =
-*	Over 38,000 downloads of Social Gallery Lite
-*	Over 3,000 copies sold of [Social Gallery Pro](http://www.socialgalleryplugin.com "Social Gallery Plugin")
+*	Over 40,000 downloads of Social Gallery Lite
+*	Over 3,400 copies sold of [Social Gallery Pro](http://www.socialgalleryplugin.com "Social Gallery Plugin")
 *	Thanks to all of you awesome users!
 *  Please do rate the plugin :)
 
@@ -154,6 +155,9 @@ Here are our frequently asked questions for the [Social Gallery Plugin](http://w
 1. This Screen Shot shows Social Gallery Lite in action
 
 == Changelog ==
+
+= Version 2.3.1 =
+* WordPress 4.2 tested
 
 = Version 2.2 = 
 * Adds additional branding

@@ -3,7 +3,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
     die('Please do not load this page directly. Thanks!');
 if (post_password_required()) {
     ?>
-    <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.','blcr'); ?></p>
+    <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.','black-rider'); ?></p>
     <?php
     return;
 }
@@ -13,7 +13,7 @@ if (post_password_required()) {
     <?php if (have_comments()) : ?>
         <h3 id="comments">
             <?php comments_number('No Responses', 'One Response', '% Responses'); ?>
-            <?php _e('so far.','blcr'); ?></h3>
+            <?php _e('so far.','black-rider'); ?></h3>
         <ol class="commentlist">
             <?php wp_list_comments(array('avatar_size' => 63)); ?>
         </ol>
@@ -30,18 +30,18 @@ if (post_password_required()) {
             <!-- If comments are open, but there are no comments. -->
         <?php else : // comments are closed  ?>
             <!-- If comments are closed. -->
-            <p class="nocomments"><?php _e('Comments are closed.','blcr'); ?></p>
+            <p class="nocomments"><?php _e('Comments are closed.','black-rider'); ?></p>
         <?php endif; ?>
     <?php endif; ?>
     <?php if (comments_open()) : ?>
-        <div class="post-info"><?php _e('Leave a Comment','blcr'); ?></div>
+        <div class="post-info"><?php _e('Leave a Comment','black-rider'); ?></div>
         <div id="comment-form">
             <div id="respond" class="rounded">
                 <div class="cancel-comment-reply"> <small>
                         <?php cancel_comment_reply_link(); ?>
                     </small> </div>
                 <?php if (get_option('comment_registration') && !is_user_logged_in()) : ?>
-                    <p><?php _e('You must be','blcr'); ?> <a href="<?php echo wp_login_url(get_permalink()); ?>"><?php _e('logged in','blcr'); ?></a> <?php _e('to post a comment.','blcr'); ?></p>
+                    <p><?php _e('You must be','black-rider'); ?> <a href="<?php echo wp_login_url(get_permalink()); ?>"><?php _e('logged in','black-rider'); ?></a> <?php _e('to post a comment.','black-rider'); ?></p>
                 <?php else : ?>
                     <div id="comment-form">
                         <?php comment_form(); ?>

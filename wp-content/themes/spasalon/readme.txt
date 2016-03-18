@@ -82,23 +82,37 @@ JavaScripts
 Images
 		1. Static Home Feature Image all created by webriti
 		2. Image in the screenshot are taken from pixabay.com
-			a. http://pixabay.com/get/2ab2705edb79cca0850b/1412585655/wellness-285590_1920.jpg
-			b. http://pixabay.com/static/uploads/photo/2014/03/11/22/56/wellness-285588_640.jpg
-			c. http://pixabay.com/static/uploads/photo/2014/03/11/22/57/wellness-285591_640.jpg
-			d. http://pixabay.com/static/uploads/photo/2014/03/11/22/56/wellness-285587_640.jpg
+			https://pixabay.com/en/wellness-massage-reiki-285590/
+			https://pixabay.com/en/wellness-massage-relax-relaxing-285587/
+			https://pixabay.com/en/wellness-massage-sound-massage-285588/
+			https://pixabay.com/en/wellness-massage-sound-massage-285591/
+			https://pixabay.com/en/wellness-spa-bless-you-prevention-185005/
+			https://pixabay.com/en/lemon-basil-hairy-natural-spice-906141/
+			https://pixabay.com/en/cosmetics-tube-cream-care-hygiene-575521/
+			https://pixabay.com/en/wellness-massage-relax-relaxing-589770/
 		License: CC0 Public Domain
 		URL: http://pixabay.com/go/?t=%2Fservice%2Fterms%2F%23download_terms
 		
 ----------------------------------------------------------------------
-
-
-	
 Support
 -------
 
 Do you enjoy this theme? Send your ideas - issues - on the theme forms . Thank you!
 
 ============================Change Log================================
+@version 1.5.8
+1. Change Banner Thumbnail Image, Service Image and Product Image.
+@version 1.5.7
+1. Resolved Menu Drop down issue in mobile view.
+@version 1.5.5
+1. Add News Section.
+2. Add Footer Widget Section.
+3. Resize all Image.
+4. Remove Theme Check Error. 
+@version 1.5.4
+1. Remove unused files.
+@version 1.5.3
+1. Remove the feature of saving the option panel data into database during the time Install
 @version 1.5.2
 1. Remove all debug log errors.
 2. the_title replaced by the tag get_search_query in the search.php

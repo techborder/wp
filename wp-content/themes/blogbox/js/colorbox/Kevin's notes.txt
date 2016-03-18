@@ -9,7 +9,7 @@ This helps with the iPhone by reducing the text
 
 added to css for play/pause
 
-/* blogBox modifications */
+/* blogbox modifications */
 #colorbox button#cboxSlideshow {
 	background-color: #ffffff;
 	border-radius: 50%;

@@ -82,8 +82,8 @@ class Options_Framework_Admin {
             'mode' => 'submenu',
 
             // Submenu default settings
-            'page_title' => __( 'Theme Options', 'skt-fullwidth' ),
-			'menu_title' => __( 'Theme Options', 'skt-fullwidth' ),
+            'page_title' => __( 'Theme Options', 'skt-full-width' ),
+			'menu_title' => __( 'Theme Options', 'skt-full-width' ),
 			'capability' => 'edit_theme_options',
 			'menu_slug' => 'fullwidth-options',
             'parent_slug' => 'themes.php',
@@ -185,7 +185,7 @@ class Options_Framework_Admin {
 	    <h2 class="nav-tab-wrapper">
 	        <?php echo Options_Framework_Interface::optionsframework_tabs(); ?>
 	    </h2>
-          <div style="padding-top:10px;font-size:15px;"><a href="<?php echo esc_url(SKT_THEME_URL_DIRECT); ?>" target="_blank"><?php _e('Buy PRO version for only $30 with more features.','skt-fullwidth'); ?></a></div>
+          <div style="padding-top:10px;font-size:15px;"><a href="<?php echo esc_url(SKT_THEME_URL_DIRECT); ?>" target="_blank"><?php _e('Buy PRO version for only $39 with more features.','skt-full-width'); ?></a></div>
 
 	    <?php settings_errors( 'options-framework' ); ?>
 
@@ -196,8 +196,8 @@ class Options_Framework_Admin {
 				<?php Options_Framework_Interface::optionsframework_fields(); /* Settings */ ?>
 
 				<div id="optionsframework-submit">
-					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'skt-fullwidth' ); ?>" />
-					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'skt-fullwidth' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'skt-fullwidth' ) ); ?>' );" />
+					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'skt-full-width' ); ?>" />
+					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'skt-full-width' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'skt-full-width' ) ); ?>' );" />
 					<div class="clear"></div>
 				</div>
 				</form>
@@ -251,7 +251,7 @@ class Options_Framework_Admin {
 		 */
 
 		if ( isset( $_POST['reset'] ) ) {
-			add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'skt-fullwidth' ), 'updated fade' );
+			add_settings_error( 'options-framework', 'restore_defaults', __( 'Default options restored.', 'skt-full-width' ), 'updated fade' );
 			return $this->get_default_values();
 		}
 
@@ -305,7 +305,7 @@ class Options_Framework_Admin {
 	 */
 
 	function save_options_notice() {
-		add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'skt-fullwidth' ), 'updated fade' );
+		add_settings_error( 'options-framework', 'save_options', __( 'Options saved.', 'skt-full-width' ), 'updated fade' );
 	}
 
 	/**

@@ -4,7 +4,17 @@
 <head>
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+		
+	<?php
+		if (!function_exists('_wp_render_title_tag')) {
+			function picolight_render_title() {
+				?>
+					<title><?php wp_title('|', true, 'right'); ?></title>
+				<?php
+			}
+			add_action('wp_head', 'picolight_render_title');
+		}
+	?>
 
 	<?php global $picolight_options;
 	$picolight_settings = get_option( 'picolight_options', $picolight_options ); ?>		

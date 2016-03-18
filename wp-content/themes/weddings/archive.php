@@ -16,19 +16,19 @@
 	      $post = $posts[0]; 
 
 		if (is_category()) { ?>
-		<h2 class="styledHeading"><?php _e('Archive For The ', 'wd_wedding'); ?>&ldquo;<?php single_cat_title(); ?>&rdquo; <?php _e('Category', 'wd_wedding'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Archive For The ', 'weddings'); ?>&ldquo;<?php single_cat_title(); ?>&rdquo; <?php _e('Category', 'weddings'); ?></h2>
 	 	<?php  } elseif( is_tag() ) { ?>
-		<h2 class="styledHeading"><?php _e('Posts Tagged ', 'wd_wedding'); ?>&ldquo;<?php single_tag_title(); ?>&rdquo;</h2>
+		<h2 class="styledHeading"><?php _e('Posts Tagged ', 'weddings'); ?>&ldquo;<?php single_tag_title(); ?>&rdquo;</h2>
 		<?php  } elseif (is_day()) { ?>
-		<h2 class="styledHeading"><?php _e('Archive For ', 'wd_wedding'); ?><?php the_time('F jS, Y'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Archive For ', 'weddings'); ?><?php the_time(get_option( 'date_format' )); ?></h2>
 		<?php  } elseif (is_month()) { ?>
-		<h2 class="styledHeading"><?php _e('Archive For ', 'wd_wedding'); ?><?php the_time('F, Y'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Archive For ', 'weddings'); ?><?php the_time(get_option( 'date_format' )); ?></h2>
 		<?php  } elseif (is_year()) { ?>
-		<h2 class="styledHeading"><?php _e('Archive For ', 'wd_wedding'); ?><?php the_time('Y'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Archive For ', 'weddings'); ?><?php the_time(get_option( 'date_format' )); ?></h2>
 		<?php  } elseif (is_author()) { ?>
-		<h2 class="styledHeading"><?php _e('Author Archive', 'wd_wedding'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Author Archive', 'weddings'); ?></h2>
 		<?php  } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-		<h2 class="styledHeading"><?php _e('Blog Archives', 'wd_wedding'); ?></h2>
+		<h2 class="styledHeading"><?php _e('Blog Archives', 'weddings'); ?></h2>
 	 	<?php } ?>
 			
 		<?php while (have_posts()) : the_post(); ?>
@@ -51,8 +51,8 @@
 	        </div>
 	<?php else : ?>
 
-		<h2 ><?php _e('Not Found', 'wd_wedding'); ?></h2>
-		<p><?php _e('There are not posts belonging to this category or tag. Try searching below:', 'wd_wedding'); ?></p>
+		<h2 ><?php _e('Not Found', 'weddings'); ?></h2>
+		<p><?php _e('There are not posts belonging to this category or tag. Try searching below:', 'weddings'); ?></p>
 		<?php get_search_form(); ?>
 	
 	<?php endif; ?>

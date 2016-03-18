@@ -84,10 +84,6 @@ function sixteen_widgets_init() {
 }
 add_action( 'widgets_init', 'sixteen_widgets_init' );
 
-if ( !function_exists( 'optionsframework_init' ) ) {
-	define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
-	require_once dirname( __FILE__ ) . '/inc/options-framework.php';
-}
 
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 
@@ -113,13 +109,9 @@ jQuery(document).ready(function() {
 function sixteen_scripts() {
 	wp_enqueue_style( 'sixteen-fonts', '//fonts.googleapis.com/css?family=Roboto:500,400,300,700');
 	wp_enqueue_style( 'sixteen-basic-style', get_stylesheet_uri() );
-	if ( (function_exists( 'of_get_option' )) && (of_get_option('sidebar-layout', true) != 1) ) {
-		if (of_get_option('sidebar-layout', true) ==  'right') {
-			wp_enqueue_style( 'sixteen-layout', get_template_directory_uri()."/css/layouts/content-sidebar.css" );
-		}
-		else {
-			wp_enqueue_style( 'sixteen-layout', get_template_directory_uri()."/css/layouts/sidebar-content.css" );
-		}	
+	
+	if ( get_theme_mod('sixteen_left_sidebar') ) {
+		wp_enqueue_style( 'sixteen-layout', get_template_directory_uri()."/css/layouts/sidebar-content.css" );
 	}
 	else {
 		wp_enqueue_style( 'sixteen-layout', get_template_directory_uri()."/css/layouts/content-sidebar.css" );
@@ -160,21 +152,29 @@ function sixteen_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sixteen_scripts' );
 
+/**
+ * Enqueue Scripts for Admin
+ */
+function sixteen_custom_wp_admin_style() {
+        wp_enqueue_style( 'sixteen-admin_css', get_template_directory_uri() . '/css/admin.css' );
+}
+add_action( 'admin_enqueue_scripts', 'sixteen_custom_wp_admin_style' );
+
+
+
 function sixteen_custom_head_codes() {
- if ( (function_exists( 'of_get_option' )) && (of_get_option('headcode1', true) != 1) ) {
-	echo of_get_option('headcode1', true);
- }
- if ( (function_exists( 'of_get_option' )) && (of_get_option('style2', true) != 1) ) {
-	echo "<style>".of_get_option('style2', true)."</style>";
- }
+ 
+ // Echo the Custom CSS Entered via Theme Options
+	echo esc_html( get_theme_mod('sixteen_custom_css') );
+	
  //Modify CSS a little if Slider is disabled. 
-if ( ( of_get_option('slider_enabled') == 0 ) || ( (is_home() == false) ) )  {
+if ( !get_theme_mod('sixteen_main_slider_enable' ) && !is_home() ) : 
 			echo "<style>.main-navigation {	margin-bottom: -5px;}</style>";
-			}
+			endif;
 			
- if ( ( of_get_option('slider_enabled') == 0 ) || ( (is_front_page() == true) ) )  {
+if ( !get_theme_mod('sixteen_main_slider_enable' ) && is_front_page() ) : 
 			echo "<style>.main-navigation {	margin-bottom: 15px;}</style>";
-			}	
+			endif;
 }	
 add_action('wp_head', 'sixteen_custom_head_codes');
 

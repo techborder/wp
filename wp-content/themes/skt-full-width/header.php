@@ -72,9 +72,11 @@ $post_page = get_option('page_for_posts');
             <div class="header">
                 <div class="logo">
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                    	<?php if( of_get_option('logo', true) != '' ) { ?>
-	                    	<img src="<?php echo esc_url( of_get_option('logo', true) ); ?>" />
-                        <?php } else { ?>
+                    	 <?php if(of_get_option('logo') == 1) { ?>
+							<?php bloginfo( 'name' ); ?>
+                    	<?php } elseif( of_get_option('logo', true) != '' ) { ?>
+	                    	<img src="<?php echo esc_url( of_get_option('logo', get_template_directory_uri().'/images/logo.png') ); ?>" />
+                        <?php } elseif(of_get_option('logo') == '') { ?>
 							<?php bloginfo( 'name' ); ?>
                         <?php } ?>
                     </a></h1>
@@ -82,9 +84,10 @@ $post_page = get_option('page_for_posts');
                 </div>
               
                 <div id="site-nav">
-                    <h1 class="menu-toggle"><?php _e( 'Menu', 'skt-full-width' ); ?></h1>
-                    <div class="screen-reader-text skip-link"><a href="#content"><?php _e( 'Skip to content', 'skt-full-width' ); ?></a></div>
-                    <?php wp_nav_menu( array('theme_location' => 'primary', 'container' => '', 'menu_class' => '') ); ?>
+                    <div class="mobile_nav"><?php _e('Menu...','skt-full-width'); ?></div>
+                     <nav id="nav">
+                       <?php wp_nav_menu( array('theme_location'  => 'primary' ) ); ?>
+                     </nav> 
                 </div><!-- site-nav -->
                 <div class="header-bottom">
                     <div id="header-bottom-shape">

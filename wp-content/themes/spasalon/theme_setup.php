@@ -5,17 +5,7 @@
   		// setup admin pannel defual data for index page
   		$spa_theme_options=spa_the_theme_setup(); 
   		
-  		// upgrade to current package to new feature package and Current option array and new option array are merge 
-  		$current_theme_options = get_option('spa_theme_options'); // get existing option data 		
-  		if($current_theme_options)
-  		{ 	$spa_theme_options = array_merge($spa_theme_options, $current_theme_options);
-  			update_option('spa_theme_options',$spa_theme_options);	// Save existing and new option data			
-  		}
-  		else
-  		{ 		
-  			add_option('spa_theme_options',$spa_theme_options);  // set New option data 
-  		}
-  		
+  		// upgrade to current package to new feature package and Current option array and new option array are merge
   		//add_option('spa_theme_options',$spa_theme_options);
   		
   		//Add THEME SUPPORT
@@ -61,28 +51,28 @@
   								'third_thumb_image'=>$template_uri.'/images/default/home_thumb2.jpg',
   								'enable_services' => 'yes', 
   								'service1_title'=>__('Spa Treatment','sis_spa'),
-  								'service1_image'=>$template_uri.'/images/default/home_service_thumb.jpg',
+  								'service1_image'=>$template_uri.'/images/default/home_service_thumb1.jpg',
   								'service1_content'=>__('Pellentesque habitant morbi tristique senectus 
                                                         et netus et malesuada fames ac turpis egestas 
                                                       In in massa urna, vitae vestibulum orci. yoursb
                                                        Maecenas quis est sed mauris...','sis_spa'),
   													 
   								'service2_title'=>__('Detox Treatment','sis_spa'),
-  								'service2_image'=>$template_uri.'/images/default/home_service_thumb.jpg',
+  								'service2_image'=>$template_uri.'/images/default/home_service_thumb2.jpg',
   								'service2_content'=>__('Pellentesque habitant morbi tristique senectus 
                                                         et netus et malesuada fames ac turpis egestas 
                                                       In in massa urna, vitae vestibulum orci. yoursb
                                                        Maecenas quis est sed mauris...','sis_spa'),
   													 
   								'service3_title'=>__('Facial Treatment','sis_spa'),
-  								'service3_image'=>$template_uri.'/images/default/home_service_thumb.jpg',
+  								'service3_image'=>$template_uri.'/images/default/home_service_thumb1.jpg',
   								'service3_content'=>__('Pellentesque habitant morbi tristique senectus 
                                                         et netus et malesuada fames ac turpis egestas 
                                                       In in massa urna, vitae vestibulum orci. yoursb
                                                        Maecenas quis est sed mauris...','sis_spa'),
   													 
   								'service4_title'=>__('Other Treatment','sis_spa'),
-  								'service4_image'=>$template_uri.'/images/default/home_service_thumb.jpg',
+  								'service4_image'=>$template_uri.'/images/default/home_service_thumb2.jpg',
   								'service4_content'=>__('Pellentesque habitant morbi tristique senectus 
                                                         et netus et malesuada fames ac turpis egestas 
                                                       In in massa urna, vitae vestibulum orci. yoursb
@@ -92,13 +82,13 @@
   								'product1_image'=>$template_uri.'/images/default/home_product_thumb.jpg',
   								  
   								'product2_title'=>__('Product 2','sis_spa'),
-  								'product2_image'=>$template_uri.'/images/default/home_product_thumb.jpg',
+  								'product2_image'=>$template_uri.'/images/default/home_product_thumb2.jpg',
   								  
   								'product3_title'=>__('Product 3','sis_spa'),
   								'product3_image'=>$template_uri.'/images/default/home_product_thumb.jpg',
   								  
   								'product4_title'=>__('Product 4','sis_spa'),
-  								'product4_image'=>$template_uri.'/images/default/home_product_thumb.jpg',
+  								'product4_image'=>$template_uri.'/images/default/home_product_thumb2.jpg',
   								  
   								'product5_title'=>__('Product 5','sis_spa'),
   								'product5_image'=>$template_uri.'/images/default/home_product_thumb.jpg',
@@ -142,6 +132,11 @@
   														
   								'product_title'=>__('Spasalon Our product rang','sis_spa'),
   								'product_contents'=>__('A SpaSalon Produc Heading Title In commodo pulvinar metus, id tristique massa ultrices at. Nulla auctor turpis ut mi pulvinar eu accumsan risus sagittis. Mauris nunc ligula, ullamcorper vitae accumsan eu, congue in nulla. Cras hendrerit mi quis nisi semper in sodales nisl faucibus. Sed quis quam eu ante ornare hendrerit. ','sis_spa'), 
+								'enable_news' => 'no',
+								'news_title'=>__('Our Latest News & Events','sis_spa'),
+  								'news_contents'=>__('A SpaSalon Produc Heading Title In commodo pulvinar metus, id tristique massa ultrices at. Nulla auctor turpis ut mi pulvinar eu accumsan risus sagittis. Mauris nunc ligula, ullamcorper vitae accumsan eu, congue in nulla. Cras hendrerit mi quis nisi semper in sodales nisl faucibus. Sed quis quam eu ante ornare hendrerit. ','sis_spa'),
+								
+								
   								'spa_home_Title'=>array('home_title_px' => '42',
   														'home_font_family' => 'MarketingScript',
   														'home_font_style' => 'Normal' ),

@@ -6,14 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php wp_title(); ?></title>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-        <?php
-        wp_head();
-        ?>
+        <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <header>
+        <header id="<?php if (nimbus_get_option('home-slug')=='') {echo "action2";} else {echo nimbus_get_option('home-slug');} ?>">
             <?php
-            get_template_part( 'parts/banner');
-            get_template_part( 'parts/menu');
+            get_template_part( 'parts/header','menu');
+            get_template_part( 'parts/header','banner');
             ?>
         </header>

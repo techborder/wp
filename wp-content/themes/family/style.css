@@ -1,10 +1,10 @@
 /*
 Theme Name: Family
-Theme URI: http://themehall.com/family-minimalist-responsive-wordpress-theme
+Theme URI: https://themehall.com/family-minimalist-responsive-wordpress-theme
 Author: themehall.com
-Author URI: http://www.themehall.com
+Author URI: https://www.themehall.com
 Description: Family theme is a minimalist responsive HTML5 Omega child theme for WordPress, created with heart and soul. Built for people, blogger and photographers in mind, Family WordPress theme put the focus on the content itself, presenting it in a cleanest way. Family WordPress Theme inherits all Omega parent theme capabilities, mobile friendly, built-in WordPress Customizer, Custom Logo upload, custom header, custom colors, custom menu, custom CSS, inner page custom header via featured image.
-Version: 0.3.0
+Version: 0.4.3
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, green, gray, white, red, two-columns, one-column, right-sidebar, left-sidebar, full-width-template, theme-options, custom-background, custom-colors, custom-menu, custom-header, featured-images, threaded-comments, sticky-post, featured-image-header, flexible-header, translation-ready, responsive-layout, fluid-layout, holiday, photoblogging, seasonal
@@ -262,12 +262,8 @@ td {
 /* Headings
 --------------------------------------------- */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
 	color: #474747;
 	font-family: 'Delius Swash Caps', cursive;
 	font-weight: normal;
@@ -277,27 +273,27 @@ h6 {
 	padding: 0;
 }
 
-h1 {
+h1,.h1 {
 	font-size: 30px;
 }
 
-h2 {
+h2,.h2 {
 	font-size: 26px;
 }
 
-h3 {
+h3,.h3 {
 	font-size: 22px;
 }
 
-h4 {
+h4,.h4 {
 	font-size: 20px;
 }
 
-h5 {
+h5,.h5 {
 	font-size: 18px;
 }
 
-h6 {
+h6,.h6 {
 	font-size: 16px;
 }
 
@@ -407,9 +403,11 @@ Structure and Layout
 	
 }
 
+.page-template-left-sidebar .content,
 .layout-2c-r .content {
 	float: right;
 	padding-left: 40px;
+	padding-right: 0;
 }
 
 .layout-2c-l .content {
@@ -417,6 +415,7 @@ Structure and Layout
 	padding-right: 40px;
 }
 
+.page-template-full-width .content,
 .layout-1c .content {
 	width: 100%;
 }
@@ -432,6 +431,7 @@ Structure and Layout
 	display: none;
 }
 
+.page-template-left-sidebar .sidebar-primary,
 .layout-2c-r .sidebar-primary {
 	float: left;
 }
@@ -781,7 +781,9 @@ Content Area
 }
 
 .entry-content img.medium,
-.entry-content img.thumbnail {
+.entry-content img.thumbnail,
+.entry-summary img.medium,
+.entry-summary img.thumbnail {
 	float: left;
 	margin: 7px 24px 24px 0;;
 }
@@ -1008,7 +1010,7 @@ Footer Widgets
 
 .footer-widgets {
 	border-top: 1px solid #E5E5E5;
-	padding: 30px 0px 10px 0px;
+	padding: 50px 0px 30px;
 }
 
 .footer-widgets .widget-title {
@@ -1042,7 +1044,7 @@ Site Footer
 .site-footer {	
 	font-size: 13px;
 	border-top: 1px solid #e5e5e5;
-	padding: 20px 0;
+	padding: 30px 0px 10px;
 }
 
 .site-footer a {
@@ -1082,6 +1084,7 @@ Media Queries
 	.site-container,
 	.title-area,
 	.content,
+	.page-template-left-sidebar .content,
 	.sidebar-primary,
 	.wrap,
 	.footer-widgets .col-3 .widget-area,
@@ -1098,8 +1101,10 @@ Media Queries
 		margin: 0px;
 	}
 
+	.page-template-left-sidebar .content,
 	.layout-2c-r .content {
 		padding-left: 0;
+		padding-right: 0;
 	}
 
 	.layout-2c-l .content,
@@ -1162,12 +1167,7 @@ Media Queries
 		padding-top: 12px;
 	}
 
-	.sidebar-primary {
-		border-top: 1px solid #F5F5F5;
-		padding-top: 40px;
-	}
-
-/*@media screen and (max-width: 768px) {*/	
+	/*@media screen and (max-width: 768px) {*/	
 
 	.tinynav { 
 		display: block; 
@@ -1185,6 +1185,11 @@ Media Queries
 	.nav-primary ul.menu {
 		display: none;
 	}
+
+	.site-footer {	
+		padding: 30px 0px;
+	}
+
 
 	.site-footer p {
 		text-align: center;

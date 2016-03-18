@@ -68,10 +68,10 @@ if ('open' == $post->comment_status) {
     $modified_defaults = array(
         'fields' => apply_filters('comment_form_default_fields', $fields),
         'comment_field' => '<div class="col-md-8"><p><label for="comment">Comment</label><br /><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p></div></div>',
-        'must_log_in' => '<p class="must-log-in">' . sprintf(__('You must be <a href="%s">logged in</a> to post a comment.'), wp_login_url(apply_filters('the_permalink', get_permalink()))) . '</p>',
-        'logged_in_as' => '<div class="row"><div class="col-md-4"><p class="logged-in-as">' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>'), admin_url('profile.php'), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '</p></div>',
+        'must_log_in' => '<p class="must-log-in">' . sprintf(__('You must be <a href="%s">logged in</a> to post a comment.', 'nimbus'), wp_login_url(apply_filters('the_permalink', get_permalink()))) . '</p>',
+        'logged_in_as' => '<div class="row"><div class="col-md-4"><p class="logged-in-as">' . sprintf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'nimbus'), admin_url('profile.php'), $user_identity, wp_logout_url(apply_filters('the_permalink', get_permalink()))) . '</p></div>',
         'comment_notes_before' => '',
-        'comment_notes_after' => '<p class="form_allowed_tags">' . sprintf(__('You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s'), ' <code>' . allowed_tags() . '</code>') . '</p>',
+        'comment_notes_after' => '<p class="form_allowed_tags">' . sprintf(__('You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'nimbus'), ' <code>' . allowed_tags() . '</code>') . '</p>',
         'id_form' => 'commentform',
         'id_submit' => 'submit',
         'title_reply' => __('Leave a Reply', 'nimbus'),

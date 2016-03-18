@@ -88,7 +88,7 @@ function ttfmake_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'make' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( esc_html__( 'Page %s', 'make' ), max( $paged, $page ) );
 	}
 
 	return $title;
@@ -143,7 +143,7 @@ function ttfmake_sanitize_text( $string ) {
 	 * @param array     $expandedtags    The list of allowed tags and attributes.
 	 * @param string    $string          The text string being sanitized.
 	 */
-	apply_filters( 'make_sanitize_text_allowed_tags', $expandedtags, $string );
+	$expandedtags = apply_filters( 'make_sanitize_text_allowed_tags', $expandedtags, $string );
 
 	return wp_kses( $string, $expandedtags );
 }
@@ -319,7 +319,7 @@ function ttfmake_has_sidebar( $location ) {
 	$show_sidebar = (bool) get_theme_mod( 'layout-' . $view . '-sidebar-' . $location, ttfmake_get_default( 'layout-' . $view . '-sidebar-' . $location ) );
 
 	// Builder template doesn't support sidebars
-	if ( 'page' === $view && 'template-builder.php' === get_page_template_slug() ) {
+	if ( 'template-builder.php' === get_page_template_slug() ) {
 		$show_sidebar = false;
 	}
 
@@ -366,13 +366,13 @@ function ttfmake_sidebar_description( $sidebar_id ) {
 
 		// Not enabled anywhere
 		if ( empty( $enabled_views ) ) {
-			$description = __( 'This widget area is currently disabled. Enable it in the "Content & Layout" panel of the Customizer.', 'make' );
+			$description = __( 'This widget area is currently disabled. Enable it in the "Layout" panel of the Customizer.', 'make' );
 		}
 		// List enabled views
 		else {
 			$description = sprintf(
-				__( 'This widget area is currently enabled for the following views: %s. Change this in the "Content & Layout" panel of the Customizer.', 'make' ),
-				esc_html( implode( _x( ', ', 'list item separator', 'make' ), $enabled_views ) )
+				__( 'This widget area is currently enabled for the following views: %s. Change this in the "Layout" panel of the Customizer.', 'make' ),
+				implode( _x( ', ', 'list item separator', 'make' ), $enabled_views )
 			);
 		}
 	}
@@ -571,6 +571,8 @@ function ttfmake_pre_wp_nav_menu_social( $output, $args ) {
 	 * @param array    $icons    The array of supported social icons.
 	 */
 	$supported_icons = apply_filters( 'make_supported_social_icons', array(
+		'500px.com'          => 'fa-500px',
+		'amazon.com'         => 'fa-amazon',
 		'angel.co'           => 'fa-angellist',
 		'app.net'            => 'fa-adn',
 		'behance.net'        => 'fa-behance',
@@ -585,13 +587,15 @@ function ttfmake_pre_wp_nav_menu_social( $output, $args ) {
 		'foursquare.com'     => 'fa-foursquare',
 		'github.com'         => 'fa-github',
 		'gittip.com'         => 'fa-gittip',
-		'plus.google.com'    => 'fa-google-plus-square',
+		'google.com'         => 'fa-google-plus-square',
+		'houzz.com'          => 'fa-houzz',
 		'instagram.com'      => 'fa-instagram',
 		'jsfiddle.net'       => 'fa-jsfiddle',
 		'last.fm'            => 'fa-lastfm',
 		'leanpub.com'        => 'fa-leanpub',
 		'linkedin.com'       => 'fa-linkedin',
 		'medium.com'         => 'fa-medium',
+		'ok.ru'              => 'fa-odnoklassniki',
 		'pinterest.com'      => 'fa-pinterest',
 		'qzone.qq.com'       => 'fa-qq',
 		'reddit.com'         => 'fa-reddit',
@@ -827,6 +831,47 @@ function ttfmake_is_builder_page( $post_id = 0 ) {
 }
 endif;
 
+/**
+ * Handle frontend scripts for use with the existing sections on the current Builder page.
+ *
+ * @since 1.6.1.
+ *
+ * @return void
+ */
+function ttfmake_frontend_builder_scripts() {
+	if ( ttfmake_is_builder_page() ) {
+		$sections = ttfmake_get_section_data( get_the_ID() );
+		// Bail if there are no sections
+		if ( empty( $sections ) ) {
+			return;
+		}
+		// Parse the sections included on the page.
+		$sections      = ttfmake_get_section_data( get_the_ID() );
+		$section_types = wp_list_pluck( $sections, 'section-type' );
+
+		foreach ( $section_types as $section_id => $section_type ) {
+			switch ( $section_type ) {
+				default :
+					break;
+				case 'banner' :
+					// Add Cycle2 as a dependency for the Frontend script
+					global $wp_scripts;
+					$script = $wp_scripts->query( 'ttfmake-global', 'registered' );
+					if ( $script && ! in_array( 'cycle2', $script->deps ) ) {
+						$script->deps[] = 'cycle2';
+						if ( ! defined( 'TTFMAKE_SUFFIX' ) || '.min' !== TTFMAKE_SUFFIX ) {
+							$script->deps[] = 'cycle2-center';
+							$script->deps[] = 'cycle2-swipe';
+						}
+					}
+					break;
+			}
+		}
+	}
+}
+
+add_action( 'wp_head', 'ttfmake_frontend_builder_scripts' );
+
 if ( ! function_exists( 'ttfmake_builder_css' ) ) :
 /**
  * Trigger an action hook for each section on a Builder page for the purpose
@@ -873,6 +918,13 @@ if ( ! function_exists( 'ttfmake_builder_banner_css' ) ) :
  * @return void
  */
 function ttfmake_builder_banner_css( $data, $id ) {
+	$prefix = 'builder-section-';
+	$id = sanitize_title_with_dashes( $data['id'] );
+	/**
+	 * This filter is documented in inc/builder/core/save.php
+	 */
+	$section_id = apply_filters( 'make_section_html_id', $prefix . $id, $data );
+
 	$responsive = ( isset( $data['responsive'] ) ) ? $data['responsive'] : 'balanced';
 	$slider_height = absint( $data['height'] );
 	if ( 0 === $slider_height ) {
@@ -882,20 +934,20 @@ function ttfmake_builder_banner_css( $data, $id ) {
 
 	if ( 'aspect' === $responsive ) {
 		ttfmake_get_css()->add( array(
-			'selectors'    => array( '#builder-section-' . esc_attr( $id ) . ' .builder-banner-slide' ),
+			'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
 			'declarations' => array(
 				'padding-bottom' => $slider_ratio . '%'
 			),
 		) );
 	} else {
 		ttfmake_get_css()->add( array(
-			'selectors'    => array( '#builder-section-' . esc_attr( $id ) . ' .builder-banner-slide' ),
+			'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
 			'declarations' => array(
 				'padding-bottom' => $slider_height . 'px'
 			),
 		) );
 		ttfmake_get_css()->add( array(
-			'selectors'    => array( '#builder-section-' . esc_attr( $id ) . ' .builder-banner-slide' ),
+			'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
 			'declarations' => array(
 				'padding-bottom' => $slider_ratio . '%'
 			),
@@ -906,3 +958,57 @@ function ttfmake_builder_banner_css( $data, $id ) {
 endif;
 
 add_action( 'make_builder_banner_css', 'ttfmake_builder_banner_css', 10, 2 );
+
+/**
+ * Add a wrapper div to the output of oembeds and the [embed] shortcode.
+ *
+ * Also enqueues FitVids, since the embed might be a video.
+ *
+ * @since 1.0.0.
+ *
+ * @param  string    $html    The generated HTML of the embed handler.
+ * @param  string    $url     The embed URL.
+ * @param  array     $attr    The attributes of the embed shortcode.
+ *
+ * @return string             The wrapped HTML.
+ */
+function ttfmake_embed_container( $html, $url, $attr ) {
+	// Bail if this is the admin or an RSS feed
+	if ( is_admin() || is_feed() ) {
+		return $html;
+	}
+
+	if ( isset( $attr['width'] ) ) {
+		// Add FitVids as a dependency for the Frontend script
+		global $wp_scripts;
+		if ( is_object( $wp_scripts ) && 'WP_Scripts' === get_class( $wp_scripts ) ) {
+			$script = $wp_scripts->query( 'ttfmake-global', 'registered' );
+			if ( $script && ! in_array( 'fitvids', $script->deps ) ) {
+				$script->deps[] = 'fitvids';
+			}
+		}
+
+		// Get classes
+		$default_class = 'ttfmake-embed-wrapper';
+		$align_class = 'aligncenter';
+		if ( isset( $attr['make_align'] ) ) {
+			$align = trim( $attr['make_align'] );
+			if ( in_array( $align, array( 'left', 'right', 'center', 'none' ) ) ) {
+				$align_class = 'align' . $align;
+			}
+		}
+		$class = trim( "$default_class $align_class" );
+
+		// Get style
+		$style = 'max-width: ' . absint( $attr['width'] ) . 'px;';
+
+		// Build wrapper
+		$wrapper = "<div class=\"$class\" style=\"$style\">%s</div>";
+		$html = sprintf( $wrapper, $html );
+	}
+
+	return $html;
+}
+
+add_filter( 'embed_handler_html', 'ttfmake_embed_container', 10, 3 );
+add_filter( 'embed_oembed_html' , 'ttfmake_embed_container', 10, 3 );

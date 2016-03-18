@@ -1,10 +1,10 @@
 <?php 
-class weddings_categ extends WP_Widget
+class exclusive_categ extends WP_Widget
 {
-    function weddings_categ(){
+    function __construct(){
 		$widget_ops = array('description' => 'Displays Categories Posts');
 		$control_ops = array('width' => '', 'height' => '');
-		parent::WP_Widget(false,$name='Categories Posts',$widget_ops,$control_ops);
+		parent::__construct(false,$name='Categories Posts',$widget_ops,$control_ops);
 	}
 
   /* Displays the Widget in the front-end */
@@ -20,22 +20,24 @@ class weddings_categ extends WP_Widget
 			echo $before_title . $title . $after_title; ?>
 		
         <style>
-         .cat_widg img {
+        .cat_widg img {
 			float:left;
-			margin: 0 10px 10px 0;
+			margin: 0 10px 5px 0 !important;
          }	
+		 .cat_widg p {
+			margin: -4px 0px 0px !important;
+         }
 		 .cat_widg {
-            padding-bottom: 5px;
+            padding: 10px 0;
+			margin-bottom: 5px;
+            border-bottom: 1px dotted #C5C9D8;
 			float: left;
-         }	
-         .cat_widg img {
-		    margin-top: 0;
-         } 		
-         .widget_weddings_categ div:last-child div{
+			width: 100%;
+         }			
+         .widget_exclusive_categ div:last-child div{
 		    border-bottom:none !important;
          } 
-         .cat_widg_cont {		 
-		  
+         .cat_widg_cont {		 		  
            width: 100%;
 		 }
 		 .cat_widg_cont h3{
@@ -63,23 +65,18 @@ class weddings_categ extends WP_Widget
 
         ?>
 		
-			<div class="cat_widg_cont">
-				<ul class="news">
-					<li>
-					  <a href="<?php the_permalink(); ?>">
-						  <strong><?php the_title(); ?></strong>
-					  </a>	              
+			    	<div class="cat_widg_cont">
+					  
 					  <div class="cat_widg">	
-						<p><?php
-                         echo weddings_the_excerpt_max_charlength(80);                       
-                        ?>	
-					     <a href="<?php the_permalink(); ?>" style="text-decoration: underline;"><span><?php echo __('More','wd_wedding'); ?></span></a>
-						</p>
-					   </div>					  
-                       <div style="clear:both;"></div>	
-					</li>
-				</ul>
-			</div>
+						<?php
+                         echo exclusive_display_thumbnail(110,110); 
+						 ?><p><?php
+                         echo exclusive_the_excerpt_max_charlength(85);                       
+                        ?></p>	
+					     <a href="<?php the_permalink(); ?>" style="text-decoration: underline;"><span><?php echo __('More','weddings'); ?></span></a>
+					   </div>
+                      	<div style="clear:both;"></div>				   
+					</div>
 					
 					<?php endwhile; 
 		 
@@ -118,18 +115,19 @@ class weddings_categ extends WP_Widget
 		<select name="<?php echo $this->get_field_name('categ_id'); ?>" id="<?php echo $this->get_field_id('categ_id') ?>" style="font-size:12px" class="inputbox">
           <option value="0">Select Category</option>
      <?php  $categories=get_categories();
-            
-            foreach($categories as $category) {
+            $category_count=count($categories);
+            for($i=0;$i<$category_count;$i++) {
+				if(isset($categories[$i])){
        ?>
-          <option value="<?php echo $category->term_id?>" <?php selected($instance['categ_id'],$category->term_id); ?>><?php echo $category->name ?></option>
+          <option value="<?php echo $categories[$i]->term_id; ?>" <?php if($instance['categ_id']==$categories[$i]->term_id) echo  'selected="selected"'; ?>><?php echo $categories[$i]->name ?></option>
      <?php
-            }
-       ?>
+				}
+            } ?>
         </select></p>
 		<p><label for="<?php echo $this->get_field_id('post_count'); ?>">Number of Posts:</label><input id="<?php echo  $this->get_field_id('post_count'); ?>" name="<?php echo $this->get_field_name('post_count'); ?>" type="text" value="<?php echo $post_count; ?>" size="6"/></p>
 <?php		
 }
 
-}// end weddings_categ class
-add_action('widgets_init', create_function('', 'return register_widget("weddings_categ");'))
+}// end exclusive_categ class
+add_action('widgets_init', create_function('', 'return register_widget("exclusive_categ");'))
 ?>

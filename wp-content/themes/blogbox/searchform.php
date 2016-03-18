@@ -6,7 +6,7 @@
  * 
  *
  * @package		blogBox WordPress Theme
- * @copyright	Copyright (c) 2012, Kevin Archibald
+ * @copyright	Copyright (C) 2015, Kevin Archibald
  * @license		http://www.gnu.org/licenses/quick-guide-gplv3.html  GNU Public License
  * @author		Kevin Archibald <www.kevinsspace.ca/contact/>
  */

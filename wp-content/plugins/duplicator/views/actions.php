@@ -9,6 +9,7 @@
  */
 function duplicator_package_scan() {
 	
+	header('Content-Type: application/json;');
 	DUP_Util::CheckPermissions('export');
 	
 	@set_time_limit(0);
@@ -18,6 +19,7 @@ function duplicator_package_scan() {
 	
 	$Package = DUP_Package::GetActive();
 	$report = $Package->Scan();
+	
 	$Package->SaveActiveItem('ScanFile', $Package->ScanFile);
 	$json_response = json_encode($report);
 	
@@ -35,6 +37,10 @@ function duplicator_package_scan() {
 function duplicator_package_build() {
 	
 	DUP_Util::CheckPermissions('export');
+	
+	check_ajax_referer( 'dup_package_build', 'nonce');
+	
+	header('Content-Type: application/json');
 	
 	@set_time_limit(0);
 	$errLevel = error_reporting();
@@ -63,19 +69,6 @@ function duplicator_package_build() {
     die($json_response);
 }
 
-
-function duplicator_package_report() {
-	
-	DUP_Util::CheckPermissions('export');
-	
-	$scanReport = $_GET['scanfile'];
-	header('Content-Type: application/json');
-	header("Location: " . DUPLICATOR_SSDIR_URL . "/tmp/" . $scanReport);
-	echo DUPLICATOR_SSDIR_URL . "/tmp/" . $scanReport;
-	
-    die();
-}
-
 /**
  *  DUPLICATOR_PACKAGE_DELETE
  *  Deletes the files and database record entries
@@ -85,8 +78,9 @@ function duplicator_package_report() {
  */
 function duplicator_package_delete() {
 	
-	DUP_Util::CheckPermissions('export');
-	
+    DUP_Util::CheckPermissions('export');    
+    check_ajax_referer( 'package_list', 'nonce' );
+    
     try {
 		global $wpdb;
 		$json		= array();
@@ -99,11 +93,13 @@ function duplicator_package_delete() {
         if ($postIDs != null) {
             
             foreach ($list as $id) {
-				$getResult = $wpdb->get_results("SELECT name, hash FROM `{$tblName}` WHERE id = {$id}", ARRAY_A);
+				
+				$getResult = $wpdb->get_results($wpdb->prepare("SELECT name, hash FROM `{$tblName}` WHERE id = %d", $id), ARRAY_A);
+				
 				if ($getResult) {
 					$row		=  $getResult[0];
 					$nameHash	= "{$row['name']}_{$row['hash']}";
-					$delResult	= $wpdb->query("DELETE FROM `{$tblName}` WHERE id = {$id}");
+					$delResult	= $wpdb->query($wpdb->prepare( "DELETE FROM `{$tblName}` WHERE id = %d", $id ));
 					if ($delResult != 0) {
 						//Perms
 						@chmod(DUP_Util::SafePath(DUPLICATOR_SSDIR_PATH_TMP . "/{$nameHash}_archive.zip"), 0644);
@@ -125,7 +121,9 @@ function duplicator_package_delete() {
 						@unlink(DUP_Util::SafePath(DUPLICATOR_SSDIR_PATH . "/{$nameHash}.log"));
 						//Unfinished Zip files
 						$tmpZip = DUPLICATOR_SSDIR_PATH_TMP . "/{$nameHash}_archive.zip.*";
-						array_map('unlink', glob($tmpZip));
+						if ($tmpZip !== false) {
+							array_map('unlink', glob($tmpZip));
+						}
 						@unlink(DUP_Util::SafePath());
 						$delCount++;
 					} 

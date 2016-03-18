@@ -3,12 +3,17 @@
 require(dirname(__FILE__) . '/../helpers/integration_helper.php');
 require(dirname(__FILE__) . '/../helpers/setup.php');
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\UselessFileDetector;
+
 abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
 
     protected static $driver;
 
     public static function setUpBeforeClass() {
-        self::$driver = RemoteWebDriver::createBySessionId($GLOBALS['global_session_id'], $GLOBALS['global_phantom_host']);
+        self::$driver = RemoteWebDriver::createBySessionId($GLOBALS['global_session_id'], $GLOBALS['global_webdriver_host']);
     }
 
     protected function upload_image($path) {
@@ -22,7 +27,7 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
         }
         self::$driver->wait(2)->until(WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::name('async-upload')));
         $file_input = self::$driver->findElement(WebDriverBy::name('async-upload'));
-        $file_input->setFileDetector(new LocalFileDetector());
+        $file_input->setFileDetector(new UselessFileDetector());
         $file_input->sendKeys($path);
         self::$driver->findElement(WebDriverBy::xpath('//input[@value="Upload"]'))->click();
         $path_elements = explode('/', $path);
@@ -33,14 +38,20 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
     }
 
     protected function set_api_key($api_key) {
-        self::$driver->get(wordpress('/wp-admin/options-media.php'));
+        $url = wordpress('/wp-admin/options-media.php');
+        if (self::$driver->getCurrentUrl() != $url) {
+            self::$driver->get($url);
+        }
         self::$driver->findElement(WebDriverBy::name('tinypng_api_key'))->clear()->sendKeys($api_key);
         self::$driver->findElement(WebDriverBy::tagName('form'))->submit();
         return self::$driver->findElement(WebDriverBy::name('tinypng_api_key'));
     }
 
     protected function enable_compression_sizes($sizes) {
-        self::$driver->get(wordpress('/wp-admin/options-media.php'));
+        $url = wordpress('/wp-admin/options-media.php');
+        if (self::$driver->getCurrentUrl() != $url) {
+            self::$driver->get($url);
+        }
         $elements = self::$driver->findElements(WebDriverBy::xpath('//input[starts-with(@id, "tinypng_sizes_")]'));
         foreach($elements as $element) {
             $size = str_replace('tinypng_sizes_', '', $element->getAttribute('id'));
@@ -55,5 +66,44 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
             }
         }
         self::$driver->findElement(WebDriverBy::tagName('form'))->submit();
+    }
+
+    protected function enable_resize($width, $height) {
+        $url = wordpress('/wp-admin/options-media.php');
+        if (self::$driver->getCurrentUrl() != $url) {
+            self::$driver->get($url);
+        }
+        $element = self::$driver->findElement(WebDriverBy::id('tinypng_resize_original_enabled'));
+        if (!$element->getAttribute('checked')) {
+            $element->click();
+        }
+        self::$driver->findElement(WebDriverBy::id('tinypng_resize_original_width'))->clear()->sendKeys($width);
+        self::$driver->findElement(WebDriverBy::id('tinypng_resize_original_height'))->clear()->sendKeys($height);
+        self::$driver->findElement(WebDriverBy::tagName('form'))->submit();
+    }
+
+    protected function disable_resize() {
+        $url = wordpress('/wp-admin/options-media.php');
+        if (self::$driver->getCurrentUrl() != $url) {
+            self::$driver->get($url);
+        }
+        $element = self::$driver->findElement(WebDriverBy::id('tinypng_resize_original_enabled'));
+        if ($element->getAttribute('checked')) {
+            $element->click();
+        }
+        self::$driver->findElement(WebDriverBy::tagName('form'))->submit();
+    }
+
+    protected function view_edit_image($image_title = 'input-large') {
+        $url = wordpress('/wp-admin/upload.php');
+        if (self::$driver->getCurrentUrl() != $url) {
+            self::$driver->get($url);
+        }
+        if (wordpress_version() >= 43) {
+            $selector = "//span[text()='" . $image_title . "']";
+        } else {
+            $selector = "//a[contains(text(),'" . $image_title . "')]";
+        }
+        self::$driver->findElement(WebDriverBy::xpath($selector))->click();
     }
 }

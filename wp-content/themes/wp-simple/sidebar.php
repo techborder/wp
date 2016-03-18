@@ -1,68 +1,38 @@
-<div class="col-md-4 sidebar sidebar_editable">
-    <?php
-
-    // Used to constrain the sidebar content on the frontpage content row
-    if (is_front_page()) {
-    echo "<div>";
-    }
-
-    // Social media buttons at the top of the sidebar
-    $display_social_buttons = nimbus_get_option('nimbus_display_social_buttons');
-    if (!empty($display_social_buttons)) {
-        get_template_part( 'parts/sidebar', 'social_media');
-    }
-
-    // set conditions to show widget areas (the frontpage blog widget area is on content-blog.php)
-    global $wp_query;
-    $i = 1;
-    if (is_404()) {
-
-    } else if ( is_page() || is_single()) {
-        $postid = $wp_query->post->ID;
-        if (trim(get_post_meta($postid, 'alt_sidebar_select', true)) != "") {
-            while ($i <= 20) {
-                if (trim(get_post_meta($postid, 'alt_sidebar_select', true)) == $i) {
-                    if (is_active_sidebar( "sidebar_" . $i )) {
-                        dynamic_sidebar( "sidebar_" . $i );
-                    }
-                }
-                $i++;
-            }
-        } else if (is_front_page()) {
-            if (is_active_sidebar( "sidebar_fp" )) {
-                dynamic_sidebar( "sidebar_fp" );
-            }
-        } else if ((trim(get_post_meta($postid, 'alt_sidebar_select', true)) == "") && is_page()) {
-            if (is_active_sidebar( "sidebar_pages" )) {
-                dynamic_sidebar( "sidebar_pages" );
-            } else {
-                if (nimbus_get_option('example_widgets') == "on") {
-                    get_template_part( 'parts/sidebar', 'example_widgets');
+<?php
+// set conditions to show widget areas
+global $wp_query;
+$i = 1;
+if (is_page() || is_single()) {
+    $postid = $wp_query->post->ID;
+    if (trim(get_post_meta($postid, 'sidebar_number', true)) != "") {
+        while ($i <= 10) {
+            if (trim(get_post_meta($postid, 'sidebar_number', true)) == $i) {
+                if (is_active_sidebar( "sidebar_" . $i )) {
+                    dynamic_sidebar( "sidebar_" . $i );
                 }
             }
-        } else if ((trim(get_post_meta($postid, 'alt_sidebar_select', true)) == "") && is_single()) {
-            if (is_active_sidebar( "sidebar_blog" )) {
-                dynamic_sidebar( "sidebar_blog" );
-            } else {
-                if (nimbus_get_option('example_widgets') == "on") {
-                    get_template_part( 'parts/sidebar', 'example_widgets');
-                }
-            }
+            $i++;
         }
-    } else if ((is_home() && !is_front_page()) || is_archive()) {
+    } else if ( is_single() ) {
         if (is_active_sidebar( "sidebar_blog" )) {
             dynamic_sidebar( "sidebar_blog" );
-        } else {
-            if (nimbus_get_option('example_widgets') == "on") {
-                get_template_part( 'parts/sidebar', 'example_widgets');
-            }
+        }
+    } else {
+        if (is_active_sidebar( "sidebar_pages" )) {
+            dynamic_sidebar( "sidebar_pages" );
         }
     }
-
-    // Used to constrain the sidebar content on the frontpage content row
-    if (is_front_page()) {
-    echo "</div>";
+} else if (class_exists( 'WooCommerce' )){
+    if (is_shop()) {
+        // defaults to no sidebar
     }
-
-    ?>
-</div>
+} else if (is_home() || is_front_page() || is_archive() || is_search()) {
+    if (is_active_sidebar( "sidebar_blog" )) {
+        dynamic_sidebar( "sidebar_blog" );
+    } else {
+        the_widget('WP_Widget_Pages', 'title=Pages', 'before_title=<h3 class="widget_title">&after_title=</h3>&before_widget=<div class="widget sidebar_widget">&after_widget=</div>'); 
+        the_widget('WP_Widget_Categories', 'title=Categories', 'before_title=<h3 class="widget_title">&after_title=</h3>&before_widget=<div class="widget sidebar_widget">&after_widget=</div>');
+        the_widget( 'WP_Widget_Meta', 'title=Meta', 'before_title=<h3 class="widget_title">&after_title=</h3>&before_widget=<div class="widget sidebar_widget">&after_widget=</div>');
+    }
+}
+?>

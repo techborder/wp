@@ -81,6 +81,7 @@ class weddings_layout_page_class{
 				"description" => "Specify the width of the Content Area",
 				
 				"var_name" => "content_area",
+				"sanitize_type" => "sanitize_text_field",
 				
 				"id" => $this->shortthemeoptions."_content_area",
 				
@@ -96,7 +97,7 @@ class weddings_layout_page_class{
 				"name" => "Main Column Width",
 		
 				"description" => "Specify the width of the Main Column",
-				
+				"sanitize_type" => "sanitize_text_field",
 				"var_name" => "main_column",
 				
 				"id" => $this->shortthemeoptions."_main_column",
@@ -113,7 +114,7 @@ class weddings_layout_page_class{
 				"name" => "Primary Widget Area width",
 		
 				"description" => "Specify the width of the Primary Widget Area",
-				
+				"sanitize_type" => "sanitize_text_field",
 				"var_name" => "pwa_width",
 				
 				"id" => $this->shortthemeoptions."_pwa_width",
@@ -252,11 +253,11 @@ class weddings_layout_page_class{
 				<tbody>
 				    <tr>   
                       <td style="font-size:14px; font-weight:bold">
-					     <a href="<?php echo $weddings_web_dor.'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows you to make changes in default layout of the theme.
-                         <a href="<?php echo $weddings_web_dor.'/wordpress-theme-options/3-2.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
+					     <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows you to make changes in default layout of the theme.
+                         <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-theme-options/3-2.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
 					    </td>   
                       <td  align="right" style="font-size:16px;">
-                           <a href="<?php echo $weddings_web_dor.'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
+                           <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
                               <img src="<?php echo get_template_directory_uri() ?>/images/header.png" border="0" alt="" width="215">
                            </a>
                        </td>
@@ -382,7 +383,7 @@ class weddings_layout_page_class{
 					}
 			   
 					.container{
-					width:<?php echo $them_content_are_width; ?>;
+					width:<?php echo esc_html($them_content_are_width); ?>;
 					}        
 					.blog{
 					width:100%;
@@ -405,16 +406,16 @@ class weddings_layout_page_class{
 						float:left;
 					} 
 					.container{
-					width:<?php echo $them_content_are_width; ?>
+					width:<?php echo esc_html($them_content_are_width); ?>
 					}
 					.blog{
-					width:<?php echo $main_column; ?>%;
+					width:<?php echo esc_html($main_column); ?>%;
 					}
 					ul.testimonials li.blog-post{
 						width: 100% !important;
 					}
 					#sidebar1{
-					width:<?php echo (100  - $main_column); ?>%;
+					width:<?php echo (100  - esc_html($main_column)); ?>%;
 					}
 					</style>
 					<?php
@@ -434,16 +435,16 @@ class weddings_layout_page_class{
 						float:left;
 					}
 					.container{
-					width:<?php echo $them_content_are_width; ?>
+					width:<?php echo esc_html($them_content_are_width); ?>
 					}
 					.blog{
-					width:<?php echo $main_column ; ?>%;
+					width:<?php echo esc_html($main_column) ; ?>%;
 					}
 					#sidebar1{
-					width:<?php echo (100 -  $main_column); ?>%;
+					width:<?php echo (100 -  esc_html($main_column)); ?>%;
 					}
 					#top-page .blog{
-						left:<?php echo  (100 -  $main_column) ; ?>%;
+						left:<?php echo  (100 -  esc_html($main_column)) ; ?>%;
 					} 
 					ul.testimonials li.blog-post{
 						width: 100% !important;
@@ -469,16 +470,16 @@ class weddings_layout_page_class{
 						float:left;
 					}
 					.container{
-					width:<?php echo $them_content_are_width; ?>
+					width:<?php echo esc_html($them_content_are_width); ?>
 					}
 					.blog{
-					width:<?php echo $main_column ; ?>%;
+					width:<?php echo esc_html($main_column); ?>%;
 					}
 					#sidebar1{
-					width:<?php echo $pwa_width ; ?>%;
+					width:<?php echo esc_html($pwa_width); ?>%;
 					}
 					#sidebar2{
-					width:<?php echo (100  - $pwa_width - $main_column); ?>%;
+					width:<?php echo (100  - esc_html($pwa_width) - esc_html($main_column)); ?>%;
 					}
 					ul.testimonials li.blog-post{
 						width: 100% !important;
@@ -507,20 +508,20 @@ class weddings_layout_page_class{
 					#sidebar3 .sidebar-container,
 					#sidebar4 .sidebar-container,				
 					.top-nav-list{
-					width:<?php echo $them_content_are_width; ?>
+					width:<?php echo esc_html($them_content_are_width); ?>
 					}
 					.blog{
-					width:<?php echo $main_column ; ?>%;
+					width:<?php echo esc_html($main_column) ; ?>%;
 					float: right;
 					}
 					#sidebar1{
-					width:<?php echo $pwa_width ; ?>%;
+					width:<?php echo esc_html($pwa_width) ; ?>%;
 					}
 					#sidebar2{
-					width:<?php echo (100 - $pwa_width - $main_column); ?>%;
+					width:<?php echo (100 - esc_html($pwa_width) - esc_html($main_column)); ?>%;
 					}
 					#top-page .blog{
-						left:<?php echo (100 - $main_column) ; ?>%;
+						left:<?php echo (100 - esc_html($main_column)) ; ?>%;
 					}
 					.web .blog_test div {
 						width: 100% !important;
@@ -550,19 +551,19 @@ class weddings_layout_page_class{
 						float:left;
 					}    			       
 					.container{
-						width:<?php echo $them_content_are_width; ?>
+						width:<?php echo esc_html($them_content_are_width); ?>
 					}
 					.blog{
-						width:<?php echo $main_column ; ?>%;
+						width:<?php echo esc_html($main_column); ?>%;
 					}
 					#sidebar1{
-						width:<?php echo $pwa_width ; ?>%;
+						width:<?php echo esc_html($pwa_width); ?>%;
 					}
 					#sidebar2{
-						width:<?php echo (100  - $pwa_width - $main_column); ?>%;
+						width:<?php echo (100  - esc_html($pwa_width) - esc_html($main_column)); ?>%;
 					}       
 					#top-page .blog{
-						left:<?php echo $pwa_width ; ?>%;
+						left:<?php echo esc_html($pwa_width) ; ?>%;
 					}  
 					ul.testimonials li.blog-post{
 						width: 100% !important;

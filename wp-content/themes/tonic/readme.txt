@@ -5,7 +5,7 @@
 
 == ABOUT TONIC ==
 
-Create a truly unique design with Tonic, a lightweight and fully responsive HTML5 theme based on the Gridiculous boilerplate. Use the new Theme Options customizer to add your own header image, custom background, page layout, site width and more. Distinguish each post with one of the eight supported post formats, such as: Video, Image, Aside, Status, Audio, Quote, Link and Gallery. Install JetPack to display each of your galleries through a tiled view and jQuery carousel. Compatible with bbPress & BuddyPress. Built using SASS, Compass and Twitter Bootstrap. Tonic uses Google Fonts for improved typeface readability and works perfectly in desktop browsers, tablets and handheld devices. For a live demo go to http://demos.bavotasan.com/tonic/.
+Create a truly unique design with Tonic, a lightweight and fully responsive HTML5 theme based on the Gridiculous boilerplate. Use the new Theme Options customizer to add your own header image, custom background, page layout, site width and more. Distinguish each post with one of the eight supported post formats, such as: Video, Image, Aside, Status, Audio, Quote, Link and Gallery. Install JetPack to display each of your galleries through a tiled view and jQuery carousel. Compatible with bbPress & BuddyPress. Built using SASS, Compass and Twitter Bootstrap. Tonic uses Google Fonts for improved typeface readability and works perfectly in desktop browsers, tablets and handheld devices.
 
 == NOTES ==
 
@@ -27,10 +27,6 @@ Copyright: Hampton Catlin, Nathan Weizenbaum
 html5shiv - http://code.google.com/p/html5shiv/
 License: [[http://opensource.org/licenses/MIT|MIT]]
 
-Harvey.js - http://harvesthq.github.io/harvey/
-License: [[http://opensource.org/licenses/MIT|MIT]]
-Copyright: Harvest, http://www.getharvest.com/
-
 Font Awesome - http://fortawesome.github.io/Font-Awesome/
 License: [[http://opensource.org/licenses/MIT|MIT]]
 Copyright: Dave Gandy, https://twitter.com/davegandy
@@ -38,7 +34,25 @@ Copyright: Dave Gandy, https://twitter.com/davegandy
 Google Fonts - http://www.google.com/fonts/
 License: [[http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL|SIL Open Font License]]
 
+Stock Images - http://unsplash.com/
+Licensed under the terms of CC0
+
 == CHANGELOG ==
+
+02/26/2016 v1.1.0
+* Updated editor styles
+* Fixed menu issues
+* Added validation to custom widget
+* Added about page
+* Fixed customizer save issue
+* Fixed H1 tag issue
+* Updated CSS
+* Added title-tag support
+* Added prev/next link to pages
+* Added front-page.php
+* Added HTML5 Shiv
+* Removed harvey.js
+* Updated language files
 
 01/13/2014 v1.0.9
 * Fixed issue with quick edit erasing settings
@@ -46,7 +60,7 @@ License: [[http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL|SIL O
 * Fixed widget menu CSS
 * Updated POT file
 * Added fix for 3.8 admin bar
-* Modified footer link
+* Modified the footer link
 
 11/12/2013 v1.0.8.1
 * Removed message bar as per WP.org request

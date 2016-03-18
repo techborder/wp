@@ -28,7 +28,7 @@
                     <?php if (blcr_get_option('inkthemes_footertext') != '') { ?>
                         <p class="copyright"><?php echo blcr_get_option('inkthemes_footertext'); ?></p> 
                     <?php } else { ?>
-                        <p class="copyright"><?php _e('<a href="http://www.inkthemes.com">Black Rider Theme</a> Powered by <a href="http://www.wordpress.org">WordPress</a>','blcr'); ?></p>
+                        <p class="copyright"><?php printf(__('<a href="%s">Black Rider Theme</a> Powered by <a href="http://www.wordpress.org">WordPress</a>', 'black-rider'), 'http://www.inkthemes.com'); ?></p>
                     <?php } ?>
                 </div>
             </div>

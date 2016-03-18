@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>><head>
-
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <meta name="viewport" content="initial-scale=1.0" />
 <meta name="HandheldFriendly" content="true"/>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
@@ -14,18 +12,14 @@
 <?php
 global $_wp_theme_features;
 $header_image = get_header_image(); ?>
- 
 <div id="wrapper">
   <div id="header-wrapper" >
-	<header>
-	     <?php if(! empty($header_image)){  ?>
+	  <header>
+	        <?php if(! empty($header_image)){  ?>
 				<a class="custom-header-a" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<img src="<?php echo header_image(); ?>" class="custom-header">	
 				</a>
-					<?php
-				} ?>
-	
-	
+		    <?php } ?>
 			<div id="header">
 				<div class="container">
 					 <?php weddings_logo_img(); ?>
@@ -36,14 +30,14 @@ $header_image = get_header_image(); ?>
 					</div>					
 				</div>
 				<nav id="top-nav">
-					    <?php wp_nav_menu(	array(
+					    <?php $wdwt_menu = wp_nav_menu(	array(
 										'theme_location'  => 'primary-menu',
 										'container'       => false,
 										'container_class' => '',
 										'container_id'    => '',
 										'menu_class'      => 'top-nav-list',
 										'menu_id'         => '',
-										'echo'            => true,
+										'echo'            => false,
 										'before'          => '',
 										'after'           => '',
 										'link_before'     => '',
@@ -51,7 +45,9 @@ $header_image = get_header_image(); ?>
 										'items_wrap'      => '<ul id="top-nav-list" class=" %2$s">%3$s</ul>',
 										'depth'           => 0,
 										'walker'          => ''
-									)); ?>
+									));
+							echo $wdwt_menu;
+									?>
 						
 					</nav>
 			</div>

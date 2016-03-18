@@ -1,12 +1,13 @@
 /*
 Theme Name: Weddings
-Theme URI: http://web-dorado.com/wordpress-themes/wedding.html
+Theme URI: https://web-dorado.com/wordpress-themes/wedding.html
 Author: web-dorado.com
-Author URI: http://web-dorado.com/
+Author URI: https://web-dorado.com/
+Text Domain: weddings
 Description: Weddings is an elegant, responsive WordPress theme designed for wedding websites. The theme includes multiple pages, homepage slider and gallery support.  It uses special pages to deliver the story of the bride and the bridegroom, as well as wedding details and to create online invitations. The theme can also be used for the wedding photographers and any other event organization websites with its capacity of editable color schemes, layout and styles. The marketing component can be ensured with the help of testimonials and advertisement features.
-Weddings Theme, Copyright 2013 web-dorado.com
+Weddings Theme, Copyright 2015 web-dorado.com
 Weddings is distributed under the terms of the GNU GPL
-Version: 1.0.5
+Version: 1.0.12
 Tags: black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, custom-menu, custom-header, custom-background, featured-images, custom-colors, flexible-header, full-width-template, one-column, two-columns, three-columns, right-sidebar, theme-options, threaded-comments, fluid-layout, responsive-layout
 License: GNU General Public License v3 or later
 License URI: license.txt
@@ -15,6 +16,11 @@ License URI: license.txt
 pre,p{
 	word-wrap: break-word !important;
 }
+
+.screen-reader-text {
+	display: none;
+}
+
 #content.page .blog-post img, #content .blog-post img{
   margin: 0 10px 10px 0;
   max-width: 100% !important;
@@ -1223,11 +1229,11 @@ p, h1, h2, h3, h4, h5, h6{
 	padding-bottom: 5px;
 }
 .widget-area .sidebar-container > div img {
-	float:left;
-	margin:0px 5px 0px 0px;
+	float: left;
+	margin: 0px -1px 0px 0px;
 }
 
-
+.social-widg-cont>a img { margin-left:10px !important;}
 
 /*#########PHONE ASIDE###########*/
 
@@ -1274,11 +1280,9 @@ p, h1, h2, h3, h4, h5, h6{
 	text-align: left !important;
 }
 
-.phone #sidebar3 ul ,
-#sidebar3 .textwidget p,
-.phone #sidebar4 ul ,
-#sidebar4 .textwidget p {
-	margin-left:25px;
+.phone #sidebar3 ul, #sidebar3 .textwidget p,
+.phone #sidebar4 ul, #sidebar4 .textwidget p {
+	margin-left:15px;
 }
 
 .phone .blog-post img{
@@ -1562,9 +1566,12 @@ a:link, a:visited { text-decoration:none;}
 }
 
 #content.page  h3  a, #content.page  h3  a:link,#content.page  h3  a:visited,#content.page  h3  a:hover,#content.page  h3  a:focus,#content.page  h3  a:active{text-decoration:none;}
+
 .home .page .widget-area {margin-top:0px !important;}
-#sidebar3{padding-top: 55px;  padding-bottom: 55px;}
-#sidebar4{padding-top: 55px;}
+
+#sidebar3{padding-top: 55px; padding-bottom: 55px;}
+
+#sidebar4{padding-top: 30px; padding-bottom: 25px;}
 
 #contactForm .forms {
 	width: 100%;

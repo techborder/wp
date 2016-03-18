@@ -1,5 +1,5 @@
 <?php
 get_header();
-get_template_part( 'parts/content', 'page');
-get_footer();
+get_template_part( 'parts/loop');    
+get_footer(); 
 ?>

@@ -1,42 +1,51 @@
-Formation is a responsive, highly customizable WordPress theme.
+Formation is a responsive, highly customizable WordPress theme. 
 
-Theme instructions can be found at: http://www.templateexpress.com/formation-theme-instructions/
+Full instructions can be found at: http://www.templateexpress.com/docs/formation/
+Theme demo: http://www.templateexpress.com/demos/formation/
 
 Fonts
 -------------------------------------------
-Genericons
-vector icons embedded in a webfont designed to be clean and simple 
-keeping with a generic aesthetic.
-More info at http://genericons.com/
+This theme takes advantage of Google Fonts: https://www.google.com/fonts
+We use Fontawesome for our Icon fonts: http://fortawesome.github.io/Font-Awesome/
 
-Source Sans Pro
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-More info available with a FAQ at: http://scripts.sil.org/OFL
-
-Icons
---------------------------------------------
-All icons are by Template Express and are free to use in all commercial projects.
 
 License
 --------------------------------------------
 License: GNU General Public License v2.0
-License URI: ?http://www.gnu.org/licenses/gpl-2.0.html
-
-Screenshot image
-----------------------------------------------
-Images courtesy of Pixabay - provided Images on Pixabay are bound to Creative Commons Deed CC0. 
-To the extent possible under law, uploaders of Pixabay have waived all copyright and related or neighboring 
-rights to these Images. 
-
-You are free to adapt and use the Images for commercial purposes without attributing the original author
- or source. Although absolutely not required, a link back to Pixabay would be nice.
-More info: http://pixabay.com/en/service/terms/
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Changelog
--------------------------------------------------
-Current Version 1.9.8
-all functions prefixed
-style.css updated
-rtl.css updated
-licensed image added for screenshot
-if admin removed from enque of files
+--------------------------------------------
+Version: 2.4.1
+* Updated url's in this file to new docs and demo
+
+Version: 2.4
+* Flexslider rtl issue resolved
+* BBPress styles compatibilty improved
+
+Version: 2.3
+* Added bigger screenshot for retina screens
+* Fixed text domain issue
+* .screen-reader-text style added
+
+Version: 2.2
+* Fixed issue with child themes
+* Fixed text domain issue
+
+Version: 2.0
+
+* Fixed issue with iOS VoiceOver 
+* Added Xing to social network choices
+* Added more contact options for header
+* Added lots more control for elements of the Custom Homepage Template
+* Added ability to specify users for Authors Template
+* Added option to use image url instead of Gravatar as user profile picture.
+* Added Copyright customization and Footer hide/show elements
+* Added theme support for "title-tag"
+* Added stylesheet for Text Editor to mimic front end
+* Added Favicon and Apple Icons options
+* Added option for Retina Logo
+* Added option to pick pre-built styles
+* Added on-click theme update tool
+* Added Video Tutorials
+* Improved Documentation

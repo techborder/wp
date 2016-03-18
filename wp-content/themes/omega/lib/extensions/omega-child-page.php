@@ -21,6 +21,18 @@ if ( is_admin() ) {
 		$omegachilds = array(
 			 	array( 'name' => 'Church+',
 			 		   'url' => 'http://themehall.com/product/churchplus'),
+			 	array( 'name' => 'Composer+',
+			 		   'url' => 'https://themehall.com/product/composer-plus'),
+			 	array( 'name' => 'Custom Footer',
+			 		   'url' => 'https://themehall.com/product/omega-custom-footer-plugin'),
+			 	array( 'name' => 'Superstore',
+			 		   'url' => 'https://wordpress.org/themes/superstore/'),
+			 	array( 'name' => 'Delicious',
+			 		   'url' => 'https://wordpress.org/themes/delicious/'),
+			 	array( 'name' => 'Lifestyle',
+			 		   'url' => 'https://wordpress.org/themes/lifestyle/'),
+			 	array( 'name' => 'Me',
+			 		   'url' => 'https://themehall.com/me-omega-child-theme'),
 			 	array( 'name' => 'Composer',
 			 		   'url' => 'https://themehall.com/composer-one-column-omega-child-theme'),
 			 	array( 'name' => 'Alpha',
@@ -61,13 +73,11 @@ if ( is_admin() ) {
 			$currenttheme = wp_get_theme();
 
 			foreach ( $omegachilds as $omegachild) {
-				if ($omegachild['name'] != $currenttheme->name) {
-					echo '<div class="available-theme">
-						<a class="screenshot" target="_blank" href="' . $omegachild['url'] .'" title="'.$omegachild['name'].'">
-							'.$omegachild['name'].'
-						</a>
-					</div>';
-				}
+				echo '<div class="available-theme">
+					<a class="screenshot" target="_blank" href="' . $omegachild['url'] .'" title="'.$omegachild['name'].'">
+						'.$omegachild['name'].'
+					</a>
+				</div>';
 			}
 			?>			
 				<div class="available-theme">

@@ -1,52 +1,82 @@
 <?php
-$nimbus_post_meta_single = nimbus_get_option('nimbus_post_meta_single');
+$sidebar_select = get_post_meta($post->ID, 'sidebar_select', true);
+if ($sidebar_select == 'right') {
+    $sidebar_select_aside_classes = '';
+    $sidebar_select_content_classes = '';
+} else {
+    $sidebar_select_aside_classes = 'col-sm-pull-8';
+    $sidebar_select_content_classes = 'col-sm-push-4';
+}
+if (empty($sidebar_select) || ($sidebar_select == 'none')) {
 ?>
-
-<div id="page_content_row">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 editable">
-                <div>
-                    <?php
-                    if (have_posts()) {
-                        while (have_posts()) {
-                            the_post();
-                            $paged = $wp_query->get( 'page' );
-                            if ( ! $paged || $paged < 2 )  {
-                                if (get_post_format() == false) {
-                                    if (!is_attachment()) {
-                                        if (get_post_meta($post->ID, 'include_image_on_page', true) == "true") {
-                                            get_template_part( 'parts/image', '740_420');
-                                        }
-                                    }
-                                }
-                            }
-                            if ($nimbus_post_meta_single['title']) {
-                            ?>
-                                <h1><?php get_template_part( 'parts/title', 'post'); ?></h1>
-                            <?php
-                            }
-                            get_template_part( 'parts/blog', 'meta_line');
-                            the_content();
-                            n_clear();
-                            get_template_part( 'parts/wp_link_pages');
-                            get_template_part( 'parts/blog', 'tax');
-                            if (nimbus_get_option('display_bio') == 1) {
-                                get_template_part( 'parts/bio');
-                            }
-                            comments_template();
-                            get_template_part( 'parts/blog', 'single_post_nav');
-                        }
-                    } else {
-                            get_template_part( 'parts/error', 'no_results');
-                    }
-                    ?>
+    <div <?php post_class('content row'); ?>>
+        <div class="col-xs-12 content-column">
+            <div class="row single_meta">
+                <div class="col-sm-8">
+                    <p> 
+                    <?php 
+                    _e('Posted by ', 'nimbus');  
+                    the_author_posts_link(); 
+                    _e(' on ', 'nimbus');
+                    the_time(get_option( 'date_format' ));
+                    ?></p>
+                </div>
+                <div class="col-sm-4">
+                    <?php if (comments_open()) { ?><p class="text-right"><a href="<?php the_permalink(); ?>#comments" ><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></a></p><?php } ?>
                 </div>
             </div>
             <?php
-            get_sidebar();
+            the_content();
+            nimbus_clear();
+            get_template_part( 'parts/wp_link_pages');
+            get_template_part( 'parts/tax_tags');
+            comments_template();
+            get_template_part( 'parts/single_post_nav');
             ?>
         </div>
     </div>
-</div>
+<?php 
+} else {
+?>
+    <div <?php post_class('content row'); ?>>
 
+        <div class="col-sm-8 content-column <?php echo $sidebar_select_content_classes; ?>">
+            <div class="row single_meta">
+                <div class="col-sm-8">
+                    <p> 
+                    <?php 
+                    _e('Posted by ', 'nimbus');  
+                    the_author_posts_link(); 
+                    _e(' on ', 'nimbus');
+                    the_time(get_option( 'date_format' ));
+                    ?></p>
+                </div>
+                <div class="col-sm-4">
+                    <?php if (comments_open()) { ?><p class="text-right"><a href="<?php the_permalink(); ?>#comments" ><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></a></p><?php } ?>
+                </div>
+            </div>
+            <?php        
+            the_content();
+            nimbus_clear();
+            get_template_part( 'parts/wp_link_pages');
+            get_template_part( 'parts/tax_tags');
+            comments_template();
+            get_template_part( 'parts/single_post_nav');
+            ?>
+        </div>
+        <div class="col-sm-4 <?php echo $sidebar_select_aside_classes; ?>">
+            <?php
+            get_sidebar();
+            ?>
+        </div>        
+    </div>
+<?php
+}
+?>
+
+                    
+
+                        
+              
+ 
+  

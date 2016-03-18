@@ -3,11 +3,9 @@
  * The template for displaying Comments.
  *
  * The area of the page that contains both current comments
- * and the comment form. The actual display of comments is
- * handled by a callback to aldehyde_comment() which is
- * located in the inc/template-tags.php file.
+ * and the comment form.
  *
- * @package Aldehyde
+ * @package IH Photography
  */
 
 /*
@@ -15,11 +13,12 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() )
+if ( post_password_required() ) {
 	return;
+}
 ?>
 
-	<div id="comments" class="comments-area">
+<div id="comments" class="comments-area">
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -41,13 +40,11 @@ if ( post_password_required() )
 
 		<ol class="comment-list">
 			<?php
-				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use aldehyde_comment() to format the comments.
-				 * If you want to override this in a child theme, then you can
-				 * define aldehyde_comment() and that will be used instead.
-				 * See aldehyde_comment() in inc/template-tags.php for more.
-				 */
-				wp_list_comments( array( 'callback' => 'aldehyde_comment' ) );
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+					'callback' => 'aldehyde_comment',
+				) );
 			?>
 		</ol><!-- .comment-list -->
 
@@ -67,46 +64,7 @@ if ( post_password_required() )
 	?>
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'aldehyde' ); ?></p>
 	<?php endif; ?>
-	
-	
-	
-	<?php 
-	//Displaying the Comment Form
-	
-	$commenter = wp_get_current_commenter();
-	$req = get_option( 'require_name_email' );
-	$aria_req = ( $req ? " aria-required='true'" : '' );
-	
-	$args = array(
-		
-		  'comment_field' =>  '<div class="form-group"><label for="comment">' . _x( 'Comment', 'noun','aldehyde' ) .
-		    '</label><textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true">' .
-		    '</textarea></div>',		
-		  'fields' => apply_filters( 'comment_form_default_fields', array(
-		
-		    'author' =>
-		      '<div class="form-group">' .
-		      '<label for="author">' . __( 'Name', 'aldehyde' ) . '</label> ' .
-		      ( $req ? '<span class="required">*</span>' : '' ) .
-		      '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-		      '" size="30"' . $aria_req . ' /></div>',
-		
-		    'email' =>
-		      '<div class="form-group"><label for="email">' . __( 'Email', 'aldehyde' ) . '</label> ' .
-		      ( $req ? '<span class="required">*</span>' : '' ) .
-		      '<input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-		      '" size="30"' . $aria_req . ' /></div>',
-		
-		    'url' =>
-		      '<div class="form-group><label for="url">' .
-		      __( 'Website', 'aldehyde' ) . '</label>' .
-		      '<input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
-		      '" size="30" /></div>'
-		    )
-		  ),
-		);
-	
-	
-	comment_form($args); ?>
+
+	<?php comment_form(); ?>
 
 </div><!-- #comments -->

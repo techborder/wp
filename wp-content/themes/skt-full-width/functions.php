@@ -30,6 +30,7 @@ function skt_full_width_setup() {
 	load_theme_textdomain( 'skt-full-width', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
 	add_theme_support( 'woocommerce' );
 	add_image_size('homepage-thumb',240,145,true);
 	register_nav_menus( array(
@@ -98,6 +99,8 @@ function skt_full_width_scripts() {
 	//wp_enqueue_script( 'skt_full_width-superfish', get_template_directory_uri() . '/js/superfish.js', array('jquery') );
 
 	wp_enqueue_script( 'skt_full_width-supersized-shutter', get_template_directory_uri() . '/js/supersized.shutter.js', array('jquery') );
+	
+	wp_enqueue_script( 'skt_full_width-custom_js', get_template_directory_uri() . '/js/custom.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -125,7 +128,7 @@ function skt_full_width_custom_head_codes() {
 			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a{background-image:url(".of_get_option('navigation_icon',true).")}";
 		}
 		if( of_get_option('navigation_color', true) != '' ){
-			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a, div.slide-title a:hover{color:".of_get_option('navigation_color',true).";}mark, ins, a, .header .logo h1.site-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, .single-post h1.entry-title:first-letter, .entry-meta a, .search h1.entry-title:first-letter,.archive h1.entry-title:first-letter, .read-more a:hover, .recent-post .post-box .post-text a, aside ul li a:hover, .widget ul li a:hover, h3.company-title:first-letter, .footer-menu ul li a:hover, .social a:hover, .footer-bottom a{color:".of_get_option('navigation_color',true).";}button, html input[type=\"button\"], input[type=\"reset\"],input[type=\"submit\"]{background-color:".of_get_option('navigation_color',true).";}";
+			echo "#site-nav ul li a:hover, #site-nav li.current_page_item a, div.slide-title a:hover{color:".of_get_option('navigation_color',true).";}mark, ins, a, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, h2#page-title:first-letter,.archive h1.page-title:first-letter,.page h1.entry-title:first-letter, .single-post h1.entry-title:first-letter, .entry-meta a, .search h1.entry-title:first-letter,.archive h1.entry-title:first-letter, .read-more a:hover, .recent-post .post-box .post-text a, aside ul li a:hover, .widget ul li a:hover, h3.company-title:first-letter, .footer-menu ul li a:hover, .social a:hover, .footer-bottom a{color:".of_get_option('navigation_color',true).";}button, html input[type=\"button\"], input[type=\"reset\"],input[type=\"submit\"]{background-color:".of_get_option('navigation_color',true).";}";
 		}
 		if( (of_get_option('pagin_grad_top_color',true) != '') && (of_get_option('pagin_grad_bottom_color',true) != '') ){
 			echo ".pagination ul  > li  > a, .pagination ul  > li  > span{background:linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-moz-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-webkit-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important; background:-o-linear-gradient(".of_get_option('pagin_grad_top_color',true).", ".of_get_option('pagin_grad_bottom_color',true).") !important;}.pagination ul  > li:hover > a, .pagination ul  > li > span.current{background:linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-moz-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-webkit-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important; background:-o-linear-gradient(".of_get_option('pagin_grad_bottom_color',true).", ".of_get_option('pagin_grad_top_color',true).") !important;}";
@@ -167,13 +170,33 @@ function skt_full_width_custom_head_codes() {
 			thumbnail_navigation    :   0,			// Thumbnail navigation
 			slides 					:  	[			// Slideshow Images
 											<?php
+											$slide_img = array(
+												'1'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'2'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+												'3'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'4'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+												'5'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner_bg.jpg',
+												),
+												'6'	=> array(
+													'slide_image'	=> get_template_directory_uri().'/images/banner-welcome.jpg',
+												),
+											);
 											if( is_front_page() || is_home() ){
 												for ($i=1;$i<6;$i++) {
 													if ( of_get_option('slide'.$i, true) != "" ) {
-														$imgUrl = esc_url( of_get_option('slide'.$i, true) );
-														$imgTitle = esc_html( of_get_option('slidetitle'.$i, true) );
-														$imgDesc = esc_html( of_get_option('slidedesc'.$i, true) );
-														$imgHref = esc_html( of_get_option('slideurl'.$i, true) );
+														$imgUrl = esc_url( of_get_option('slide'.$i, $slide_img[$i]['slide_image']) );
+														$imgTitle = esc_html( of_get_option('slidetitle'.$i, 'Slide Title'.$i) );
+														$imgDesc = esc_html( of_get_option('slidedesc'.$i, 'Slide Description'.$i) );
+														$imgHref = esc_html( of_get_option('slideurl'.$i, '#link'.$i) );
 														if( $imgUrl != '' ){
 															echo '{image : \''.$imgUrl.'\', title : \'<div class="slide-title"><span>'.( ($imgHref!='' && $imgTitle!='') ? '<a href="'.$imgHref.'">' : '').$imgTitle.( ($imgHref!='' && $imgTitle!='') ? '</a>' : '').'</span></div><div class="slide-description"><span>'.$imgDesc.'</span></div>'.( ($imgHref != '') ? '<div class="slide-description"><span><a href="'.$imgHref.'">Read More &rsaquo;</a></span></div>' : '').'\', thumb : \''.$imgUrl.'\', url : \'\'},'."\n";
 														}
@@ -204,7 +227,8 @@ function skt_full_width_custom_head_codes() {
 		}
 	});
 	
-	</script><?php
+	</script>
+	<?php 
 
 }	
 add_action('wp_head', 'skt_full_width_custom_head_codes');

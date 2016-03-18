@@ -20,6 +20,18 @@ Install
 
 Changelog
 ---------
+
+0.4.3	2015-12-11
+- updated style.css
+- fix header image issue
+
+0.4.1	2015-8-31
+- updated thumbnail image
+- activate crop functionality to header image
+
+0.4.0 - 2015-4-31
+- Introduce Full Width and left sidebar page template to replace theme Layout option
+
 0.2.0
 - updated style.css
 - remove theme_mod_theme_layout filter

@@ -68,3 +68,18 @@ Version 1.6.1
 	i) Theme options from old version not getting migrated to new version solved.
 Version 1.6.2
 	i) Resolved blogname first letter issue.
+
+Version 1.6.3
+	i) Resolved logo first letter issue.
+
+Version 1.6.4
+	i) Resolved toggle menu issue in responsive.
+
+Version 1.6.5
+	i) Resolved responsive layout issue.
+
+Version 1.6.6
+	i) Resolved default content issue when theme is loaded first time.
+
+Version 1.6.7
+	i) Solved theme check errors

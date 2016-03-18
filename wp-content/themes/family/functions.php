@@ -14,7 +14,14 @@ function family_setup() {
 	add_theme_support(
 		'custom-header',
 		array( 'header-text' => false,
-			'flex-width'    => true,
+			// Set height and width, with a maximum value for the width.
+			'height'                 => 380,
+			'width'                  => 980,
+			'max-width'              => 1000,
+
+			// Support flexible height and width.
+			'flex-height'            => true,
+			'flex-width'             => true,
 			'uploads'       => true,
 			'default-image' => get_stylesheet_directory_uri() . '/images/header.jpg' ,
 			'admin-head-callback'    => 'family_admin_header_style',
@@ -74,13 +81,10 @@ function family_banner() {
 			} else {	
 				// get title		
 				$id = get_option('page_for_posts');
-				if ( is_day() || is_month() || is_year() || is_tag() || is_category() || is_singular('post' ) || is_home() ) {
-					$the_title = get_the_title($id);
-				} else {
-					$the_title = get_the_title();
-				}
 
-				if(is_home() || is_singular('post' ) ) {
+				if (( 'posts' == get_option( 'show_on_front' )) && (is_day() || is_month() || is_year() || is_tag() || is_category() || is_singular('post' ) || is_home())) {
+						family_get_header_image();
+				} elseif(is_home() || is_singular('post' ) ) {
 					if ( has_post_thumbnail($id) ) {
 						echo get_the_post_thumbnail( $id, 'full' );
 					} else {

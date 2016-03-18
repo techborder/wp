@@ -4,8 +4,8 @@
  * Template Name: Full Width
  * Description: A Page Template with no sidebar.
  *
- * @package Formation
- * @since Formation 1.0
+ * @package formation
+ * @since formation 1.0
  */
 
 
@@ -13,9 +13,7 @@
 get_header(); ?>
 
 		<header class="entry-header">
-        <div class="title-container">
-		<h1 class="page-title"><?php the_title(); ?></h1><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span>
-        </div>
+		<h1 class="page-title"><?php the_title(); ?><span class="breadcrumbs"><?php if (function_exists('formation_breadcrumbs')) formation_breadcrumbs(); ?></span></h1>
 		</header><!-- .entry-header -->
 
 		<div id="primary_home" class="content-area">

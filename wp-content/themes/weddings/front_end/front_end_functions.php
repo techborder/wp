@@ -30,12 +30,12 @@ $abaut_us_post=get_post($home_abaut_us_post);
 							'class'	=> "abaut_us_post",
 						);
 						echo get_the_post_thumbnail( $abaut_us_post->ID,'thumbnail',$attr_thumb ); 	?>
-						<h2><?php echo $abaut_us_post->post_title ?></h2>
+						<h2><?php echo esc_html($abaut_us_post->post_title); ?></h2>
 						<p>
 						<?php 
 						weddings_the_excerpt_max_charlength(400,$abaut_us_post->post_content);  ?>
 						</p>
-						<a href="<?php echo get_permalink($abaut_us_post->ID) ?>" class="read_more"><?php echo __('More','wd_wedding'); ?></a>
+						<a href="<?php echo get_permalink($abaut_us_post->ID) ?>" class="read_more"><?php echo __('More','weddings'); ?></a>
 					
 					<?php } ?>
 				</div>			
@@ -116,7 +116,7 @@ foreach ($weddings_general_settings_page->options_generalsettings as $value)
                         }
                         else 
                         {
-                           the_content(__('More','wd_wedding'));
+                           the_content(__('More','weddings'));
 					    }   ?>
 						</span>
 					<div class="clear"></div>	
@@ -218,7 +218,7 @@ foreach ($weddings_general_settings_page->options_generalsettings as $value)
 			
 			if(!empty($content_categories)){  ?>
 				<div id="blog" class="blog" style="width: 100%;">
-					<h2 class="gallery_cat"><?php echo $categories_name; ?></h2>
+					<h2 class="gallery_cat"><?php echo esc_html($categories_name); ?></h2>
 					<div class="blog_gellery">
 						<?php
 						$i=0;						
@@ -256,13 +256,13 @@ foreach ($weddings_general_settings_page->options_generalsettings as $value)
 			}
 	 }
  }
-					
-	$content_post_cates=$wp_query->query('posts_per_page='.($n_of_testimonials).'&cat='.weddings_remove_last_comma($content_post_cats).'&paged='.$paged);
+	$testim_number = esc_html($n_of_testimonials);	
+	$content_post_cates=$wp_query->query('posts_per_page='.($testim_number).'&cat='.weddings_remove_last_comma($content_post_cats).'&paged='.$paged);
 	if(!empty($content_post_cates)){						
 	if($content_post_cats!=""){
 	?>
 	<div class="blog" id="test_blog">
-		<h2 class="test_cat"><?php echo $cat_name; ?></h2>
+		<h2 class="test_cat"><?php echo esc_html($cat_name); ?></h2>
 		<div class="blog_test">
 		<ul class="testimonials">
 			<?php
@@ -366,7 +366,7 @@ foreach ($weddings_general_settings_page->options_generalsettings as $value) {
 	        <?php  if($blog_style){
 			     the_excerpt();
 			   }else{
-			     the_content(__('More','wd_wedding'));
+			     the_content(__('More','weddings'));
 			   }  ?>
 
 		</div>
@@ -570,7 +570,7 @@ foreach ($weddings_home_page->options_homepage as $value)
 	
 	$slideshow_title_position = explode('-', trim(get_theme_mod('ct_slider_title_position', 'right-top')) );
 	$slideshow_description_position = explode('-', trim(get_theme_mod('ct_slider_description_position', 'left-bottom')) );
-	$slideshow_height = get_theme_mod('ct_slider_height','440');
+	$slideshow_height = esc_html(get_theme_mod('ct_slider_height','440'));
   if(is_home()){
  ?>
  <style>
@@ -598,15 +598,15 @@ else{
 <style>
 <?php if(isset($slideshow_title_position[1])){ ?>
   .wd_bwg_slideshow_title_span {
-	text-align: <?php echo $slideshow_title_position[0]; ?>;
-	vertical-align: <?php echo $slideshow_title_position[1]; ?>;
+	text-align: <?php echo esc_html($slideshow_title_position[0]); ?>;
+	vertical-align: <?php echo esc_html($slideshow_title_position[1]); ?>;
   }
 <?php } 
 if(isset($slideshow_description_position[1])){
 ?>
   .wd_bwg_slideshow_description_span {
-	text-align: <?php echo $slideshow_description_position[0]; ?>;
-	vertical-align: <?php echo $slideshow_description_position[1]; ?>;
+	text-align: <?php echo esc_html($slideshow_description_position[0]); ?>;
+	vertical-align: <?php echo esc_html($slideshow_description_position[1]); ?>;
   }
 <?php } ?>
 </style>
@@ -892,29 +892,29 @@ foreach ($weddings_home_page->options_homepage as $value)
 }
 
 function weddings_favicon_img(){
-
-global $weddings_general_settings_page;
-
-foreach ( $weddings_general_settings_page->options_generalsettings as $value )
- {
-	if(isset($value['id']))
-	{
-		
-		if ( get_theme_mod( $value['id'] ) === FALSE )
-		{
-		   $$value['var_name'] = $value['std']; 
-		} 
-		else {
-		   $$value['var_name'] = get_theme_mod( $value['id'] ); 
+	if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
+		global $weddings_general_settings_page;
+		foreach ( $weddings_general_settings_page->options_generalsettings as $value )
+		 {
+			if(isset($value['id']))
+			{
+				
+				if ( get_theme_mod( $value['id'] ) === FALSE )
+				{
+				   $$value['var_name'] = $value['std']; 
+				} 
+				else {
+				   $$value['var_name'] = get_theme_mod( $value['id'] ); 
+				}
+				
+			}
 		}
-		
-	}
-}
 
-if($favicon_enable=='on' && $favicon_img)
-{ ?>
-<link rel="shortcut icon" href="<?php if(trim($favicon_img)) echo esc_url($favicon_img); ?>" type="image/x-icon" />
-<?php  }
+		if($favicon_enable=='on' && $favicon_img)
+		{ ?>
+		<link rel="shortcut icon" href="<?php if(trim($favicon_img)) echo esc_url($favicon_img); ?>" type="image/x-icon" />
+		<?php  }
+	}
 }
 
 

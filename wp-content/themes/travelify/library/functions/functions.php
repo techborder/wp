@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'travelify_scripts_styles_method' );
 function travelify_scripts_styles_method() {
 
 	global $travelify_theme_options_settings;
-   $options = $travelify_theme_options_settings;
+	$options = $travelify_theme_options_settings;
 
    /**
 	 * Loads our main stylesheet.
@@ -40,7 +40,7 @@ function travelify_scripts_styles_method() {
 	 */
 	wp_register_script( 'jquery_cycle', get_template_directory_uri() . '/library/js/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
 
-  wp_register_style( 'google_font_ubuntu', '//fonts.googleapis.com/css?family=Ubuntu' );
+	wp_register_style( 'google_font_ubuntu', '//fonts.googleapis.com/css?family=Ubuntu' );
 
 
 	/**
@@ -51,9 +51,9 @@ function travelify_scripts_styles_method() {
 		wp_enqueue_script( 'travelify_slider', get_template_directory_uri() . '/library/js/slider-settings.min.js', array( 'jquery_cycle' ), false, true );
 	}
 
-  wp_enqueue_script( 'theme_functions', get_template_directory_uri() . '/library/js/functions.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'theme_functions', get_template_directory_uri() . '/library/js/functions.min.js', array( 'jquery' ) );
 
-  wp_enqueue_style( 'google_font_ubuntu' );
+	wp_enqueue_style( 'google_font_ubuntu' );
 
    /**
     * Browser specific queuing i.e
@@ -263,19 +263,6 @@ function travelify_alter_home( $query ){
 	}
 }
 
-/**************************************************************************************/
-
-add_filter( 'wp_nav_menu_items', 'travelify_nav_menu_alter', 10, 2 );
-/**
-* Add default navigation menu to nav menu
-* Used while viewing on smaller screen
-*/
-if ( !function_exists('travelify_nav_menu_alter') ) {
-	function travelify_nav_menu_alter( $items, $args ) {
-		$items .= '<li class="default-menu"><a href="'.esc_url( home_url( '/' ) ).'" title="Navigation">'.__( 'Navigation','travelify' ).'</a></li>';
-		return $items;
-	}
-}
 
 /****************************************************************************************/
 
@@ -428,28 +415,27 @@ function travelify_admin_header_image() {
 
 <?php }
 
-/****************************************************************************************/
 
-add_action('wp_head', 'travelify_headercode');
+if ( ! function_exists( 'travelify_posted_on' ) ) :
 /**
- * Custom header scripts
+ * Prints HTML with meta information for the current post-date/time and author.
  */
-function travelify_headercode() {
-
-   $travelify_headercode = '';
-	if ( ( !$travelify_headercode = get_transient( 'travelify_headercode' ) )  ) {
-
-		global $travelify_theme_options_settings;
-		$options = $travelify_theme_options_settings;
-
-		// custom scripts header code
-		if ( !empty( $options['customscripts_header'] ) ) {
-		$travelify_headercode .=  $options[ 'customscripts_header' ] ;
-		}
-
-		set_transient( 'travelify_headercode', $travelify_headercode, 86940 );
+function travelify_posted_on() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 	}
-	echo $travelify_headercode;
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+	$byline = sprintf(
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+	);
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>' . '</span>';
 }
+endif;
 
 ?>

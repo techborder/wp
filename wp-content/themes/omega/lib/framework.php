@@ -102,9 +102,6 @@ class Omega {
 	 */
 	function constants() {
 
-		/* Sets the framework version number. */
-		define( 'OMEGA_VERSION', '0.9.0' );
-
 		/* Sets the path to the parent theme directory. */
 		define( 'THEME_DIR', get_template_directory() );
 
@@ -179,9 +176,6 @@ class Omega {
 		/* Load media-related functions. */
 		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'media.php' );
 
-		/* Load the metadata functions. */
-		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'meta.php' );
-
 		/* Load the sidebar functions. */
 		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'sidebars.php' );
 
@@ -254,23 +248,11 @@ class Omega {
 		/* Load the post template functions. */
 		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'template-post.php' );
 
-		/* Load the media meta class. */
-		require_once( trailingslashit( OMEGA_CLASSES ) . 'media-meta.php' );
-
-		/* Load the media grabber class. */
-		require_once( trailingslashit( OMEGA_CLASSES ) . 'media-grabber.php' );
-
 		/* Load the theme settings functions */
 		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'settings.php' );
 
-		/* Load the widgets if supported. */
-		require_if_theme_supports( 'omega-widgets', trailingslashit( OMEGA_FUNCTIONS ) . 'widgets.php' );
-
 		/* Load the template hierarchy if supported. */
 		require_if_theme_supports( 'omega-template-hierarchy', trailingslashit( OMEGA_FUNCTIONS ) . 'template-hierarchy.php' );
-
-		/* Load the post format functionality if post formats are supported. */
-		require_if_theme_supports( 'post-formats', trailingslashit( OMEGA_FUNCTIONS ) . 'post-formats.php' );
 
 		/* Custom template tags for omega theme. */
 		require_once( trailingslashit( OMEGA_FUNCTIONS ) . 'template-tags.php' );
@@ -303,9 +285,6 @@ class Omega {
 		/* Load the Color Palette extension if supported. */
 		require_if_theme_supports( 'color-palette', trailingslashit( OMEGA_EXTENSIONS ) . 'color-palette.php' );
 
-		/* Load the Theme Fonts extension if supported. */
-		require_if_theme_supports( 'theme-fonts', trailingslashit( OMEGA_EXTENSIONS ) . 'theme-fonts.php' );
-
 		/* Load  child themes page if supported. */
 		require_if_theme_supports( 'omega-child-page', trailingslashit( OMEGA_EXTENSIONS ) . '/omega-child-page.php' );
 
@@ -324,8 +303,12 @@ class Omega {
 		/* Load custom post extension if supported. */
 		require_if_theme_supports( 'omega-custom-post', trailingslashit( OMEGA_EXTENSIONS ) . '/custom-post.php' );
 
-		/* Load  footer widgets extension if supported. */
+		/* Load footer widgets extension if supported. */
 		require_if_theme_supports( 'omega-footer-widgets', trailingslashit( OMEGA_EXTENSIONS ) . '/footer-widgets.php' );
+
+		/* Load custom footer extension if supported. */
+		require_if_theme_supports( 'custom-footer', trailingslashit( OMEGA_EXTENSIONS ) . '/custom-footer.php' );
+
 
 		/* Load the plugin Activation extension if supported. */
 		require_if_theme_supports( 'plugin-activation', trailingslashit( OMEGA_EXTENSIONS ) . 'class-tgm-plugin-activation.php' );
@@ -345,7 +328,7 @@ class Omega {
 
 			/* Load the main admin file. */
 			require_once( trailingslashit( OMEGA_ADMIN ) . 'admin.php' );
-			require_once( trailingslashit( OMEGA_ADMIN ) . 'omega-upgrade.php' );
+			//require_once( trailingslashit( OMEGA_ADMIN ) . 'omega-upgrade.php' );
 		}
 	}
 
@@ -369,16 +352,6 @@ class Omega {
 
 		/* Make text widgets and term descriptions shortcode aware. */
 		add_filter( 'widget_text', 'do_shortcode' );
-
-		/* Use same default filters as 'the_content' with a little more flexibility. */
-		add_filter( 'omega_loop_description', array( $wp_embed, 'run_shortcode' ),   5 );
-		add_filter( 'omega_loop_description', array( $wp_embed, 'autoembed'     ),   5 );
-		add_filter( 'omega_loop_description',                   'wptexturize',       10 );
-		add_filter( 'omega_loop_description',                   'convert_smilies',   15 );
-		add_filter( 'omega_loop_description',                   'convert_chars',     20 );
-		add_filter( 'omega_loop_description',                   'wpautop',           25 );
-		add_filter( 'omega_loop_description',                   'do_shortcode',      30 );
-		add_filter( 'omega_loop_description',                   'shortcode_unautop', 35 );
 
 		/* Filters for the audio transcript. */
 		add_filter( 'omega_audio_transcript', 'wptexturize',   10 );

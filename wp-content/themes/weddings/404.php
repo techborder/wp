@@ -12,13 +12,13 @@ get_header();  ?>
 			</div>
 			<?php } ?>
 		   <div id="blog" class="blog">
-				<h3 class="page-title" style="text-align: center;"><?php _e('Not Found', 'wd_wedding'); ?></h3>
-				<p style="text-align: center;"><?php _e('You are trying to reach a page that does not exist here. Either it has been moved or you typed a wrong address. Try searching:', 'wd_wedding'); ?></p>
+				<h3 class="page-title" style="text-align: center;"><?php _e('Not Found', 'weddings'); ?></h3>
+				<p style="text-align: center;"><?php _e('You are trying to reach a page that does not exist here. Either it has been moved or you typed a wrong address. Try searching:', 'weddings'); ?></p>
 				<form role="search" method="get" id="searchform" action="<?php echo esc_url(home_url( '/' )); ?>">
 					<div id="searchbox">
 						<div class="searchback">
-							<input  type="text" value="" name="s" id="s" class="searchbox_search" placeholder="<?php echo __('Type here','wd_wedding'); ?>"/> 
-							<input type="submit" id="searchsubmit" value="<?php echo __('Search','wd_wedding'); ?>" class="read_more"/>
+							<input  type="text" value="" name="s" id="s" class="searchbox_search" placeholder="<?php echo __('Type here','weddings'); ?>"/> 
+							<input type="submit" id="searchsubmit" value="<?php echo __('Search','weddings'); ?>" class="read_more"/>
 						</div>																		
 				   </div>
 				</form>

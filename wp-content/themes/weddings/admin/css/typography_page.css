@@ -25,17 +25,11 @@
 	display: inline-block;
 }
 
-#main_typagrphy_page .font_preview {
-	width: 100%;
-}
+#main_typagrphy_page .font_preview { width: 100%; }
 
-#main_typagrphy_page #type_headers_set_styling {
-	display: none;
-}
+#main_typagrphy_page #type_headers_set_styling { display: none; }
 
-#main_typagrphy_page #type_headers_set_advanced {
-	display: none;
-}
+#main_typagrphy_page #type_headers_set_advanced { display: none;}
 
 #main_typagrphy_page .optin.fix {
 	margin-bottom: 20px;
@@ -57,7 +51,6 @@
 
 #main_typagrphy_page .optiontitle.first {border-top: 0px;}
 
-
 #main_typagrphy_page h3{
 	width:100%;
 	font-weight: 200;
@@ -68,18 +61,14 @@
 	color: rgb(111, 111, 111) !important;
 }
 
+#main_typagrphy_page .optioninput { font-size: 10px;}
 
-#main_typagrphy_page .optioninput {
-	font-size: 10px;
-}
 #main_typagrphy_page .optioninput select, #main_typagrphy_page .optioninput input, #main_typagrphy_page .optioninput, #main_typagrphy_page .optioninput textarea{	
 	font-family:Segoe UI;
-
 	color: rgb(111, 111, 111); 
 }
-#main_typagrphy_page .optioninputtextarea {
-	font-size: 10px;
-}
+
+#main_typagrphy_page .optioninputtextarea {font-size: 10px;}
 
 #main_typagrphy_page .button {
 	height: 38px !important;
@@ -129,8 +118,6 @@
 	font-weight: bold;
 }
 
-
-
 #main_typagrphy_page .block {
 	position:relative;
 	padding-bottom:0px;
@@ -141,15 +128,12 @@
 	min-height:20px;
 }
 
-
-#main_typagrphy_page .optioninput {
-	clear:both;
-}
+#main_typagrphy_page .optioninput { clear:both;}
 
 #main_typagrphy_page .optioninput.checkbox { 
 	display:block;
 	position:absolute;
-	top:0px;
+	top:18px;
 	left:0px;
 	width: 23px;
 	height:100%;
@@ -157,7 +141,9 @@
 	margin:0px 5px 0px 0px;
 }
 
-#main_typagrphy_page .optioninput select, #main_typagrphy_page .optioninput input, #main_typagrphy_page .optioninput, .optioninput textarea{	
+#main_typagrphy_page .optioninput select, 
+#main_typagrphy_page .optioninput input, 
+#main_typagrphy_page .optioninput, .optioninput textarea{	
 	font-family:Segoe UI;
     font-size:12px;
 	color: rgb(111, 111, 111); 
@@ -165,11 +151,21 @@
 
 #main_typagrphy_page .optioninput textarea{ margin-bottom:10px;resize:none;}
 
- #main_typagrphy_page .optioninput input, #main_typagrphy_page .optioninput select, #main_typagrphy_page .optioninput textarea{clear:both;	background:#e9e9e9;}
+#main_typagrphy_page .optioninput input, 
+#main_typagrphy_page .optioninput select, 
+#main_typagrphy_page .optioninput textarea{
+	clear:both;	
+	background:#e9e9e9;
+}
+
+#main_typagrphy_page .optiontitle { border-bottom:2px solid rgb(224, 224, 224);}
 
 #main_typagrphy_page .optiontitle h3{
 	margin:0px;
 	font-weight: bold;
+	text-transform:uppercase;
+	padding: 8px 0px !important;
+	font-size:17px;
 }
 
 #main_typagrphy_page .optiondescreption {
@@ -179,8 +175,9 @@
 	font-family:Segoe UI;
 	color: rgb(111, 111, 111);
 	font-size:16px;
-	margin:-17px 0px -10px 0px;
+	font-style:italic;
 }
+#main_typagrphy_page .optiondescreption p { font-size: 15px !important;}
 
 #main_typagrphy_page .block.margin .optiondescreption {
 	margin-left:25px;

@@ -1,3 +1,103 @@
+## 1.6.7
+
+* Bug fix: Builder content would lose paragraphs and line breaks in some situations when switching between editors.
+* Improved: Better styling of the WooCommerce cart page on narrow screens < 480px wide.
+* Updated: Font Awesome icon library updated to version 4.5.0.
+* Updated: The latest list of Google fonts.
+* Changed: Make now only supports WordPress 4.2 and higher.
+
+## 1.6.6
+
+* Updated: Styles in the Builder and Customizer are now compatible with WordPress 4.4.
+* Improved: Range slider options in the Customizer now perform better.
+* Fixed: Some font family options didn't work correctly if the Global body font was not set to the default.
+* Fixed: Custom logo attachment ID couldn't be determined from its URL in some situations.
+* Fixed: The Button format wrapped awkwardly to the next line if too long.
+* Fixed: Builder script now requires WP's media views script as a dependency.
+
+## 1.6.5
+
+* Improved: Site title and tagline are now treated as screen reader text when hidden (instead of removed) for better accessibility.
+* Improved: Better handling of admin notices.
+* Updated: Larger theme screenshot.
+* Updated: The latest list of Google fonts.
+* Bug fix: Don't show Yoast SEO's breadcrumb on a static front page (since it is only "Home").
+* Changed: Added a notice that Make will soon drop support for WP 4.0 and 4.1.
+
+## 1.6.4
+
+* New feature: Support for Yoast SEO's breadcrumb functionality.
+  * Choose which views display the breadcrumb in the Customizer's Layout panel.
+* Improved: Better responsive layout for the WooCommerce product grid, as well as cart and checkout pages.
+* Bug fix: The Detail color option was not correctly setting the color for post categories and tags.
+
+## 1.6.3
+
+* Improved: Reduced the top margin on the Gallery Slider when it is displaying the navigation dots.
+* Improved: Better translation strings and notes in the EXIF template tag.
+* Updated: The latest list of Google fonts. Added Tamil and Thai font subset options.
+* Changed: The EXIF data markup no longer wraps each data label in a span.
+* Changed: Renamed the Menu locations to use the word "Navigation" instead of "Menu".
+* Changed: Removed the `ttfmake` prefix from most 3rd party script IDs when registering them.
+* Bug fix: FitVids was not successfully getting added as a script dependency. This caused some embedded videos to not scale correctly.
+* Bug fix: Builder sections receiving focus due to an anchor tag were outlined in blue in Webkit browsers.
+
+## 1.6.2.1
+
+* Bug fix: Undefined function fatal error.
+* Bug fix: Customizer control classes will now attempt to autoload if they have not been defined yet.
+
+## 1.6.2
+
+* Updated: Ensure compatibility with upcoming 4.3 version of WordPress:
+  * Deprecate Make's Favicon and Apple Touch Icon options in favor of the new Site Icon option.
+  * Adjust styling of Customizer sections.
+* Updated: Font Awesome icon library updated to version 4.4.0.
+* Updated: The latest list of Google fonts.
+* Improved: Pages using the Builder template can now set a featured image (though it will not render on the page by default).
+* Improved: Better handling of localization:
+  * Parent and child themes have separate text domains.
+  * Translation files for the parent theme can be stored in the child theme directory to prevent loss during updates.
+  * Improved translator notes for some strings.
+  * Ensure that all translated strings are escaped for security hardening.
+* Improved: The Format Builder now uses the Global color scheme for color defaults.
+* Bug fix: PHP fatal error in RSS feed when feed item contained embedded video.
+* Bux fix: The `make_sanitize_text_allowed_tags` filter was not applied correctly.
+* Bug fix: In rare cases, some WooCommerce pages were not rendering correctly if they used the Builder template.
+
+## 1.6.1
+
+* New feature: All default sections now have background image and background color options.
+* Improved: Cycle2 slider script only loads when content requires it.
+* Bug fix: H1 typography settings no longer affect the site title (which has its own typography settings).
+* Updated: Mobile navigation script now matches latest version in the _s theme.
+* New filter: `make_required_files` modifies the list of theme files to load.
+* Changed: Prevent Make from activating if WordPress version is less than 4.0.
+
+## 1.6.0
+
+* Improved: Video embeds can now be set to specific widths and alignments while still behaving responsively on narrow screens.
+* Improved: Make now enqueues the parent stylesheet if the child theme is version 1.1 or higher (instead of relying on a CSS @import statement).
+* Improved: Several minor Builder UI tweaks.
+* Fixed: Builder content preview panes sometimes weren't refreshing in Firefox.
+* Fixed: Google Maps embeds now only resize to specific dimensions when added in post content.
+* Fixed: Taxonomy icons now align with their lists properly in the post footer even when other meta elements are present.
+* New filter: `make_builder_js_templates` modifies the array of JS templates loaded on the Page Builder screen.
+* Updated: The latest list of Google fonts.
+* Changed: Make now only supports WordPress 4.0 and higher.
+* Changed: New theme screenshot. CC0 compatible.
+
+## 1.5.2
+
+* Added options for Arabic and Hebrew in Google Fonts character subsets.
+* Fixed url encoding issues with Google Fonts URL.
+* Fixed issue causing Format Builder's button URL to not update correctly.
+* Fixed some instances of default stylesheet overriding Customizer typography settings.
+* Fixed wrong version number for FontAwesome library in some places.
+* Fixed fatal error in Customizer for WP versions before 4.0.
+* Updated Google Fonts.
+* Updated Dutch translation. Props @LeoOosterloo.
+
 ## 1.5.1
 
 * Added Customizer options to remove header and footer boundary padding.

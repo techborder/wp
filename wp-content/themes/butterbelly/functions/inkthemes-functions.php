@@ -1,29 +1,17 @@
 <?php
 
 function butterbelly_setup() {
-    /* ----------------------------------------------------------------------------------- */
-    /* Post Thumbnail Support
-      /*----------------------------------------------------------------------------------- */
     add_theme_support('post-thumbnails');
+    add_theme_support( 'title-tag' );
     add_image_size('post_thumbnail', 354, 284, true);
-    /* ----------------------------------------------------------------------------------- */
-    /* Auto Feed Links Support
-      /*----------------------------------------------------------------------------------- */
     add_theme_support('automatic-feed-links');
     //Load languages file
     load_theme_textdomain('butterbelly', get_template_directory() . '/languages');
-    $locale = get_locale();
-    $locale_file = get_template_directory() . "/languages/$locale.php";
-    if (is_readable($locale_file))
-        require_once($locale_file);
     // This theme styles the visual editor with editor-style.css to match the theme style.
     add_editor_style();
     register_nav_menu('custom_menu', __('Main Menu', 'butterbelly'));
 }
-
 add_action('after_setup_theme', 'butterbelly_setup');
-
-
 // Add CLASS attributes to the first <ul> occurence in wp_page_menu
 function butterbelly_add_menuclass($ulclass) {
     return preg_replace('/<ul>/', '<ul class="ddsmoothmenu">', $ulclass, 1);
@@ -366,7 +354,7 @@ function butterbelly_wp_title($title, $sep) {
 
     // Add a page number if necessary:
     if ($paged >= 2 || $page >= 2)
-        $title .= " $sep " . sprintf(__('Page %s', '_s'), max($paged, $page));
+        $title .= " $sep " . sprintf(__('Page %s', 'butterbelly'), max($paged, $page));
 
     return $title;
 }

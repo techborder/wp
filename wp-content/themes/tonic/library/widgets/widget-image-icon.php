@@ -14,9 +14,8 @@ class Bavotasan_Custom_Text_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$image = esc_url( $instance['image'] );
-		$image = esc_url( $instance['image'] );
-		$url = esc_url( $instance['url'] );
+		$image = ( empty( $instance['image'] ) ) ? '' : esc_url( $instance['image'] );
+		$url = ( empty( $instance['url'] ) ) ? '' : esc_url( $instance['url'] );
 		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
 
 		$title_string = ( $url ) ? '<a href="' . $url . '">'. $title . '</a>' : $title;

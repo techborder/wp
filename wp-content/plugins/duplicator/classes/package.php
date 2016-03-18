@@ -36,6 +36,9 @@ class DUP_Package {
 	public $Hash;
 	public $NameHash;
 	public $Version;
+	public $VersionWP;
+	public $VersionDB;
+	public $VersionPHP;
 	public $Type;
 	public $Notes;
 	public $StorePath;
@@ -44,6 +47,8 @@ class DUP_Package {
 	public $Runtime;
 	public $ExeSize;
 	public $ZipSize;
+	public $Status;
+	public $WPUser;
 	//Objects
 	public $Archive;
 	public $Installer;
@@ -56,6 +61,7 @@ class DUP_Package {
 		
 		$this->ID			= null;
 		$this->Version		= DUPLICATOR_VERSION;
+		
 		$this->Type			= DUP_PackageType::MANUAL;
 		$this->Name			= self::GetDefaultName();
 		$this->Notes		= null;
@@ -82,26 +88,41 @@ class DUP_Package {
 
 		//SERVER
 		$srv = DUP_Server::GetChecks();
-		
-		$report['SRV']['PHPServer']		= $srv['CHK-SRV-100'];
-		$report['SRV']['WPSettings']	= $srv['CHK-SRV-101'];
-		$report['SRV']['WebServer']		= $srv['CHK-SRV-102'];
+		$report['SRV']['WEB']['ALL']	  = $srv['SRV']['WEB']['ALL'];
+		$report['SRV']['WEB']['model']	  = $srv['SRV']['WEB']['model'];
+
+		$report['SRV']['PHP']['ALL']	  = $srv['SRV']['PHP']['ALL'];
+		$report['SRV']['PHP']['openbase'] = $srv['SRV']['PHP']['openbase'];
+		$report['SRV']['PHP']['maxtime']  = $srv['SRV']['PHP']['maxtime'];
+		$report['SRV']['PHP']['mysqli']   = $srv['SRV']['PHP']['mysqli'];
+
+		$report['SRV']['WP']['ALL']		  = $srv['SRV']['WP']['ALL'];
+		$report['SRV']['WP']['version']	  = $srv['SRV']['WP']['version'];
+		$report['SRV']['WP']['core']	  = $srv['SRV']['WP']['core'];
+		$report['SRV']['WP']['cache']	  = $srv['SRV']['WP']['cache'];
 		
 		//FILES
 		$this->Archive->Stats();
-		$report['ARC']['Size']				= DUP_Util::ByteSize($this->Archive->Size)  or "unknown";
-		$report['ARC']['DirCount']			= number_format(count($this->Archive->Dirs));
-		$report['ARC']['FileCount']			= number_format(count($this->Archive->Files));
-		$report['ARC']['LinkCount']			= number_format(count($this->Archive->Links));
-		$report['ARC']['WarnFileName']		= is_array($this->Archive->WarnFileName) ? $this->Archive->WarnFileName : "unknown";
-		$report['ARC']['WarnFileSize']		= is_array($this->Archive->WarnFileSize)  ? $this->Archive->WarnFileSize  : "unknown";
-		$report['ARC']['Status']['Size']	= ($this->Archive->Size > DUPLICATOR_SCAN_SITE) ? 'Warn' : 'Good';
-		$report['ARC']['Status']['Names']	= count($this->Archive->WarnFileName) ? 'Warn' : 'Good';
-		$report['ARC']['Status']['Big']		= count($this->Archive->WarnFileSize)  ? 'Warn' : 'Good';
+		$dirCount = count($this->Archive->Dirs); 
+		$fileCount = count($this->Archive->Files);
+		$fullCount = $dirCount + $fileCount;
+		
+		$report['ARC']['Size']		 = DUP_Util::ByteSize($this->Archive->Size)  or "unknown";
+		$report['ARC']['DirCount']	 = number_format($dirCount);
+		$report['ARC']['FileCount']	 = number_format($fileCount);
+		$report['ARC']['FullCount']	 = number_format($fullCount);
+		
+		$report['ARC']['FilterInfo']['Dirs'] = $this->Archive->FilterInfo->Dirs;
+		$report['ARC']['FilterInfo']['Files'] = $this->Archive->FilterInfo->Files;
+		$report['ARC']['FilterInfo']['Exts'] = $this->Archive->FilterInfo->Exts;
+				
+		$report['ARC']['Status']['Size'] = ($this->Archive->Size > DUPLICATOR_SCAN_SITE) ? 'Warn' : 'Good';
+		$report['ARC']['Status']['Names'] = (count($this->Archive->FilterInfo->Files->Warning) + count($this->Archive->FilterInfo->Dirs->Warning))  ? 'Warn' : 'Good';
+		$report['ARC']['Status']['Big'] = count($this->Archive->FilterInfo->Files->Size) ? 'Warn' : 'Good';
+		
 		$report['ARC']['Dirs']				= $this->Archive->Dirs;
 		$report['ARC']['Files']				= $this->Archive->Files;
-		$report['ARC']['OmitFiles']			= $this->Archive->OmitFiles;
-		$report['ARC']['OmitDirs']			= $this->Archive->OmitDirs;
+
 		
 		//DATABASE
 		$db = $this->Database->Stats();
@@ -111,6 +132,19 @@ class DUP_Package {
 		$report['DB']['TableCount']	= $db['TableCount']					or "unknown";
 		$report['DB']['TableList']	= $db['TableList']					or "unknown";
 		
+		$warnings = array($report['SRV']['WEB']['ALL'],  
+						  $report['SRV']['PHP']['ALL'], 
+						  $report['SRV']['WP']['ALL'], 
+						  $report['ARC']['Status']['Size'], 
+						  $report['ARC']['Status']['Names'], 
+						  $report['ARC']['Status']['Big'], 
+						  $db['Status']['Size'],
+						  $db['Status']['Rows']);
+		
+		$warn_counts = array_count_values($warnings);	
+
+		$report['RPT']['Warnings'] = $warn_counts['Warn'];
+		$report['RPT']['Success']  = $warn_counts['Good'];
 		$report['RPT']['ScanTime'] = DUP_Util::ElapsedTime(DUP_Util::GetMicrotime(), $timerStart);
 		$fp = fopen(DUPLICATOR_SSDIR_PATH_TMP . "/{$this->ScanFile}", 'w');
 		fwrite($fp, json_encode($report));
@@ -134,6 +168,7 @@ class DUP_Package {
 		$this->Archive->File	  = "{$this->NameHash}_archive.zip";
 		$this->Installer->File    = "{$this->NameHash}_installer.php";
 		$this->Database->File     = "{$this->NameHash}_database.sql";
+		$this->WPUser			  = isset($current_user->user_login) ? $current_user->user_login : 'unknown';
 		
 		//START LOGGING
 		DUP_Log::Open($this->NameHash);
@@ -241,8 +276,10 @@ class DUP_Package {
 	 *  @param $_POST $post The Post server object
 	 *  @see DUP_Package::GetActive
 	 *  @return void */
-	public function SaveActive($post = null) {
-
+	public function SaveActive($post = null) 
+	{
+		global $wp_version;
+		
 		if (isset($post)) {
 			$post = stripslashes_deep($post);
 			
@@ -251,14 +288,22 @@ class DUP_Package {
 			$name = substr(sanitize_file_name($name), 0 , 40);
 			$name = str_replace($name_chars, '', $name);
 
-			$filter_dirs   = isset($post['filter-dirs']) ? $this->parseDirectoryFilter($post['filter-dirs']) : '';
-			$filter_exts   = isset($post['filter-exts']) ? $this->parseExtensionFilter($post['filter-exts']) : '';
-			$tablelist     = isset($post['dbtables'])    ? implode(',', $post['dbtables']) : '';
+			$filter_dirs	= isset($post['filter-dirs']) ? $this->parseDirectoryFilter($post['filter-dirs']) : '';
+			$filter_exts	= isset($post['filter-exts']) ? $this->parseExtensionFilter($post['filter-exts']) : '';
+			$tablelist		= isset($post['dbtables'])    ? implode(',', $post['dbtables']) : '';
+			$compatlist		= isset($post['dbcompat'])    ? implode(',', $post['dbcompat']) : '';
+			$dbversion		= DUP_Util::MysqlVariableValue('version');
+			$dbversion		= is_null($dbversion) ? '- unknown -' : $dbversion;
 
 			//PACKAGE
 			$this->Version		= DUPLICATOR_VERSION;
+			$this->VersionWP	= $wp_version;
+			$this->VersionPHP   = phpversion();
+			$this->VersionDB	= $dbversion;
 			$this->Name			= $name;
-			$this->Hash			= $post['package-hash'];
+			$this->Hash			= $this->MakeHash();// $post['package-hash'];
+			//RSR
+			//$this->Hash			= $post['package-hash'];
 			$this->NameHash		= "{$this->Name}_{$this->Hash}";;
 			$this->Notes		= esc_html($post['package-notes']);
 			//ARCHIVE
@@ -269,6 +314,7 @@ class DUP_Package {
 			$this->Archive->FilterExts		= str_replace(array('.' ,' '), "", esc_html($filter_exts));
 			//INSTALLER
 			$this->Installer->OptsDBHost		= esc_html($post['dbhost']);
+			$this->Installer->OptsDBPort		= esc_html($post['dbport']);
 			$this->Installer->OptsDBName		= esc_html($post['dbname']);
 			$this->Installer->OptsDBUser		= esc_html($post['dbuser']);
 			$this->Installer->OptsSSLAdmin		= isset($post['ssl-admin'])		? 1 : 0;
@@ -279,6 +325,7 @@ class DUP_Package {
 			//DATABASE
 			$this->Database->FilterOn		= isset($post['dbfilter-on'])   ? 1 : 0;
 			$this->Database->FilterTables	= esc_html($tablelist);
+			$this->Database->Compatible  = $compatlist;
 
 			update_option(self::OPT_ACTIVE, $this);
 		}
@@ -361,6 +408,26 @@ class DUP_Package {
 		}
 		//Incase unserilaize fails
 		$obj = (is_object($obj)) ? $obj : new DUP_Package();
+		return $obj;
+	}
+	
+	/**
+	* Gets the Package by ID
+	* @see DUP_Package::GetByID
+	* @return DUP_Package
+	*/
+	public static function GetByID($id) {
+		
+		global $wpdb;
+		$obj = new DUP_Package();
+		
+		$row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}duplicator_packages` WHERE ID = %s", $id ) );
+		if (is_object($row)) {
+			$obj =  @unserialize($row->package);
+			$obj->Status = $row->status;
+		}
+		//Incase unserilaize fails
+		$obj = (is_object($obj)) ? $obj : null;
 		return $obj;
 	}
 	

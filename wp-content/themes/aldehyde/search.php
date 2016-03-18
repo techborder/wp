@@ -1,13 +1,13 @@
 <?php
 /**
- * The template for displaying Search Results pages.
+ * The template for displaying search results pages.
  *
- * @package Aldehyde
+ * @package aldehyde
  */
 
 get_header(); ?>
 
-	<section id="primary" class="content-area col-md-8">
+	<section id="primary" class="<?php do_action('aldehyde_primary-width') ?> content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -19,15 +19,20 @@ get_header(); ?>
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'search' ); ?>
+				<?php
+				/**
+				 * Run the loop for the search to output the results.
+				  */
+				do_action('aldehyde_blog_layout'); 
+				?>
 
 			<?php endwhile; ?>
 
-			<?php aldehyde_content_nav( 'nav-below' ); ?>
+			<?php aldehyde_pagination(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'no-results', 'search' ); ?>
+			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
 

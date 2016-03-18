@@ -18,13 +18,13 @@
       <?php    while(have_posts()): the_post();?>
       <div class="media" id="blog-media">
         <div class="blog-icon-media">
-          <?php $defalt_arg =array('class' => "blog-img" )?>
+          <?php $defalt_arg =array('class' => "img-responsive" )?>
           <?php if(has_post_thumbnail()):?>
           <a class="pull-left" href="<?php the_permalink(); ?>"title="<?php the_title(); ?>"><?php the_post_thumbnail('', $defalt_arg); ?></a>
           <?php endif;?>
           <ul class="spa-blog-icon clearfix">
             <li class="admin-icon"> <a href="#"><?php the_author();?></a></li>
-            <li class="calendar-icon"> <a href="#"><?php the_date('M j,Y');?> </a></li>
+            <li class="calendar-icon"><a href="#"><?php echo get_the_date(get_option('M j,Y'));?> </a></li>
             <li class="blog-comment-icon">  <?php  comments_popup_link( __( 'Leave a comment', 'sis_spa' ),__( '1 Comment', 'sis_spa' ), __( '% Comments', 'sis_spa' ),'name' ); ?></li>
           </ul>
         </div>

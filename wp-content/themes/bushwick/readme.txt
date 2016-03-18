@@ -24,6 +24,9 @@ Bushwick is a lightweight, responsive blogging theme, designed to show beautiful
 
 == Changelog ==
 
+= 1.2.4 =
+* Security update: Remove Genericons' file due to DOM-based cross-site scripting (XSS) vulnerability.
+
 = 1.2.3 =
 * Bump up version number.
 

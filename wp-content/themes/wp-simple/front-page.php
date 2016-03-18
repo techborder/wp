@@ -1,21 +1,17 @@
 <?php
 get_header();
-if(nimbus_get_option('nimbus_fp_content_pos') == 'above') {
-    get_template_part( 'parts/frontpage', 'content');
-}
-if (nimbus_get_option('nimbus_toggle_featured')) {
-    get_template_part( 'parts/frontpage', 'featured');
-}
-if(nimbus_get_option('nimbus_fp_content_pos') == 'below') {
-    get_template_part( 'parts/frontpage', 'content');
-}
-if ( 'posts' == get_option( 'show_on_front' ) ) {
-    get_template_part( 'parts/content', 'blog');
+if (is_paged()) {
+    get_template_part( 'parts/loop');
 } else {
-    $nimbus_toggle_fp_blog = nimbus_get_option('nimbus_toggle_fp_blog');
-    if (!empty($nimbus_toggle_fp_blog)) {
-        get_template_part( 'parts/frontpage', 'blog');
-    }
+    get_template_part( 'parts/frontpage', 'featured');
+    get_template_part( 'parts/frontpage', 'action1');
+    get_template_part( 'parts/frontpage', 'about');
+    get_template_part( 'parts/frontpage', 'social');
+    get_template_part( 'parts/frontpage', 'team');
+    get_template_part( 'parts/frontpage', 'action2');
+    get_template_part( 'parts/frontpage', 'test');
+    get_template_part( 'parts/frontpage', 'news');
+    get_template_part( 'parts/frontpage', 'contact');
 }
 get_footer();
 ?>

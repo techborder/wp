@@ -1,9 +1,9 @@
 === Disable Comments ===
 Contributors: solarissmoke
-Donate link: http://rayofsolaris.net/donate.php
+Donate link: http://www.rayofsolaris.net/donate/
 Tags: comments, disable, global
-Requires at least: 3.6
-Tested up to: 4.0
+Requires at least: 3.9
+Tested up to: 4.5
 Stable tag: trunk
 
 Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. Multisite friendly.
@@ -24,19 +24,9 @@ A [must-use version](https://github.com/solarissmoke/disable-comments-mu) of the
 
 == Frequently Asked Questions ==
 
-= What is "persistent mode"? =
-
-By default, the plugin does not make any persistent changes to your posts - it just dynamically closes comments on them. This means that you can use the plugin temporarily and restore comment statuses when you disable it. If the plugin works in this mode, then I recommend that you don't use persistent mode.
-
-Unfortunately some themes do not properly check the comment status of posts, and the plugin in default mode will have no effect with them (comments will still appear to be open). To fix this, switch to persistent mode. Note however that this will make persistent changes: **comments will remain closed even if you later disable the plugin** (you can always reopen them manually, of course).
-
-**I repeat, using persistent mode will make changes to your database. DO NOT USE IT IF YOU WANT TO DISABLE COMMENTS TEMPORARILY.**
-
-**Administrators**: If you want to prevent persistent mode from being used by mistake, hook into the `disable_comments_allow_persistent_mode` filter and return `false`. This will prevent the option from being available on the settings page.
-
 = Nothing happens after I disable comments on all posts - comment forms still appear when I view my posts. =
 
-This is because your theme is not checking the comment status of posts in the correct way. The solution is to switch the plugin to persistent mode (the last option on the plugin settings page).
+This is because your theme is not checking the comment status of posts in the correct way.
 
 You may like to point your theme's author to [this explanation](http://rayofsolaris.net/blog/2012/how-to-check-if-comments-are-allowed-in-wordpress) of what they are doing wrong, and how to fix it.
 
@@ -54,10 +44,6 @@ Go to the edit page for the post you want to disable comments on. Scroll down to
 
 You can also bulk-edit the comment status of multiple posts from the [posts screen](http://codex.wordpress.org/Posts_Screen).
 
-= Why is persistent mode disabled? =
-
-Someone (probably your site administrator) has chosen to disable this option. See "What is persistent mode?" above.
-
 == Details ==
 
 The plugin provides the option to **completely disable the commenting feature in WordPress**. When this option is selected, the following changes are made:
@@ -72,7 +58,29 @@ The plugin provides the option to **completely disable the commenting feature in
 
 **Please delete any existing comments on your site before applying this setting, otherwise (depending on your theme) those comments may still be displayed to visitors.**
 
+== Advanced Configuration ==
+
+Some of the plugin's behaviour can be modified by site administrators and plugin/theme developers through code:
+
+* Define `DISABLE_COMMENTS_REMOVE_COMMENTS_TEMPLATE` and set it to `false` to prevent the plugin from replacing the theme's comment template with an empty one.
+
+These definitions can be made either in your main `wp-config.php` or in your theme's `functions.php` file.
+
 == Changelog ==
+
+= 1.4 =
+* Hide the troublesome "persistent mode" option for all sites where it is not in use. This option will be removed in a future release.
+
+= 1.3.2 =
+* Compatibility updates and code refactoring for WordPress 4.3
+* Adding a few new translations
+
+= 1.3.1 =
+* Change the behaviour for comment feed requests. This removes a potential security issue.
+
+= 1.3 =
+* Move persistent mode filter into a define.
+* Add an advanced option to show the theme's comment template even when comments are disabled.
 
 = 1.2 =
 * Allow network administrators to disable comments on custom post types across the whole network.
@@ -122,7 +130,7 @@ The plugin provides the option to **completely disable the commenting feature in
 * Now supports Network Activation - disable comments on your entire multi-site network.
 * Simplified settings page.
 
-= 0.6 = 
+= 0.6 =
 * Add "persistent mode" to deal with themes that don't use filterable comment status checking.
 
 = 0.5 =

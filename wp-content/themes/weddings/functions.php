@@ -32,7 +32,7 @@ add_theme_support( 'custom-background', $weddings_defaults );
 		set_theme_mod('background_color','FFFFFF')	;
 	}
 
-	 load_theme_textdomain('wd_wedding', get_template_directory() . '/languages' );
+	 load_theme_textdomain('weddings', get_template_directory() . '/languages' );
 	 
 	 add_editor_style();
 	 
@@ -64,6 +64,7 @@ add_theme_support( 'custom-background', $weddings_defaults );
 	if ( !isset( $content_width  ) ) {
 		$content_width  = $content_area;
 	}
+	add_theme_support( "title-tag" );
 }
 
 add_action( 'after_setup_theme', 'weddings_setup' );
@@ -153,23 +154,6 @@ function weddings_header(){
 	////////
 }
 
-function weddings_wp_title( $title, $sep ) {
-	global $page;
-
-	if ( is_feed() )
-		return $title;
-
-	$title .= get_bloginfo( 'name' );
-
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title = "$title $sep $site_description";
-
-
-	return $title;
-}
-add_filter( 'wp_title', 'weddings_wp_title', 10, 2 );
-
 
 
 function weddings_entry_meta() {
@@ -186,7 +170,7 @@ function weddings_entry_meta() {
 }
 
 function weddings_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>','wd_wedding' ),
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>','weddings' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -196,7 +180,7 @@ function weddings_posted_on() {
 } 
 
 function weddings_posted_on_blog() {
-	printf( __( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">Posted on %4$s</time></a>','wd_wedding' ),
+	printf( __( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">Posted on %4$s</time></a>','weddings' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -206,13 +190,13 @@ function weddings_posted_on_blog() {
 }
 
 function weddings_posted_on_single() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'wd_wedding' ),
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'weddings' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'wd_wedding' ), get_the_author() ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'weddings' ), get_the_author() ) ),
 		get_the_author()
 	);
 }
@@ -238,9 +222,9 @@ function weddings_widgets_init()
     // Area 1, located at the top of the sidebar.
 
     register_sidebar(array(
-            'name' => __('Second Footer Widget Area', 'wd_wedding'),
+            'name' => __('Second Footer Widget Area', 'weddings'),
             'id' => 'sidebar-1',
-            'description' => __('The primary widget area', 'wd_wedding'),
+            'description' => __('The primary widget area', 'weddings'),
             'before_widget' => '<div id="%1$s" class="widget-area %2$s">',
             'after_widget' => '</div> ',
             'before_title' => '<h3>',
@@ -251,9 +235,9 @@ function weddings_widgets_init()
     // Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
 
     register_sidebar(array(
-            'name' => __('Secondary Widget Area', 'wd_wedding'),
+            'name' => __('Secondary Widget Area', 'weddings'),
             'id' => 'sidebar-2',
-            'description' => __('The secondary widget area', 'wd_wedding'),
+            'description' => __('The secondary widget area', 'weddings'),
             'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h3 class="widget-title">',
@@ -263,9 +247,9 @@ function weddings_widgets_init()
 	
 	// Area 3, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'First Footer Widget Area', 'wd_wedding' ),
+		'name' => __( 'First Footer Widget Area', 'weddings' ),
 		'id' => 'first-footer-widget-area',
-		'description' => __( 'An optional widget area for your site footer.', 'wd_wedding' ),
+		'description' => __( 'An optional widget area for your site footer.', 'weddings' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -274,9 +258,9 @@ function weddings_widgets_init()
 
 	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Primary Widget Area', 'wd_wedding' ),
+		'name' => __( 'Primary Widget Area', 'weddings' ),
 		'id' => 'primary-widget-area',
-		'description' => __( 'An optional widget area for your site footer.', 'wd_wedding' ),
+		'description' => __( 'An optional widget area for your site footer.', 'weddings' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -319,7 +303,7 @@ add_action('init', 'weddings_register_menu');
 function weddings_register_menu()
 {
 
-    register_nav_menu('primary-menu', __('Primary Menu','wd_wedding'));
+    register_nav_menu('primary-menu', __('Primary Menu','weddings'));
 
 }
 add_filter('nav_menu_css_class' , 'weddings_special_nav_class' , 10 , 2);
@@ -476,10 +460,10 @@ function weddings_p2h_comment($comment, $args, $depth) {
 		<div class="comment-avatar"><?php echo get_avatar($comment, $size = '54'); ?></div>
 		<div class="comment-body">
 			<p class="comment-meta"><span
-					class="comment-author"><?php comment_author_link(); ?></span><?php _e(' on ', 'wd_wedding'); ?><?php comment_date() ?><?php _e(' at ', 'wd_wedding'); ?><?php comment_time() ?>
+					class="comment-author"><?php comment_author_link(); ?></span><?php _e(' on ', 'weddings'); ?><?php comment_date() ?><?php _e(' at ', 'weddings'); ?><?php comment_time() ?>
 				.</p>
 			<?php if ($comment->comment_approved == '0') { ?>
-				<p><strong><?php _e('Your comment is awaiting moderation.', 'wd_wedding'); ?></strong></p>
+				<p><strong><?php _e('Your comment is awaiting moderation.', 'weddings'); ?></strong></p>
 			<?php } ?>
 		
 			<?php comment_text(); ?>
@@ -493,7 +477,7 @@ function weddings_p2h_comment($comment, $args, $depth) {
 		case 'trackback' :
 		?>
 		<div <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>" class="post pingback">
-		<p><?php _e('Pingback:', 'wd_wedding'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'wd_wedding'), ' '); ?></p>
+		<p><?php _e('Pingback:', 'weddings'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'weddings'), ' '); ?></p>
 		<?php
 		break;
 		
@@ -573,7 +557,7 @@ function weddings_update_page_layout_meta_settings()
 				float: none;
 			}      
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }          			 
             </style>
 			<?php
@@ -593,13 +577,13 @@ function weddings_update_page_layout_meta_settings()
 				float:left;
 			} 
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }
             #blog{
-				width:<?php echo $web_business_meta['main_col_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['main_col_width']); ?>%;
             }
             #sidebar1{
-				width:<?php echo (100  - $web_business_meta['main_col_width']); ?>%;
+				width:<?php echo (100  - esc_html($web_business_meta['main_col_width'])); ?>%;
             }
             </style>
 			<?php
@@ -619,13 +603,13 @@ function weddings_update_page_layout_meta_settings()
 				float:left;
 			}
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }
             #blog{
-				width:<?php echo $web_business_meta['main_col_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['main_col_width']); ?>%;
             }
             #sidebar1{
-				width:<?php echo (100  - $web_business_meta['main_col_width']); ?>%;
+				width:<?php echo (100  - esc_html($web_business_meta['main_col_width'])); ?>%;
             }
             </style>
 			<?php
@@ -648,16 +632,16 @@ function weddings_update_page_layout_meta_settings()
 				float:left;
 			}
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }
             #blog{
-				width:<?php echo $web_business_meta['main_col_width'] ; ?>%;
+				width:<?php echo esc_html($web_business_meta['main_col_width']) ; ?>%;
             }
             #sidebar1{
-				width:<?php echo $web_business_meta['pr_widget_area_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['pr_widget_area_width']); ?>%;
             }
             #sidebar2{
-				width:<?php echo (100  - $web_business_meta['pr_widget_area_width'] - $web_business_meta['main_col_width']); ?>%;
+				width:<?php echo (100  - esc_html($web_business_meta['pr_widget_area_width']) - esc_html($web_business_meta['main_col_width'])); ?>%;
             }
             </style>
 			 <?php
@@ -681,16 +665,16 @@ function weddings_update_page_layout_meta_settings()
 				float:right;
 			}
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }
             #blog{
-				width:<?php echo $web_business_meta['main_col_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['main_col_width']); ?>%;
             }
             #sidebar1{
-				width:<?php echo $web_business_meta['pr_widget_area_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['pr_widget_area_width']); ?>%;
             }
             #sidebar2{
-				width:<?php echo (100  - $web_business_meta['pr_widget_area_width'] - $web_business_meta['main_col_width']); ?>%;
+				width:<?php echo (100  - esc_html($web_business_meta['pr_widget_area_width']) - esc_html($web_business_meta['main_col_width'])); ?>%;
             }
             </style>
 			<?php
@@ -714,16 +698,16 @@ function weddings_update_page_layout_meta_settings()
 				float:left;
 			}    			       
             .container{
-				width:<?php echo $them_content_are_width; ?>
+				width:<?php echo esc_html($them_content_are_width); ?>
             }
             #blog{
-				width:<?php echo $web_business_meta['main_col_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['main_col_width']); ?>%;
             }
             #sidebar1{
-				width:<?php echo $web_business_meta['pr_widget_area_width']; ?>%;
+				width:<?php echo esc_html($web_business_meta['pr_widget_area_width']); ?>%;
             }
             #sidebar2{
-				width:<?php echo (100  - $web_business_meta['pr_widget_area_width'] - $web_business_meta['main_col_width']); ?>%;
+				width:<?php echo (100  - esc_html($web_business_meta['pr_widget_area_width']) - esc_html($web_business_meta['main_col_width'])); ?>%;
             }            
             </style><?php
             break;
@@ -881,7 +865,7 @@ foreach ($weddings_general_settings_page->options_generalsettings as $value)
 </script>
 <?php
 
-	echo "<style>".stripslashes($custom_css)."</style>";
+	echo "<style>".esc_html(stripslashes($custom_css))."</style>";
 ?>
 
 <?php

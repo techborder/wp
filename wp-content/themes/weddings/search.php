@@ -32,9 +32,9 @@ get_header();
 		<?php } ?>
 	<div id="blog" class="blog search">
 		<div>
-			<h3 ><?php echo __('Search', 'wd_wedding'); ?></h3>
+			<h3 ><?php echo __('Search', 'weddings'); ?></h3>
 			<div class="search-result-info">		
-				<p><?php echo __('Count', 'wd_wedding'); ?> <?php echo count($wp_query->get_posts()) ; ?> </p>
+				<p><?php echo __('Count', 'weddings'); ?> <?php echo count($wp_query->get_posts()) ; ?> </p>
 			</div>
 		</div>
 		<?php /*print page content*/ 

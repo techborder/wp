@@ -7,10 +7,10 @@ if(!class_exists('spider_random_post')){
 
 	// Constructor //
 
-		function spider_random_post() {
+		function __construct() {
 			$widget_ops = array( 'classname' => 'spider_random_post', 'description' => 'Spider Random Post allows you to show posts in a random order in a sidebar.' ); // Widget Settings
 			$control_ops = array( 'id_base' => 'spider_random_post' ); // Widget Control Settings
-			$this->WP_Widget( 'spider_random_post', 'Spider Random Post', $widget_ops, $control_ops ); // Create the widget
+			parent::__construct('spider_random_post', 'Spider Random Post', $widget_ops, $control_ops ); // Create the widget
 		}
 
 	// Extract Args //
@@ -334,11 +334,15 @@ $spider_random_post_id++;
 
 <?php 
 $categories=get_categories();
-foreach($categories as $category) {
+$category_count=count($categories);
+for($i=0;$i<$category_count;$i++)
+{
+if(isset($categories[$i])){
 ?>
-<option value="<?php echo $category->term_id?>" <?php selected($instance['Category'],$category->term_id); ?>><?php echo $category->name ?></option>
+<option value="<?php echo esc_attr($categories[$i]->term_id); ?>" <?php if($instance['Category']==$categories[$i]->term_id) echo  'selected="selected"'; ?>><?php echo esc_html($categories[$i]->name); ?></option>
 
 <?php
+}
 }
  ?>
 </select>
@@ -353,8 +357,8 @@ foreach($categories as $category) {
 <tr>
 <td style="width:120px" class="paramlist_key"><span class="editlinktip"><label style="font-size:10px"  for="autoupdate">Auto Update</label></span></td>
 <td class="paramlist_value"><span id="cuca"></span>
-<input type="radio" name="<?php echo $this->get_field_name('AutoUpdate'); ?>" value="0" <?php checked($instance['AutoUpdate'],0); ?>  onchange="document.getElementById('<?php echo $this->get_field_id('Updating_Time') ?>time_sec').setAttribute('style','display:none')" id="showup0"> No
-<input type="radio" name="<?php echo $this->get_field_name('AutoUpdate'); ?>" value="1" <?php checked($instance['AutoUpdate'],1); ?> onchange="document.getElementById('<?php echo $this->get_field_id('Updating_Time') ?>time_sec').removeAttribute('style');" id="showup1"> Yes
+<input type="radio" name="<?php echo $this->get_field_name('AutoUpdate'); ?>" value="0" <?php if($instance['AutoUpdate']==0) echo 'checked="checked"';?>  onchange="document.getElementById('<?php echo $this->get_field_id('Updating_Time') ?>time_sec').setAttribute('style','display:none')" id="showup0"> No
+<input type="radio" name="<?php echo $this->get_field_name('AutoUpdate'); ?>" value="1" <?php if($instance['AutoUpdate']==1) echo 'checked="checked"';?> onchange="document.getElementById('<?php echo $this->get_field_id('Updating_Time') ?>time_sec').removeAttribute('style');" id="showup1"> Yes
 
         </td>
 </tr>
@@ -363,11 +367,11 @@ foreach($categories as $category) {
 <td width="120px" class="paramlist_key"><span class="editlinktip"><label style="font-size:10px" id="paramsstyle-lbl" for="Style_sra">Visualization</label></span></td>
 <td class="paramlist_value">
 <select name="<?php echo $this->get_field_name('Style_sra'); ?>" id="<?php echo $this->get_field_id('Style_sra') ?>" class="inputbox">
-	<option value="1" <?php selected($instance['Style_sra'],1); ?>>Style 1</option>
-    <option value="2" <?php selected($instance['Style_sra'],2); ?>>Style 2</option>
-    <option value="3" <?php selected($instance['Style_sra'],3); ?>>Style 3</option>
-    <option value="4" <?php selected($instance['Style_sra'],4); ?>>Style 4</option>
-    <option value="5" <?php selected($instance['Style_sra'],5); ?>>Random</option>
+	<option value="1" <?php if($instance['Style_sra']==1) echo 'selected="selected"'; ?>>Style 1</option>
+    <option value="2" <?php if($instance['Style_sra']==2) echo 'selected="selected"'; ?>>Style 2</option>
+    <option value="3" <?php if($instance['Style_sra']==3) echo 'selected="selected"'; ?>>Style 3</option>
+    <option value="4" <?php if($instance['Style_sra']==4) echo 'selected="selected"'; ?>>Style 4</option>
+    <option value="5" <?php if($instance['Style_sra']==5) echo 'selected="selected"'; ?>>Random</option>
 </select></td>
 </tr>
 <tr><td><br /></td></tr>

@@ -2,7 +2,7 @@
 /*
   Plugin Name: Compact Audio Player
   Description: Plays a specified audio file (.mp3 or .ogg) using a simple and compact audio player. The audio player is compatible with all major browsers and devices (Android, iPhone).
-  Version: 1.9.3
+  Version: 1.9.4
   Author: Tips and Tricks HQ
   Author URI: https://www.tipsandtricks-hq.com/
   License: GPL2
@@ -14,7 +14,7 @@
   - Add a new option in the settings to allow a mp3 file to be played on every page load (it plays in the background)
  */
 
-define('SC_AUDIO_PLUGIN_VERSION', '1.9.3');
+define('SC_AUDIO_PLUGIN_VERSION', '1.9.4');
 define('SC_AUDIO_BASE_URL', plugins_url('/', __FILE__));
 
 include_once ('shortcodes-functions.php');
@@ -127,11 +127,11 @@ function scap_mp3_player_admin_menu() {
 function scap_mp3_options() {
     echo '<div class="wrap">';
     echo '<div id="poststuff"><div id="post-body">';
-    echo '<div id="icon-upload" class="icon32"><br></div><h2>SC Audio Player</h2>';
+    echo '<div id="icon-upload" class="icon32"><br></div><h2>Compact Audio Player</h2>';
 
     echo '<div style="background: #FFF6D5; border: 1px solid #D1B655; color: #3F2502; padding: 15px 10px">Visit the <a href="https://www.tipsandtricks-hq.com/wordpress-audio-music-player-plugin-4556" target="_blank">Compact Audio Player</a> plugin page for detailed documentation and update.</div>';
     echo "<p>This is a simple all browser supported audio player. There is no extra settings. Read the documentation and add the shortcode with the MP3 file URL in a WordPress post or page to embed the audio player.</p>";
-    echo "<h3>Shortcode Format</h3>";
+    echo "<h2>Shortcode Format</h2>";
     echo '<p><code>[sc_embed_player fileurl="URL OF THE MP3 FILE"]</code></p>';
     echo '<p><strong>Example:</strong></p>';
     echo '<p><code>[sc_embed_player fileurl="http://www.example.com/wp-content/uploads/my-music/mysong.mp3"]</code></p>';
@@ -143,7 +143,7 @@ function scap_mp3_options() {
     <form method="post" action="">
 
         <div class="postbox">
-            <h3><label for="title">Audio Player Settings</label></h3>
+            <h3 class="hndle"><label for="title">Audio Player Settings</label></h3>
             <div class="inside">
 
                 <table class="form-table">

@@ -1,10 +1,10 @@
 <?php 
-class weddings_social extends WP_Widget
+class wedding_social extends WP_Widget
 {
-    function weddings_social(){
+    function __construct(){
 		$widget_ops = array('description' => 'Social icons');
 		$control_ops = array('width' => '', 'height' => '');
-		parent::WP_Widget(false,$name='Social Icons',$widget_ops,$control_ops);
+		parent::__construct(false,$name='Social Icons',$widget_ops,$control_ops);
 	}
 
   /* Displays the Widget in the front-end */
@@ -13,16 +13,16 @@ class weddings_social extends WP_Widget
 		$title =  esc_html( $instance['title']);
 		$show_facebook_icon = empty( $instance['show_facebook_icon'] ) ? '' : $instance['show_facebook_icon'];
 		$show_twitter_icon = empty( $instance['show_twitter_icon'] ) ? '' : $instance['show_twitter_icon'];
-		$facebook_url = empty( $instance['facebook_url'] ) ? '' : $instance['facebook_url'];
-		$twitter_url = empty( $instance['twitter_url'] ) ? '' : $instance['twitter_url'];
-		$show_rss_icon = empty( $instance['show_rss_icon'] ) ? '' : $instance['show_rss_icon'];
+		$facebook_url = empty( $instance['facebook_url'] ) ? '' : esc_url($instance['facebook_url']);
+		$twitter_url = empty( $instance['twitter_url'] ) ? '' : esc_url($instance['twitter_url']);
+		$show_rss_icon = empty( $instance['show_rss_icon'] ) ? '' : esc_url($instance['show_rss_icon']);
 		$show_google_icon = empty( $instance['show_google_icon'] ) ? '' : $instance['show_google_icon'];
-		$rss_url = empty( $instance['rss_url'] ) ? '' : $instance['rss_url'];
-		$google_url = empty( $instance['google_url'] ) ? '' : $instance['google_url'];
+		$rss_url = empty( $instance['rss_url'] ) ? '' : esc_url($instance['rss_url']);
+		$google_url = empty( $instance['google_url'] ) ? '' : esc_url($instance['google_url']);
 		$show_inst_icon = empty( $instance['show_inst_icon'] ) ? '' : $instance['show_inst_icon'];
 		$show_youtube_icon = empty( $instance['show_youtube_icon'] ) ? '' : $instance['show_youtube_icon'];
-		$inst_url = empty( $instance['inst_url'] ) ? '' : $instance['inst_url'];
-		$youtube_url = empty( $instance['youtube_url'] ) ? '' : $instance['youtube_url'];
+		$inst_url = empty( $instance['inst_url'] ) ? '' : esc_url($instance['inst_url']);
+		$youtube_url = empty( $instance['youtube_url'] ) ? '' : esc_url($instance['youtube_url']);
 
 		$instances = array(
 		    'Facebook' =>array( $show_facebook_icon, $facebook_url, 'fb.jpg' ),
@@ -166,6 +166,6 @@ class weddings_social extends WP_Widget
       
 }
 
-}// end weddings_social class
-add_action('widgets_init', create_function('', 'return register_widget("weddings_social");'))
+}// end wedding_social class
+add_action('widgets_init', create_function('', 'return register_widget("wedding_social");'))
 ?>

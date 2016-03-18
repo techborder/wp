@@ -2,10 +2,14 @@
 
 function blcr_setup() {
     /* ----------------------------------------------------------------------------------- */
-    /* Theme Support
-      /*----------------------------------------------------------------------------------- */
+    /* Theme Support */
+    /* ----------------------------------------------------------------------------------- */
     add_theme_support('post-thumbnails');
+
     add_image_size('post-thumbnails', 216, 168, true);
+
+    add_theme_support('title-tag');
+
     //custom background support
     add_theme_support('custom-background', array(
         // Background color default
@@ -13,6 +17,7 @@ function blcr_setup() {
             // Background image default
             //'default-image' => get_template_directory_uri() . '/images/body-bg.png'
     ));
+
     $args = array(
         'width' => 1920,
         'height' => 654,
@@ -21,30 +26,33 @@ function blcr_setup() {
         'header-text' => false,
         'default-image' => get_template_directory_uri() . '/images/slider-1.jpg',
     );
+
     //custom header support
     add_theme_support('custom-header', $args);
+
     /* ----------------------------------------------------------------------------------- */
-    /* Auto Feed Links Support
-      /*----------------------------------------------------------------------------------- */
+    /* Auto Feed Links Support */
+    /* ----------------------------------------------------------------------------------- */
     add_theme_support('automatic-feed-links');
+
     //Load languages file
-    load_theme_textdomain('blcr', get_template_directory() . '/languages');
-    $locale = get_locale();
-    $locale_file = get_stylesheet_directory_uri() . "/languages/$locale.php";
-    if (is_readable($locale_file))
-        require_once($locale_file);
-// This theme styles the visual editor with editor-style.css to match the theme style.
+    load_theme_textdomain('black-rider', get_template_directory() . '/languages');
+
+    // This theme styles the visual editor with editor-style.css to match the theme style.
     add_editor_style();
-// activate support for thumbnails
+
+    // activate support for thumbnails
     // added in 2.9
     add_theme_support('menus');
+
     set_post_thumbnail_size(216, 168, false);
 }
 
 add_action('after_setup_theme', 'blcr_setup');
+
 /* ----------------------------------------------------------------------------------- */
-/* Custom Menus Function
-  /*----------------------------------------------------------------------------------- */
+/* Custom Menus Function */
+/* ----------------------------------------------------------------------------------- */
 
 // Add CLASS attributes to the first <ul> occurence in wp_page_menu
 function blcr_add_menuclass($ulclass) {
@@ -55,7 +63,7 @@ add_filter('wp_page_menu', 'blcr_add_menuclass');
 add_action('after_setup_theme', 'blcr_register_custom_menu');
 
 function blcr_register_custom_menu() {
-    register_nav_menu('custom_menu', __('Main Menu', 'blcr'));
+    register_nav_menu('custom_menu', __('Main Menu', 'black-rider'));
 }
 
 function blcr_nav() {
@@ -79,9 +87,9 @@ function blcr_nav_fallback() {
 
 function blcr_nav_menu_items($items) {
     if (is_home()) {
-        $homelink = '<li class="current_page_item">' . '<a href="' . home_url('/') . '">' . __('Home', 'road-fighter') . '</a></li>';
+        $homelink = '<li class="current_page_item">' . '<a href="' . home_url('/') . '">' . __('Home', 'black-rider') . '</a></li>';
     } else {
-        $homelink = '<li>' . '<a href="' . home_url('/') . '">' . __('Home', 'road-fighter') . '</a></li>';
+        $homelink = '<li>' . '<a href="' . home_url('/') . '">' . __('Home', 'black-rider') . '</a></li>';
     }
     $items = $homelink . $items;
     return $items;
@@ -89,8 +97,8 @@ function blcr_nav_menu_items($items) {
 
 add_filter('wp_list_pages', 'blcr_nav_menu_items');
 /* ----------------------------------------------------------------------------------- */
-/* Breadcrumbs Plugin
-  /*----------------------------------------------------------------------------------- */
+/* Breadcrumbs Plugin */
+/* ----------------------------------------------------------------------------------- */
 
 function blcr_breadcrumbs() {
     $delimiter = '&raquo;';
@@ -170,7 +178,7 @@ function blcr_breadcrumbs() {
     if (get_query_var('paged')) {
         if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
             echo ' (';
-        echo __('Page', 'road-fighter') . ' ' . get_query_var('paged');
+        echo __('Page', 'black-rider') . ' ' . get_query_var('paged');
         if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author())
             echo ')';
     }
@@ -201,8 +209,8 @@ function blcr_get_image($width, $height) {
 }
 
 /* ----------------------------------------------------------------------------------- */
-/* Attachment Page Design
-  /*----------------------------------------------------------------------------------- */
+/* Attachment Page Design */
+/* ----------------------------------------------------------------------------------- */
 
 //For Attachment Page
 /**
@@ -353,18 +361,17 @@ function blcr_pagination($pages = '', $range = 2) {
     }
 }
 
-/////////Theme Options
 /* ----------------------------------------------------------------------------------- */
-/* Add Favicon
-  /*----------------------------------------------------------------------------------- */
+/* Add Favicon */
+/* ----------------------------------------------------------------------------------- */
+
 function blcr_childtheme_favicon() {
     if (blcr_get_option('inkthemes_favicon') != '') {
         echo '<link rel="shortcut icon" href="' . blcr_get_option('inkthemes_favicon') . '"/>' . "\n";
-    } 
+    }
 }
 
 add_action('wp_head', 'blcr_childtheme_favicon');
-
 /* ----------------------------------------------------------------------------------- */
 /* Custom CSS Styles */
 /* ----------------------------------------------------------------------------------- */
@@ -446,16 +453,12 @@ add_filter('wp_title', 'blcr_wp_title');
  */
 function blcr_wp_title($title) {
     global $page, $paged;
-
     if (is_feed())
         return $title;
-
     $site_description = get_bloginfo('description');
-
     $filtered_title = $title . get_bloginfo('name');
     $filtered_title .= (!empty($site_description) && ( is_home() || is_front_page() ) ) ? ' | ' . $site_description : '';
-    $filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf(__('Page %s', 'blcr'), max($paged, $page)) : '';
-
+    $filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf(__('Page %s', 'black-rider'), max($paged, $page)) : '';
     return $filtered_title;
 }
 
@@ -478,8 +481,9 @@ function blcr_text_color() {
 add_action('wp_head', 'blcr_text_color');
 
 //Remove galery default style
-function blcr_remove_gallery_css( $css ) {
-	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
+function blcr_remove_gallery_css($css) {
+    return preg_replace("#<style type='text/css'>(.*?)</style>#s", '', $css);
 }
-add_filter('gallery_style','blcr_remove_gallery_css');
+
+add_filter('gallery_style', 'blcr_remove_gallery_css');
 ?>

@@ -6,8 +6,7 @@
  *
  * @since 1.0.0
  */
-if ( ! is_bavotasan_full_width() ) {
-	?>
+?>
 	<div id="secondary" <?php bavotasan_sidebar_class(); ?> role="complementary">
 		<?php if ( ! dynamic_sidebar( 'sidebar' ) ) : ?>
 			<aside id="meta" class="widget">
@@ -25,4 +24,3 @@ if ( ! is_bavotasan_full_width() ) {
 		<?php endif; ?>
 	</div><!-- #secondary.widget-area -->
 	<?php
-}

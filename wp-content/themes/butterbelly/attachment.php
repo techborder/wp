@@ -30,7 +30,7 @@
                     </a>
                 </p>
                 <?php
-                printf(BY_AUTHOR, 'meta-prep meta-prep-author', sprintf('<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>', get_author_posts_url(get_the_author_meta('ID')), sprintf(esc_attr__(VIEW_ALL_POST_BY), get_the_author()), get_the_author()
+                printf(BY_AUTHOR, 'meta-prep meta-prep-author', sprintf('<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>', get_author_posts_url(get_the_author_meta('ID')), sprintf(esc_attr__('View All Post', 'butterbelly'), get_the_author()), get_the_author()
                 ));
                 ?>
                 <span>|</span>

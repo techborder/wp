@@ -1,10 +1,10 @@
 <?php 
 class web_buis_adv extends WP_Widget
 {
-    function web_buis_adv(){
+    function __construct(){
 		$widget_ops = array('description' => 'Displays Advertisements');
 		$control_ops = array('width' => 400, 'height' => 500);
-		parent::WP_Widget(false,$name='Advertisement',$widget_ops,$control_ops);
+		parent::__construct(false,$name='Advertisement',$widget_ops,$control_ops);
 	}
 
   /* Displays the Widget in the front-end */
@@ -24,7 +24,7 @@ class web_buis_adv extends WP_Widget
 if ($bannerPath[$key] <> '') { ?>
 <?php if ($bannerTitle[$key] == '') $bannerTitle[$i] = "advertisement";
 	  if ($bannerAlt[$key] == '') $bannerAlt[$key] = "advertisement"; ?>
-	<a href="<?php echo $bannerUrl[$key] ?>" ><img src="<?php echo $bannerPath[$key]; ?>" alt="<?php echo $bannerAlt[$key]; ?>" title="<?php echo $bannerTitle[$key]; ?>" /></a>
+	<a href="<?php echo esc_url($bannerUrl[$key]); ?>" ><img src="<?php echo esc_url($bannerPath[$key]); ?>" alt="<?php echo esc_attr($bannerAlt[$key]); ?>" title="<?php echo esc_attr($bannerTitle[$key]); ?>" /></a>
 <?php };
 					}
 echo $after_widget;

@@ -52,15 +52,15 @@ class Options_Framework_Media_Uploader {
 		if ( $value ) {
 			$class = ' has-file';
 		}
-		$output .= '<input id="' . $id . '" class="upload' . $class . '" type="text" name="'.$name.'" value="' . $value . '" placeholder="' . __('No file chosen', 'skt-fullwidth') .'" />' . "\n";
+		$output .= '<input id="' . $id . '" class="upload' . $class . '" type="text" name="'.$name.'" value="' . $value . '" placeholder="' . __('No file chosen', 'skt-full-width') .'" />' . "\n";
 		if ( function_exists( 'wp_enqueue_media' ) ) {
 			if ( ( $value == '' ) ) {
-				$output .= '<input id="upload-' . $id . '" class="upload-button button" type="button" value="' . __( 'Upload', 'skt-fullwidth' ) . '" />' . "\n";
+				$output .= '<input id="upload-' . $id . '" class="upload-button button" type="button" value="' . __( 'Upload', 'skt-full-width' ) . '" />' . "\n";
 			} else {
-				$output .= '<input id="remove-' . $id . '" class="remove-file button" type="button" value="' . __( 'Remove', 'skt-fullwidth' ) . '" />' . "\n";
+				$output .= '<input id="remove-' . $id . '" class="remove-file button" type="button" value="' . __( 'Remove', 'skt-full-width' ) . '" />' . "\n";
 			}
 		} else {
-			$output .= '<p><i>' . __( 'Upgrade your version of WordPress for full media support.', 'skt-fullwidth' ) . '</i></p>';
+			$output .= '<p><i>' . __( 'Upgrade your version of WordPress for full media support.', 'skt-full-width' ) . '</i></p>';
 		}
 
 		if ( $_desc != '' ) {
@@ -84,7 +84,7 @@ class Options_Framework_Media_Uploader {
 				$output .= '';
 
 				// Standard generic output if it's not an image.
-				$title = __( 'View File', 'skt-fullwidth' );
+				$title = __( 'View File', 'skt-full-width' );
 				$output .= '<div class="no-image"><span class="file_link"><a href="' . $value . '" target="_blank" rel="external">'.$title.'</a></span></div>';
 			}
 		}
@@ -108,8 +108,8 @@ class Options_Framework_Media_Uploader {
 		wp_register_script( 'of-media-uploader', OPTIONS_FRAMEWORK_DIRECTORY .'js/media-uploader.js', array( 'jquery' ), Options_Framework::VERSION );
 		wp_enqueue_script( 'of-media-uploader' );
 		wp_localize_script( 'of-media-uploader', 'optionsframework_l10n', array(
-			'upload' => __( 'Upload', 'skt-fullwidth' ),
-			'remove' => __( 'Remove', 'skt-fullwidth' )
+			'upload' => __( 'Upload', 'skt-full-width' ),
+			'remove' => __( 'Remove', 'skt-full-width' )
 		) );
 	}
 }

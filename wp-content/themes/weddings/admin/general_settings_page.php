@@ -33,9 +33,9 @@ class weddings_general_settings_page_class{
 		$value_of_std[12] = get_theme_mod($this->shortgeneralsettings."_our_style", '');
 		$value_of_std[13] = get_theme_mod($this->shortgeneralsettings."_menu_search_form", '');
 		$value_of_std[14] = get_theme_mod($this->shortgeneralsettings."_post_header", '');
-		$value_of_std[15] = get_theme_mod($this->shortgeneralsettings."_favicon_enable", '');
+		$value_of_std[15] = get_theme_mod($this->shortgeneralsettings."_favicon_enable", 'on');
 		$value_of_std[16] = get_theme_mod($this->shortgeneralsettings."_date_enable", 'on');
-		$value_of_std[17] = get_theme_mod($this->shortgeneralsettings."_footer_text", '<span id="copyright">WordPress Themes by <a href="'.$weddings_web_dor.'/wordpress-themes/wedding.html"  target="_blank" title="Web-Dorado">Web-Dorado</a></span>');
+		$value_of_std[17] = get_theme_mod($this->shortgeneralsettings."_footer_text", '<span id="copyright">WordPress Themes by <a href="'.esc_url($weddings_web_dor).'/wordpress-themes/wedding.html"  target="_blank" title="Web-Dorado">Web-Dorado</a></span>');
 
 		
 		$this->options_generalsettings = array(
@@ -77,6 +77,7 @@ class weddings_general_settings_page_class{
 				"description" => "Custom CSS will change the visual style of the site. This CSS code will be inserted in the &lt;head&gt; tag of your site. You can provide custom CSS code to be applied to specific elements.",
 				
 				"var_name" => "custom_css",
+				"sanitize_type" => "wp_strip_all_tags",
 				
 				"id" => $this->shortgeneralsettings."_custom_css",
 				
@@ -290,7 +291,7 @@ class weddings_general_settings_page_class{
 				"description" => "Here you can provide the HTML code to be inserted in the footer of your web site.",
 				
 				"var_name" => "footer_text",
-				
+				"sanitize_type" => "wp_filter_kses",
 				"id" => $this->shortgeneralsettings."_footer_text",
 				
 				"std" => $value_of_std[17]
@@ -389,11 +390,11 @@ class weddings_general_settings_page_class{
 			<table align="center" width="90%" style="margin-top: 0px;border-bottom: rgb(111, 111, 111) solid 2px;">
 			    <tr>   
                      <td style="font-size:14px; font-weight:bold">
-					     <a href="<?php echo $weddings_web_dor.'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows you to make changes in overall content of the site.
-                         <a href="<?php echo $weddings_web_dor.'/wordpress-theme-options/3-3.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
+					     <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows you to make changes in overall content of the site.
+                         <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-theme-options/3-3.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
 					 </td>  
                       <td  align="right" style="font-size:16px;">
-                           <a href="<?php echo $weddings_web_dor.'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
+                           <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
                               <img src="<?php echo get_template_directory_uri() ?>/images/header.png" border="0" alt="" width="215">
                            </a>
                         </td>
@@ -413,7 +414,9 @@ class weddings_general_settings_page_class{
 							<?php 
 								$weddings_admin_helepr_functions->only_textarea($this->options_generalsettings['custom_css']); 
 								$weddings_admin_helepr_functions->only_upload($this->options_generalsettings['logo_img']);
-								$weddings_admin_helepr_functions->checkbox_with_upload($this->options_generalsettings['favicon_enable'],$this->options_generalsettings["favicon_img"]); 
+								if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
+									$weddings_admin_helepr_functions->checkbox_with_upload($this->options_generalsettings['favicon_enable'],$this->options_generalsettings["favicon_img"]); 
+								}
 								$weddings_admin_helepr_functions->only_checkbox($this->options_generalsettings['blog_style']); 
 								$weddings_admin_helepr_functions->only_checkbox($this->options_generalsettings['grab_image']); 
 								$weddings_admin_helepr_functions->checkbox_with_input($this->options_generalsettings['show_twitter_icon'],$this->options_generalsettings['twitter_url']); 

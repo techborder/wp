@@ -2,6 +2,17 @@
 
 = Theme Name: Black Rider Theme =
 
+= Version: 1.1.9 =
+1. Support Link Button Added In WordPress Customize
+
+= Version: 1.1.8 =
+1. Theme option to WordPress customizer API migration.
+
+= Version: 1.1.7 =
+1. Theme check issue fixed.
+2. All text domain matched with theme directory.
+3. Language .pot file matched with text domain.
+
 = Version: 1.1.6 =
 1. Basic css error fixed.
 2. Unnecessary css file removed from css folder which is placed by mistake.

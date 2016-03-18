@@ -30,6 +30,7 @@
 	line-height:0px !important;
 	font-weight: bold;
 }
+
 #main_install_page .button {
 	height: 38px !important;
 	display: initial !important;
@@ -46,18 +47,14 @@
 	font-weight: bold;
 }
 
-
-
 #main_home_page .block {
 	position:relative;
 	padding-bottom:0px;
 	height:auto;
 	float:left;
-	margin-bottom:10px;
 	width:100%;
 	min-height:20px;
 }
-
 
 #main_home_page .optioninput {
 	clear:both;
@@ -67,7 +64,7 @@
 #main_home_page .optioninput.checkbox { 
 	display:block;
 	position:absolute;
-	top:0px;
+	top:18px;
 	left:0px;
 	width: 23px;
 	height:100%;
@@ -87,23 +84,27 @@
 
 #main_home_page .optioninput select, #main_home_page .optioninput input, #main_home_page .optioninput, #main_home_page .optioninput textarea{	
 	font-family:Segoe UI;
-
 	color: rgb(111, 111, 111); 
 }
 
 #main_home_page .optioninput textarea{ margin-bottom:10px;resize:none;}
 
- #main_home_page .optioninput input, #main_home_page .optioninput select, #main_home_page .optioninput textarea{clear:both;	background:#e9e9e9;}
+#main_home_page .optioninput input, 
+#main_home_page .optioninput select, 
+#main_home_page .optioninput textarea{
+	clear:both;	
+	background:#e9e9e9;
+}
+
+#main_home_page .optiontitle { border-bottom:2px solid rgb(224, 224, 224);}
 
 #main_home_page .optiontitle {		
 	clear:both;
-	font-family:Segoe UI;
-	color: rgb(111, 111, 111); 
 	font-size:18px;
-	border: none;
-	padding:10px 0px 10px 0px;
-	margin:10px 0px 10px 0px;
-	border-top: rgb(206, 206, 206) solid 1.5px;
+	font-family:Segoe UI;
+	color:rgb(111, 111, 111); 
+	margin: 10px 0px 0px 0px;
+	padding: 10px 0px 5px 0px;
 }
 
 #main_home_page .optiontitle.first {border-top: 0px;}		
@@ -111,7 +112,9 @@
 #main_home_page .optiontitle h3{
 	margin:0px;
 	font-weight: bold;
-	
+	text-transform:uppercase;
+	padding: 8px 0px !important;
+	font-size:17px;
 }
 
 #main_home_page h3{
@@ -129,11 +132,14 @@
 #main_home_page .optiondescreption {
 	position:relative;
   	width:97%;
+	float:left;
 	font-family:Segoe UI;
 	color: rgb(111, 111, 111);
 	font-size:16px;
-	margin:-17px 0px -10px 0px;
+	font-style:italic;
 }
+
+#main_home_page .optiondescreption p { font-size: 15px !important;}
 
 #main_home_page .block.margin .optiondescreption {
 	margin-left:25px;

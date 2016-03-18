@@ -13,6 +13,19 @@ class DUP_Util {
 	}
 
 	/**
+	*  Language slug
+	*/
+	static public function _e($text)
+	{
+		_e($text, DUPLICATOR_LANG_SLUG);
+	}
+
+	static public function __($text)
+	{
+		return __($text, DUPLICATOR_LANG_SLUG);
+	}
+	
+	/**
 	*  returns the snapshot url
 	*/
 	static public function SSDirURL() {
@@ -151,13 +164,13 @@ class DUP_Util {
 		
 		//GLOB_BRACE is not an option on some systems
 		//{,.}*  allows for hidden files to be shown
-		if (defined("GLOB_BRACE")) {
+		/*if (defined("GLOB_BRACE")) {
 			$files	= glob("{$path}/{,.}*", GLOB_NOSORT | GLOB_BRACE);
-		} else {
+		} else {*/
 			foreach (new DirectoryIterator($path) as $file) {
-				$files[] = DUP_Util::SafePath($file->getPathname());
+				$files[] = str_replace("\\", '/', $file->getPathname());
 			}
-		}
+		//}
 		return $files;
 	}
 	
@@ -203,17 +216,26 @@ class DUP_Util {
 		return $size;
 	}
 	
-	
-	public static function IsShellExecAvailable() {
+	/** 
+	 * Can shell_exec be called on this server
+	 */
+	public static function IsShellExecAvailable() 
+	{
+		$cmds = array('shell_exec', 'escapeshellarg', 'escapeshellcmd', 'extension_loaded');
 		
-		if (array_intersect(array('shell_exec', 'escapeshellarg', 'escapeshellcmd', 'extension_loaded'), array_map('trim', explode(',', @ini_get('disable_functions')))))
+		//Function disabled at server level
+		if (array_intersect($cmds, array_map('trim', explode(',', @ini_get('disable_functions')))))
 			return false;
 		
 		//Suhosin: http://www.hardened-php.net/suhosin/
-		//Will cause PHP to silently fail.
-		if (extension_loaded('suhosin'))
-		  return false;
-
+		//Will cause PHP to silently fail
+		if (extension_loaded('suhosin')) 
+		{
+			$suhosin_ini = @ini_get("suhosin.executor.func.blacklist");
+			if (array_intersect($cmds, array_map('trim', explode(',', $suhosin_ini))))
+				return false;
+		}
+		
 		// Can we issue a simple echo command?
 		if (!@shell_exec('echo duplicator'))
 			return false;
@@ -233,7 +255,7 @@ class DUP_Util {
 		$capability = apply_filters('wpfront_user_role_editor_duplicator_translate_capability', $capability);
 
 		if(!current_user_can($capability)) {
-			wp_die(__('You do not have sufficient permissions to access this page.', 'wpduplicator'));
+			wp_die(__('You do not have sufficient permissions to access this page.', 'duplicator'));
 			return;
 		}
 	}
@@ -276,7 +298,7 @@ class DUP_Util {
 	/**
 	*  Creates the snapshot directory if it doesn't already exisit
 	*/
-	static public function InitSnapshotDirectory() {
+	public static function InitSnapshotDirectory() {
 		$path_wproot	= DUP_Util::SafePath(DUPLICATOR_WPROOTPATH);
 		$path_ssdir		= DUP_Util::SafePath(DUPLICATOR_SSDIR_PATH);
 		$path_plugin	= DUP_Util::SafePath(DUPLICATOR_PLUGIN_PATH);
@@ -302,12 +324,12 @@ class DUP_Util {
 		//FILE CREATION	
 		//SSDIR: Create Index File
 		$ssfile = @fopen($path_ssdir . '/index.php', 'w');
-		@fwrite($ssfile, '<?php error_reporting(0);  if (stristr(php_sapi_name(), "fcgi")) { $url  =  "http://" . $_SERVER["HTTP_HOST"]; header("Location: {$url}/404.html");} else { header("HTML/1.1 404 Not Found", true, 404);} exit(); ?>');
+		@fwrite($ssfile, '<?php error_reporting(0);  if (stristr(php_sapi_name(), "fcgi")) { $url  =  "http://" . $_SERVER["HTTP_HOST"]; header("Location: {$url}/404.html");} else { header("HTTP/1.1 404 Not Found", true, 404);} exit(); ?>');
 		@fclose($ssfile);
 
 		//SSDIR: Create token file in snapshot
 		$tokenfile = @fopen($path_ssdir . '/dtoken.php', 'w');
-		@fwrite($tokenfile, '<?php error_reporting(0);  if (stristr(php_sapi_name(), "fcgi")) { $url  =  "http://" . $_SERVER["HTTP_HOST"]; header("Location: {$url}/404.html");} else { header("HTML/1.1 404 Not Found", true, 404);} exit(); ?>');
+		@fwrite($tokenfile, '<?php error_reporting(0);  if (stristr(php_sapi_name(), "fcgi")) { $url  =  "http://" . $_SERVER["HTTP_HOST"]; header("Location: {$url}/404.html");} else { header("HTTP/1.1 404 Not Found", true, 404);} exit(); ?>');
 		@fclose($tokenfile);
 
 		//SSDIR: Create .htaccess
@@ -328,9 +350,45 @@ class DUP_Util {
 
 		//PLUG DIR: Create token file in plugin
 		$tokenfile2 = @fopen($path_plugin . 'installer/dtoken.php', 'w');
-		@fwrite($tokenfile2, '<?php @error_reporting(0); @require_once("../../../../wp-admin/admin.php"); global $wp_query; $wp_query->set_404(); header("HTML/1.1 404 Not Found", true, 404); header("Status: 404 Not Found"); @include(get_template_directory () . "/404.php"); ?>');
+		@fwrite($tokenfile2, '<?php @error_reporting(0); @require_once("../../../../wp-admin/admin.php"); global $wp_query; $wp_query->set_404(); header("HTTP/1.1 404 Not Found", true, 404); header("Status: 404 Not Found"); @include(get_template_directory () . "/404.php"); ?>');
 		@fclose($tokenfile2);
 	}
+	
+	/**
+	*  Attempts to file zip on a users system
+	*/
+	public static function GetZipPath()
+    {
+        $filepath = null;
+        
+        if(self::IsShellExecAvailable())
+        {            
+            if (shell_exec('hash zip 2>&1') == NULL)
+            {
+                $filepath = 'zip';
+            }
+            else
+            {
+                $possible_paths = array(
+					'/usr/bin/zip', 
+					'/opt/local/bin/zip'
+					//'C:/Program\ Files\ (x86)/GnuWin32/bin/zip.exe');
+                );
+                
+                foreach ($possible_paths as $path)
+                {
+                    if (file_exists($path))
+                    {
+                        $filepath = $path;
+                        break;  
+                    }
+                }
+            }
+        }
+
+        return $filepath;
+    }
+
 
 }
 ?>

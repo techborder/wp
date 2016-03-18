@@ -53,12 +53,12 @@ class weddings_typography_page_class{
 
 			'type_headers_font'=>array(
 
-				"name" => "Select Font",
+				"name" => __("Select Font","weddings"),
 				
-				"name_customize" => "Header Font",
+				"name_customize" => __("Header Font","weddings"),
 				
 				"var_name" =>'type_headers_font',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->fonts_options(),
 
 				"id" =>  $this->shorttypography."_type_headers_font",
@@ -70,10 +70,10 @@ class weddings_typography_page_class{
 
 			'type_headers_kern'=>array(
 
-				"name" => "Letter Spacing",
+				"name" => __("Letter Spacing","weddings"),
 				
 				"var_name" =>'type_headers_kern',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->inputs_kern(),
 
 				"id" =>  $this->shorttypography."_type_headers_kern",
@@ -85,10 +85,10 @@ class weddings_typography_page_class{
 
 			'type_headers_transform'=>array(
 
-				"name" => "Text Transform",
+				"name" => __("Text Transform","weddings"),
 				
 				"var_name" =>'type_headers_transform',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_transform(),
 
 				"id" =>  $this->shorttypography."_type_headers_transform",
@@ -100,10 +100,10 @@ class weddings_typography_page_class{
 
 			'type_headers_variant'=>array(
 
-				"name" => "Variant",
+				"name" => __("Variant","weddings"),
 				
 				"var_name" =>'type_headers_variant',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_variant(),
 
 				"id" =>  $this->shorttypography."_type_headers_variant",
@@ -115,10 +115,10 @@ class weddings_typography_page_class{
 
 			'type_headers_weight'=>array(
 
-				"name" => "Weight",
+				"name" => __("Weight","weddings"),
 				
 				"var_name" =>'type_headers_weight',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_weight(),
 
 				"id" =>  $this->shorttypography."_type_headers_weight",
@@ -130,10 +130,10 @@ class weddings_typography_page_class{
 
 			'type_headers_style'=>array(
 
-				"name" => "Style",
+				"name" => __("Style","weddings"),
 				
 				"var_name" =>'type_headers_style',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_stylee(),
 
 				"id" =>  $this->shorttypography."_type_headers_style",
@@ -146,12 +146,12 @@ class weddings_typography_page_class{
 		
 			'type_inputs_font'=>array(
 
-				"name" => "Select Font",
+				"name" => __("Select Font","weddings"),
 				
-				"name_customize" => "Inputs and Text Areas Font",
+				"name_customize" => __("Inputs and Text Areas Font","weddings"),
 				
 				"var_name" =>'type_inputs_font',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->fonts_options(),
 
 				"id" =>  $this->shorttypography."_type_inputs_font",
@@ -163,10 +163,10 @@ class weddings_typography_page_class{
 
 			'type_inputs_kern' => array(
 
-				"name" => "Letter Spacing",
+				"name" => __("Letter Spacing","weddings"),
 				
 				"var_name" =>'type_inputs_kern',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->inputs_kern(),
 
 				"id" =>  $this->shorttypography."_type_inputs_kern",
@@ -178,10 +178,10 @@ class weddings_typography_page_class{
 
 			'type_inputs_transform'=>array(
 
-				"name" => "Text Transform",
+				"name" => __("Text Transform","weddings"),
 				
 				"var_name" =>'type_inputs_transform',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_transform(),
 
 				"id" =>  $this->shorttypography."_type_inputs_transform",
@@ -193,10 +193,10 @@ class weddings_typography_page_class{
 
 			'type_inputs_variant'=>array(
 
-				"name" => "Variant",
+				"name" => __("Variant","weddings"),
 				
 				"var_name" =>'type_inputs_variant',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_variant(),
 
 				"id" =>  $this->shorttypography."_type_inputs_variant",
@@ -208,10 +208,10 @@ class weddings_typography_page_class{
 
 			'type_inputs_weight'=>array(
 
-				"name" => "Weight",
+				"name" => __("Weight","weddings"),
 				
 				"var_name" =>'type_inputs_weight',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_weight(),
 				
 				"id" =>  $this->shorttypography."_type_inputs_weight",
@@ -223,10 +223,10 @@ class weddings_typography_page_class{
 
 			'type_inputs_style'=>array(
 
-				"name" => "Style",
+				"name" => __("Style","weddings"),
 				
 				"var_name" =>'type_inputs_style',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_stylee(),
 
 				"id" =>  $this->shorttypography."_type_inputs_style",
@@ -239,12 +239,12 @@ class weddings_typography_page_class{
 		
 			'type_primary_font'=>array(
 
-				"name" => "Select Font",
+				"name" => __("Select Font","weddings"),
 				
 				"name_customize" => "Primary Font (Body)",
 				
 				"var_name" =>'type_primary_font',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->fonts_options(),
 
 				"id" =>  $this->shorttypography."_type_primary_font",
@@ -258,10 +258,10 @@ class weddings_typography_page_class{
 
 			'type_primary_kern'=>array(
 
-				"name" => "Letter Spacing",
+				"name" => __("Letter Spacing","weddings"),
 				
 				"var_name" =>'type_primary_kern',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->inputs_kern(),
 
 				"id" =>  $this->shorttypography."_type_primary_kern",
@@ -273,10 +273,10 @@ class weddings_typography_page_class{
 
 			'type_primary_transform'=>array(
 
-				"name" => "Text Transform",
+				"name" => __("Text Transform","weddings"),
 				
 				"var_name" =>'type_primary_transform',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_transform(),
 
 				"id" =>  $this->shorttypography."_type_primary_transform",
@@ -288,10 +288,10 @@ class weddings_typography_page_class{
 
 			'type_primary_variant'=>array(
 
-				"name" => "Variant",
+				"name" => __("Variant","weddings"),
 				
 				"var_name" =>'type_primary_variant',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_variant(),
 
 				"id" =>  $this->shorttypography."_type_primary_variant",
@@ -303,10 +303,10 @@ class weddings_typography_page_class{
 
 			'type_primary_weight'=>array(
 
-				"name" => "Weight",
+				"name" => __("Weight","weddings"),
 				
 				"var_name" =>'type_primary_weight',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_weight(),
 
 				"id" =>  $this->shorttypography."_type_primary_weight",
@@ -318,10 +318,10 @@ class weddings_typography_page_class{
 
 			'type_primary_style'=>array(
 
-				"name" => "Style",
+				"name" => __("Style","weddings"),
 				
 				"var_name" =>'type_primary_style',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_stylee(),
 
 				"id" =>  $this->shorttypography."_type_primary_style",
@@ -334,12 +334,12 @@ class weddings_typography_page_class{
 		
 			'type_secondary_font'=>array(
 
-				"name" => "Select Font",
+				"name" => __("Select Font","weddings"),
 				
-				"name_customize" => "Secondary Font (Subtitle)",
+				"name_customize" => __("Secondary Font (Subtitle)","weddings"),
 				
 				"var_name" =>'type_secondary_font',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->fonts_options(),
 
 				"id" =>  $this->shorttypography."_type_secondary_font",
@@ -351,10 +351,10 @@ class weddings_typography_page_class{
 
 			'type_secondary_kern'=>array(
 
-				"name" => "Letter Spacing",
+				"name" => __("Letter Spacing","weddings"),
 				
 				"var_name" =>'type_secondary_kern',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->inputs_kern(),
 
 				"id" =>  $this->shorttypography."_type_secondary_kern",
@@ -366,10 +366,10 @@ class weddings_typography_page_class{
 
 			'type_secondary_transform'=>array(
 
-				"name" => "Text Transform",
+				"name" => __("Text Transform","weddings"),
 				
 				"var_name" =>'type_secondary_transform',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_transform(),
 
 				"id" =>  $this->shorttypography."_type_secondary_transform",
@@ -381,10 +381,10 @@ class weddings_typography_page_class{
 
 			'type_secondary_variant'=>array(
 
-				"name" => "Variant",
+				"name" => __("Variant","weddings"),
 				
 				"var_name" =>'type_secondary_variant',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_variant(),
 
 				"id" =>  $this->shorttypography."_type_secondary_variant",
@@ -396,10 +396,10 @@ class weddings_typography_page_class{
 
 			'type_secondary_weight'=>array(
 
-				"name" => "Weight",
+				"name" => __("Weight","weddings"),
 				
 				"var_name" =>'type_secondary_weight',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_weight(),
 
 				"id" =>  $this->shorttypography."_type_secondary_weight",
@@ -411,10 +411,10 @@ class weddings_typography_page_class{
 
 			'type_secondary_style'=>array(
 
-				"name" => "Style",
+				"name" => __("Style","weddings"),
 				
 				"var_name" =>'type_secondary_style',
-				
+				"sanitize_type" => "sanitize_text_field",
 				"all_values" => $this->text_stylee(),
 
 				"id" =>  $this->shorttypography."_type_secondary_style",
@@ -439,24 +439,24 @@ class weddings_typography_page_class{
 	public function web_bussines_typography_customize_register( $wp_customize ) {
 				 
 		  $wp_customize->add_section( 'fonts' , array(
-			'title'   => __( 'Fonts', 'sp_webBusiness' ),
+			'title'   => __( 'Fonts', 'weddings' ),
 			'priority'  => 50,
 		  ) );
 		  foreach($this->options_typography as $key=>$spec_font)
 		  {
 		   if(isset($spec_font['name'])){
 		    if($spec_font['name']=='Select Font'){
-				  $wp_customize->add_setting( 'theme_mods_weddings_['.$spec_font['id'].']', array(
+				  $wp_customize->add_setting( 'theme_mods_exclusive['.$spec_font['id'].']', array(
 					'default'   => $spec_font['std'],
 					'type'      => 'option',
 					'capability'  => 'edit_theme_options',
 					'sanitize_callback'=>'sanitize_text_field',
 					'transport'   => 'postMessage'
 				  ) );
-				  $wp_customize->add_control( 'theme_mods_weddings_['.$spec_font['id'].']', array(
+				  $wp_customize->add_control( 'theme_mods_exclusive['.$spec_font['id'].']', array(
 					'label'   => $spec_font['name_customize'],
 					'section' => 'fonts',
-					'settings'  => 'theme_mods_weddings_['.$spec_font['id'].']',
+					'settings'  => 'theme_mods_exclusive['.$spec_font['id'].']',
 					'type'    => 'select',
 					'choices' => $this->fonts_options()
 				  ) );
@@ -474,7 +474,10 @@ class weddings_typography_page_class{
 
 				foreach ($this->options_typography as $value) {
 					if (isset($_REQUEST[$value['var_name']])) {
-						set_theme_mod($value['id'], $_REQUEST[$value['var_name']]);
+					    $sanitize_type='weddings_do_nothing';
+						if(isset($value['sanitize_type']) && $value['sanitize_type'])	
+							$sanitize_type=$value['sanitize_type'];
+						set_theme_mod($value['id'], $sanitize_type($_REQUEST[$value['var_name']]));
 					} else {
 						remove_theme_mod($value['id']);
 					}
@@ -491,8 +494,6 @@ class weddings_typography_page_class{
 				die;
 			}
 		}
-
-	
 	}
 	
 	public function web_dorado_typography_page_admin_scripts(){
@@ -503,7 +504,6 @@ class weddings_typography_page_class{
 	}
 	
 	public function dorado_theme_admin_typography(){
-		
 		 if(isset($_REQUEST['controller']) && $_REQUEST['controller']=='typography_page'){
 			if (isset($_REQUEST['saved']) && $_REQUEST['saved'] ) 
 		
@@ -512,14 +512,12 @@ class weddings_typography_page_class{
 		if (isset($_REQUEST['reset']) && $_REQUEST['reset'] ) 
 		
 			echo '<div id="message" class="updated"><p><strong>Typography settings reset.</strong></p></div>';
-		 }
-		global $weddings_admin_helepr_functions, $weddings_web_dor;
-
-		?>
+	}
+		
+	global $weddings_admin_helepr_functions, $weddings_web_dor; ?>
 		
 		<script>
 			jQuery(document).ready(function () {
-		
 				jQuery('.graphic_selector .graphic_select_border').click(function () {
 					select_graphic(this);
 				});
@@ -542,12 +540,7 @@ class weddings_typography_page_class{
 				jQuery('.font_style').on('change',function () {
 					font_style(this, 'font-style')
 				});
-				
 			});
-				
-				
-				
-		
 			function font_style(element, property) {
 		
 				var currentSelect = jQuery(element).attr("id");
@@ -559,20 +552,14 @@ class weddings_typography_page_class{
 		
 		
 			}
-		
 			function select_graphic(ClickedLayout) {
-		
 				if (!jQuery(ClickedLayout).hasClass('disabled_option')) {
-		
 					jQuery(ClickedLayout).parent().parent().find('.graphic_select_border').removeClass('selectedgraphic');
 					jQuery(ClickedLayout).addClass('selectedgraphic');
 					jQuery(ClickedLayout).parent().find('.graphic_select_input').attr("checked", "checked");
-		
 				}
 			}
-		
 			function toggle(showElement, hideElement) {
-		
 				jQuery(hideElement).hide();
 				jQuery(hideElement + '_button').removeClass('active_button');
 		
@@ -584,15 +571,11 @@ class weddings_typography_page_class{
 					jQuery(showElement).fadeIn();
 		
 				}
-		
 			}
-		
-		
 		</script>
 		<div id="main_typagrphy_page">
-		<form method="post" action="themes.php?page=web_dorado_theme&controller=typography_page">
-		
-		<?php foreach ($this->options_typography as $value) {
+			<form method="post" action="themes.php?page=web_dorado_theme&controller=typography_page">
+				<?php foreach ($this->options_typography as $value) {
 		
 		
 		switch ($value['type']) {
@@ -609,23 +592,24 @@ class weddings_typography_page_class{
 		<?php break;
 		case "title":
 		?>
-		<table align="center" width="90%" style="margin-top: 0px;border-bottom: rgb(111, 111, 111) solid 2px;">
-		<tr>   
-                      <td style="font-size:14px; font-weight:bold">
-					     <a href="<?php echo $weddings_web_dor.'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows you to change the font styles.
-                         <a href="<?php echo $weddings_web_dor.'/wordpress-theme-options/3-7.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
-			          </td>   
-                      <td  align="right" style="font-size:16px;">
-                           <a href="<?php echo $weddings_web_dor.'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
-                              <img src="<?php echo get_template_directory_uri() ?>/images/header.png" border="0" alt="" width="215">                           
-                           </a>
-                       </td>
-        </tr>
-		<tr>
-			<td ><h3  style="font-family:Segoe UI;padding-bottom: 15px;color: rgb(111, 111, 111); font-size:18pt; margin:0px;margin-bottom: 15px;"><?php echo $value['name']; ?></h3>
-			</td>
-		</tr>
-		</table>
+				<table align="center" width="90%" style="margin-top: 0px;">
+					<tr>
+						<td >
+							<h2 style="margin:15px 0px 0px;font-family:Segoe UI;padding-bottom: 10px;color: rgb(111, 111, 111); font-size:28pt;"><?php echo $value['name']; ?></h3>
+						</td>
+					</tr>
+					<tr>   
+						<td style="font-size:14px; font-weight:bold;">
+							<a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;"><?php echo __("User Manual","weddings"); ?></a><br /><?php echo __("This section allows you to change the font styles.","weddings"); ?>
+							<a href="<?php echo esc_url($weddings_web_dor).'/wordpress-theme-options/3-7.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;"><?php echo __("More...","weddings"); ?></a>
+						</td>   
+						<td  align="right" style="font-size:16px;">
+							<a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes/exclusive.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
+								<img src="<?php echo get_template_directory_uri() ?>/images/header.png" border="0" alt="" width="215">                           
+							</a>
+						</td>
+					</tr>
+				</table>
 		<?php
 		break;
 		case 'select':
@@ -634,7 +618,7 @@ class weddings_typography_page_class{
 		<td>		
 		<div>
 			<div class="optiontitle first">
-				Typography - Text Headers. Select the font style of your site&#39;s header tags (H1, H2, H3...)
+				<?php echo __("Typography - Text Headers. Select the font style of your site&#39;s header tags (H1, H2, H3...)","weddings"); ?>
 			</div>
 			<div>
 				<div class="optioninput" style=" font-size:13pt;">
@@ -642,10 +626,10 @@ class weddings_typography_page_class{
 				</div>
 				<div>
 					<div class="font_preview_wrap">
-						<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;">Preview</label>
+						<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;"><?php echo __("Preview","weddings"); ?></label>
 						<div class="font_preview">
-							<div class="optioninput"  style="font-size: 16px; margin-top: 14px;margin-bottom: 23px; font-family: <?php if (get_theme_mod($this->shorttypography."_type_headers_font") != "") {   echo htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_headers_font")));
-									  } else {   echo "Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif";  } ?>;font-weight:<?php if (get_theme_mod($this->shorttypography."_type_headers_weight") != "") {    echo get_theme_mod($this->shorttypography."_type_headers_weight");   } else {    echo "normal";   } ?>; letter-spacing:<?php if (get_theme_mod($this->shorttypography."_type_headers_kern") != "") {    echo get_theme_mod($this->shorttypography."_type_headers_kern");    } else {   echo "0.00em";  } ?>; text-transform:<?php if (get_theme_mod($this->shorttypography."_type_headers_transform") != "") {  echo get_theme_mod($this->shorttypography."_type_headers_transform");  } else {   echo "none";   } ?>; font-variant:<?php if (get_theme_mod($this->shorttypography."_type_headers_variant") != "") {    echo get_theme_mod($this->shorttypography."_type_headers_variant"); } else {   echo "normal";   } ?>; font-style:<?php if (get_theme_mod($this->shorttypography."_type_headers_style") != "") {   echo get_theme_mod($this->shorttypography."_type_headers_style");   } else {   echo "normal";} ?>;">
+							<div class="optioninput"  style="font-size: 16px; margin-top: 14px;margin-bottom: 23px; font-family: <?php if (get_theme_mod($this->shorttypography."_type_headers_font") != "") {   echo esc_attr( htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_headers_font"))));
+									  } else {   echo "Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif";  } ?>;font-weight:<?php if (get_theme_mod($this->shorttypography."_type_headers_weight") != "") {    echo esc_attr(get_theme_mod($this->shorttypography."_type_headers_weight"));   } else {    echo "normal";   } ?>; letter-spacing:<?php if (get_theme_mod($this->shorttypography."_type_headers_kern") != "") {    echo esc_attr(get_theme_mod($this->shorttypography."_type_headers_kern"));    } else {   echo "0.00em";  } ?>; text-transform:<?php if (get_theme_mod($this->shorttypography."_type_headers_transform") != "") {  echo esc_attr(get_theme_mod($this->shorttypography."_type_headers_transform"));  } else {   echo "none";   } ?>; font-variant:<?php if (get_theme_mod($this->shorttypography."_type_headers_variant") != "") {    echo esc_attr(get_theme_mod($this->shorttypography."_type_headers_variant")); } else {   echo "normal";   } ?>; font-style:<?php if (get_theme_mod($this->shorttypography."_type_headers_style") != "") {   echo esc_attr(get_theme_mod($this->shorttypography."_type_headers_style"));   } else {   echo "normal";} ?>;">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
 								labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 								laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -655,7 +639,7 @@ class weddings_typography_page_class{
 						</div>
 					</div>
 					<a href="javascript:;" style="text-decoration:none;">
-						<span id="type_headers_set_styling_button"  class="button"  onclick="toggle('#type_headers_set_styling', '#type_headers_set_advanced')">Edit Font Styling</span>
+						<span id="type_headers_set_styling_button"  class="button"  onclick="toggle('#type_headers_set_styling', '#type_headers_set_advanced')"><?php echo __("Edit Font Styling","weddings"); ?></span>
 					</a>
 		
 					<div id="type_headers_set_styling" class="font_styling type_inputs optioninputtextarea" style="height: 110px;">
@@ -685,7 +669,7 @@ class weddings_typography_page_class{
 		
 		<div>
 			<div class="optiontitle">
-				Typography - Primary Font. Select the font style of your site&#39;s primary body text.
+				<?php echo __("Typography - Primary Font. Select the font style of your site&#39;s primary body text.","weddings"); ?>
 			</div>
 				<div>
 					<div class="optioninput" style=" font-size:13pt;">
@@ -694,12 +678,12 @@ class weddings_typography_page_class{
 				</div>
 			</div>
 			<div class="font_preview_wrap">
-				<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;">Preview</label>
+				<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;"><?php echo __("Preview","weddings"); ?></label>
 		
 				<div class="font_preview">
 					<div class="optioninput" style="font-size: 16px; margin-top: 14px; margin-bottom: 23px;  
 					font-family: <?php if (get_theme_mod($this->shorttypography."_type_primary_font") != "") {
-						echo htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_primary_font")));
+						echo esc_attr(htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_primary_font"))));
 					} 
 					else {
 						
@@ -707,27 +691,27 @@ class weddings_typography_page_class{
 						
 					} ?>;
 					font-weight:<?php if (get_theme_mod($this->shorttypography."_type_primary_weight") != "") {
-						echo get_theme_mod($this->shorttypography."_type_primary_weight");
+						echo esc_attr(get_theme_mod($this->shorttypography."_type_primary_weight"));
 					} 
 					else {
 						echo "normal";
 					} ?>;
 					letter-spacing:<?php if (get_theme_mod($this->shorttypography."_type_primary_kern") != "") {
-						echo get_theme_mod($this->shorttypography."_type_primary_kern");
+						echo esc_attr(get_theme_mod($this->shorttypography."_type_primary_kern"));
 					} 
 					else {
 						echo "0.00em";
 					} ?>; 
 					text-transform:<?php if (get_theme_mod($this->shorttypography."_type_primary_transform") != "") {
-						echo get_theme_mod($this->shorttypography."_type_primary_transform");
+						echo esc_attr(get_theme_mod($this->shorttypography."_type_primary_transform"));
 					} else {
 						echo "none";
 					} ?>; font-variant:<?php if (get_theme_mod($this->shorttypography."_type_primary_variant") != "") {
-						echo get_theme_mod($this->shorttypography."_type_primary_variant");
+						echo esc_attr(get_theme_mod($this->shorttypography."_type_primary_variant"));
 					} else {
 						echo "normal";
 					} ?>; font-style:<?php if (get_theme_mod($this->shorttypography."_type_primary_style") != "") {
-						echo get_theme_mod($this->shorttypography."_type_primary_style");
+						echo esc_attr(get_theme_mod($this->shorttypography."_type_primary_style"));
 					} else {
 						echo "normal";
 					} ?>;">
@@ -740,7 +724,7 @@ class weddings_typography_page_class{
 				</div>
 			</div>
 			<a href="javascript:;" style="text-decoration:none;"><span id="_type_primary__set_styling_button" class="button"
-																	   onclick="toggle('#_type_primary__set_styling', '#_type_primary__set_advanced')">Edit Font Styling</span></a>
+																	   onclick="toggle('#_type_primary__set_styling', '#_type_primary__set_advanced')"><?php echo __("Edit Font Styling","weddings"); ?></span></a>
 		
 			<div id="_type_primary__set_styling" class="font_styling type_inputs optioninputtextarea" style="height:110px;">
 						<div class="type_select">
@@ -770,8 +754,8 @@ class weddings_typography_page_class{
 		
 		<br/>
 			<div>
-				<div class="optiontitle">Typography - Secondary Font. Select the font style of your site&#39;s Secondary or Subtitle
-					text.
+				<div class="optiontitle"><?php echo __("Typography - Secondary Font. Select the font style of your site&#39;s Secondary or Subtitle
+					text.","weddings"); ?>
 				</div>
 				<div>
 					<div class="optioninput" style=" font-size:13pt;">
@@ -779,32 +763,32 @@ class weddings_typography_page_class{
 					</div>
 					<div>
 						<div class="font_preview_wrap">
-							<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;">Preview</label>
+							<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;"><?php echo __("Preview","weddings"); ?></label>
 		
 							<div class="font_preview">
 								<div class="optioninput" style="font-size: 16px;  margin-top: 14px; margin-bottom: 23px;  
 									font-family: <?php if (get_theme_mod($this->shorttypography."_type_secondary_font") != "") {
-									echo  htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_secondary_font")));
+									echo  esc_attr(htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_secondary_font"))));
 								} else {
 									echo "Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif";
 								} ?>;font-weight:<?php if (get_theme_mod($this->shorttypography."_type_secondary_weight") != "") {
-									echo get_theme_mod($this->shorttypography."_type_secondary_weight");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_secondary_weight"));
 								} else {
 									echo "normal";
 								} ?>; letter-spacing:<?php if (get_theme_mod($this->shorttypography."_type_secondary_kern") != "") {
-									echo get_theme_mod($this->shorttypography."_type_secondary_kern");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_secondary_kern"));
 								} else {
 									echo "0.00em";
 								} ?>; text-transform:<?php if (get_theme_mod($this->shorttypography."_type_secondary_transform") != "") {
-									echo get_theme_mod($this->shorttypography."_type_secondary_transform");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_secondary_transform"));
 								} else {
 									echo "none";
 								} ?>; font-variant:<?php if (get_theme_mod($this->shorttypography."_type_secondary_variant") != "") {
-									echo get_theme_mod($this->shorttypography."_type_secondary_variant");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_secondary_variant"));
 								} else {
 									echo "normal";
 								} ?>; font-style:<?php if (get_theme_mod($this->shorttypography."_type_secondary_style") != "") {
-									echo get_theme_mod($this->shorttypography."_type_secondary_style");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_secondary_style"));
 								} else {
 									echo "normal";
 								} ?>;">
@@ -816,7 +800,7 @@ class weddings_typography_page_class{
 								</div>
 							</div>
 						</div>
-						<a href="javascript:;" style="text-decoration:none;"><span id="_type_secondary__set_styling_button" class="button" onclick="toggle('#_type_secondary__set_styling', '#_type_secondary__set_advanced')">Edit Font Styling</span></a>
+						<a href="javascript:;" style="text-decoration:none;"><span id="_type_secondary__set_styling_button" class="button" onclick="toggle('#_type_secondary__set_styling', '#_type_secondary__set_advanced')"><?php echo __("Edit Font Styling","weddings"); ?></span></a>
 		
 		
 						<div id="_type_secondary__set_styling" class="font_styling type_inputs optioninputtextarea"   style="height:110px;">
@@ -840,7 +824,7 @@ class weddings_typography_page_class{
 		
 						<div id="_type_secondary__set_advanced" class="advanced_type type_inputs">
 							<div class="type_advanced">
-								<label class="typagrphy_label" for="_type_secondary_selectors">Additional Selectors</label>
+								<label class="typagrphy_label" for="_type_secondary_selectors"><?php echo __("Additional Selectors","weddings"); ?></label>
 								 <textarea class=""   name="-settings-two[type_secondary][selectors]"  id="_type_secondary_selectors"  rows="3"></textarea>
 							</div>
 							<div class="clear"></div>
@@ -855,7 +839,7 @@ class weddings_typography_page_class{
 		
 		<br/>
 			<div>
-				<div class="optiontitle">Typography - Inputs and Text Areas. Select the font style of your site&#39;s Text Inputs and Text Areas.
+				<div class="optiontitle"><?php echo __("Typography - Inputs and Text Areas. Select the font style of your site&#39;s Text Inputs and Text Areas.","weddings"); ?>
 				</div>
 				<div>
 					<div class="optioninput" style=" font-size:13pt;">
@@ -863,32 +847,32 @@ class weddings_typography_page_class{
 					</div>
 					<div>
 						<div class="font_preview_wrap">
-							<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;">Preview</label>
+							<label class="typagrphy_label" for="" style="font-size:18px;font-size: 20px;font-family: Segoe UI;"><?php echo __("Preview","weddings"); ?></label>
 		
 							<div class="font_preview">
 								<div class="optioninput" style="font-size: 16px;
 									margin-top: 14px; margin-bottom: 23px;  font-family: <?php if (get_theme_mod($this->shorttypography."_type_inputs_font") != "") {
-									echo htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_inputs_font")));
+									echo esc_attr(htmlspecialchars(stripslashes(get_theme_mod($this->shorttypography."_type_inputs_font"))));
 								} else {
 									echo "Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif";
 								} ?>;font-weight:<?php if (get_theme_mod($this->shorttypography."_type_inputs_weight") != "") {
-									echo get_theme_mod($this->shorttypography."_type_inputs_weight");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_inputs_weight"));
 								} else {
 									echo "normal";
 								} ?>; letter-spacing:<?php if (get_theme_mod($this->shorttypography."_type_inputs_kern") != "") {
-									echo get_theme_mod($this->shorttypography."_type_inputs_kern");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_inputs_kern"));
 								} else {
 									echo "0.00em";
 								} ?>; text-transform:<?php if (get_theme_mod($this->shorttypography."_type_inputs_transform") != "") {
-									echo get_theme_mod($this->shorttypography."_type_inputs_transform");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_inputs_transform"));
 								} else {
 									echo "none";
 								} ?>; font-variant:<?php if (get_theme_mod($this->shorttypography."_type_inputs_variant") != "") {
-									echo get_theme_mod($this->shorttypography."_type_inputs_variant");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_inputs_variant"));
 								} else {
 									echo "normal";
 								} ?>; font-style:<?php if (get_theme_mod($this->shorttypography."_type_inputs_style") != "") {
-									echo get_theme_mod($this->shorttypography."_type_inputs_style");
+									echo esc_attr(get_theme_mod($this->shorttypography."_type_inputs_style"));
 								} else {
 									echo "normal";
 								} ?>;">
@@ -901,7 +885,7 @@ class weddings_typography_page_class{
 							</div>
 						</div>
 						<a href="javascript:;" style="text-decoration:none;"><span id="_type_inputs__set_styling_button"							   class="button"
-																				   onclick="toggle('#_type_inputs__set_styling', '#_type_inputs__set_advanced')">Edit Font Styling</span></a>
+																				   onclick="toggle('#_type_inputs__set_styling', '#_type_inputs__set_advanced')"><?php echo __("Edit Font Styling","weddings"); ?></span></a>
 		
 						<div id="_type_inputs__set_styling" class="font_styling type_inputs optioninputtextarea" style="height:110px;">
 						<div class="type_select">
@@ -924,7 +908,7 @@ class weddings_typography_page_class{
 		
 						<div id="_type_inputs__set_advanced" class="advanced_type type_inputs">
 							<div class="type_advanced">
-								<label class="typagrphy_label" for="_type_inputs_selectors">Additional Selectors</label> <textarea class="" name="-settings-two[type_inputs][selectors]"  id="_type_inputs_selectors"  rows="3"></textarea>
+								<label class="typagrphy_label" for="_type_inputs_selectors"><?php echo __("Additional Selectors","weddings"); ?></label> <textarea class="" name="-settings-two[type_inputs][selectors]"  id="_type_inputs_selectors"  rows="3"></textarea>
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -1035,48 +1019,48 @@ class weddings_typography_page_class{
 			font-family: Segoe UI, Arial, Helvetica, sans-serif, sans !important;
 		}
         h1, h2, h3, h4, h5, h6 {
-            font-family: <?php echo $type_headers_font; ?>;
-            font-weight: <?php echo $type_headers_weight; ?>;
-            letter-spacing: <?php echo $type_headers_kern; ?>;
-            text-transform: <?php echo $type_headers_transform; ?>;
-            font-variant: <?php echo $type_headers_variant; ?>;
-            font-style: <?php echo $type_headers_style; ?>;
+            font-family: <?php echo esc_html( $type_headers_font ); ?>;
+            font-weight: <?php echo esc_html( $type_headers_weight ); ?>;
+            letter-spacing: <?php echo esc_html( $type_headers_kern ); ?>;
+            text-transform: <?php echo esc_html( $type_headers_transform ); ?>;
+            font-variant: <?php echo esc_html( $type_headers_variant ); ?>;
+            font-style: <?php echo esc_html( $type_headers_style ); ?>;
         }
 
         .nav, .metabar, .subtext, .subhead, .widget-title, .reply a, .editpage, #page .wp-pagenavi, .post-edit-link, #wp-calendar caption, #wp-calendar thead th, .soapbox-links a, .fancybox, .standard-form .admin-links, .ftitle small {
-            font-family: <?php echo $type_headers_font; ?>;
-            font-weight: <?php echo $type_headers_weight; ?>;
-            letter-spacing: <?php echo $type_headers_kern; ?>;
-            text-transform: <?php echo $type_headers_transform; ?>;
-            font-variant: <?php echo $type_headers_variant; ?>;
-            font-style: <?php echo $type_headers_style; ?>;
+            font-family: <?php echo esc_html( $type_headers_font ); ?>;
+            font-weight: <?php echo esc_html( $type_headers_weight ); ?>;
+            letter-spacing: <?php echo esc_html( $type_headers_kern ); ?>;
+            text-transform: <?php echo esc_html( $type_headers_transform ); ?>;
+            font-variant: <?php echo esc_html( $type_headers_variant ); ?>;
+            font-style: <?php echo esc_html( $type_headers_style ); ?>;
         }
 
         body {
-            font-family: <?php echo $type_primary_font; ?>;
-            font-weight: <?php echo $type_primary_weight; ?>;
-            letter-spacing: <?php echo $type_primary_kern; ?>;
-            text-transform: <?php echo $type_primary_transform; ?>;
-            font-variant: <?php echo $type_primary_variant; ?>;
-            font-style: <?php echo $type_primary_style; ?>;
+            font-family: <?php echo esc_html( $type_primary_font ); ?>;
+            font-weight: <?php echo esc_html( $type_primary_weight ); ?>;
+            letter-spacing: <?php echo esc_html( $type_primary_kern ); ?>;
+            text-transform: <?php echo esc_html( $type_primary_transform ); ?>;
+            font-variant: <?php echo esc_html( $type_primary_variant ); ?>;
+            font-style: <?php echo esc_html( $type_primary_style ); ?>;
         }
 
         input, textarea, .read_more {
-            font-family: <?php echo $type_inputs_font; ?>;
-            font-weight: <?php echo $type_inputs_weight; ?>;
-            letter-spacing: <?php echo $type_inputs_kern; ?>;
-            text-transform: <?php echo $type_inputs_transform; ?>;
-            font-variant: <?php echo $type_inputs_variant; ?>;
-            font-style: <?php echo $type_inputs_style; ?>;
+            font-family: <?php echo esc_html( $type_inputs_font ); ?>;
+            font-weight: <?php echo esc_html( $type_inputs_weight ); ?>;
+            letter-spacing: <?php echo esc_html( $type_inputs_kern ); ?>;
+            text-transform: <?php echo esc_html( $type_inputs_transform ); ?>;
+            font-variant: <?php echo esc_html( $type_inputs_variant ); ?>;
+            font-style: <?php echo esc_html( $type_inputs_style ); ?>;
         }
 		
 		#site-description-p {
-		    font-family: <?php echo $type_secondary_font; ?>;
-            font-weight: <?php echo $type_secondary_weight; ?>;
-            letter-spacing: <?php echo $type_secondary_kern; ?>;
-            text-transform: <?php echo $type_secondary_transform; ?>;
-            font-variant: <?php echo $type_secondary_variant; ?>;
-            font-style: <?php echo $type_secondary_style; ?>;
+		    font-family: <?php echo esc_html( $type_secondary_font ); ?>;
+            font-weight: <?php echo esc_html( $type_secondary_weight ); ?>;
+            letter-spacing: <?php echo esc_html( $type_secondary_kern ); ?>;
+            text-transform: <?php echo esc_html( $type_secondary_transform ); ?>;
+            font-variant: <?php echo esc_html( $type_secondary_variant ); ?>;
+            font-style: <?php echo esc_html( $type_secondary_style ); ?>;
 		}
 
     </style>

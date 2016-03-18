@@ -15,14 +15,16 @@ function omega_theme_setup() {
 	//remove_theme_mods();
 
 	/* Load omega functions */
-	require get_template_directory() . '/lib/hooks.php';
+	require get_template_directory() . '/lib/functions/hooks.php';
+
+	add_theme_support( 'title-tag' ); 
 	
 	/* Load scripts. */
 	add_theme_support( 
 		'omega-scripts', 
 		array( 'comment-reply' ) 
 	);
-
+	
 	add_theme_support( 'post-thumbnails' );
 	
 	add_theme_support( 'omega-theme-settings' );
@@ -54,7 +56,7 @@ function omega_theme_setup() {
 	add_theme_support( 'omega-child-page' );
 
 	/* Handle content width for embeds and images. */
-	omega_set_content_width( 640 );
+	omega_set_content_width( 700 );
 
 }
 

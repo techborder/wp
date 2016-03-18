@@ -1,157 +1,113 @@
 <?php 
-
-
 $weddings_theme_name='Weddings Options'; /// menu theme name
-
-$weddings_special_id_for_db='weddings_'; // spec identifikator databese
-
-$weddings_show_logo=true; /// if set tru show web dorado logo in admin panel if false dont show
-
+$weddings_special_id_for_db='weddings_'; // special identifikator database
+$weddings_show_logo=true; /// if set true show web-dorado logo in admin panel if false don't show
 $weddings_web_dor='http://web-dorado.com';
 
-///// initial menu
-
+/* initial menu */
 add_action('admin_menu','weddings_theme_admin_menu');
 
-/// action save or update after submit
+/* action save or update after submit */
 add_action('init','weddings_update_and_reset_weddings_theme');
 
-/// include functions_class
-
+/* include functions_class */
 require( 'includes/class_functions_for_admin.php' );
 
-/// include Layoute page class
-
+/* include Layoute page class */
 require( 'layout_page.php' );
 
-/// include General Settings page class
-
+/* include General Settings page class */
 require( 'general_settings_page.php' );
 
-/// include Home page class
-
+/* include Home page class */
 require( 'home_page.php' );
 
-/// include Color control page class
-
+/* include Color control page class */
 require( 'color_control.php' );
 
-/// include Typography page class
-
+/* include Typography page class */
 require( 'typography_page.php' );
 
-/// include Slider page class
-
+/* include Slider page class */
 require( 'slider_page.php' );
 
-/// include Install page class
-
+/* include Install page class */
 require( 'install_sampl_date.php' );
 
-/// include widgets
-
+/* include widgets */
 require( 'widgets/widgets.php' );
 
-
-/// include Licensing
-
+/* include Licensing */
 require( 'licensing.php' );
 
-//// set classes objects
-
+/* set classes objects */
 $weddings_admin_helepr_functions = new weddings_admin_helper_class();
-
 $weddings_layout_page = new weddings_layout_page_class();
-
 $weddings_general_settings_page = new weddings_general_settings_page_class();
-
 $weddings_home_page = new weddings_home_page_class();
-
 $weddings_color_control_page = new weddings_color_control_page_class();
-
 $weddings_typography_page = new weddings_typography_page_class();
-
 $weddings_slider_page = new weddings_slider_page_class();
-
 $weddings_sample_date = new weddings_sample_date();
-
 $weddings_licensing_page = new weddings_licensing_page_class();
 
-/// functions for conected hooks
-
-/// ajax for install sample date
+/*--- functions for connected hooks ---*/
+/* ajax for install sample date */
 add_action('wp_ajax_install_sample_date',  array(&$weddings_sample_date,'install_ajax'));
 
-/// ajax for remove sample date
+/* ajax for remove sample date */
 add_action('wp_ajax_remove_sample_date',  array(&$weddings_sample_date,'remove_ajax'));
-
 function weddings_theme_admin_menu(){
 	global $weddings_theme_name;
 	$theme_name=$weddings_theme_name;	
 	
-	/// create menu for web dorado theme		
+	/* create menu for web-dorado theme */
 	$weddings_theme_option=add_theme_page( $theme_name, $theme_name, 'manage_options', "web_dorado_theme", 'weddings_theme_control_pages' );
 	add_action('admin_print_styles-' . $weddings_theme_option, 'weddings_theme_admin_scripts');
-
 }
-
-
-////// this function work  in admin
-
+/* this function work  in admin */
 function weddings_update_and_reset_weddings_theme(){
-	
 	if(is_admin()){
-		
 		global $weddings_layout_page,$weddings_general_settings_page,$weddings_home_page,$weddings_color_control_page,$weddings_typography_page,$weddings_licensing_page;
 		$weddings_layout_page->web_dorado_theme_update_and_get_options_layout();
 		$weddings_general_settings_page->web_dorado_theme_update_and_get_options_general_settings();
 		$weddings_home_page->web_dorado_theme_update_and_get_options_home();
 		$weddings_color_control_page->web_dorado_theme_update_and_get_options_color_control();
-		$weddings_typography_page->web_dorado_theme_update_and_get_options_typography();
-		
+		$weddings_typography_page->web_dorado_theme_update_and_get_options_typography();	
 	}
-	
 }
-
-/// scripts and styles for admin page
-
+/* scripts and styles for admin page */
 function weddings_theme_admin_scripts(){
-	
-			/// use global page classes for printing scripts
-			global 	$weddings_layout_page,
-					$weddings_general_settings_page,
-					$weddings_home_page,
-					$weddings_color_control_page,
-					$weddings_typography_page,
-					$weddings_slider_page,
-					$weddings_licensing_page,
-					$weddings_sample_date;
-
-			$weddings_layout_page->web_dorado_layout_page_admin_scripts();
-			$weddings_general_settings_page->web_dorado_general_settings_page_admin_scripts();
-			$weddings_home_page->web_dorado_home_page_admin_scripts();
-			$weddings_color_control_page->web_dorado_color_control_page_admin_scripts();
-			$weddings_typography_page->web_dorado_typography_page_admin_scripts();
-			$weddings_slider_page->web_dorado_slider_page_admin_scripts();
-			$weddings_sample_date->web_dorado_sample_data_admin_scripts();
-			$weddings_licensing_page->web_dorado_licensing_admin_scripts();
-
-
+	/* use global page classes for printing scripts */
+	global 	$weddings_layout_page,
+			$weddings_general_settings_page,
+			$weddings_home_page,
+			$weddings_color_control_page,
+			$weddings_typography_page,
+			$weddings_slider_page,
+			$weddings_licensing_page,
+			$weddings_sample_date;
+			
+	$weddings_layout_page->web_dorado_layout_page_admin_scripts();
+	$weddings_general_settings_page->web_dorado_general_settings_page_admin_scripts();
+	$weddings_home_page->web_dorado_home_page_admin_scripts();
+	$weddings_color_control_page->web_dorado_color_control_page_admin_scripts();
+	$weddings_typography_page->web_dorado_typography_page_admin_scripts();
+	$weddings_slider_page->web_dorado_slider_page_admin_scripts();
+	$weddings_sample_date->web_dorado_sample_data_admin_scripts();
+	$weddings_licensing_page->web_dorado_licensing_admin_scripts();
 }
-
 
 function weddings_theme_control_pages(){
-	
-	global  $weddings_layout_page,// layout page class
-			$weddings_general_settings_page,// general page class
-			$weddings_home_page,// home page class
-			$weddings_color_control_page,// color page class
-			$weddings_typography_page,// typography page class
-			$weddings_slider_page,// slider page class
-			$weddings_sample_date,// sample_date page class
-			$weddings_licensing_page; // licensing page class
-			
-			?>
+	global  $weddings_layout_page,
+			$weddings_general_settings_page,
+			$weddings_home_page,
+			$weddings_color_control_page,
+			$weddings_typography_page,
+			$weddings_slider_page,
+			$weddings_sample_date,
+			$weddings_licensing_page; 
+	?>
 	<style>
 	.nav-tab-wrapper a{
 		font-size:14px;
@@ -162,9 +118,7 @@ function weddings_theme_control_pages(){
 	.nav-tab-active{
 	   border-color: #727272 #727272 #fff !important;
 	}
-	h2.nav-tab-wrapper{
-	  border-bottom-color:#727272 !important;
-	}
+	h2.nav-tab-wrapper, h3.nav-tab-wrapper{padding:0 !important;}
 	</style>
 	
 	<script>
@@ -205,7 +159,7 @@ function weddings_theme_control_pages(){
 			$(clicked_group).fadeIn();
 			evt.preventDefault();
 			
-			// Editor Height (needs improvement)
+			/* Editor Height (needs improvement) */
 			$('.wp-editor-wrap').each(function() {
 				var editor_iframe = $(this).find('iframe');
 				if ( editor_iframe.height() < 30 ) {
@@ -214,9 +168,7 @@ function weddings_theme_control_pages(){
 			});
 		
 		});
-								
 		$('.group .collapsed input:checkbox').click(unhideHidden);
-					
 		function unhideHidden(){
 			if ($(this).attr('checked')) {
 				$(this).parent().parent().parent().nextAll().removeClass('hidden');
@@ -230,22 +182,19 @@ function weddings_theme_control_pages(){
 						}
 					$(this).addClass('hidden');
 				});
-								
 			}
 		}
-	
-		// Image Options
+		/* Image Options */
 		$('.of-radio-img-img').click(function(){
 			$(this).parent().parent().find('.of-radio-img-img').removeClass('of-radio-img-selected');
 			$(this).addClass('of-radio-img-selected');		
-		});
-			
+		});	
 		$('.of-radio-img-label').hide();
 		$('.of-radio-img-img').show();
 		$('.of-radio-img-radio').hide();
 		});
 	</script>
-	<div style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/adminheader.png);background-repeat: no-repeat; width: 90%;margin-left: 59px; height: 90px;"></div>
+	<div style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/Optimize.png); background-repeat:no-repeat; width:100%; height: 90px;"></div>
 	<div id="icon-themes" class="icon32"><br></div>
 	<h2 class="nav-tab-wrapper">
 		<a id="options-group-1-tab" class="nav-tab" title="Layout Editor" href="#options-group-1">Layout Editor</a>
@@ -259,32 +208,15 @@ function weddings_theme_control_pages(){
 	</h2>
 	<div id="optionsframework-metabox" class="metabox-holder">
 	    <div id="optionsframework" class="postbox">
-			
-				<div id="options-group-1" class="group Layout" style="display: none;"><h3>Layout Editor</h3><?php echo $weddings_layout_page->dorado_theme_admin_layout(); ?></div>
-				<div id="options-group-2" class="group General" style="display: none;"><h3>General</h3><?php echo $weddings_general_settings_page->dorado_theme_admin_general_settings(); ?></div>
-				<div id="options-group-3" class="group Homepage" style="display: none;"><h3>Homepage</h3><?php echo $weddings_home_page->dorado_theme_admin_home(); ?></div>
-				<div id="options-group-4" class="group Color" style="display: none;"><h3>Color Control</h3><?php echo $weddings_color_control_page->dorado_theme_admin_color_control(); ?></div>
-				<div id="options-group-5" class="group Typography" style="display: none;"><h3>Typography</h3><?php echo $weddings_typography_page->dorado_theme_admin_typography(); ?></div>
-				<div id="options-group-6" class="group Slider" style="display: none;"><h3>Slider</h3><?php echo $weddings_slider_page->dorado_theme_admin_slider(); ?></div>
-				<div id="options-group-7" class="group Install" style="display: none;"><h3>Install Sample Data</h3><?php echo $weddings_sample_date->weddings_install_posts(); ?></div>
-				<div id="options-group-8" class="group Licensing" style="display: none;"><h3>Licensing</h3><?php echo $weddings_licensing_page->dorado_theme_admin_licensing(); ?></div>
+			<div id="options-group-1" class="group Layout" style="display: none;"><?php echo $weddings_layout_page->dorado_theme_admin_layout(); ?></div>
+			<div id="options-group-2" class="group General" style="display: none;"><?php echo $weddings_general_settings_page->dorado_theme_admin_general_settings(); ?></div>
+			<div id="options-group-3" class="group Homepage" style="display: none;"><?php echo $weddings_home_page->dorado_theme_admin_home(); ?></div>
+			<div id="options-group-4" class="group Color" style="display: none;"><?php echo $weddings_color_control_page->dorado_theme_admin_color_control(); ?></div>
+			<div id="options-group-5" class="group Typography" style="display: none;"><?php echo $weddings_typography_page->dorado_theme_admin_typography(); ?></div>
+			<div id="options-group-6" class="group Slider" style="display: none;"><?php echo $weddings_slider_page->dorado_theme_admin_slider(); ?></div>
+			<div id="options-group-7" class="group Install" style="display: none;"><?php echo $weddings_sample_date->weddings_install_posts(); ?></div>
+			<div id="options-group-8" class="group Licensing" style="display: none;"><?php echo $weddings_licensing_page->dorado_theme_admin_licensing(); ?></div>
 		</div>
-	
-	
-	
-	
-	
-	<?php
-	
-			
-			
-	
-	
-
+<?php
 }
-
-
- 
-
-
 ?>

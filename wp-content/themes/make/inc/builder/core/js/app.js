@@ -161,7 +161,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 	oneApp.setMakeContent = function (content) {
 		if (oneApp.isVisualActive()) {
-			tinyMCE.get('make').setContent(content);
+			tinyMCE.get('make').setContent(switchEditors.wpautop(content));
 		} else {
 			oneApp.cache.$makeTextArea.val(switchEditors.pre_wpautop(content));
 		}
@@ -229,6 +229,13 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 		iframeHead.html(link);
 		iframeBody.html(switchEditors.wpautop(oneApp.wrapShortcodes(content)));
+
+		// Firefox hack
+		// @link http://stackoverflow.com/a/24686535
+		$(iframe).on('load', function() {
+			$(this).contents().find('head').html(link);
+			$(this).contents().find('body').html(switchEditors.wpautop(oneApp.wrapShortcodes(content)));
+		});
 	};
 
 	oneApp.getFrameHeadLinks = function() {

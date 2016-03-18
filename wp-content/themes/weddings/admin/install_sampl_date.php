@@ -266,11 +266,11 @@ class weddings_sample_date{
 			<table align="center" width="90%" style="margin-top: 0px;border-bottom: rgb(111, 111, 111) solid 2px;">
 			    <tr>   
                       <td style="font-size:14px; font-weight:bold">
-					     <a href="<?php echo $weddings_web_dor.'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows to add sample data.
-                         <a href="<?php echo $weddings_web_dor.'/wordpress-theme-options/3-9.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
+					     <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes-guide-step-1.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">User Manual</a><br />This section allows to add sample data.
+                         <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-theme-options/3-9.html'; ?>" target="_blank" style="color:#126094; text-decoration:none;">More...</a>
 					 </td>   
                       <td  align="right" style="font-size:16px;">
-                           <a href="<?php echo $weddings_web_dor.'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
+                           <a href="<?php echo esc_url($weddings_web_dor).'/wordpress-themes/wedding.html'; ?>" target="_blank" style="color:red; text-decoration:none;">
                               <img src="<?php echo get_template_directory_uri() ?>/images/header.png" border="0" alt="" width="215">
                            </a>
                         </td>
@@ -915,7 +915,7 @@ class weddings_sample_date{
 		if($menu_item_url)	{
 			
 		$menu_item_id=wp_update_nav_menu_item($menu_id, 0,array(
-        'menu-item-title' =>  __('Home','sp_webBusiness'),
+        'menu-item-title' =>  __('Home','weddings'),
         'menu-item-classes' => 'home',
         'menu-item-url' => esc_url(home_url( '/' )), 
         'menu-item-status' => 'publish'));

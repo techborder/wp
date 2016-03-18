@@ -17,10 +17,10 @@ return array(
 	'extensions.configuration_sealed' => array(
 	),
 	'notes.minify_error' => false,
-	'minify.error.last' => '',
+	'minify.error.last' => 'A group configuration for "include-footer" was not set',
 	'minify.error.notification' => 'admin',
 	'minify.error.notification.last' => 0,
-	'minify.error.file' => '',
+	'minify.error.file' => '000000/e9f19/default.include-footer.dc9f59.js',
 	'track.maxcdn_signup' => 0,
 	'track.maxcdn_authorize' => 0,
 	'track.maxcdn_validation' => 0,

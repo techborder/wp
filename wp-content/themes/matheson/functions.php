@@ -4,10 +4,12 @@
  *
  * @since 1.0.0
  */
-$bavotasan_theme_data = wp_get_theme();
+$bavotasan_theme_data = wp_get_theme( 'matheson' );
 define( 'BAVOTASAN_THEME_URL', get_template_directory_uri() );
 define( 'BAVOTASAN_THEME_TEMPLATE', get_template_directory() );
+define( 'BAVOTASAN_THEME_VERSION', trim( $bavotasan_theme_data->Version ) );
 define( 'BAVOTASAN_THEME_NAME', $bavotasan_theme_data->Name );
+define( 'BAVOTASAN_THEME_FILE', get_option( 'template' ) );
 
 /**
  * Includes
@@ -15,6 +17,7 @@ define( 'BAVOTASAN_THEME_NAME', $bavotasan_theme_data->Name );
  * @since 1.0.0
  */
 require( BAVOTASAN_THEME_TEMPLATE . '/library/customizer.php' ); // Functions for theme options page
+require( BAVOTASAN_THEME_TEMPLATE . '/library/about.php' ); // Functions for about page
 require( BAVOTASAN_THEME_TEMPLATE . '/library/preview-pro.php' ); // Functions for preview pro page
 require( BAVOTASAN_THEME_TEMPLATE . '/library/custom-metaboxes.php' ); // Functions for home page alignment
 
@@ -108,6 +111,8 @@ function bavotasan_setup() {
 
 	// Add support for custom backgrounds
 	add_theme_support( 'custom-background' );
+
+	add_theme_support( 'title-tag' );
 
 	// Add HTML5 elements
 	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', ) );
@@ -361,7 +366,7 @@ function bavotasan_pagination() {
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1 class="sr-only"><?php _e( 'Posts navigation', 'matheson' ); ?></h1>
+					<div class="sr-only"><?php _e( 'Posts navigation', 'matheson' ); ?></div>
 					<?php if ( get_next_posts_link() ) : ?>
 					<div class="nav-previous"><?php next_posts_link( __( '&larr; Older posts', 'matheson' ) ); ?></div>
 					<?php endif; ?>
@@ -376,39 +381,6 @@ function bavotasan_pagination() {
 	<?php
 	wp_reset_query();
 }
-
-add_filter( 'wp_title', 'bavotasan_filter_wp_title', 10, 2 );
-if ( ! function_exists( 'bavotasan_filter_wp_title' ) ) :
-/**
- * Filters the page title appropriately depending on the current page
- *
- * @uses	get_bloginfo()
- * @uses	is_home()
- * @uses	is_front_page()
- *
- * @since 1.0.0
- */
-function bavotasan_filter_wp_title( $title, $sep ) {
-	global $paged, $page;
-
-	if ( is_feed() )
-		return $title;
-
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
-
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title = "$title $sep $site_description";
-
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'matheson' ), max( $paged, $page ) );
-
-	return $title;
-}
-endif; // bavotasan_filter_wp_title
 
 if ( ! function_exists( 'bavotasan_comment' ) ) :
 /**
@@ -600,19 +572,6 @@ function bavotasan_the_attached_image() {
 }
 
 /**
- * Full width conditional check
- *
- * @since 1.0.0
- *
- * @return	boolean True if post/page is set to full width
- */
-function is_bavotasan_full_width() {
-	$single_layout = ( is_singular() ) ? get_post_meta( get_the_ID(), 'matheson_single_layout', true ) : '';
-	if ( 'on' == $single_layout )
-		return true;
-}
-
-/**
  * Create the required attributes for the #primary container
  *
  * @since 1.0.0
@@ -622,17 +581,10 @@ function bavotasan_primary_attr() {
 	$primary = str_replace( 'col-md-', '', $bavotasan_theme_options['primary'] );
 	$secondary = ( is_active_sidebar( 'second-sidebar' ) ) ? str_replace( 'col-md-', '', $bavotasan_theme_options['secondary'] ) : 12 - $primary;
 	$tertiary = 12 - $primary - $secondary;
-	$class = ( ! is_bavotasan_full_width() ) ? $bavotasan_theme_options['primary'] : '';
-	$class = ( is_singular() && is_bavotasan_full_width() ) ? 'col-sm-12' : $class;
+	$class = $bavotasan_theme_options['primary'];
 	$class = ( is_singular() || is_404() || ( function_exists( 'is_bbpress' ) && is_bbpress() ) ) ? $class : 'col-sm-12';
 	$push = '';
-
-	if ( is_active_sidebar( 'second-sidebar' ) && ! is_bavotasan_full_width() && is_singular() ) {
-		$push = ( 'left' == $bavotasan_theme_options['layout'] ) ? ' col-md-push-' . ( $secondary + $tertiary ) : '';
-		$push = ( 'separate' == $bavotasan_theme_options['layout'] ) ? ' col-md-push-' . $secondary: $push;
-	} else {
-		$class = ( 'left' == $bavotasan_theme_options['layout'] ) ? $class . ' pull-right' : $class;
-	}
+	$class = ( 'left' == $bavotasan_theme_options['layout'] ) ? $class . ' pull-right' : $class;
 
 	echo 'class="' . esc_attr( $class ) . esc_attr( $push ) . '"';
 }
@@ -654,23 +606,6 @@ function bavotasan_sidebar_class() {
 		$end = ( 'right' == $bavotasan_theme_options['layout'] ) ? ' end' : '';
 		$class = 'col-md-' . ( 12 - $primary ) . $end;
 	}
-
-	echo 'class="' . esc_attr( $class ) . esc_attr( $pull ) . '"';
-}
-
-/**
- * Create the required classes for the #tertiary sidebar container
- *
- * @since 1.0.0
- */
-function bavotasan_second_sidebar_class() {
-	$bavotasan_theme_options = bavotasan_theme_options();
-	$primary = str_replace( 'col-md-', '', $bavotasan_theme_options['primary'] );
-	$secondary = str_replace( 'col-md-', '', $bavotasan_theme_options['secondary'] );
-	$pull = ( 'left' == $bavotasan_theme_options['layout'] ) ? ' col-md-pull-' . $primary : '';
-
-	$end = ( 'left' != $bavotasan_theme_options['layout'] ) ? ' end' : '';
-	$class = 'col-md-' . ( 12 - $primary - $secondary ) . $end;
 
 	echo 'class="' . esc_attr( $class ) . esc_attr( $pull ) . '"';
 }
@@ -714,7 +649,7 @@ class Bavotasan_Page_Navigation_Walker extends Walker_Nav_Menu {
 
 		if ( $item->is_dropdown && ( $depth === 0 ) ) {
 			$item_html = str_replace( '<a', '<a class="dropdown-toggle" data-toggle="dropdown" data-target="#"', $item_html );
-			$item_html = str_replace( '</a>', ' <b class="caret"></b></a>', $item_html );
+			$item_html = str_replace( '</a>', ' <span class="caret"></span></a>', $item_html );
 		} elseif ( stristr( $item_html, 'li class="divider' ) ) {
 			$item_html = preg_replace( '/<a[^>]*>.*?<\/a>/iU', '', $item_html );
 		} elseif ( stristr( $item_html, 'li class="nav-header' ) ) {
@@ -750,7 +685,7 @@ add_filter( 'wp_nav_menu_args', 'bavotasan_nav_menu_args' );
  * @since 1.0.0
  */
 function bavotasan_nav_menu_args( $args ) {
-    if ( 1 !== $args[ 'depth' ] && has_nav_menu( 'primary' ) )
+    if ( 1 !== $args[ 'depth' ] && has_nav_menu( 'primary' ) && 'primary' == $args[ 'theme_location' ] )
         $args[ 'walker' ] = new Bavotasan_Page_Navigation_Walker;
 
     return $args;
@@ -761,19 +696,17 @@ function bavotasan_nav_menu_args( $args ) {
  *
  * @since 1.0.0
  */
-function header_images() {
-	$custom_image = ( is_singular() ) ? get_post_meta( get_the_ID(), 'matheson_custom_image', true ) : '';
+function bavotasan_header_images() {
+	global $post;
+	$post_id = ( is_attachment() && isset( $post->post_parent ) ) ? $post->post_parent : get_queried_object_id();
+	$custom_image = ( is_singular() || get_option( 'page_for_posts' ) == $post_id || is_attachment() ) ? get_post_meta( $post_id, 'matheson_custom_image', true ) : '';
 
-	if ( is_singular() && ( ! empty( $custom_image ) || has_post_thumbnail() ) ) {
-		if ( $custom_image )
-			echo '<img src="' . esc_url( $custom_image ) . '" alt="" class="header-img" />';
-		else
-			the_post_thumbnail( 'full', array( 'class' => 'header-img' ) );
+	if ( $custom_image ) {
+		echo '<img src="' . esc_url( $custom_image ) . '" alt="" class="header-img" />';
 	} else {
-		$header_image = get_header_image();
-		if ( ! empty( $header_image ) ) :
+		if ( $header_image = get_header_image() ) :
 			?>
-			<img class="header-img" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
+			<img class="header-img" src="<?php header_image(); ?>" alt="" />
 			<?php
 		endif;
 	}

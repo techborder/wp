@@ -91,7 +91,7 @@ function travelify_theloop() {
 
 if ( ! function_exists( 'travelify_theloop_for_archive' ) ) :
 /**
- * Fuction to show the archive loop content.
+ * Function to show the archive loop content.
  */
 function travelify_theloop_for_archive() {
 	global $post;
@@ -139,8 +139,7 @@ function travelify_theloop_for_archive() {
 
   			<div class="entry-meta-bar clearfix">
     			<div class="entry-meta">
-	    				<span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-	    				<span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+	    				<?php travelify_posted_on(); ?>
 	    				<?php if( has_category() ) { ?>
 	             		<span class="category"><?php the_category(', '); ?></span>
 	             	<?php } ?>
@@ -174,7 +173,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_page' ) ) :
 /**
- * Fuction to show the page content.
+ * Function to show the page content.
  */
 function travelify_theloop_for_page() {
 	global $post;
@@ -245,7 +244,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_single' ) ) :
 /**
- * Fuction to show the single post content.
+ * Function to show the single post content.
  */
 function travelify_theloop_for_single() {
 	global $post;
@@ -273,8 +272,7 @@ function travelify_theloop_for_single() {
 
   			<div class="entry-meta-bar clearfix">
     			<div class="entry-meta">
-	    				<span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-	    				<span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+	    				<?php travelify_posted_on(); ?>
 	    				<?php if( has_category() ) { ?>
 	             		<span class="category"><?php the_category(', '); ?></span>
 	             	<?php } ?>
@@ -344,7 +342,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_search' ) ) :
 /**
- * Fuction to show the search results.
+ * Function to show the search results.
  */
 function travelify_theloop_for_search() {
 	global $post;
@@ -395,7 +393,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_template_blog_image_large' ) ) :
 /**
- * Fuction to show the content of page template blog image large content.
+ * Function to show the content of page template blog image large content.
  */
 function travelify_theloop_for_template_blog_image_large() {
 	global $post;
@@ -457,8 +455,7 @@ function travelify_theloop_for_template_blog_image_large() {
 
   			<div class="entry-meta-bar clearfix">
     			<div class="entry-meta">
-	    				<span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-	    				<span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+	    				<?php travelify_posted_on(); ?>
 	    				<?php if( has_category() ) { ?>
 	             		<span class="category"><?php the_category(', '); ?></span>
 	             	<?php } ?>
@@ -507,7 +504,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_template_blog_image_medium' ) ) :
 /**
- * Fuction to show the content of page template blog image medium content.
+ * Function to show the content of page template blog image medium content.
  */
 function travelify_theloop_for_template_blog_image_medium() {
 	global $post;
@@ -569,8 +566,7 @@ function travelify_theloop_for_template_blog_image_medium() {
 		</div>
   			<div class="entry-meta-bar clearfix">
     			<div class="entry-meta">
-	    				<span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-	    				<span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+	    				<?php travelify_posted_on(); ?>
 	    				<?php if( has_category() ) { ?>
 	             		<span class="category"><?php the_category(', '); ?></span>
 	             	<?php } ?>
@@ -617,7 +613,7 @@ endif;
 
 if ( ! function_exists( 'travelify_theloop_for_template_blog_full_content' ) ) :
 /**
- * Fuction to show the content of page template full content display.
+ * Function to show the content of page template full content display.
  */
 function travelify_theloop_for_template_blog_full_content() {
 	global $post;
@@ -683,8 +679,7 @@ function travelify_theloop_for_template_blog_full_content() {
 
   			<div class="entry-meta-bar clearfix">
     			<div class="entry-meta">
-	    				<span class="author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
-	    				<span class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>"><?php the_time( get_option( 'date_format' ) ); ?></a></span>
+	    				<?php travelify_posted_on(); ?>
 	    				<?php if( has_category() ) { ?>
 	             		<span class="category"><?php the_category(', '); ?></span>
 	             	<?php } ?>

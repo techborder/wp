@@ -110,7 +110,7 @@ class weddings_admin_helper_class{
 					<?php
 					foreach($select['all_values'] as $key => $value){
 						?>
-						<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo $value ?></option>
+						<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo esc_html($value); ?></option>
 						<?php 					
 					}
 					?>
@@ -235,7 +235,7 @@ class weddings_admin_helper_class{
                 <p><?php echo $upload["description"] ?></p>
             </div>
             <div class="optioninput" id="upload_images">
-                <input type="text" class="upload" id="<?php echo $upload["var_name"] ?>" name="<?php echo $upload["var_name"] ?>" size="<?php echo $params["upload_size"]?>" value="<?php echo $upload["std"] ?>"/>
+                <input type="text" class="upload" id="<?php echo $upload["var_name"] ?>" name="<?php echo $upload["var_name"] ?>" size="<?php echo $params["upload_size"]?>" value="<?php echo esc_attr($upload["std"]); ?>"/>
                 <input class="upload-button" type="button" value="Upload Image"/>
             </div>
         </div>
@@ -332,7 +332,7 @@ class weddings_admin_helper_class{
 					<?php
 					foreach($select['all_values'] as $key => $value){
 						?>
-						<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo $value ?></option>
+						<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo esc_html($value); ?></option>
 						<?php 					
 					}
 					?>
@@ -378,7 +378,7 @@ class weddings_admin_helper_class{
 		
 		foreach($select['all_values'] as $key => $value){
 			?>
-			<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo $value ?></option>
+			<option value="<?php echo $key ?>" <?php selected( $select['std'], $key); ?>><?php echo esc_html($value); ?></option>
 			<?php 					
 		}
 		?>

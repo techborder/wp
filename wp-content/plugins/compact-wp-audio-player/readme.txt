@@ -3,8 +3,8 @@ Contributors: Tips and Tricks HQ
 Donate link: https://www.tipsandtricks-hq.com/development-center
 Tags: audio, audio player, embed, media, media player, mp3, mp3 player, music, music player, player, podcast, sound, ogg, wav,
 Requires at least: 3.0
-Tested up to: 3.9.2
-Stable tag: 1.9.3
+Tested up to: 4.4
+Stable tag: 1.9.4
 License: GPLv2 or later
 
 A Compact WP Audio Player Pluign that is compatible with all major browsers and devices (Android, iPhone, iPad)
@@ -14,6 +14,8 @@ A Compact WP Audio Player Pluign that is compatible with all major browsers and 
 Compact WordPress Audio Player plugin is an HTML5 + Flash hybrid based wordpress plugin which can be used to embed an mp3 audio file on your WordPress post or page using a shortcode. The audio player is cute and compact and will play on all major browsers. 
 
 This audio player plugin Supports .mp3 and .ogg file formats.
+
+The audio files that you embed using this plugin will work on all devices.
 
 = Features =
 * The audio player is compact so it does not take a lot of real estate on your webpage
@@ -65,6 +67,9 @@ Yes
 None
 
 == Changelog ==
+
+= 1.9.4 =
+- WordPress 4.4 compatibility.
 
 = 1.9.3 =
 - Corrected a typo in the play button image file name.

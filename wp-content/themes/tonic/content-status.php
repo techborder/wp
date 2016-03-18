@@ -7,9 +7,9 @@
 ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header>
-			<h3 class="post-category"><?php _e( 'Status', 'tonic' ); ?></h3>
+			<div class="post-category"><?php _e( 'Status', 'tonic' ); ?></div>
 			<?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
-			<h1 class="author"><?php the_author(); ?></h1>
+			<div class="author"><span class="vcard author"><span class="fn"><?php the_author(); ?></span></span></div>
 		</header>
 
 		<div class="entry-content">

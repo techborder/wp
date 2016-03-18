@@ -48,17 +48,13 @@ a, a:visited, a:hover, a:active {
 		.site-title {
 			display: inline-block;
 			padding: 10px 20px;
-			background: rgba(255,255,255,.3);
-			a {
-				text-decoration: none;
-				color: black;
-			}
+			font-weight: 300;
 		}
 		.site-description {
 			display: inline-block;
 			font-size: 16px;
-			background: rgba(255,255,255,.3);
 			padding: 10px 20px;
+			margin: 0px;
 		}
 	}
 }
@@ -104,6 +100,10 @@ body:not(.blog) .site-branding {
 		background: transparent;
 		border: 0px;
 		right: 27px;
+		img {
+			height: 15px;
+			width: auto;
+		}
 	}
 }
 
@@ -488,11 +488,7 @@ body:not(.blog) {
 	.site-branding {
 		width: 25%;
 		position: fixed;
-		top: 20%;
-		h1.site-title {
-			margin: 0px;
-		}
-		h2.site-description {
+		top: 20%;		h2.site-description {
 			margin: 0px;
 		}
 	}
@@ -517,12 +513,6 @@ body:not(.blog) {
 				margin: 0px;
 				/* border-top: dotted 1px black; */
 				font-size: 30px;
-				&:before {
-					content: "\25A0";
-					color: #999;
-					margin-right: 12px;
-					top: 3px;
-				}
 			}
 			.entry-meta {
 				background: black;
@@ -601,6 +591,49 @@ body:not(.blog) {
 				font-weight: 700;
 			}
 		}
+	}
+}
+
+.single-format-video {
+	.fa-video-camera {
+		position: absolute;
+		z-index: -1;
+		font-size: 100px;
+		color: #ddd;
+		top: -18px;
+		left: -10px;
+	}
+}
+
+.single-format-audio {
+	.fa-headphones {
+		position: absolute;
+		z-index: -1;
+		font-size: 100px;
+		color: #ddd;
+		top: -18px;
+		left: -10px;
+	}
+}
+
+.single-format-image {
+	.fa-file-image-o {
+		position: absolute;
+		z-index: -1;
+		font-size: 100px;
+		color: #ddd;
+		top: -18px;
+		left: -10px;
+	}
+}
+
+.single-thumb {
+	margin: 15px auto;
+	width: 100%;
+	img {
+		width: 80%;
+		display: block;
+		margin: auto;
 	}
 }
 

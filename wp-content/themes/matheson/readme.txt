@@ -1,6 +1,6 @@
 = Matheson =
 
-* Created by Themes by bavotasan.com - http://themes.bavotasan.com/
+* Created by Themes by bavotasan.com - https://themes.bavotasan.com/
 * Designed by Sonia Gaballa - http://nudge.ca/
 * Built by c.bavota http://bavotasan.com/
 
@@ -11,7 +11,6 @@ Create a truly unique design with Matheson, a lightweight and fully responsive H
 == NOTES ==
 
 * If you have a drop down list for your site navigation, the parent item should only be a grouping title with a "#" value for the URL parameter. The Bootstrap navbar requires a click to open the drop down list so any link that is set in the parent item will not work.
-* The navbar only allows for a depth of one drop down level.
 * The three boxes on the home page are Image & Text widgets added to the Home Page Top Area.
 * The home page is designed without any sidebars therefore the only widgetized areas that appear are the Home Page Top Area and the Extended Footer. Archive and search results pages also have no sidebars.
 * Sidebars only appear on single posts and pages, unless they are set to display at full width.
@@ -53,10 +52,23 @@ Copyright: Dave Gandy, https://twitter.com/davegandy
 Google Fonts - http://www.google.com/fonts/
 License: [[http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL|SIL Open Font License]]
 
-ACE Editor - http://ace.c9.io/
-License: [[http://www.linfo.org/bsdlicense.html|BSD License]]
+Stock Images - http://unsplash.com/
+Licensed under the terms of CC0
 
 == CHANGELOG ==
+
+02/26/2016 v1.0.4
+* Fixed H1 tag issue
+* Updater footer credit
+* Fixed customizer options saving issue
+* Added multi-level drop down menus
+* Added about page
+* Updated preview pro page
+* Added title-tag support
+* Added next/prev link to pages
+* Updated editor styles
+* Added validation to custom widget
+* Updated language file
 
 02/20/2014 v1.0.3
 * Added HTML5 shiv directly to theme

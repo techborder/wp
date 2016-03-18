@@ -94,6 +94,11 @@ function klean_customizer_stylesheet() {
 add_action( 'customize_controls_print_styles', 'klean_customizer_stylesheet' );
 
 
+function klean_add_editor_styles() {
+    add_editor_style( 'editor-style.css' );
+}
+add_action( 'admin_init', 'klean_add_editor_styles' );
+
 
 /** 
  *Enqueuing  the fonts
@@ -200,7 +205,7 @@ add_action( 'widgets_init', 'klean_widgets_init' );
 function klean_scripts() {
 	wp_enqueue_style( 'klean-style', get_stylesheet_uri() );
 
-	wp_enqueue_style('klean-bootstrap-style',get_template_directory_uri()."/assets/bootstrap/bootstrap.min.css", array('klean-style'));
+	wp_enqueue_style('klean-bootstrap-style',get_template_directory_uri()."/assets/bootstrap/bootstrap.css", array('klean-style'));
 	
 	wp_enqueue_style('klean-main-skin',get_template_directory_uri()."/assets/skins/main.css", array('klean-bootstrap-style'));
 	
@@ -234,6 +239,8 @@ function klean_initialize_header() {
 		echo "#secondary:not(.left-sidebar):not(.right-sidebar) {display: none;}
 			  #primary {width: 100%;}";
 	}
+	
+	echo ".site-description {color: " . get_theme_mod('klean-desc-color', '#ffffff') . "; }";
 	
 	echo "</style>";
 	 

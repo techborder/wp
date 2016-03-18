@@ -1,16 +1,10 @@
 <?php
-
 class blcr_Customizer {
-
     public static function blcr_Register($wp_customize) {
-
         self::blcr_Sections($wp_customize);
-
         self::blcr_Controls($wp_customize);
     }
-
     public static function blcr_Sections($wp_customize) {
-
         /**
          * Add panel for home page feature area
          */
@@ -691,7 +685,9 @@ function blcr_registers() {
     wp_enqueue_script('inkthemes_customizer_script');
     wp_localize_script('inkthemes_customizer_script', 'ink_advert', array(
         'pro' => __('View PRO version', 'black-rider'),
-        'url' => esc_url('http://www.inkthemes.com/wp-themes/lead-generation-wordpress-theme/')
+        'url' => esc_url('http://www.inkthemes.com/wp-themes/lead-generation-wordpress-theme/'),
+		'support_text' => __('Need Help!','black-rider'),
+			'support_url' => esc_url('http://www.inkthemes.com/lets-connect/')
     ));
 }
 

@@ -1,23 +1,11 @@
 <?php
 class Bavotasan_Preview_Pro {
-	private $theme_url = 'https://themes.bavotasan.com/2013/tonic-pro/';
+	private $theme_name = 'Tonic Pro';
+	private $theme_url = 'https://themes.bavotasan.com/themes/tonic-pro-wordpress-theme/';
 	private $video_url = 'http://www.youtube.com/watch?v=aMS7GsGzXnQ';
 
 	public function __construct() {
-		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 1000 );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-	}
-
-	/**
-	 * Add a 'Preview Pro' menu item to the admin bar
-	 *
-	 * This function is attached to the 'admin_bar_menu' action hook.
-	 *
-	 * @since 1.0.0
-	 */
-	public function admin_bar_menu( $wp_admin_bar ) {
-	    if ( current_user_can( 'edit_theme_options' ) && is_admin_bar_showing() )
-	    	$wp_admin_bar->add_node( array( 'parent' => 'bavotasan_toolbar', 'id' => 'preview_pro', 'title' => sprintf( __( 'Upgrade to %s Pro', 'tonic' ), BAVOTASAN_THEME_NAME ), 'href' => esc_url( admin_url( 'themes.php?page=bavotasan_preview_pro' ) ) ) );
 	}
 
 	/**
@@ -29,113 +17,139 @@ class Bavotasan_Preview_Pro {
 	 */
 	public function admin_menu() {
 		add_theme_page( sprintf( __( 'Upgrade to %s Pro', 'tonic' ), BAVOTASAN_THEME_NAME ), sprintf( __( 'Upgrade to Pro', 'tonic' ), BAVOTASAN_THEME_NAME ), 'edit_theme_options', 'bavotasan_preview_pro', array( $this, 'bavotasan_preview_pro' ) );
+
+		// Remove upgrade page from Appearance menu
+		remove_submenu_page( 'themes.php', 'bavotasan_preview_pro' );
 	}
 
 	public function bavotasan_preview_pro() {
 		?>
 		<style>
-		.about-wrap h1,
-		.about-text {
-			margin-right: 0;
+		.featured-image {
+			margin: 20px auto !important;
 		}
 
-		.about-wrap .feature-section img {
-			max-width: 65%;
+		.about-wrap .headline-feature h2 {
+			text-align: center;
 		}
 
-		.about-wrap .feature-section.images-stagger-right img {
-			float: right;
-			margin: 0 0 12px 2em;
+		.about-wrap .dfw h3 {
+			text-align: left;
 		}
 
-		.about-wrap .feature-section.images-stagger-left img {
-			float: left;
-			margin: 0 2em 12px 0;
+		.changelog.headline-feature.dfw {
+			max-width: 68%;
 		}
 
-		.about-wrap .feature-section img {
-			background: #fff;
-			border: 1px #ccc solid;
-			-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-			box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-			-webkit-corder-radius: 3px;
-			border-radius: 3px;
+		.changelog.headline-feature.dfw {
+			margin-left: auto;
+			margin-right: auto;
 		}
 
-		@media (max-width: 768px) {
-			.about-wrap .feature-section img {
+		.about-wrap .headline-feature p {
+		    text-align: left;
+		    margin: 1.25em 0;
+		}
+
+		.about-wrap ul {
+			padding-left: 60px;
+			list-style: disc;
+			margin-bottom: 20px;
+		}
+
+		.about-wrap .theme-badge {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		.about-wrap .feature-section {
+			border: 0;
+			padding: 0;
+		}
+
+		@media only screen and (max-width: 768px) {
+			.changelog.headline-feature.dfw {
 				max-width: 100%;
+			}
+
+			.about-wrap .theme-badge {
+				display: none;
 			}
 		}
 		</style>
 		<div class="wrap about-wrap" id="custom-background">
-			<h1><?php echo get_admin_page_title(); ?></h1>
+			<h1><?php printf( __( 'Welcome to %s %s', 'tonic' ), BAVOTASAN_THEME_NAME, BAVOTASAN_THEME_VERSION ); ?></h1>
+
 			<div class="about-text">
-				<?php printf( __( 'Take your site to the next level with %s. Check out some of the advanced features that\'ll give you more control over your site\'s layout and design.', 'tonic' ), '<em>' . BAVOTASAN_THEME_NAME . ' Pro</em>' ); ?>
-				<br /><a href="<?php echo $this->video_url; ?>" target="_blank"><?php _e( 'View the demo video &rarr;', 'tonic' ); ?></a>
+				<?php printf( __( 'Take your site to the next level with the full version of %s. Check out some of the advanced features that&rsquo;ll give you more control over your site&rsquo;s layout and design.', 'tonic' ), '<em>' . $this->theme_name . '</em>' ); ?>
 			</div>
+			<div class="theme-badge">
+				<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/screenshot_sml.jpg" />
+			</div>
+
 			<h2 class="nav-tab-wrapper">
-				<?php _e( 'Features', 'tonic' ); ?>
+				<a href="<?php echo admin_url( 'themes.php?page=bavotasan_documentation' ); ?>" class="nav-tab"><?php _e( 'Documentation', 'tonic' ); ?></a>
+				<a href="<?php echo admin_url( 'themes.php?page=bavotasan_preview_pro' ); ?>" class="nav-tab nav-tab-active"><?php _e( 'Upgrade', 'tonic' ); ?></a>
 			</h2>
 
-			<div class="changelog">
-				<h3><?php _e( 'Featured Slider', 'tonic' ); ?></h3>
+			<div class="changelog headline-feature dfw">
+				<h2><?php _e( 'Featured Slider', 'tonic' ); ?></h2>
 
-				<div class="feature-section images-stagger-right">
-					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/slider.jpg" class="image-66">
-					<h4><?php _e( 'Focus on What\'s Important', 'tonic' ); ?></h4>
-					<p><?php printf( __( 'The most important information on your site should be at the top. That\'s why %s offers a featured slider directly below your site title. Get your point across as soon as your site loads.', 'tonic' ), '<em>' . BAVOTASAN_THEME_NAME . ' Pro</em>' ); ?></p>
-					<p><?php _e( 'Use the Slider admin page to create/edit each custom slide or let the default set up feature your latest posts.', 'tonic' ); ?></p>
+				<div class="featured-image dfw-container">
+					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/slider.jpg">
 				</div>
+				<p><?php printf( __( 'The most important information on your site should be at the top. That\'s why %s offers a featured slider directly below your site title. Get your point across as soon as your site loads.', 'tonic' ), '<em>' . BAVOTASAN_THEME_NAME . ' Pro</em>' ); ?></p>
+				<p><?php _e( 'Use the Slider admin page to create/edit each custom slide or let the default set up feature your latest posts.', 'tonic' ); ?></p>
 			</div>
+			<hr />
 
+			<div class="changelog headline-feature dfw">
+				<h2><?php _e( 'Advanced Color Picker', 'tonic' ); ?></h2>
 
-			<div class="changelog">
-				<h3><?php _e( 'Advanced Color Picker', 'tonic' ); ?></h3>
-
-				<div class="feature-section images-stagger-left">
-					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/color-picker.jpg" class="image-66">
-					<h4><?php _e( 'So Many Colors to Choose From', 'tonic' ); ?></h4>
-					<p><?php printf( __( 'Sometimes the default colors just aren\'t working for you. In %s you can use the advanced color picker to make sure you get the exact colors you want.', 'tonic' ), '<em>' . BAVOTASAN_THEME_NAME . ' Pro</em>' ); ?></p>
-					<p><?php _e( 'Easily select one of the eight preset colors or dive even deeper into your customization by using a more specific hex code.', 'tonic' ); ?></p>
+				<div class="featured-image dfw-container">
+					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/color-picker.jpg" />
 				</div>
+				<p><?php printf( __( 'Sometimes the default colors just aren&rsquo;t working for you. In %s you can use the advanced color picker to make sure you get the exact colors you want.', 'tonic' ), '<em>' . $this->theme_name . '</em>' ); ?></p>
+				<p><?php _e( 'Easily select one of the eight preset colors or dive even deeper into your customization by using a more specific hex code.', 'tonic' ); ?></p>
 			</div>
+			<hr />
 
-			<div class="changelog">
-				<h3><?php _e( 'Google Fonts', 'tonic' ); ?></h3>
+			<div class="changelog headline-feature dfw">
+				<h2><?php _e( 'Google Fonts', 'tonic' ); ?></h2>
 
-				<div class="feature-section images-stagger-right">
-					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/google-fonts.jpg" class="image-66">
-					<h4><?php _e( 'Over 20 to Choose From', 'tonic' ); ?></h4>
-					<p><?php _e( 'Web-safe fonts are a thing of the past, so why not try to spice things up a bit?', 'tonic' ); ?></p>
-					<p><?php _e( 'Choose from some of Google Fonts\' most popular fonts to improve your site\'s typeface readability and make things look even more amazing.', 'tonic' ); ?></p>
+				<div class="featured-image dfw-container">
+					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/google-fonts.jpg" />
 				</div>
+				<p><?php _e( 'Web-safe fonts are a thing of the past, so why not try to spice things up a bit?', 'tonic' ); ?></p>
+				<p><?php _e( 'Choose from some of Google Fonts&rsquo; most popular fonts to improve your site&rsquo;s typeface readability and make things look even more amazing.', 'tonic' ); ?></p>
 			</div>
+			<hr />
 
-			<div class="changelog">
-				<h3><?php _e( 'Custom CSS Editor', 'tonic' ); ?></h3>
+			<div class="changelog headline-feature dfw">
+				<h2><?php _e( 'Extended Widgetized Footer', 'tonic' ); ?></h2>
 
-				<div class="feature-section images-stagger-left">
-					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/custom-css.jpg" class="image-66">
-					<h4><?php _e( 'Take Control of Design', 'tonic' ); ?></h4>
-					<p><?php _e( 'Sometimes the Theme Options don\'t let you control everything you want. That\'s where the Custom CSS Editor comes into play.', 'tonic' ); ?></p>
-					<p><?php _e( 'Use CSS to style any element without having to worry about losing your changes when you update. All your Custom CSS is safely stored in the database.', 'tonic' ); ?></p>
+				<div class="featured-image dfw-container">
+					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/extended-footer.jpg" />
 				</div>
+				<p><?php _e( 'If you need to include more widgets on your site, take advantage of the Extended Footer.', 'tonic' ); ?></p>
+				<p><?php _e( 'Use the Theme Options customizer to set the number of columns you want to appear. You can also customize your site&rsquo;s copyright notice.', 'tonic' ); ?></p>
 			</div>
+			<hr />
 
-			<div class="changelog">
-				<h3><?php _e( 'Extended Widgetized Footer', 'tonic' ); ?></h3>
+			<div class="changelog headline-feature dfw">
+				<h2><?php _e( 'Custom CSS Editor', 'tonic' ); ?></h2>
 
-				<div class="feature-section images-stagger-right">
-					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/extended-footer.jpg" class="image-66">
-					<h4><?php _e( 'Add More Widgets', 'tonic' ); ?></h4>
-					<p><?php _e( 'If you need to include more widgets on your site, take advantage of the Extended Footer.', 'tonic' ); ?></p>
-					<p><?php _e( 'Use the Theme Options customizer to set the number of columns you want to appear. You can also customize your site\'s copyright notice.', 'tonic' ); ?></p>
+				<div class="featured-image dfw-container">
+					<img alt="" src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/custom-css.jpg">
 				</div>
+				<p><?php _e( 'Sometimes the Theme Options don\'t let you control everything you want. That\'s where the Custom CSS Editor comes into play.', 'tonic' ); ?></p>
+				<p><?php _e( 'Use CSS to style any element without having to worry about losing your changes when you update. All your Custom CSS is safely stored in the database.', 'tonic' ); ?></p>
 			</div>
+			<hr />
 
-			<div class="changelog">
-				<h3><?php _e( 'Even More Theme Options', 'tonic' ); ?></h3>
+			<div class="changelog feature-list">
+				<h2><?php _e( 'Even More Theme Options', 'tonic' ); ?></h2>
 				<div class="feature-section col two-col">
 					<div>
 						<h4><?php _e( 'Full Width Posts/Pages', 'tonic' ); ?></h4>
@@ -143,23 +157,24 @@ class Bavotasan_Preview_Pro {
 					</div>
 					<div class="last-feature">
 						<h4><?php _e( 'Multiple Sidebar Layouts', 'tonic' ); ?></h4>
-						<p><?php _e( 'Sometimes one sidebar just isn\'t enough, so add a second one and place it where you want.', 'tonic' ); ?></p>
+						<p><?php _e( 'Sometimes one sidebar just isn&rsquo;t enough, so add a second one and place it where you want.', 'tonic' ); ?></p>
 					</div>
 				</div>
 
 				<div class="feature-section col two-col">
 					<div>
-						<h4><?php _e( 'Twitter Bootstrap Shortcodes', 'tonic' ); ?></h4>
-						<p><?php printf( __( 'Shortcodes are awesome and easy to use. That\'s why %s comes with a bunch, like a slideshow carousel, alert boxes and more.', 'tonic' ), '<em>' . BAVOTASAN_THEME_NAME . ' Pro</em>' ); ?></p>
+						<h4><?php _e( 'Bootstrap Shortcodes', 'tonic' ); ?></h4>
+						<p><?php printf( __( 'Shortcodes are awesome and easy to use. That&rsquo;s why %s comes with a bunch, like a slideshow carousel, alert boxes and more.', 'tonic' ), '<em>' . $this->theme_name . '</em>' ); ?></p>
 					</div>
 					<div class="last-feature">
 						<h4><?php _e( 'Import/Export Tool', 'tonic' ); ?></h4>
-						<p><?php _e( 'Once you\'ve set up your site exactly how you want, you can easily export the Theme Options and Custom CSS for safe keeping.', 'tonic' ); ?></p>
+						<p><?php _e( 'Once you&rsquo;ve set up your site exactly how you want, you can easily export the Theme Options and Custom CSS for safe keeping.', 'tonic' ); ?></p>
 					</div>
 				</div>
 			</div>
+			<hr />
 
-			<p><a href="<?php echo $this->theme_url; ?>" target="_blank" class="button-primary button-large"><?php printf( __( 'Buy %s Now &rarr;', 'tonic' ), '<strong>' . BAVOTASAN_THEME_NAME . ' Pro</strong>' ); ?></a></p>
+			<p><a href="<?php echo $this->theme_url; ?>" target="_blank" class="button-primary button-large"><?php printf( __( 'Buy %s Now &rarr;', 'tonic' ), '<strong>' . $this->theme_name . '</strong>' ); ?></a></p>
 		</div>
 		<?php
 	}

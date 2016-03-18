@@ -2,6 +2,9 @@
 
 require_once(dirname(__FILE__) . "/IntegrationTestCase.php");
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+
 class BulkCompressIntegrationTest extends IntegrationTestCase {
 
     public function setUp() {
@@ -55,7 +58,7 @@ class BulkCompressIntegrationTest extends IntegrationTestCase {
     public function testBulkCompressShouldCompressAll() {
         $this->prepare(1, 1);
 
-        self::$driver->get(wordpress('/wp-admin/tools.php?page=tiny-bulk-compress.php'));
+        self::$driver->get(wordpress('/wp-admin/upload.php?page=tiny-bulk-compress.php'));
         $elements = self::$driver->findElements(WebDriverBy::cssSelector('#tiny-bulk-compress p'));
         $this->assertContains('2 images', $elements[1]->getText());
 

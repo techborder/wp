@@ -122,7 +122,50 @@ Edin comes with two extra CSS styles, button and button-minimal. You can add the
 4. Featured Images for posts are 648 wide by unlimited high.
 5. Featured Images for pages are 1230 wide by 1230 high.
 
+== Credits ==
+
+* Edincon: font by Thomas Guillot (http://thomasguillot.com/), licensed under [CC0](http://creativecommons.org/choose/zero/)
+* Genericons: font by Automattic (http://automattic.com/), licensed under [GPL2](https://www.gnu.org/licenses/gpl-2.0.html)
+* Images: images by Unsplash (https://unsplash.com/), licensed under [CC0](http://creativecommons.org/choose/zero/)
+
 == Changelog ==
+
+= 25 February 2016 =
+* Ensure mobile menu appears at the appropriate time no matter whether scrollbars are present or not.
+
+= 4 February 2016 =
+* Remove changelog from readme. It's auto generated with .org submitter
+
+= 20 January 2016 =
+* Remove related posts border-bottom
+* Remove custom PollDaddy styles
+
+= 23 November 2015 =
+* Make sure to exclude button and button-minimal when styling links in the different widget areas.
+
+= 6 November 2015 =
+* Correct a poorly-formed selector in social menu links. (See #2771)
+
+= 5 November 2015 =
+* Add support for missing Genericons and update to 3.4.1.
+
+= 2 November 2015 =
+* Updating footer styles to allow for longer footer credits without wrapping to new line.
+
+= 7 October 2015 =
+* Added specificity to header sibling selector when Site Logo is active.
+
+= 4 September 2015 =
+* Update screenshot to replace Picjumbo with Unsplash images
+
+= 25 August 2015 =
+* Updated max-width declarations for site-branding to 100%.
+
+= 20 August 2015 =
+* Add text domain and/or remove domain path. (E-I)
+
+= 19 August 2015 =
+* Removing display:flex from site logo link, as it was resulting in squished logo images; Fixes #3083;
 
 = 13 August 2015 =
 * updating readme to reflect recent changes
@@ -328,9 +371,3 @@ Edin comes with two extra CSS styles, button and button-minimal. You can add the
 = 18 July 2014 =
 * Remove SASS
 * Initial import of the .org version of the Edin theme
-
-== Credits ==
-
-* Edincon: font by Thomas Guillot (http://thomasguillot.com/), licensed under [CC0](http://creativecommons.org/choose/zero/)
-* Genericons: font by Automattic (http://automattic.com/), licensed under [GPL2](https://www.gnu.org/licenses/gpl-2.0.html)
-* Images: images by Viktor Hanacek (http://picjumbo.com/), licensed under [CC0](http://creativecommons.org/choose/zero/)

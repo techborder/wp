@@ -55,19 +55,11 @@ abstract class Tiny_WP_Base {
     }
 
     public static function plugin_identification() {
-        return 'Wordpress/' . self::wp_version() . ' Tiny/' . self::plugin_version();
+        return 'WordPress/' . self::wp_version() . ' PHP/' . PHP_VERSION . ' Tiny/' . self::plugin_version();
     }
 
     protected static function get_prefixed_name($name) {
         return self::PREFIX . $name;
-    }
-
-    protected static function translate($phrase) {
-        return translate($phrase, self::NAME);
-    }
-
-    protected static function translate_escape($phrase) {
-        return htmlspecialchars(translate($phrase, self::NAME));
     }
 
     public function __construct() {

@@ -3,6 +3,11 @@
 require(dirname(__FILE__) . '/../helpers/integration_helper.php');
 require(dirname(__FILE__) . '/../helpers/setup.php');
 
+use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\UselessFileDetector;
+
 abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
 
     protected static $driver;
@@ -22,7 +27,7 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
         }
         self::$driver->wait(2)->until(WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::name('async-upload')));
         $file_input = self::$driver->findElement(WebDriverBy::name('async-upload'));
-        $file_input->setFileDetector(new LocalFileDetector());
+        $file_input->setFileDetector(new UselessFileDetector());
         $file_input->sendKeys($path);
         self::$driver->findElement(WebDriverBy::xpath('//input[@value="Upload"]'))->click();
         $path_elements = explode('/', $path);
@@ -89,7 +94,7 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase {
         self::$driver->findElement(WebDriverBy::tagName('form'))->submit();
     }
 
-    protected function view_edit_image($image_title = 'input-example') {
+    protected function view_edit_image($image_title = 'input-large') {
         $url = wordpress('/wp-admin/upload.php');
         if (self::$driver->getCurrentUrl() != $url) {
             self::$driver->get($url);

@@ -17,7 +17,7 @@
 				"youtube",
 				"linkedin",
 				"pinterest-p",
-				"vimeo-square",
+				"vimeo",
 				"envelope-o",
 				"tumblr",
 				"stumbleupon",

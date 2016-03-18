@@ -48,3 +48,13 @@
 			  3. Minor Bug Fixes
 
 		v1.13	- 1. Updated Font Awesome
+
+		v1.15	- 1. Updated Bootstrap
+			  2. Minor Layout Bug fixes
+
+		v1.16	- 1. Layout Changes
+			  2. Updated Screenshot
+			  3. Minor Bug Fixes
+
+		v1.17	- 1. Update Vimeo Social Icon
+			  2. Post Format specific changes

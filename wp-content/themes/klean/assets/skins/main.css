@@ -42,17 +42,13 @@ a:active {
 .site-header .site-branding .site-title {
   display: inline-block;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.3);
-}
-.site-header .site-branding .site-title a {
-  text-decoration: none;
-  color: black;
+  font-weight: 300;
 }
 .site-header .site-branding .site-description {
   display: inline-block;
   font-size: 16px;
-  background: rgba(255, 255, 255, 0.3);
   padding: 10px 20px;
+  margin: 0px;
 }
 .header-image {
   height: 100vh;
@@ -92,6 +88,10 @@ body:not(.blog) .site-branding {
   background: transparent;
   border: 0px;
   right: 27px;
+}
+#search-top button[type=submit] img {
+  height: 15px;
+  width: auto;
 }
 #page {
   z-index: 2;
@@ -445,9 +445,6 @@ body:not(.blog) .site-branding {
   position: fixed;
   top: 20%;
 }
-body:not(.blog) .site-branding h1.site-title {
-  margin: 0px;
-}
 body:not(.blog) .site-branding h2.site-description {
   margin: 0px;
 }
@@ -476,13 +473,6 @@ body:not(.blog) .site-branding h2.site-description {
   margin: 0px;
   /* border-top: dotted 1px black; */
   font-size: 30px;
-}
-.single #page .entry-header h1.entry-title:before,
-.page #page .entry-header h1.entry-title:before {
-  content: "\25A0";
-  color: #999;
-  margin-right: 12px;
-  top: 3px;
 }
 .single #page .entry-header .entry-meta,
 .page #page .entry-header .entry-meta {
@@ -574,6 +564,39 @@ body:not(.blog) .site-branding h2.site-description {
   color: white;
   font-size: 14px;
   font-weight: 700;
+}
+.single-format-video .fa-video-camera {
+  position: absolute;
+  z-index: -1;
+  font-size: 100px;
+  color: #ddd;
+  top: -18px;
+  left: -10px;
+}
+.single-format-audio .fa-headphones {
+  position: absolute;
+  z-index: -1;
+  font-size: 100px;
+  color: #ddd;
+  top: -18px;
+  left: -10px;
+}
+.single-format-image .fa-file-image-o {
+  position: absolute;
+  z-index: -1;
+  font-size: 100px;
+  color: #ddd;
+  top: -18px;
+  left: -10px;
+}
+.single-thumb {
+  margin: 15px auto;
+  width: 100%;
+}
+.single-thumb img {
+  width: 80%;
+  display: block;
+  margin: auto;
 }
 /*----Post Formats----*/
 .format-gallery .gallery-caption {

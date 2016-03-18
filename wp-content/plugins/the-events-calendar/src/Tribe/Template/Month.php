@@ -300,7 +300,7 @@ if ( ! class_exists( 'Tribe__Events__Template__Month' ) ) {
 			$new_title = parent::get_title( $original_title, $sep );
 			if ( get_query_var( 'eventDate' ) && has_filter( 'tribe_month_grid_view_title' ) ) {
 				_deprecated_function( "The 'tribe_month_grid_view_title' filter", '3.8', " the 'tribe_get_events_title' filter" );
-				$title_date = date_i18n( tribe_get_option( 'monthAndYearFormat', 'F Y' ), strtotime( get_query_var( 'eventDate' ) ) );
+				$title_date = date_i18n( tribe_get_date_option( 'monthAndYearFormat', 'F Y' ), strtotime( get_query_var( 'eventDate' ) ) );
 				$new_title  = apply_filters( 'tribe_month_grid_view_title', $new_title, $sep, $title_date );
 			} elseif ( has_filter( 'tribe_events_this_month_title' ) ) {
 				_deprecated_function( "The 'tribe_events_this_month_title' filter", '3.8', " the 'tribe_get_events_title' filter" );
@@ -619,9 +619,18 @@ if ( ! class_exists( 'Tribe__Events__Template__Month' ) ) {
 					'update_post_term_cache' => false,
 					'update_post_meta_cache' => false,
 					'no_found_rows'          => false,
-					'orderby'                => 'menu_order',
+					'meta_key'               => '_EventStartDate',
+					'orderby'                => 'meta_value_date',
 				), $this->args
 			);
+
+			/**
+			  * Filter Daily Events Query Arguments.
+			  *
+			  * @param array $args an array of daily events query.
+			  *
+			  */
+			 $args = apply_filters( 'tribe_events_month_daily_events_query_args', $args );
 
 			// we don't need this join since we already checked it
 			unset ( $args[ Tribe__Events__Main::TAXONOMY ] );

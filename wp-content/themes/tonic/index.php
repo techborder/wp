@@ -11,10 +11,8 @@
  *
  * @since 1.0.0
  */
-$bavotasan_theme_options = bavotasan_theme_options();
 get_header(); ?>
 
-	<?php if ( ( $bavotasan_theme_options['home_posts'] && is_front_page() ) || ! is_front_page() ) { ?>
 	<div id="primary" <?php bavotasan_primary_attr(); ?>>
 		<?php
 		if ( have_posts() ) :
@@ -24,28 +22,9 @@ get_header(); ?>
 
 			bavotasan_pagination();
 		else :
-			?>
-			<article id="post-0" class="post no-results not-found">
-
-			<?php if ( current_user_can( 'edit_posts' ) ) :
-				// Show a different message to a logged-in user who can add posts.
-				?>
-				<h1 class="entry-title"><?php _e( 'No posts to display', 'tonic' ); ?></h1>
-
-				<div class="entry-content">
-					<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'tonic' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
-				</div><!-- .entry-content -->
-
-				<?php
-			else :
-				get_template_part( 'content', 'none' );
-			endif; // end current_user_can() check
-			?>
-
-			</article><!-- #post-0 -->
-		    <?php
+			get_template_part( 'content', 'none' );
 		endif;
 		?>
-	</div><!-- #primary -->
-	<?php } ?>
+	</div>
+
 <?php get_footer(); ?>

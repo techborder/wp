@@ -18,7 +18,13 @@
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
+	<div class="single-thumb">
+			<?php 
+			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+				the_post_thumbnail();
+			} 
+			?>
+		</div>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->

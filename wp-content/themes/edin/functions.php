@@ -295,7 +295,7 @@ function edin_scripts() {
 	if ( wp_style_is( 'genericons', 'registered' ) ) {
 		wp_enqueue_style( 'genericons' );
 	} else {
-		wp_enqueue_style( 'genericons', get_template_directory_uri() . '/font/genericons.css', array(), '3.1' );
+		wp_enqueue_style( 'genericons', get_template_directory_uri() . '/font/genericons.css', array(), '3.4.1' );
 	}
 
 	wp_enqueue_style( 'edin-style', get_stylesheet_uri() );
@@ -370,3 +370,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+

@@ -11,9 +11,9 @@
 			<div class="row">
 				<div class="bordered col-md-8 col-md-offset-2">
 		<?php } ?>
-				<h3 class="post-format"><?php _e( '<i class="fa fa-plus-square"></i> Status', 'matheson' ); ?></h3>
+				<div class="post-format"><?php _e( '<i class="fa fa-plus-square"></i> Status', 'matheson' ); ?></div>
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
-				<h1 class="author"><?php the_author(); ?></h1>
+				<div class="author"><span class="vcard author"><span class="fn"><?php the_author(); ?></span></span></div>
 
 				<div class="entry-content">
 					<time class="date published updated" datetime="<?php echo get_the_date( 'Y-m-d' ) . 'T' . get_the_time( 'H:i' ) . 'Z'; ?>">

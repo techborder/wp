@@ -15,7 +15,9 @@ class Tiny_Settings_Test extends TinyTestCase {
             array('media', 'tinypng_api_key'),
             array('media', 'tinypng_sizes'),
             array('media', 'tinypng_resize_original'),
-            array('media', 'tinypng_status')
+            array('media', 'tinypng_status'),
+            array('media', 'tinypng_savings'),
+            array('media', 'tinypng_preserve_data')
         ), $this->wp->getCalls('register_setting'));
     }
 
@@ -29,8 +31,9 @@ class Tiny_Settings_Test extends TinyTestCase {
         $this->assertEquals(array(
             array('tinypng_api_key', 'TinyPNG API key', array($this->subject, 'render_api_key'), 'media', 'tinypng_settings', array('label_for' => 'tinypng_api_key')),
             array('tinypng_sizes', 'File compression', array($this->subject, 'render_sizes'), 'media', 'tinypng_settings'),
-            array('tinypng_resize_original', 'Resize original', array($this->subject, 'render_resize'), 'media', 'tinypng_settings'),
-            array('tinypng_status', 'Connection status', array($this->subject, 'render_pending_status'), 'media', 'tinypng_settings')
+            array('tinypng_resize_original', 'Original image', array($this->subject, 'render_resize'), 'media', 'tinypng_settings'),
+            array('tinypng_status', 'Connection status', array($this->subject, 'render_pending_status'), 'media', 'tinypng_settings'),
+            array('tinypng_savings', 'Savings', array($this->subject, 'render_pending_savings'), 'media', 'tinypng_settings')
         ), $this->wp->getCalls('add_settings_field'));
     }
 
@@ -145,5 +148,25 @@ class Tiny_Settings_Test extends TinyTestCase {
     public function testShouldNotReturnResizeOptionsWhenNotEnabled() {
         $this->wp->addOption("tinypng_resize_original", array('width' => '800', 'height' => '600'));
         $this->assertEquals(false, $this->subject->get_resize_options());
+    }
+
+    public function testShouldReturnIncludeMetadataEnabled() {
+        $this->wp->addOption("tinypng_preserve_data", array('copyright' => 'on'));
+        $this->assertEquals(true, $this->subject->get_preserve_enabled("copyright"));
+    }
+
+    public function testShouldReturnIncludeMetadataNotEnabledWithoutConfiguration() {
+        $this->wp->addOption("tinypng_include_metadata", array());
+        $this->assertEquals(false, $this->subject->get_preserve_enabled("copyright"));
+    }
+
+    public function testShouldReturnPreserveOptionsWhenEnabled() {
+        $this->wp->addOption("tinypng_preserve_data", array('copyright' => 'on'));
+        $this->assertEquals(array('0' => 'copyright'), $this->subject->get_preserve_options());
+    }
+
+    public function testShouldNotReturnPreserveOptionsWhenDisabled() {
+        $this->wp->addOption("tinypng_include_metadata", array());
+        $this->assertEquals(array(), $this->subject->get_preserve_options());
     }
 }

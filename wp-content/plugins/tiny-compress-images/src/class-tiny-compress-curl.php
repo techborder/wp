@@ -19,6 +19,15 @@
 */
 
 class Tiny_Compress_Curl extends Tiny_Compress {
+    private static $curl_version;
+
+    protected static function curl_version() {
+        if (is_null(self::$curl_version)) {
+            self::$curl_version = curl_version();
+        }
+        return self::$curl_version['version'];
+    }
+
     protected function shrink_options($input) {
         $options = array(
               CURLOPT_URL => Tiny_Config::URL,
@@ -29,8 +38,9 @@ class Tiny_Compress_Curl extends Tiny_Compress {
               CURLOPT_HEADER => true,
               CURLOPT_CAINFO => self::get_ca_file(),
               CURLOPT_SSL_VERIFYPEER => true,
-              CURLOPT_USERAGENT => Tiny_WP_Base::plugin_identification() . ' cURL'
+              CURLOPT_USERAGENT => Tiny_WP_Base::plugin_identification() . ' cURL/' . self::curl_version()
         );
+        $options = $this->add_proxy_options(Tiny_Config::URL, $options);
         if (TINY_DEBUG) {
             $f = fopen(dirname(__FILE__) . '/curl.log', 'w');
             if (is_resource($f)) {
@@ -45,13 +55,12 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         $request = curl_init();
         curl_setopt_array($request, $this->shrink_options($input));
 
-        $output_url = null;
         $response = curl_exec($request);
         if ($response === false || $response === null) {
             return array(array(
                 'error' => 'CurlError',
                 'message' => sprintf("cURL: %s [%d]", curl_error($request), curl_errno($request))
-              ), null
+              ), null, null
             );
         }
 
@@ -63,30 +72,39 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         return array(self::decode(substr($response, $header_size)), $headers, $status_code);
     }
 
-    protected function output_options($url) {
-        return array(
+    protected function output_options($url, $resize_options, $preserve_options) {
+        $options = array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER => true,
             CURLOPT_CAINFO => self::get_ca_file(),
-            CURLOPT_SSL_VERIFYPEER => true
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_USERAGENT => Tiny_WP_Base::plugin_identification() . ' cURL/' . self::curl_version()
         );
-    }
+        $this->add_proxy_options($url, $options);
 
-    protected function resize_options($resize) {
-        if (!$resize) {
-            return array();
+        $body = array();
+
+        if ($preserve_options) {
+            $body['preserve'] = $preserve_options;
         }
-        return array(
-            CURLOPT_USERPWD => 'api:' . $this->api_key,
-            CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
-            CURLOPT_POSTFIELDS => json_encode(array('resize' => $resize))
-        );
+
+        if ($resize_options) {
+            $body['resize'] = $resize_options;
+        }
+
+        if ($resize_options || $preserve_options) {
+            $options[CURLOPT_USERPWD] = 'api:' . $this->api_key;
+            $options[CURLOPT_HTTPHEADER] = array('Content-Type: application/json');
+            $options[CURLOPT_POSTFIELDS] = json_encode($body);
+        }
+
+        return $options;
     }
 
-    protected function output($url, $resize) {
+    protected function output($url, $resize_options, $preserve_options) {
         $request = curl_init();
-        $options = array_replace_recursive($this->output_options($url), $this->resize_options($resize));
+        $options = $this->output_options($url, $resize_options, $preserve_options);
         curl_setopt_array($request, $options);
 
         $response = curl_exec($request);
@@ -95,5 +113,19 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         curl_close($request);
 
         return array(substr($response, $header_size), $headers);
+    }
+
+    private function add_proxy_options($url, $options) {
+        if ($this->proxy->is_enabled() && $this->proxy->send_through_proxy($url)) {
+            $options[CURLOPT_PROXYTYPE] = CURLPROXY_HTTP;
+            $options[CURLOPT_PROXY] = $this->proxy->host();
+            $options[CURLOPT_PROXYPORT] = $this->proxy->port();
+
+            if ($this->proxy->use_authentication()) {
+                $options[CURLOPT_PROXYAUTH] = CURLAUTH_ANY;
+                $options[CURLOPT_PROXYUSERPWD] = $this->proxy->authentication();
+            }
+        }
+        return $options;
     }
 }

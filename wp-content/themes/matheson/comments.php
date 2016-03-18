@@ -37,7 +37,7 @@ if ( post_password_required() )
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<div id="comment-nav-below" role="navigation">
-			<h1 class="sr-only section-heading"><?php _e( 'Comment navigation', 'matheson' ); ?></h1>
+			<div class="sr-only section-heading"><?php _e( 'Comment navigation', 'matheson' ); ?></div>
 			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'matheson' ) ); ?></div>
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'matheson' ) ); ?></div>
 		</div>

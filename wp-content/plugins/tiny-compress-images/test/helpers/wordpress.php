@@ -233,3 +233,13 @@ class WordPressStubs {
         return $metadata;
     }
 }
+
+class WP_HTTP_Proxy {
+    public function is_enabled() {
+        return false;
+    }
+}
+
+function __($text, $domain = 'default') {
+    return translate($text, $domain);
+}

@@ -41,7 +41,7 @@ for (my $version = $from; $version <= $to; $version++) {
         print("   Error: $ret\n");
         next;
     }
-    print(" - Waiting\n");
+    print(" - Sitting\n  - Waiting\n   - Wishing\n");
     sleep(10);
     print(" - Checking\n");
     if (!check_port($hostip, 8000 + $version, 10, 500)) {

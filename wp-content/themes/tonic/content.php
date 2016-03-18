@@ -10,7 +10,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 		    <?php
 			if ( 'excerpt' == $bavotasan_theme_options['excerpt_content'] && empty( $format ) && ( ! is_single() || is_search() || is_archive() ) ) {
 				if( has_post_thumbnail() ) {
-					echo '<a href="' . get_permalink() . '" class="image-anchor">';
+					echo '<a href="' . get_permalink() . '">';
 					the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft img-polaroid' ) );
 					echo '</a>';
 				}

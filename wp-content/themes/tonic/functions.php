@@ -4,17 +4,20 @@
  *
  * @since 1.0.0
  */
-$bavotasan_theme_data = wp_get_theme();
+$bavotasan_theme_data = wp_get_theme( 'tonic' );
 define( 'BAVOTASAN_THEME_URL', get_template_directory_uri() );
 define( 'BAVOTASAN_THEME_TEMPLATE', get_template_directory() );
+define( 'BAVOTASAN_THEME_VERSION', trim( $bavotasan_theme_data->Version ) );
 define( 'BAVOTASAN_THEME_NAME', $bavotasan_theme_data->Name );
+define( 'BAVOTASAN_THEME_FILE', get_option( 'template' ) );
 
 /**
  * Includes
  *
  * @since 1.0.0
  */
-require( BAVOTASAN_THEME_TEMPLATE . '/library/theme-options.php' ); // Functions for theme options page
+require( BAVOTASAN_THEME_TEMPLATE . '/library/customizer.php' ); // Functions for theme options page
+require( BAVOTASAN_THEME_TEMPLATE . '/library/about.php' ); // Functions for about page
 require( BAVOTASAN_THEME_TEMPLATE . '/library/preview-pro.php' ); // Functions for preview pro page
 
 /**
@@ -90,8 +93,14 @@ function bavotasan_setup() {
 	// Add support for custom backgrounds
 	add_theme_support( 'custom-background' );
 
+	// Add title tag support
+	add_theme_support( 'title-tag' );
+
 	// Add HTML5 elements
 	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', ) );
+
+	// Remove default gallery styles
+	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 endif; // bavotasan_setup
 
@@ -218,12 +227,11 @@ function bavotasan_add_js() {
 	if ( is_singular() && get_option( 'thread_comments' ) )
 			wp_enqueue_script( 'comment-reply' );
 
-	wp_enqueue_script( 'harvey', BAVOTASAN_THEME_URL .'/library/js/harvey.min.js', '', '', true );
 	wp_enqueue_script( 'bootstrap', BAVOTASAN_THEME_URL .'/library/js/bootstrap.min.js', array( 'jquery' ), '2.2.2', true );
 	wp_enqueue_script( 'theme_js', BAVOTASAN_THEME_URL .'/library/js/theme.js', array( 'bootstrap' ), '', true );
 
 	wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri() );
-	wp_enqueue_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=PT+Sans|Lato:300,400|Lobster|Quicksand', false, null, 'all' );
+	wp_enqueue_style( 'google_fonts', '//fonts.googleapis.com/css?family=PT+Sans|Lato:300,400|Lobster|Quicksand', false, null, 'all' );
 }
 endif; // bavotasan_add_js
 
@@ -254,7 +262,7 @@ function bavotasan_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Home Page Top Area', 'tonic' ),
 		'id' => 'home-page-top-area',
-		'description' => __( 'Widgetized area on the home page directly below the navigation menu. Specifically designed for 4 text widgets. Must be turned on in the Layout options on the Theme Options admin page.', 'tonic' ),
+		'description' => __( 'Widgetized area on the home page directly below the navigation menu. Add at least one widget to make it appear.', 'tonic' ),
 		'before_widget' => '<aside id="%1$s" class="home-widget c3 %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="home-widget-title">',
@@ -296,39 +304,6 @@ function bavotasan_pagination() {
 	}
 }
 endif; // bavotasan_pagination
-
-add_filter( 'wp_title', 'bavotasan_filter_wp_title', 10, 2 );
-if ( !function_exists( 'bavotasan_filter_wp_title' ) ) :
-/**
- * Filters the page title appropriately depending on the current page
- *
- * @uses	get_bloginfo()
- * @uses	is_home()
- * @uses	is_front_page()
- *
- * @since 1.0.0
- */
-function bavotasan_filter_wp_title( $title, $sep ) {
-	global $paged, $page;
-
-	if ( is_feed() )
-		return $title;
-
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
-
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title = "$title $sep $site_description";
-
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'tonic' ), max( $paged, $page ) );
-
-	return $title;
-}
-endif; // bavotasan_filter_wp_title
 
 if ( ! function_exists( 'bavotasan_comment' ) ) :
 /**
@@ -469,11 +444,6 @@ function bavotasan_excerpt_length( $length ) {
 }
 endif; // bavotasan_excerpt_length
 
-/*
- * Remove default gallery styles
- */
-add_filter( 'use_default_gallery_style', '__return_false' );
-
 /**
  * Create the required attributes for the #primary container
  *
@@ -510,8 +480,12 @@ add_filter( 'body_class','bavotasan_custom_body_class' );
  */
 function bavotasan_custom_body_class( $classes ) {
 	$bavotasan_theme_options = bavotasan_theme_options();
-	if ( 1 == $bavotasan_theme_options['layout'] )
+
+	if ( 1 == $bavotasan_theme_options['layout'] ) {
 		$classes[] = 'left-sidebar';
+	}
+
+	$classes[] = 'basic';
 
 	return $classes;
 }
@@ -580,68 +554,10 @@ add_filter( 'wp_nav_menu_args', 'bavotasan_nav_menu_args' );
  * @since 1.0.0
  */
 function bavotasan_nav_menu_args( $args ) {
-    if ( 1 !== $args[ 'depth' ] && has_nav_menu( 'primary' ) )
+    if ( 1 !== $args[ 'depth' ] && has_nav_menu( 'primary' ) && 'primary' == $args[ 'theme_location' ] )
         $args[ 'walker' ] = new Bavotasan_Page_Navigation_Walker;
 
     return $args;
-}
-
-/**
- * Create the default widgets that are displayed in the home page top area
- *
- * @since 1.0.0
- */
-function bavotasan_home_page_default_widgets() {
-	global $paged;
-	$bavotasan_theme_options = bavotasan_theme_options();
-	if ( $bavotasan_theme_options['home_widget'] && is_front_page() && 2 > $paged ) {
-		?>
-	<div id="home-page-widgets" class="c12">
-		<div class="row">
-			<?php if ( ! dynamic_sidebar( 'home-page-top-area' ) ) : ?>
-
-				<?php if ( current_user_can( 'edit_theme_options' ) ) { ?>
-					<div class="c12">
-						<div class="alert top"><?php printf( __( 'The three boxes below are text widgets that have been added to the <em>Home Page Top Area</em>. Add your own widgets by going to the %sWidgets admin page%s or remove this section completely under the <em>Layout panel</em> on the %sTheme Options page%s.', 'tonic' ), '<a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">', '</a>', '<a href="' . esc_url( admin_url( 'customize.php' ) ) . '">', '</a>' ); ?></div>
-					</div>
-				<?php } ?>
-
-				<aside class="home-widget c3 bavotasan_custom_text_widget">
-					<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/ex01.jpg" alt="" class="img-circle aligncenter" />
-					<h3 class="home-widget-title">Responsive Design</h3>
-					<div class="textwidget">
-						<p>Resize your browser to see how <strong>Tonic</strong> will adjust for desktops, tablets and handheld devices.</p>
-					</div>
-				</aside>
-
-				<aside class="home-widget c3 bavotasan_custom_text_widget">
-					<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/ex02.jpg" alt="" class="img-circle aligncenter" />
-					<h3 class="home-widget-title">Fully Customizable</h3>
-					<div class="textwidget">
-						<p>Take advantage of the new Theme Options customizer to preview your changes before putting them live.</p>
-					</div>
-				</aside>
-
-				<aside class="home-widget c3 bavotasan_custom_text_widget">
-					<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/ex03.jpg" alt="" class="img-circle aligncenter" />
-					<h3 class="home-widget-title">Twitter Bootstrap</h3>
-					<div class="textwidget">
-						<p>Bootstrap already has tons of great design elements. That's why we included a bunch of them in <strong>Tonic</strong>.</p>
-					</div>
-				</aside>
-
-				<aside class="home-widget c3 bavotasan_custom_text_widget">
-					<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/ex04.jpg" alt="" class="img-circle aligncenter" />
-					<h3 class="home-widget-title">Bold Typography</h3>
-					<div class="textwidget">
-						<p>Readability is key with all sites. Good thing <strong>Tonic</strong> uses some of Google's most popular fonts.</p>
-					</div>
-				</aside>
-			<?php endif; ?>
-		</div>
-	</div>
-	<?php
-	}
 }
 
 /**
@@ -655,7 +571,7 @@ function bavotasan_jumbotron() {
 	?>
 	<div class="grid <?php echo $bavotasan_theme_options['width']; ?> row">
 		<div class="jumbotron c10 s1">
-			<h1><?php echo $bavotasan_theme_options['jumbo_headline_title']; ?></h1>
+			<h2><?php echo $bavotasan_theme_options['jumbo_headline_title']; ?></h2>
 			<p class="lead"><?php echo $bavotasan_theme_options['jumbo_headline_text']; ?></p>
 			<?php if ( ! empty( $bavotasan_theme_options['jumbo_headline_button_text'] ) ) { ?>
 			<a class="btn btn-large btn-primary" href="<?php echo $bavotasan_theme_options['jumbo_headline_button_link']; ?>"><?php echo $bavotasan_theme_options['jumbo_headline_button_text']; ?></a>

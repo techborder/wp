@@ -2,6 +2,9 @@
 
 = Theme Name: Black Rider Theme =
 
+= Version: 1.1.9 =
+1. Support Link Button Added In WordPress Customize
+
 = Version: 1.1.8 =
 1. Theme option to WordPress customizer API migration.
 

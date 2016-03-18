@@ -70,29 +70,40 @@ class Tiny_Compress_Fopen extends Tiny_Compress {
         return array(self::decode($response), $headers, $status_code);
     }
 
-    protected function output_options($resize) {
+    protected function output_options($resize_options, $preserve_options) {
         $options = array(
             'http' => array(
                 'method' => 'GET',
+                'header' => array(
+                    'User-Agent: ' . Tiny_WP_Base::plugin_identification() . ' fopen',
+                 ),
             ),
             'ssl' => array(
                 'cafile' => self::get_ca_file(),
                 'verify_peer' => true
             )
         );
-        if ($resize) {
-            $options['http']['header'] = array(
-                'Authorization: Basic ' . base64_encode('api:' . $this->api_key),
-                'Content-Type: application/json',
-                'User-Agent: ' . Tiny_WP_Base::plugin_identification() . ' fopen'
-            );
-            $options['http']['content'] = json_encode(array('resize' => $resize));
+
+        $body = array();
+
+        if ($preserve_options) {
+            $body['preserve'] = $preserve_options;
+        }
+
+        if ($resize_options) {
+            $body['resize'] = $resize_options;
+        }
+
+        if ($resize_options || $preserve_options) {
+            $options['http']['header'][] = 'Authorization: Basic ' . base64_encode('api:' . $this->api_key);
+            $options['http']['header'][] = 'Content-Type: application/json';
+            $options['http']['content'] = json_encode($body);
         }
         return $options;
     }
 
-    protected function output($url, $resize) {
-        $context = stream_context_create($this->output_options($resize));
+    protected function output($url, $resize_options, $preserve_options) {
+        $context = stream_context_create($this->output_options($resize_options, $preserve_options));
         $request = @fopen($url, 'rb', false, $context);
 
         if ($request) {

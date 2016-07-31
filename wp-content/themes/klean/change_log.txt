@@ -58,3 +58,15 @@
 
 		v1.17	- 1. Update Vimeo Social Icon
 			  2. Post Format specific changes
+
+		v1.18	- 1. Some Layout Changes
+			  2. Additional feature to disable featured image on Posts
+			  3. Fixed some bugs in the theme
+			  
+		v1.19	- 1. Updated Font Awesome
+				  2. Minor Bug Fixes
+
+		v1.20 	- 1. Logo Compatibility with the latest versions of WordPress
+			  2. Minor Bug fixes
+
+		v1.21	- Bug Fixes

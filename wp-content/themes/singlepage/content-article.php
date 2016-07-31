@@ -1,4 +1,4 @@
-   <li>
+<article id="post-<?php the_ID();?>">
                 <div class="post">
             		<a href="<?php the_permalink();?>"><h1 class="title"><?php the_title();?></h1></a>
                     <div class="meta">
@@ -20,4 +20,4 @@
                     <?php the_excerpt();?>
                     <a class="read-more" href="<?php the_permalink();?>"><?php _e('Read More','singlepage');?> &rarr;</a>
   				</div><!--END post-->
-                </li>
+ </article>

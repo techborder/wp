@@ -43,6 +43,12 @@ add_action( 'after_setup_theme', 'singlepage_setup' );
 	wp_enqueue_script( 'YTPlayer', get_template_directory_uri().'/js/YTPlayer/jquery.mb.YTPlayer.min.js', array( 'jquery' ), '', false );
 	endif;
 	
+	$load_google_fonts = of_get_option('load_google_fonts');
+    if( trim($load_google_fonts) !='' ){
+	$google_fonts = str_replace(' ','+',trim($load_google_fonts));
+	wp_enqueue_style('singlepage-google-fonts', esc_url('//fonts.googleapis.com/css?family='.$google_fonts), false, '', false );
+	}
+	
 	wp_enqueue_style('singlepage-font-awesome',  get_template_directory_uri() .'/css/font-awesome.min.css', false, '4.2.0', false);
 	wp_enqueue_style('singlepage-bootstrap',  get_template_directory_uri() .'/css/bootstrap.css', false, '4.0.3', false);
 	wp_enqueue_style( 'singlepage-main', get_stylesheet_uri(), array(),  $theme_info->get( 'Version' ) );
@@ -125,7 +131,7 @@ add_action( 'after_setup_theme', 'singlepage_setup' );
 	
 	$home_side_nav_menu_color         = of_get_option("home_side_nav_menu_color",'#ffffff');
 	$home_side_nav_menu_active_color  = of_get_option("home_side_nav_menu_active_color",'#23dd91');
-	$singlepage_custom_css           .=  '.sub_nav li a{color:'.$home_side_nav_menu_color.' !important;}';
+	$singlepage_custom_css           .=  '.sub_nav li a{color:'.$home_side_nav_menu_color.';}';
 	$singlepage_custom_css           .=  '#featured-template .sub_nav li.cur a{color:'.$home_side_nav_menu_active_color.' !important;}';
 	
 	$home_side_nav_circle_color = of_get_option("home_side_nav_circle_color",'nav_cur0');

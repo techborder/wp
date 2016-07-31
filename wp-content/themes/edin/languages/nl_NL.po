@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Edin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-05-06 03:41:27+0000\n"
+"PO-Revision-Date: 2016-03-18 07:10:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,10 +31,6 @@ msgstr "Lees verder %s"
 #: content-grid.php:19
 msgid "Read more %s"
 msgstr "Lees meer %s"
-
-#: inc/customizer.php:79
-msgid "Pages: show breadcrumb navigation"
-msgstr "Pagina's: Toon broodkruimel navigatie"
 
 #: inc/customizer.php:93
 msgid "Featured Image: remove filter"
@@ -137,14 +133,6 @@ msgstr "Berichtennavigatie"
 #: inc/customizer.php:68
 msgid "Square (1:1)"
 msgstr "Vierkant (1:1)"
-
-#: inc/customizer.php:105
-msgid "Header: show search form"
-msgstr "Kop: toon zoekformulier"
-
-#: inc/customizer.php:117
-msgid "Front Page: show title"
-msgstr "Voorpagina: toon titel"
 
 #: inc/customizer.php:129
 msgid "Front Page: Featured Page One"

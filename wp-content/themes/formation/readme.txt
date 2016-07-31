@@ -1,7 +1,7 @@
 Formation is a responsive, highly customizable WordPress theme. 
 
 Full instructions can be found at: http://www.templateexpress.com/docs/formation/
-Theme demo: http://www.templateexpress.com/demos/formation/
+Theme demo: http://demos.templateexpress.com/formation/
 
 Fonts
 -------------------------------------------
@@ -16,6 +16,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Changelog
 --------------------------------------------
+Version: 2.4.2
+* Removed deprecated tags
+
 Version: 2.4.1
 * Updated url's in this file to new docs and demo
 

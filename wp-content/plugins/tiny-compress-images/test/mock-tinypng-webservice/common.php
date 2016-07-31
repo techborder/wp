@@ -5,7 +5,7 @@ define('SESSION_FILE', '/tmp/session.dat');
 if (file_exists(SESSION_FILE)) {
     $session = unserialize(file_get_contents(SESSION_FILE));
 } else {
-    $session = array('Compression-Count' => 0);
+    $session = array( 'Compression-Count' => 0 );
 }
 
 function save_session() {
@@ -39,7 +39,12 @@ function mock_invalid_response() {
 
     $response = array(
         "error" => "Unauthorized",
-        "message" => "Credentials are invalid"
+        "message" => "Credentials are invalid "
     );
     return json_encode($response);
+}
+
+function mock_service_unavailable_response() {
+    header('HTTP/1.1 503 Service unavailable');
+    return 'HTTP Error 503. The service is unavailable';
 }

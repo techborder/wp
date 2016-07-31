@@ -1,14 +1,14 @@
 === Social Media Feather - lightweight social media sharing and follow buttons ===
 Contributors: Synved
 Donate link: http://synved.com/wordpress-social-media-feather/
-Tags: shortcode, shortcodes, link, links, url, permalink, permalinks, time, icons, button, buttons, free, content, plugin, Share, sharing, social share, social sharing, page, pages, widget, CSS, list, media, profile, shortlinks, social, social media, Like, twitter, google, Facebook, Reddit, youtube, vimeo, tumblr, instagram, flickr, foursquare, pinterest, linkedin, social media buttons, bookmark, bookmarks, bookmarking, social links, image, edit, manage, mail, Post, posts, Style, seo, title, filter, follow, following, social following, social follow, Social Media Icons, Social Media Widget, social widget, retina, iphone, ipad, iOS, high resolution, sidebar
+Tags: social media, social sharing, Facebook, twitter, google, Reddit, youtube, instagram, pinterest, Like, social media buttons, Share, shortcode, button, sidebar
 Requires at least: 3.1
-Tested up to: 4.4
+Tested up to: 4.6
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Super lightweight, simple, nice, modern looking and effective social media sharing and following buttons and icons on your site quick and easy
+Lightweight, nice, modern looking and effective social media sharing and following buttons and icons - all your social media needs in 1 easy package!
 
 == Description ==
 
@@ -20,7 +20,7 @@ Check out this introductory tutorial on [how to install and get started with Soc
 
 https://www.youtube.com/watch?v=iJAq2nJi6BM
 
-Now the only social sharing and bookmarking plugin with full support for the **Retina and high resolution displays** as used in iPad 5 and other devices!
+Now the only social sharing and bookmarking plugin with full support for the **Retina and high resolution displays** as used in the iPad, iPhones and other devices!
 
 The primary goal behind the plugin is to provide very lightweight WordPress social sharing and following that doesn’t add any unnecessary burden to your site and especially on your users, so you can easily add share buttons and social profiles links to your posts and pages automatically and speedily.
 
@@ -154,13 +154,43 @@ Go to Settings -> Social Media and under "Automatic Display" uncheck "Display Sh
 
 Go to Settings -> Social Media and under "Automatic Display" uncheck "Display Sharing Buttons" as well as "Display Follow Buttons". Then go under Appearance -> Widgets and add the "Social Media Feather: Follow Us" widget to your sidebar.
 
+= How do I show a set of custom sharing buttons on my homepage or about page? =
+
+You can simply edit the page in question and add a [shortcode](https://codex.wordpress.org/Shortcode) like the following `[feather_share url="http://www.example.org"]`, then replace `http://www.example.org` with the URL to your site. See the next FAQ as well for adding an image. You can also install our free [WordPress Shortcodes](https://wordpress.org/plugins/synved-shortcodes/) plugin that lets you add shortcodes more intuitively by providing built-in documentation for parameters.
+
+= How do I specify a custom image for my sharing buttons shortcode? =
+
+Just edit your [shortcode](https://codex.wordpress.org/Shortcode) so it looks like this `[feather_share url="http://www.example.org" image="http://www.example.org/image.jpg"]`, remember to substitute `http://www.example.org` with the URL to your site and the same goes for the JPEG URL. 
+
+= How do I add a set of custom social network profile icons on my homepage or about page? =
+
+Just edit the page contents and insert another [shortcode](https://codex.wordpress.org/Shortcode) like this `[feather_follow]`. You should consider installing our free [WordPress Shortcodes](https://wordpress.org/plugins/synved-shortcodes/) plugin that makes adding shortcodes more intuitive by showing detailed descriptions for all arguments.
+
 = Facebook is not showing the correct title/description/thumbnail, what to I do? =
 
-Social Media Feather always try to communicate to Facebook the correct parameters corresponding to the post being shared, including title and thumbnail but Facebook sometimes decides to ignore this information and instead picks up its own details from the page. This could be because some other plugin on your site is incorrectly specifying some OpenGraph tags in your page, or simply down to a Facebook choice. In both cases the solution is to remove any plugins creating incorrect OpenGraph tags and instead installing a plugin that provides proper OpenGraph tags, like <a href="https://wordpress.org/plugins/wordpress-seo/">Yoast SEO</a>.
+Social Media Feather always try to communicate to Facebook the correct parameters corresponding to the post being shared, including title and thumbnail but Facebook sometimes decides to ignore this information and instead picks up its own details from the page. This could be because some other plugin on your site is incorrectly specifying some OpenGraph tags in your page, or simply down to a Facebook choice. In both cases the solution is to remove any plugins creating incorrect OpenGraph tags and instead installing a plugin that provides proper OpenGraph tags, like [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/).
 
 = I have an OpenGraph plugin which is creating the proper tags but Facebook is not picking them up, what do I do? =
 
-This could be due to Facebook caching your page information. Go to <a href="https://developers.facebook.com/tools/debug/">Facebook Debug Tools</a> and type in the URL to the post/page, then click "Debug". On the next screen that loads, now click on "Fetch new scraping information"; this should clear Facebook's cache of your page.
+This could be due to Facebook caching your page information. Go to [Facebook Debug Tools](https://developers.facebook.com/tools/debug/) and type in the URL to the post/page, then click "Debug". On the next screen that loads, now click on "Fetch new scraping information"; this should clear Facebook's cache of your page.
+
+= Only some or none of the social media buttons show up, what causes it? =
+
+If you have automatic display enabled or you're displaying the social media icons using other means, like shortcodes or widgets, but some or all the buttons are not showing up in your browser, but they do show up on a fresh install of a different browser, it is possible that some of your browser add-ons are blocking the icons. This is generally caused by ad-blocking software such as Adblock or Adblock Plus. Please add your site in the exception list for these add-ons and your social icons should show up again.
+
+= When clicking on any share button, I'm getting an error of "The requested content cannot be loaded. Please try again later." How do I fix it? =
+This is not caused by our plugin but by a lightbox library you are using. This could either be loaded by your theme or one of your other plugins. If you're using Easy Fancybox, please install their [development version](https://downloads.wordpress.org/plugin/easy-fancybox.zip).
+
+= I want to add/remove some margin to the social media buttons, how do I do it? =
+You can achieve this by adding some CSS under Settings -> Social Media, "Extra Style" option. Add something like this inside that text area:
+`.synved-social-button {
+margin-left: 10px !important;
+}`
+
+If you want to just add it to the buttons as a whole instead of each individual button, then set "Buttons in Container" to "Both" and "Buttons Container Type" to "Block" and add this:
+`.synved-social-container {
+margin-left: 10px;
+}`
 
 == Screenshots ==
 
@@ -173,6 +203,13 @@ This could be due to Facebook caching your page information. Go to <a href="http
 7. This shows the available social sharing and following widgets and their settings 
 
 == Changelog ==
+
+= 1.7.11 =
+* Adjusted some text and README descriptions
+
+= 1.7.10 =
+* Use HTTPs by default for Facebook/Twitter follows
+* Ensure facebook alt uses capitalized Facebook to pass facebook ads requirements
 
 = 1.7.9 =
 * Changed text domain to reflect plugin slug

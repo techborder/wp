@@ -5,18 +5,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php 
-		if ( has_post_format('video') ) : ?>
-			<i class="fa fa-video-camera"></i>
-	<?php endif; ?>
-	<?php 
-		if ( has_post_format('audio') ) : ?>
-			<i class="fa fa-headphones"></i>
-	<?php endif; ?>
-	<?php 
-		if ( has_post_format('image') ) : ?>
-			<i class="fa fa-file-image-o"></i>
-	<?php endif; ?>
 	<header class="entry-header container">
 		<?php the_title( '<h1 class="entry-title col-lg-9 col-md-9 col-sm-9 col-xs-9">', '</h1>' ); ?>
 		<div class="entry-meta col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -25,13 +13,13 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php if ( get_theme_mod('klean-featured-image', 'klean') && has_post_thumbnail() ) { ?>
 		<div class="single-thumb">
 			<?php 
-			if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 				the_post_thumbnail();
-			} 
 			?>
 		</div>
+		<?php } ?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(

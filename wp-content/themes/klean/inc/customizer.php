@@ -21,7 +21,7 @@ function klean_customize_register( $wp_customize ) {
 	$wp_customize-> add_setting(
     'klean-desc-color',
     array(
-	    'default'			=> '#ffffff',
+	    'default'			=> '#555555',
     	'sanitize_callback'	=> 'sanitize_hex_color',
     	'transport'			=> 'postMessage',
     	)
@@ -40,26 +40,6 @@ function klean_customize_register( $wp_customize ) {
 	    )
 	);
 	
-	$wp_customize-> add_setting(
-	'logo',
-	array(
-		'default'			=> '',
-		'sanitize_callback'	=> 'esc_url_raw',
-		)
-	);
-    
-    $wp_customize-> add_control(
-	new WP_Customize_Image_Control(
-        $wp_customize,
-        'logo',
-        array(
-            'label' => __('OR Logo Upload', 'klean'),
-            'section' => 'title_tagline',
-            'settings' => 'logo'
-            )
-        )
-    );
-	
 	$wp_customize-> add_section(
     'klean_layout',
     array(
@@ -72,7 +52,7 @@ function klean_customize_register( $wp_customize ) {
     $wp_customize-> add_setting(
     'klean-post-sidebar',
     array(
-    	'default'			=> false,
+    	'default'			=> true,
     	'sanitize_callback'	=> 'klean_sanitize_checkbox',
     	)
     );
@@ -81,10 +61,28 @@ function klean_customize_register( $wp_customize ) {
     'klean-post-sidebar',
     array(
     	'type'		=> 'checkbox',
-    	'label'		=> __('Hide Sidebar on Posts/Pages','klean'),
+    	'label'		=> __('Show Sidebar on Posts/Pages','klean'),
     	'section'	=> 'klean_layout',
     	'priority'	=> 1,
     	)
+    );
+    
+    $wp_customize-> add_setting(
+	    'klean-featured-image',
+	    array(
+		    'default'	=> true,
+		    'sanitize_callback'	=> 'klean_sanitize_checkbox'
+	    )
+    );
+    
+    $wp_customize-> add_control(
+	    'klean-featured-image',
+	    array(
+		    'type'	=> 'checkbox',
+		    'label'	=> __('Show Featured Image in the Posts', 'klean'),
+		    'section'	=> 'klean_layout',
+		    'priority'	=> 5
+	    )
     );
     
 	$wp_customize-> add_section(
@@ -502,8 +500,8 @@ function klean_customize_register( $wp_customize ) {
 	$wp_customize-> add_section(
     'klean_pro',
     array(
-    	'title'			=> __('Upgrade to Pro !!!','klean'),
-    	'description'	=> __('<i>If you liked the theme, you can upgrade to Super Klean and unlock the full features of the theme. <br><br>Super Klean offers a multitude of features such as - <ul><li><b>Featured Area</b></li><li><b>Slider and Video support for Header</b></li><li><b>Multiple Layouts</b></li><li><b>WooCommerce Support</b></li></ul> and much more. <br><br>Also, Lifetime free Customer Support is provided for all our premium themes.<br><br><b>You can check out the Premium Version <a href="http://www.divjot.co/product/super-klean">here</a>.</b></i>','klean'),
+    	'title'			=> __('Upgrade to Pro','klean'),
+    	'description'	=> __('<i>If you liked the theme, you can upgrade to Super Klean and experience full features of the theme. <br><br>Super Klean offers a multitude of features such as - <ul><li><b>Featured Area</b></li><li><b>Slider and Video support for Header</b></li><li><b>Multiple Layouts</b></li><li><b>WooCommerce Support</b></li></ul> and much more. <br><br>Also, Lifetime free Customer Support is provided for Super Klean.<br><br><b>You can check out Super Klean <a href="http://www.divjot.co/product/super-klean">here</a>.</b></i>','klean'),
     	'priority'		=> 999,
     	)
     );
@@ -589,6 +587,13 @@ wp.customize( 'pro_hide', function( value ) {
                 value.bind(function(to) {
                     jQuery('.site-title a').css('color', to );
                 });
+            });
+            wp.customize('display_header_text', function( value ) {
+	            value.bind( function(to) {
+		            if ( to == false ) {
+			            jQuery( '.site-title'). hide();
+		            }
+	            });
             });
         } )( jQuery )
     </script>

@@ -42,7 +42,7 @@ a, a:visited, a:hover, a:active {
 	text-align: center;
 	top: 15%;
 		#logo {
-			max-width: 400px;
+			max-width: 300px;
 			margin: auto;
 		}
 		.site-title {
@@ -82,7 +82,7 @@ body:not(.blog) .site-branding {
 	display: block;
 	width: 100%;
 	text-align: center;
-	top: 50%;
+	top: 60%;
 	z-index: 9;
 	margin-left: auto;
 	margin-right: auto;
@@ -538,9 +538,8 @@ body:not(.blog) {
 			margin-top: 10px;
 			img {
 				max-width: 80%;
-				display: inline-block;
+				display: block;
 				margin: auto;
-				margin: 20px;
 			}
 		}
 		.entry-footer {
@@ -630,8 +629,9 @@ body:not(.blog) {
 .single-thumb {
 	margin: 15px auto;
 	width: 100%;
+	text-align: center;
 	img {
-		width: 80%;
+		width: 70%;
 		display: block;
 		margin: auto;
 	}
@@ -711,14 +711,19 @@ body:not(.blog) {
 		margin-left: auto;
 		margin-right: auto;
 		form {
-		display: inline-block;
-		margin: auto;
-		input[type=search] {
-			outline: none;
-			border-radius: 0px;
-			font-family: "Source Sans Pro", "Sans Serif";
-			font-weight: 300;
-		}
+			display: inline-block;
+			width: 100%;
+			margin: auto;
+			label {
+				width: 100%;
+				input[type=search] {
+					width: 100%;
+					outline: none;
+					border-radius: 0px;
+					font-family: "Source Sans Pro", "Sans Serif";
+					font-weight: 300;
+				}
+			}
 		}
 	}	
 }

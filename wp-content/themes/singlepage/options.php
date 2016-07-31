@@ -84,8 +84,6 @@ function optionsframework_options() {
 		'type' => 'upload');
 		
 	
-	$options[] = array('name' =>  __('Blog Page Background', 'singlepage'),'id' => 'blog_background','std' => $blog_background,'type' => 'background' );
-	
 	$options[] = array(
 		'name' => __('404 Page Content', 'singlepage'),
 		'id' => 'page_404_content',
@@ -457,7 +455,7 @@ function optionsframework_options() {
 //Typography
 		
 		$options[] = array('name' => __('Typography', 'singlepage'),'type' => 'heading');
-
+        $options[] = array('name' => __('Load Google Fonts', 'singlepage'),'class'=>'','id' => 'load_google_fonts','type' => 'text','std'=>'','desc'=> __('For example:  Open+Sans:300,400,700|Oswald', 'singlepage'));
 	    $options[] = array('name' => __('Content Link Color', 'singlepage'),'id' => 'content_link_color','type' => 'color','std'=>'#666');
 		$options[] = array('name' => __('Content Link Mouseover Color', 'singlepage'),'id' => 'content_link_hover_color','type' => 'color','std'=>'#fe8a02');
 		

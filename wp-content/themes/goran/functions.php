@@ -241,6 +241,3 @@ require get_stylesheet_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_stylesheet_directory() . '/inc/jetpack.php';
-
-
-

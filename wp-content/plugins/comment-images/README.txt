@@ -2,8 +2,8 @@
 Contributors: CarmenSanchez3
 Tags: comments, image
 Requires at least: 3.4.1
-Tested up to: 4.1
-Stable tag: 1.24.1
+Tested up to: 4.5.2
+Stable tag: 1.24.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ Same as above :)
 8. The updated 'All Posts' view showing when a post's comments contain comment images
 
 == Changelog ==
+
+= 1.24.2 =
+* Fixed some bugs, tested and working up to 4.5.2.
 
 = 1.20.0 =
 * Verifying WordPress 4.1 compatibility

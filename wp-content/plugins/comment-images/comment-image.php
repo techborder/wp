@@ -14,7 +14,7 @@
  * Plugin Name: Comment Images
  * Plugin URI:  https://wordpress.org/plugins/comment-images/
  * Description: Allow your readers easily to attach an image to their comments on posts and pages.
- * Version:     1.24.1
+ * Version:     1.24.2
  * Author:      Carmen Sancheze
  * Text Domain: comment-image-locale
  * License:     GPL-2.0+

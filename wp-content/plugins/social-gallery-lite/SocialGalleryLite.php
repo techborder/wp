@@ -3,7 +3,7 @@
 Plugin Name: Social Gallery Lite
 Plugin URI: http://www.socialgalleryplugin.com
 Description: <a href="http://www.socialgalleryplugin.com">Social Gallery</a> is the ultimate Social Lightbox for WordPress. This is the Lite Version. <a href="http://www.socialgalleryplugin.com/upgrade-to-social-gallery-pro/">Upgrade Now</a> for image tagging, face detection and lots more share and social features. One time purchase, free updates for life!!
-Version: 2.3.1
+Version: 2.3.2
 Author: epicplugins
 Author URI: http://www.epicplugins.com
 License: GPL v2

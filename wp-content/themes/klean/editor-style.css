@@ -4,7 +4,7 @@
  *
 **/
 body#tinymce.wp-editor {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro", sans-serif !important;
   color: #ddd;
-  background: #111;
+  background: #000;
 }

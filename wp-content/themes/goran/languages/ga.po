@@ -1,5 +1,5 @@
-# Translation of Goran in Irish
-# This file is distributed under the same license as the Goran package.
+# Translation of WordPress.com - Themes - Goran in Irish
+# This file is distributed under the same license as the WordPress.com - Themes - Goran package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2014-12-06 16:31:10+0000\n"
@@ -7,8 +7,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4;\n"
-"X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Goran\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Language: ga_IE\n"
+"Project-Id-Version: WordPress.com - Themes - Goran\n"
 
 #: inc/template-tags.php:30
 msgid "<span class=\"meta-nav\">Published In</span>%title"
@@ -22,14 +23,14 @@ msgstr "<span class=\"meta-nav\">Siar</span>%title"
 msgid "<span class=\"meta-nav\">Next Post</span>%title"
 msgstr "<span class=\"meta-nav\">Soir</span>%title"
 
-#: inc/customizer.php:29
-msgid "Top Area Content"
-msgstr "Ábhar Uachtair"
-
 #. Theme Name of the plugin/theme
 #: wp-content/themes/pub/goran/style.css
 msgid "Goran"
 msgstr "Goran"
+
+#: inc/customizer.php:28
+msgid "Top Area Content"
+msgstr "Ábhar Uachtair"
 
 #. Theme URI of the plugin/theme
 #: wp-content/themes/pub/goran/style.css
@@ -49,14 +50,6 @@ msgctxt "Noto Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#. translators: To add an additional Noto Sans character subset specific to
-#. your language, translate this to 'cyrillic', 'greek', 'devanagari' or
-#. 'vietnamese'. Do not translate into your own language.
-#: functions.php:90
-msgctxt "Noto Sans font: add new subset (cyrillic, greek, devanagari or vietnamese)"
-msgid "no-subset"
-msgstr "latin-ext"
-
 #. translators: If there are characters in your language that are not supported
 #. * by Noto Serif, translate this to 'off'. Do not translate into your own
 #. language.
@@ -64,6 +57,18 @@ msgstr "latin-ext"
 msgctxt "Noto Serif font: on or off"
 msgid "on"
 msgstr "on"
+
+#: header.php:43
+msgid "Menu"
+msgstr "Roghchlár"
+
+#. translators: To add an additional Noto Sans character subset specific to
+#. your language, translate this to 'cyrillic', 'greek', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+#: functions.php:90
+msgctxt "Noto Sans font: add new subset (cyrillic, greek, devanagari or vietnamese)"
+msgid "no-subset"
+msgstr "latin-ext"
 
 #. translators: To add an additional Noto Serif character subset specific to
 #. your language, translate this to 'cyrillic', 'greek' or 'vietnamese'. Do not
@@ -80,10 +85,6 @@ msgstr "latin-ext"
 msgctxt "Droid Sans Mono font: on or off"
 msgid "on"
 msgstr "on"
-
-#: header.php:43
-msgid "Menu"
-msgstr "Roghchlár"
 
 #: inc/template-tags.php:26
 msgid "Post navigation"

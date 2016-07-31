@@ -2,7 +2,7 @@
 Theme Name: SinglePage
 Theme URI: http://www.hoothemes.com/themes/single-page.html
 Description: SinglePage is a one page responsive WordPress theme built using the Twitter Bootstrap framework. Users have the flexibility to create the website that suits your style, with extensive theme options. Choose from four predefined sections and build the homepage that best suits your company, you can sort the section order by simply drag & drop with the fantastic control panel. Each of the homepage sections can have a parallax background image and its own set of colors. Dozens of theme options are available to design your sites, such as typography, social icons, upload logo, custom css, HTML5 video background, full screen google map and so on. You can not only use it to create a singlepage-style front page for your business website, but also create your personal blog or site easily. You can check the demo at http://demo.hoosoft.com/singlepage/
-Version: 1.3.8
+Version: 1.4.0
 Author: HooThemes
 Author URI: http://www.hoothemes.com
 License: GNU General Public License
@@ -1003,6 +1003,7 @@ nav > ul > li.current_page_item > a,
 .breadcrumb-box {
 	padding: 20px 0;
 	font-size: 12px;
+	text-align:left;
 }
 .page_navi a,
 .page_navi span{
@@ -1143,6 +1144,7 @@ aside{
 	background: url("images/bullet_list.png") no-repeat scroll 0 13px rgba(0, 0, 0, 0);
     padding-left: 14px;
     text-align: justify;
+	list-style:none;
 }
 .widget ul li a{
 	display: inline-block;
@@ -1355,9 +1357,7 @@ div.children {
 .comment_text img {
     max-width: 100%;
 }
-#welcome {
-    height: 50px;
-}
+
 .comment_text .fn {
     color: #AAAAAA;
     text-align: right;
@@ -1774,7 +1774,7 @@ footer{
 
 /*  -----------------------------------------------------------------------------------*/
 
-#main {
+{
 	float: right;
 	width: 695px;
 /*	margin-bottom: -99999px; 
@@ -1790,7 +1790,7 @@ footer{
 	font-size: 36px;
 	height: 34px;
 	}
-#main #navigation {
+#navigation {
 	width: 695px;
 	height: 105px;
 	line-height: 50px;
@@ -1875,22 +1875,21 @@ footer{
 /*  -----------------------------------------------------------------------------------*/
 .sticky {
 }
-#main #main-content {
-	width: 613px;
+#main-content {
 	margin: 0 auto;	
 	height: 100%;
 	position: relative;
 }
-#main #main-content .pageing{
+#main-content .pageing{
 	list-style:none;
 	}
-#main #main-content .post {
+#main-content .post {
 	position: relative;
 	padding-bottom: 50px;
 }
 
 
-#main #main-content .post .meta {
+#main-content .post .meta {
 	font-family: Arial, Helvetica, sans-serif;
 	font-style: italic;
 	color: #ccc;
@@ -1898,13 +1897,13 @@ footer{
 	padding-top: 7px;
 }
 
-#main #main-content .post .meta ul li a {
+#main-content .post .meta ul li a {
 	text-decoration: none;
 	height: 15px;
 	color: #393939;
 }
 
-#main #main-content .post .meta ul li {
+#main-content .post .meta ul li {
 	
 	float: left;
 	display: block;
@@ -1912,27 +1911,27 @@ footer{
 	margin-left: 6px;
 }
 
-#main #main-content .post .meta a:visited {
+#main-content .post .meta a:visited {
 	color: #393939;
 }
 
-#main #main-content .post .meta a:hover {
+#main-content .post .meta a:hover {
 	color: #fe8a02;
 }
 
-#main #main-content .post .meta ul li{
+#main-content .post .meta ul li{
 	display: block;
 	float: left;
 	
 	color: #393939;
 	margin-right:10px;
 	}
-#main #main-content .post .meta ul li i {
+#main-content .post .meta ul li i {
 	margin-right: 10px;
 }
 
 
-#main #main-content span.main-border {
+#main-content span.main-border {
 	background: url(images/main-border.png) no-repeat;
 	width: 613px;
 	height: 1px;
@@ -1942,23 +1941,23 @@ footer{
 
 
 
-#main #main-content .post img.post-image {
+#main-content .post img.post-image {
 	background: #fff;
 	height: 214px;
 	width: 609px;
 }
 
-#main #main-content .post p {
+#main-content .post p {
 	margin: 23px 0;
 
 }
 
-#main #main-content .post a.read-more {
+#main-content .post a.read-more {
 
 }
 
 
-#main #main-content span.oldlinks {
+#main-content span.oldlinks {
 		float: left;
 		margin: 122px 0 90px 0;
 		display: block;
@@ -1966,7 +1965,7 @@ footer{
 		height: 9px;
 } 
 
-#main #main-content  span.newlinks {
+#main-content  span.newlinks {
 		float: right;
 		margin: 122px 0 90px 0;
 		display: block;
@@ -1980,22 +1979,22 @@ footer{
 
 /*  -----------------------------------------------------------------------------------*/
 
-#main #main-content p {
+#main-content p {
 	overflow: hidden;
 }
 
-#main #main-content img {
+#main-content img {
 	padding: 2px;
 	background: #fff;
 	border: 1px solid #c2c2c2;
 }
 
-#main #main-content img.left {
+#main-content img.left {
 	float: left;
 	margin-right: 10px;
 }
 
-#main #main-content img.right {
+#main-content img.right {
 	float: right;
 	margin-left: 10px;
 }
@@ -2491,7 +2490,7 @@ form.wpcf7-form .wpcf7-submit{
 	.navbar-onex .nav ul {
 	float: left;
     }
-	#main #navigation{
+	#navigation{
 		width:100%;
 		background: url(images/site-background.png) repeat;
 		height:auto;
@@ -2520,7 +2519,7 @@ form.wpcf7-form .wpcf7-submit{
 		width:100%;
 		float:none;
 		}
-  #wrapper #main #main-content {
+  #wrapper #main-content {
     background-color: #fff;
     box-sizing: border-box;
     float: none;
@@ -2568,7 +2567,7 @@ form.wpcf7-form .wpcf7-submit{
 .site-tagline{
 		display:none;
 		}
-#main #navigation{
+#navigation{
 		height:65px;
 		}
 		

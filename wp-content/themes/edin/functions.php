@@ -373,3 +373,7 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 
+/**
+ * Load plugin enhancement file to display admin notices.
+ */
+require get_template_directory() . '/inc/plugin-enhancements.php';

@@ -28,9 +28,9 @@
 			</div><!-- .header-image -->
 			
 		<div class="site-branding container">
-			<?php if (get_theme_mod("logo")) { ?>
+			<?php if ( function_exists('the_custom_logo') && has_custom_logo() ) { ?>
 			<div id = "logo">
-				<a href="<?php echo esc_url(home_url('/')); ?>"><img src ="<?php echo esc_url(get_theme_mod('logo')); ?>"></a>
+				<?php the_custom_logo(); ?>
 				</div>
 			<?php } 
 				else {
@@ -58,7 +58,7 @@
 	?>
 	</div>
 	
-	<?php if (is_front_page() ): ?>
+	<?php if (is_home() ): ?>
 	<div id="scroll-arrow">
 		<i class="fa fa-chevron-down"></i>
 	</div>

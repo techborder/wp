@@ -36,7 +36,7 @@ a:active {
   top: 15%;
 }
 .site-header .site-branding #logo {
-  max-width: 400px;
+  max-width: 300px;
   margin: auto;
 }
 .site-header .site-branding .site-title {
@@ -69,7 +69,7 @@ body:not(.blog) .site-branding {
   display: block;
   width: 100%;
   text-align: center;
-  top: 50%;
+  top: 60%;
   z-index: 9;
   margin-left: auto;
   margin-right: auto;
@@ -504,9 +504,8 @@ body:not(.blog) .site-branding h2.site-description {
 .single #page .entry-content img,
 .page #page .entry-content img {
   max-width: 80%;
-  display: inline-block;
+  display: block;
   margin: auto;
-  margin: 20px;
 }
 .single #page .entry-footer,
 .page #page .entry-footer {
@@ -592,9 +591,10 @@ body:not(.blog) .site-branding h2.site-description {
 .single-thumb {
   margin: 15px auto;
   width: 100%;
+  text-align: center;
 }
 .single-thumb img {
-  width: 80%;
+  width: 70%;
   display: block;
   margin: auto;
 }
@@ -668,9 +668,14 @@ body:not(.blog) .site-branding h2.site-description {
 }
 #secondary .widget_search form {
   display: inline-block;
+  width: 100%;
   margin: auto;
 }
-#secondary .widget_search form input[type=search] {
+#secondary .widget_search form label {
+  width: 100%;
+}
+#secondary .widget_search form label input[type=search] {
+  width: 100%;
   outline: none;
   border-radius: 0px;
   font-family: "Source Sans Pro", "Sans Serif";

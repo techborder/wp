@@ -2,14 +2,14 @@
 Theme Name: Goran
 Theme URI: https://wordpress.com/themes/goran/
 Description: Goran is a functional and responsive multi-purpose theme that is the perfect solution for your business’s online presence.
-Version: 1.2.1
+Version: 1.2.5
 Author: Automattic
 Author URI: https://wordpress.com/themes/
 Template: edin
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: goran
-Tags: gray, red, white, light, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, light
+Tags: blog, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, left-sidebar, portfolio, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, translation-ready, two-columns
 */
 
 /*--------------------------------------------------------------
@@ -45,6 +45,7 @@ Tags: gray, red, white, light, two-columns, left-sidebar, right-sidebar, respons
 	14.5 - Responsive Videos
 	14.6 - Widgets
 	14.7 - Testimonials
+	14.8 - PollDaddy
 15.0 - Eventbrite
 16.0 - Responsive
 	16.1 - x >= 600px
@@ -914,7 +915,6 @@ ul[id^="menu-social"] a:before {
 ul[id^="menu-social"] a:hover:before {
 	color: #242424;
 }
-ul[id^="menu-social"] a[href$="/feed/"],
 ul[id^="menu-social"] a[href*="codepen.io"],
 ul[id^="menu-social"] a[href*="digg.com"],
 ul[id^="menu-social"] a[href*="dribbble.com"],
@@ -922,28 +922,33 @@ ul[id^="menu-social"] a[href*="dropbox.com"],
 ul[id^="menu-social"] a[href*="mailto:"],
 ul[id^="menu-social"] a[href*="facebook.com"],
 ul[id^="menu-social"] a[href*="flickr.com"],
+ul[id^="menu-social"] a[href*="foursquare.com"],
 ul[id^="menu-social"] a[href*="github.com"],
 ul[id^="menu-social"] a[href*="plus.google.com"],
 ul[id^="menu-social"] a[href*="instagram.com"],
 ul[id^="menu-social"] a[href*="linkedin.com"],
+ul[id^="menu-social"] a[href*="path.com"],
 ul[id^="menu-social"] a[href*="pinterest.com"],
 ul[id^="menu-social"] a[href*="getpocket.com"],
 ul[id^="menu-social"] a[href*="polldaddy.com"],
 ul[id^="menu-social"] a[href*="reddit.com"],
+ul[id^="menu-social"] a[href*="spotify.com"],
 ul[id^="menu-social"] a[href*="stumbleupon.com"],
 ul[id^="menu-social"] a[href*="tumblr.com"],
+ul[id^="menu-social"] a[href*="twitch.tv"],
 ul[id^="menu-social"] a[href*="twitter.com"],
 ul[id^="menu-social"] a[href*="vimeo.com"],
 ul[id^="menu-social"] a[href*="wordpress.com"],
 ul[id^="menu-social"] a[href*="wordpress.org"],
-ul[id^="menu-social"] a[href*="youtube.com"] {
+ul[id^="menu-social"] a[href*="youtube.com"],
+ul[id^="menu-social"] a[href*='/feed'],
+ul[id^="menu-social"] a[href*='skype'] {
 	display: block;
 	overflow: hidden;
 	width: 1em;
 	height: 1.5em;
 	font-size: 2em;
 }
-ul[id^="menu-social"] a[href$="/feed/"]:before,
 ul[id^="menu-social"] a[href*="codepen.io"]:before,
 ul[id^="menu-social"] a[href*="digg.com"]:before,
 ul[id^="menu-social"] a[href*="dribbble.com"]:before,
@@ -951,21 +956,27 @@ ul[id^="menu-social"] a[href*="dropbox.com"]:before,
 ul[id^="menu-social"] a[href*="mailto:"]:before,
 ul[id^="menu-social"] a[href*="facebook.com"]:before,
 ul[id^="menu-social"] a[href*="flickr.com"]:before,
+ul[id^="menu-social"] a[href*="foursquare.com"]:before,
 ul[id^="menu-social"] a[href*="github.com"]:before,
 ul[id^="menu-social"] a[href*="plus.google.com"]:before,
 ul[id^="menu-social"] a[href*="instagram.com"]:before,
 ul[id^="menu-social"] a[href*="linkedin.com"]:before,
+ul[id^="menu-social"] a[href*="path.com"]:before,
 ul[id^="menu-social"] a[href*="pinterest.com"]:before,
 ul[id^="menu-social"] a[href*="getpocket.com"]:before,
 ul[id^="menu-social"] a[href*="polldaddy.com"]:before,
 ul[id^="menu-social"] a[href*="reddit.com"]:before,
+ul[id^="menu-social"] a[href*="spotify.com"]:before,
 ul[id^="menu-social"] a[href*="stumbleupon.com"]:before,
 ul[id^="menu-social"] a[href*="tumblr.com"]:before,
+ul[id^="menu-social"] a[href*="twitch.tv"]:before,
 ul[id^="menu-social"] a[href*="twitter.com"]:before,
 ul[id^="menu-social"] a[href*="vimeo.com"]:before,
 ul[id^="menu-social"] a[href*="wordpress.com"]:before,
 ul[id^="menu-social"] a[href*="wordpress.org"]:before,
-ul[id^="menu-social"] a[href*="youtube.com"]:before {
+ul[id^="menu-social"] a[href*="youtube.com"]:before,
+ul[id^="menu-social"] a[href*='/feed']:before,
+ul[id^="menu-social"] a[href*='skype']:before {
 	content: "\f413";
 	display: inline-block;
 	width: 1em;
@@ -1001,8 +1012,14 @@ ul[id^="menu-social"] a[href*="facebook.com"]:before {
 ul[id^="menu-social"] a[href*="flickr.com"]:before {
 	content: '\f211';
 }
+ul[id^="menu-social"] a[href*='foursquare.com']:before {
+    content: '\f226';
+}
 ul[id^="menu-social"] a[href*="github.com"]:before {
 	content: '\f200';
+}
+ul[id^="menu-social"] a[href*='path.com']:before {
+    content: '\f219';
 }
 ul[id^="menu-social"] a[href*="plus.google.com"]:before {
 	content: '\f206';
@@ -1025,11 +1042,17 @@ ul[id^="menu-social"] a[href*="polldaddy.com"]:before {
 ul[id^="menu-social"] a[href*="reddit.com"]:before {
 	content: '\f222';
 }
+ul[id^="menu-social"] a[href*='spotify.com']:before {
+    content: '\f515';
+}
 ul[id^="menu-social"] a[href*="stumbleupon.com"]:before {
 	content: '\f223';
 }
 ul[id^="menu-social"] a[href*="tumblr.com"]:before {
 	content: '\f214';
+}
+ul[id^="menu-social"] a[href*='twitch.tv']:before {
+    content: '\f516';
 }
 ul[id^="menu-social"] a[href*="twitter.com"]:before {
 	content: '\f202';
@@ -1044,8 +1067,11 @@ ul[id^="menu-social"] a[href*="wordpress.org"]:before {
 ul[id^="menu-social"] a[href*="youtube.com"]:before {
 	content: '\f213';
 }
-ul[id^="menu-social"] .dropdown-toggle {
-	display: none;
+ul[id^="menu-social"] a[href*='/feed']:before {
+    content: '\f413';
+}
+ul[id^="menu-social"] a[href*='skype']:before {
+    content: '\f220';
 }
 .site-content ul[id^="menu-social"] .page_item_has_children > a,
 .site-content ul[id^="menu-social"] .menu-item-has-children > a {
@@ -1268,18 +1294,15 @@ body {
 }
 .entry-breadcrumbs a {
 	position: relative;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 .entry-breadcrumbs a:after {
 	content: '';
-	display: block;
-	position: absolute;
-	top: 50%;
-	right: -12px;
-	margin-top: -4px;
+	display: inline-block;
 	border-top: 4px solid transparent;
 	border-bottom: 4px solid transparent;
 	border-left: 4px solid #242424;
+	margin-left: 10px;
 }
 
 /* Featured Page Area */
@@ -2329,6 +2352,13 @@ div#jp-relatedposts {
 }
 
 /*--------------------------------------------------------------
+14.8 PollDaddy
+--------------------------------------------------------------*/
+.PDS_Poll {
+	margin-bottom: 24px;
+}
+
+/*--------------------------------------------------------------
 15.0 Eventbrite
 --------------------------------------------------------------*/
 .eventbrite-event .entry-header span {
@@ -2377,6 +2407,16 @@ div#jp-relatedposts {
 		width: 600px;
 		margin-left: -24px;
 	}
+
+	.sidebar-left.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.blog:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.search:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
+		/*margin-left: auto;
+		margin-right: -24px;*/
+	}
+
+
 	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img,
 	.blog:not(.no-sidebar) .post-thumbnail img,
 	.search:not(.no-sidebar) .post-thumbnail img,
@@ -2467,7 +2507,11 @@ div#jp-relatedposts {
 	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.blog:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.search:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 768px;
 		margin-left: -48px;
 	}
@@ -2606,6 +2650,7 @@ div#jp-relatedposts {
 		color: #fff;
 	}
 	.main-navigation ul ul li {
+		display: block;
 		margin-right: 0;
 		border-bottom: 1px solid #a13736;
 	}
@@ -2859,6 +2904,14 @@ div#jp-relatedposts {
 		width: 632px;
 		margin-left: -72px;
 	}
+	.sidebar-left.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.blog:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.search:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
+		margin-left: 0;
+		margin-right: -72px;
+		width: 632px;
+	}
 	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img,
 	.blog:not(.no-sidebar) .post-thumbnail img,
 	.search:not(.no-sidebar) .post-thumbnail img,
@@ -2866,6 +2919,14 @@ div#jp-relatedposts {
 		-moz-border-radius: 0 4px 4px 0;
 		-webkit-border-radius: 0 4px 4px 0;
 		border-radius: 0 4px 4px 0;
+	}
+	.sidebar-left.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img,
+	.sidebar-left.blog:not(.no-sidebar) .post-thumbnail img,
+	.sidebar-left.search:not(.no-sidebar) .post-thumbnail img,
+	.sidebar-left.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail img {
+		-moz-border-radius: 4px 0 0 4px;
+		-webkit-border-radius: 4px 0 0 4px;
+		border-radius: 4px 0 0 4px;
 	}
 	.hero {
 		padding-top: 72px;
@@ -2978,7 +3039,11 @@ div#jp-relatedposts {
 	.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
 	.blog:not(.no-sidebar) .post-thumbnail,
 	.search:not(.no-sidebar) .post-thumbnail,
-	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
+	.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.archive:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail,
+	.sidebar-left.blog:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.search:not(.no-sidebar) .post-thumbnail,
+	.sidebar-left.single:not(.no-sidebar):not(.post-type-archive-jetpack-testimonial) .post-thumbnail {
 		width: 772px;
 	}
 	body.hero-image .hero.with-featured-image,

@@ -1,5 +1,5 @@
-# Translation of Goran in French (France)
-# This file is distributed under the same license as the Goran package.
+# Translation of WordPress.com - Themes - Goran in French (France)
+# This file is distributed under the same license as the WordPress.com - Themes - Goran package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2015-02-25 19:34:52+0000\n"
@@ -7,8 +7,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Goran\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Language: fr\n"
+"Project-Id-Version: WordPress.com - Themes - Goran\n"
 
 #: inc/template-tags.php:30
 msgid "<span class=\"meta-nav\">Published In</span>%title"
@@ -45,14 +46,6 @@ msgctxt "Noto Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#. translators: To add an additional Noto Sans character subset specific to
-#. your language, translate this to 'cyrillic', 'greek', 'devanagari' or
-#. 'vietnamese'. Do not translate into your own language.
-#: functions.php:90
-msgctxt "Noto Sans font: add new subset (cyrillic, greek, devanagari or vietnamese)"
-msgid "no-subset"
-msgstr "no-subset"
-
 #. translators: If there are characters in your language that are not supported
 #. * by Noto Serif, translate this to 'off'. Do not translate into your own
 #. language.
@@ -60,6 +53,18 @@ msgstr "no-subset"
 msgctxt "Noto Serif font: on or off"
 msgid "on"
 msgstr "on"
+
+#: header.php:43
+msgid "Menu"
+msgstr "Menu"
+
+#. translators: To add an additional Noto Sans character subset specific to
+#. your language, translate this to 'cyrillic', 'greek', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+#: functions.php:90
+msgctxt "Noto Sans font: add new subset (cyrillic, greek, devanagari or vietnamese)"
+msgid "no-subset"
+msgstr "no-subset"
 
 #. translators: To add an additional Noto Serif character subset specific to
 #. your language, translate this to 'cyrillic', 'greek' or 'vietnamese'. Do not
@@ -76,10 +81,6 @@ msgstr "no-subset"
 msgctxt "Droid Sans Mono font: on or off"
 msgid "on"
 msgstr "on"
-
-#: header.php:43
-msgid "Menu"
-msgstr "Menu"
 
 #: inc/template-tags.php:26
 msgid "Post navigation"

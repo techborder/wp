@@ -25,7 +25,7 @@ function goran_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'goran_top_area_content', array(
-		'label'             => __( 'Top Area Content', 'sequential' ),
+		'label'             => __( 'Top Area Content', 'goran' ),
 		'section'           => 'edin_theme_options',
 		'priority'          => 3,
 		'type'              => 'textarea',

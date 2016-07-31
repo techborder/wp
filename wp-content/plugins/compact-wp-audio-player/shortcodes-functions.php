@@ -56,12 +56,12 @@ soundManager.setup({
 				}
 				else{
 					document.getElementById('btnplay_$ids').style.display = 'inline';
-					document.getElementById('btnplay_$ids').style.display = 'none';
+					document.getElementById('btnstop_$ids').style.display = 'none';
 				}
     		}
 		});
 		document.getElementById('btnplay_$ids').style.display = 'none';
-        document.getElementById('btnstop_$ids').style.display = 'inline';
+                document.getElementById('btnstop_$ids').style.display = 'inline';
 	},
 	ontimeout: function() {
 		// SM2 could not start. Missing SWF? Flash blocked? Show an error.

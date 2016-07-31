@@ -4,7 +4,7 @@ Contributors: automattic
 Tags: gray, red, white, light, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
 
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 4.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,44 @@ For example:
 4. Featured Images for pages are 1230 wide by 1230 high.
 
 == Changelog ==
+
+= 08 July 2016 =
+* Remove unneeded `plugin-enhancements.php` file. Caused fatal errors and is only needed in parent theme, Edin.
+
+= 28 June 2016 =
+* Update Headstart featured image URL.
+
+= 23 May 2016 =
+* Make sure breadcrumb separator is inline with the links.
+
+= 12 May 2016 =
+* Add new classic-menu tag.
+
+= 5 May 2016 =
+* Move annotations into the `inc` directory.
+
+= 4 May 2016 =
+* Move existing annotations into their respective theme directories.
+
+= 20 April 2016 =
+* Add new Breadcrumb Navigation tag.
+
+= 19 April 2016 =
+* Correct text domain.
+* Update negative margin on Featured Images when sidebar is set to the left. Makes sure sidebar and image don't touch.
+
+= 5 April 2016 =
+* Editor styles on audio embeds and .wp-audio-shortcode caused an infinite loop when audio players were inserted into the content. Removing these styles
+
+= 9 March 2016 =
+* Make sure child menu is left align even with a long parent menu.
+
+= 20 January 2016 =
+* Add margin-bottom to a PollDaddy
+* Remove custom PollDaddy styles
+
+= 6 November 2015 =
+* Add support for missing Genericons and update to 3.4.1.
 
 = 30 October 2015 =
 * Updating changelog;

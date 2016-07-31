@@ -82,7 +82,7 @@ class Bavotasan_Preview_Pro {
 			<h1><?php printf( __( 'Welcome to %s %s', 'tonic' ), BAVOTASAN_THEME_NAME, BAVOTASAN_THEME_VERSION ); ?></h1>
 
 			<div class="about-text">
-				<?php printf( __( 'Take your site to the next level with the full version of %s. Check out some of the advanced features that&rsquo;ll give you more control over your site&rsquo;s layout and design.', 'tonic' ), '<em>' . $this->theme_name . '</em>' ); ?>
+				<?php printf( __( 'Take your site to the next level with the full version of %s. Check out some of the advanced features that&rsquo;ll give you more control over your site&rsquo;s layout and design. <br />%s', 'tonic' ), '<em>' . $this->theme_name . '</em>', '<a href="' . $this->video_url . '" target="_blank">' . __( 'View the demo video &rarr;', 'tonic' ) . ' </a>' ); ?>
 			</div>
 			<div class="theme-badge">
 				<img src="<?php echo BAVOTASAN_THEME_URL; ?>/library/images/screenshot_sml.jpg" />

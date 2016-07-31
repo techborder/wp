@@ -39,6 +39,12 @@ Licensed under the terms of CC0
 
 == CHANGELOG ==
 
+03/29/2016 v1.1.1
+* Fixed issue with static front page
+* Fixed theme page link
+* Added data validation
+* Small tweak to preview page
+
 02/26/2016 v1.1.0
 * Updated editor styles
 * Fixed menu issues

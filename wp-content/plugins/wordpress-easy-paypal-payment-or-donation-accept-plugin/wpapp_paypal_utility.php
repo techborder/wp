@@ -4,7 +4,7 @@ function wpapp_validate_paypl_ipn() {
 
     $wpapp_ipn_validated = true;
     
-    // Reading POSTed data directly from $_POST causes serialization issues with array data in the POST.
+    // Reading POSTed data directly from POST causes serialization issues with array data in the POST.
     // Instead, read raw POST data from the input stream. 
     $raw_post_data = file_get_contents('php://input');
     $raw_post_array = explode('&', $raw_post_data);

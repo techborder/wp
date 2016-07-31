@@ -569,12 +569,12 @@ function bavotasan_jumbotron() {
 	$bavotasan_theme_options = bavotasan_theme_options();
 	if ( ! empty( $bavotasan_theme_options['jumbo_headline_title'] ) ) {
 	?>
-	<div class="grid <?php echo $bavotasan_theme_options['width']; ?> row">
+	<div class="grid <?php echo esc_attr( $bavotasan_theme_options['width'] ); ?> row">
 		<div class="jumbotron c10 s1">
-			<h2><?php echo $bavotasan_theme_options['jumbo_headline_title']; ?></h2>
-			<p class="lead"><?php echo $bavotasan_theme_options['jumbo_headline_text']; ?></p>
+			<h2><?php echo wp_kses_post( $bavotasan_theme_options['jumbo_headline_title'] ); ?></h2>
+			<p class="lead"><?php echo wp_kses_post( $bavotasan_theme_options['jumbo_headline_text'] ); ?></p>
 			<?php if ( ! empty( $bavotasan_theme_options['jumbo_headline_button_text'] ) ) { ?>
-			<a class="btn btn-large btn-primary" href="<?php echo $bavotasan_theme_options['jumbo_headline_button_link']; ?>"><?php echo $bavotasan_theme_options['jumbo_headline_button_text']; ?></a>
+			<a class="btn btn-large btn-primary" href="<?php echo esc_url( $bavotasan_theme_options['jumbo_headline_button_link'] ); ?>"><?php echo wp_kses_post( $bavotasan_theme_options['jumbo_headline_button_text'] ); ?></a>
 			<?php } ?>
 		</div>
 	</div>

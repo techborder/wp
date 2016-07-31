@@ -27,38 +27,45 @@ get_header(); ?>
 	}
 	?>
 
-	<?php if ( $bavotasan_theme_options['home_posts'] ) { ?>
-	<div id="primary" <?php bavotasan_primary_attr(); ?>>
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post();
-				get_template_part( 'content', get_post_format() );
-			endwhile;
-
-			bavotasan_pagination();
-		else :
+	<?php if ( $bavotasan_theme_options['home_posts'] ) {
+		if ( 'page' == get_option( 'show_on_front' ) ) {
+			include( get_page_template() );
+		} else {
 			?>
-			<article id="post-0" class="post no-results not-found">
-
-			<?php if ( current_user_can( 'edit_posts' ) ) :
-				// Show a different message to a logged-in user who can add posts.
-				?>
-				<h1 class="entry-title"><?php _e( 'No posts to display', 'tonic' ); ?></h1>
-
-				<div class="entry-content">
-					<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'tonic' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
-				</div><!-- .entry-content -->
-
+			<div id="primary" <?php bavotasan_primary_attr(); ?>>
 				<?php
-			else :
-				get_template_part( 'content', 'none' );
-			endif; // end current_user_can() check
-			?>
+				if ( have_posts() ) :
+					while ( have_posts() ) : the_post();
+						get_template_part( 'content', get_post_format() );
+					endwhile;
 
-			</article><!-- #post-0 -->
-		    <?php
-		endif;
-		?>
-	</div><!-- #primary -->
-	<?php } ?>
+					bavotasan_pagination();
+				else :
+					?>
+					<article id="post-0" class="post no-results not-found">
+
+					<?php if ( current_user_can( 'edit_posts' ) ) :
+						// Show a different message to a logged-in user who can add posts.
+						?>
+						<h1 class="entry-title"><?php _e( 'No posts to display', 'tonic' ); ?></h1>
+
+						<div class="entry-content">
+							<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'tonic' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+						</div><!-- .entry-content -->
+
+						<?php
+					else :
+						get_template_part( 'content', 'none' );
+					endif; // end current_user_can() check
+					?>
+
+					</article><!-- #post-0 -->
+				    <?php
+				endif;
+				?>
+			</div><!-- #primary -->
+			<?php
+		}
+	}
+	?>
 <?php get_footer(); ?>

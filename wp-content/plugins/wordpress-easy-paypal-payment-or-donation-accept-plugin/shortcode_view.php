@@ -45,11 +45,11 @@ function wppp_render_paypal_button_with_other_amt($args) {
     $output .= '<div class="wp_paypal_button_widget_any_amt">';
     $output .= '<form name="_xclick" class="wp_accept_pp_button_form_any_amount" action="https://www.paypal.com/cgi-bin/webscr" method="post" ' . $window_target . '>';
 
-    $output .= '<div class="wp_pp_button_amount_section">'.$other_amount_label.' <input type="number" min="1" step="any" name="amount" value="' . $default_amount . '" style="max-width:60px;"> ' . $currency . '</div>';
+    $output .= '<div class="wp_pp_button_amount_section">'.esc_attr($other_amount_label).' <input type="number" min="1" step="any" name="amount" value="' . esc_attr($default_amount) . '" style="max-width:60px;"> ' . esc_attr($currency) . '</div>';
 
     if (!empty($reference)) {
         $output .= '<div class="wp_pp_button_reference_section">';
-        $output .= '<label for="wp_pp_button_reference">' . $reference . '</label>';
+        $output .= '<label for="wp_pp_button_reference">' . esc_attr($reference) . '</label>';
         $output .= '<br />';
         $output .= '<input type="hidden" name="on0" value="' . apply_filters('wp_pp_button_reference_name', 'Reference') . '" />';
         $output .= '<input type="text" name="os0" value="' . apply_filters('wp_pp_button_reference_value', '') . '" class="wp_pp_button_reference" />';
@@ -57,34 +57,34 @@ function wppp_render_paypal_button_with_other_amt($args) {
     }
 
     $output .= '<input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="bn" value="TipsandTricks_SP" />';
-    $output .= '<input type="hidden" name="business" value="' . $email . '">';
-    $output .= '<input type="hidden" name="currency_code" value="' . $currency . '">';
-    $output .= '<input type="hidden" name="item_name" value="' . stripslashes($description) . '">';
-    $output .= '<input type="hidden" name="return" value="' . $return . '" />';
-    $output .= '<input type="hidden" name="rm" value="' . $rm . '" />';
+    $output .= '<input type="hidden" name="business" value="' . esc_attr($email) . '">';
+    $output .= '<input type="hidden" name="currency_code" value="' . esc_attr($currency) . '">';
+    $output .= '<input type="hidden" name="item_name" value="' . esc_attr(stripslashes($description)) . '">';
+    $output .= '<input type="hidden" name="return" value="' . esc_url($return) . '" />';
+    $output .= '<input type="hidden" name="rm" value="' . esc_attr($rm) . '" />';
     if (!empty($cbt)) {
         $output .= '<input type="hidden" name="cbt" value="' . $cbt . '" />';
     }
     if (is_numeric($tax)) {
-        $output .= '<input type="hidden" name="tax" value="' . $tax . '" />';
+        $output .= '<input type="hidden" name="tax" value="' . esc_attr($tax) . '" />';
     }
     if (!empty($cancel_url)) {
-        $output .= '<input type="hidden" name="cancel_return" value="' . $cancel_url . '" />';
+        $output .= '<input type="hidden" name="cancel_return" value="' . esc_url($cancel_url) . '" />';
     }
     if (!empty($country_code)) {
-        $output .= '<input type="hidden" name="lc" value="' . $country_code . '" />';
+        $output .= '<input type="hidden" name="lc" value="' . esc_attr($country_code) . '" />';
     }
     if (!empty($validate_ipn)) {
         $notify_url = site_url() . '/?wpapp_paypal_ipn=process';
-        $output .= '<input type="hidden" name="notify_url" value="' . $notify_url . '" />';
+        $output .= '<input type="hidden" name="notify_url" value="' . esc_url($notify_url) . '" />';
     }
 
     $output .= '<div class="wp_pp_button_submit_btn">';
     if (!empty($button_text)) {//Use text button
         $button_class = apply_filters('wppp_text_button_class', '');
-        $output .= '<input type="submit" name="submit" class="' . $button_class . '" value="' . $button_text . '" />';
+        $output .= '<input type="submit" name="submit" class="' . $button_class . '" value="' . esc_attr($button_text) . '" />';
     } else {//Use image button
-        $output .= '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
+        $output .= '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . esc_url($payment_button_img_src) . '" border="0" name="submit" alt="Make payments with PayPal">';
     }
     $output .= '</div>';
     $output .= '</form>';
@@ -149,13 +149,13 @@ function wppp_render_paypal_button_form($args) {
                     <?php
                     if (!empty($other_amount)) {
                         echo '<div class="wp_pp_button_other_amt_section">';
-                        echo $other_amount_label.' <input type="number" min="1" step="any" name="other_amount" value="" style="max-width:60px;"> ' . $currency;
+                        echo esc_attr($other_amount_label).' <input type="number" min="1" step="any" name="other_amount" value="" style="max-width:60px;"> ' . esc_attr($currency);
                         echo '</div>';
                     }
 
                     if (!empty($reference)) {
                         echo '<div class="wp_pp_button_reference_section">';
-                        echo '<label for="wp_pp_button_reference">' . $reference . '</label>';
+                        echo '<label for="wp_pp_button_reference">' . esc_attr($reference) . '</label>';
                         echo '<br />';
                         echo '<input type="hidden" name="on0" value="' . apply_filters('wp_pp_button_reference_name', 'Reference') . '" />';
                         echo '<input type="text" name="os0" value="' . apply_filters('wp_pp_button_reference_value', '') . '" class="wp_pp_button_reference" />';
@@ -165,42 +165,42 @@ function wppp_render_paypal_button_form($args) {
                     if (!empty($payment_subject)) {
                         ?>
                 <input type="hidden" name="on1" value="Payment Subject" />
-                <input type="hidden" name="os1" value="<?php echo $payment_subject; ?>" />
+                <input type="hidden" name="os1" value="<?php echo esc_attr($payment_subject); ?>" />
             <?php } ?>
 
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="bn" value="TipsandTricks_SP" />
-            <input type="hidden" name="business" value="<?php echo $email; ?>">
-            <input type="hidden" name="currency_code" value="<?php echo $currency; ?>">
+            <input type="hidden" name="business" value="<?php echo esc_attr($email); ?>">
+            <input type="hidden" name="currency_code" value="<?php echo esc_attr($currency); ?>">
             <input type="hidden" name="item_name" value="">
             <input type="hidden" name="amount" value="">
-            <input type="hidden" name="return" value="<?php echo $return; ?>" />                
-            <input type="hidden" name="rm" value="<?php echo $rm; ?>" />
+            <input type="hidden" name="return" value="<?php echo esc_url($return); ?>" />                
+            <input type="hidden" name="rm" value="<?php echo esc_attr($rm); ?>" />
             <input type="hidden" name="email" value="" />
     <?php
     if (!empty($cbt)) {
-        echo '<input type="hidden" name="cbt" value="' . $cbt . '" />';
+        echo '<input type="hidden" name="cbt" value="' . esc_attr($cbt) . '" />';
     }
     if (is_numeric($tax)) {
-        echo '<input type="hidden" name="tax" value="' . $tax . '" />';
+        echo '<input type="hidden" name="tax" value="' . esc_attr($tax) . '" />';
     }
     if (!empty($cancel_url)) {
-        echo '<input type="hidden" name="cancel_return" value="' . $cancel_url . '" />';
+        echo '<input type="hidden" name="cancel_return" value="' . esc_url($cancel_url) . '" />';
     }
     if (!empty($country_code)) {
-        echo '<input type="hidden" name="lc" value="' . $country_code . '" />';
+        echo '<input type="hidden" name="lc" value="' . esc_attr($country_code) . '" />';
     }
     if (!empty($validate_ipn)) {
         $notify_url = site_url() . '/?wpapp_paypal_ipn=process';
-        $output .= '<input type="hidden" name="notify_url" value="' . $notify_url . '" />';
+        $output .= '<input type="hidden" name="notify_url" value="' . esc_url($notify_url) . '" />';
     }
 
     echo '<div class="wp_pp_button_submit_btn">';
     if (!empty($button_text)) {//Use text button
         $button_class = apply_filters('wppp_text_button_class', '');
-        echo '<input type="submit" name="submit" class="' . $button_class . '" value="' . $button_text . '" />';
+        echo '<input type="submit" name="submit" class="' . $button_class . '" value="' . esc_attr($button_text) . '" />';
     } else {//Use image button
-        echo '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . $payment_button_img_src . '" border="0" name="submit" alt="Make payments with PayPal">';
+        echo '<input type="image" id="buy_now_button" class="buy_now_button_image" src="' . esc_url($payment_button_img_src) . '" border="0" name="submit" alt="Make payments with PayPal">';
     }
     echo '</div>';
     ?>

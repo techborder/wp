@@ -23,3 +23,8 @@ ul.social_icons.tt_vector_social_icons a.yelp:after {
     content: "\f1e9";
 }
 
+/* Wrap text of Contact Form 7 Submit button text for mobile */
+/* To be completed. */
+.wpcf7-submit {
+    white-space: normal;
+}
